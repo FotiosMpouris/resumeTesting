@@ -148,6 +148,93 @@ header {
   transition: background-color 0.3s ease;
 }
 
+/* Hamburger animation */
+.hamburger {
+  cursor: pointer;
+  z-index: 1003;
+}
+
+.hamburger.active div:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Animation for hamburger lines */
+.hamburger div {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Prevent scrolling when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Mobile popup for shop/contribute */
+#mobileButtonsOverlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+#mobileButtonsOverlay.show {
+  transform: translateY(0);
+}
+
+.mobile-buttons-content {
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.mobile-buttons-content h3 {
+  margin-bottom: 15px;
+}
+
+.mobile-buttons-content a {
+  display: block;
+  margin: 10px auto;
+  width: 80%;
+  max-width: 200px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#mobileShopBtn {
+  background-color: var(--blue);
+}
+
+#mobileContributeBtn {
+  background-color: var(--red);
+}
+
+.close-mobile-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 /* Responsive header nav */
 @media (max-width: 768px) {
   .nav-links {
@@ -190,24 +277,40 @@ main, section {
 .home-banner-container {
   position: relative;
   width: 100%;
-  margin-top: 150px; /* adjusted for top banner + header */
+  margin-top: 110px; /* adjusted for top banner + header */
+  overflow: hidden;
   padding: 0;
 }
+
 .banner-desktop {
   width: 100%;
   display: block;
   height: auto;
 }
+
+.banner-mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
 .home-banner-overlay {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: var(--white);
+  color: var(--black);
   width: 90%;
   max-width: 600px;
+  z-index: 5;
 }
+
+.overlay-content {
+  padding: 15px;
+  border-radius: 8px;
+}
+
 .home-banner-overlay h1 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -216,6 +319,7 @@ main, section {
   padding: 10px;
   border-radius: 4px;
 }
+
 .home-banner-overlay blockquote {
   font-style: italic;
   background: rgba(255, 255, 255, 0.8);
@@ -224,6 +328,7 @@ main, section {
   border-left: 5px solid var(--red);
   margin-bottom: 20px;
 }
+
 .founder-image {
   max-width: 150px;
   margin: 10px auto 20px auto;
@@ -576,13 +681,54 @@ header.mobile-scrolled {
 }
 
 @media (max-width: 768px) {
+  .home-banner-container {
+    margin-top: 90px;
+  }
+  
   .banner-desktop {
     display: none;
   }
+  
   .banner-mobile {
     display: block;
-    width: 100%;
-    height: auto;
+  }
+  
+  .home-banner-overlay {
+    top: 50%;
+    width: 85%;
+  }
+  
+  .overlay-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .home-banner-overlay h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--blue);
+    background: none;
+    padding: 0;
+  }
+  
+  .home-banner-overlay blockquote {
+    font-style: italic;
+    background: none;
+    border-left: 3px solid var(--red);
+    padding: 0 0 0 10px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .founder-image {
+    max-width: 100px;
+    margin: 10px auto;
+  }
+  
+  .hero-buttons-group a {
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
 }
 
@@ -689,4 +835,87 @@ header.mobile-scrolled {
 }
 .slide-nav:hover {
   background-color: var(--red);
+}
+
+/* Mobile Menu Overlay Styles */
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  display: none;
+}
+
+.overlay-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  max-width: 85%;
+  width: 300px;
+  padding: 30px;
+  z-index: 1002;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-bg.open,
+.overlay-popup.open {
+  display: block;
+}
+
+.overlay-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.overlay-menu li {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.overlay-menu li a {
+  font-size: 1.2rem;
+  color: var(--blue);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 8px 0;
+}
+
+.overlay-menu li a:hover {
+  color: var(--red);
+}
+
+.overlay-menu li a.active {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.overlay-menu li.mobile-button {
+  margin-top: 20px;
+}
+
+.overlay-menu li.mobile-button a {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.overlay-menu li.mobile-button a#mobile-shop-btn {
+  background-color: var(--blue);
+  color: white;
+}
+
+.overlay-menu li.mobile-button a#mobile-contribute-btn {
+  background-color: var(--red);
+  color: white;
+  margin-top: 10px;
 }
