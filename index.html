@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fotios Mpouris - Home</title>
+  <title>Fotios Mpouris - Technical Artist</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -19,15 +19,15 @@
       <img src="images/fotioslogo.png" alt="Fotios Logo" class="logo" />
       <span class="logo-text">Fotios Mpouris</span>
     </div>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
-      <a href="tech-projects.html">Tech Projects</a>
+      <a href="ai-apps.html">AI Apps</a>
       <a href="websites.html">Websites</a>
       <a href="multimedia.html">Multimedia</a>
       <a href="unity-projects.html">Unity Projects</a>
       <a href="pythos.html">Pythos</a>
-    </div>
+    </nav>
     <div class="header-buttons">
       <a href="https://www.amazon.com" id="shop-btn">Shop</a>
       <a href="pythos.html#contributeSection" id="contribute-btn">Contribute</a>
@@ -39,16 +39,12 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Similar to Unity’s home) -->
+  <!-- HERO SECTION -->
   <div class="home-banner-container">
-    <!-- You can replace with any banner from images/ folder -->
     <img src="images/homebanner.png" alt="Home Banner" class="banner-desktop" />
     <div class="home-banner-overlay">
       <h1>Technical Artist</h1>
-      <blockquote>
-        “This is a placeholder for a quote”<br/> — Fotios Mpouris
-      </blockquote>
-      <!-- Use fotios1.png for the home founder-style image -->
+      <blockquote>“Art and technology blend to create innovation.”<br/> — Fotios Mpouris</blockquote>
       <img src="images/fotios1.png" alt="Fotios Mpouris" class="founder-image" />
       <div class="hero-buttons-group">
         <a href="pythos.html#volunteerSection" class="hero-volunteer-btn">Volunteer</a>
@@ -57,91 +53,45 @@
     </div>
   </div>
 
-  <!-- "Join Our Movement" banner + form (Jumps to Pythos Contribute) -->
-  <section class="join-movement-section" style="margin-bottom:0;">
+  <!-- JOIN OUR MOVEMENT -->
+  <section class="join-movement-section">
     <div class="join-movement-banner">
       <h2>JOIN OUR MOVEMENT</h2>
     </div>
     <div class="join-movement-form-container">
-      <div class="modern-form-wrapper">
-        <form class="join-movement-form" action="#" method="POST">
-          <div class="form-field-group">
-            <div class="form-field">
-              <span>Email Address</span>
-              <input type="email" name="email" placeholder="Your Email" required />
-            </div>
-            <div class="form-field">
-              <span>Zip Code</span>
-              <input type="text" name="zip" placeholder="Zip Code" required />
-            </div>
-          </div>
-          <button type="submit" class="join-button"
-            onclick="window.location.href='pythos.html#contributeSection'; return false;">
-            JOIN
-          </button>
-        </form>
-      </div>
+      <form class="join-movement-form" action="#" method="POST">
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="zip" placeholder="Zip Code" required />
+        <button type="submit">JOIN</button>
+      </form>
     </div>
   </section>
 
-  <!-- Original black/white sections from Fotios’s old Home can go here.
-       For demonstration, let's adapt from the old "Professional Summary" content.
-       Each black or white section can have a supporting PNG. -->
-
+  <!-- MAIN CONTENT -->
   <main>
-    <!-- BLACK SECTION -->
-    <section class="translucent-blue content-with-image">
-      <div class="section-content">
-        <h2>Professional Summary</h2>
-        <p>
-          Innovative full-stack developer and multimedia specialist combining technical expertise
-          with creative design capabilities. Features 4+ years of Unity/C# development experience
-          alongside advanced Python application development and Adobe Creative Suite mastery...
-        </p>
-      </div>
-      <div class="section-image">
-        <!-- Example placeholder from Unity images, or you can use anything else -->
-        <img src="images/reform.png" alt="Placeholder" />
-      </div>
-    </section>
-
-    <!-- WHITE SECTION -->
-    <section class="translucent-red content-with-image reverse">
-      <div class="section-image">
-        <img src="images/honor.png" alt="Placeholder" />
-      </div>
-      <div class="section-content">
-        <h2>Creative Technology Focus</h2>
-        <p>
-          Expertise with Adobe Creative Suite, UI/UX design, motion graphics,
-          and generative AI–assisted art. Skilled at bridging the gap between
-          technical systems and aesthetic design, delivering cohesive products.
-        </p>
-      </div>
+    <section class="translucent-blue">
+      <h2>Professional Summary</h2>
+      <p>
+        Full-stack developer and multimedia specialist skilled in Unity/C#, AI applications, and 
+        motion graphics using Adobe Creative Suite.
+      </p>
     </section>
   </main>
-
-  <!-- Donation section at bottom (same style as Unity's) if desired.
-       Or we can skip, since the user specifically wants donations on Pythos page. -->
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-links">
-      <!-- You can add or remove as needed; example: link to websites, multimedia, etc. -->
       <a href="websites.html">Websites</a>
       <a href="about.html">About</a>
       <a href="pythos.html#contributeSection">Contribute</a>
     </div>
     <div class="footer-logos">
-      <!-- Instagram instead of Mighty Networks -->
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank">
         <img src="images/instagramlogo.png" alt="Instagram Logo" />
       </a>
-      <!-- X -->
       <a href="https://x.com/FotiosM" target="_blank">
         <img src="images/xlogo.png" alt="X Logo" />
       </a>
-      <!-- GitHub instead of Facebook -->
       <a href="https://github.com/FotiosMpouris" target="_blank">
         <img src="images/githublogo.png" alt="GitHub Logo" />
       </a>
