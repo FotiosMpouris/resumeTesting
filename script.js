@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
 
-  /* 1) Transparent Header on Mobile Scroll (Unity style) */
+  // 1) Transparent Header on Mobile Scroll
   window.addEventListener("scroll", () => {
     if (window.innerWidth <= 768) {
       if (window.scrollY > 50) {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  /* 2) Hamburger -> Overlay (Adapted from Fotios's code) */
+  // 2) Hamburger -> Overlay
   const overlayBg = document.createElement("div");
   overlayBg.classList.add("overlay-bg");
   document.body.appendChild(overlayBg);
@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
   document.body.appendChild(overlayPopup);
 
   // Build overlay menu from navLinks
-  let overlayMenuHTML = '';
+  let overlayMenuHTML = "";
   navLinks.querySelectorAll("a").forEach(link => {
-    const isActive = link.classList.contains("active") ? 'active' : '';
-    const href = link.getAttribute('href');
+    const isActive = link.classList.contains("active") ? "active" : "";
+    const href = link.getAttribute("href");
     const text = link.textContent;
     overlayMenuHTML += `<li><a href="${href}" class="${isActive}">${text}</a></li>`;
   });
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  /* 3) 10-Second Popup for Shop & Contribute (Unity style) */
+  // 3) 10-Second Popup (Shop & Contribute)
   function createPopup() {
     const popupOverlay = document.createElement("div");
     popupOverlay.id = "mobileButtonsOverlay";
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sessionStorage.setItem("popupShown", "true");
   }
 
-  /* 4) Bitcoin "Coming Soon" alert */
+  // 4) Bitcoin "Coming Soon" alert
   const bitcoinDonate = document.getElementById("bitcoinDonate");
   const homeBitcoin = document.getElementById("homeBitcoinLogo");
   [bitcoinDonate, homeBitcoin].forEach(el => {
@@ -100,4 +100,41 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  // 5) Slideshow Logic (Multimedia page)
+  const slides = document.querySelectorAll(".mySlide");
+  let slideIndex = 0;
+  
+  function showSlide(n) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === n);
+      // Pause any video not active
+      const media = slide.querySelector("video");
+      if (media) {
+        if (i === n) {
+          media.play();
+        } else {
+          media.pause();
+        }
+      }
+    });
+  }
+
+  if (slides.length > 0) {
+    // Show first slide
+    showSlide(slideIndex);
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", () => {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
+      });
+      nextBtn.addEventListener("click", () => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+      });
+    }
+  }
 });
