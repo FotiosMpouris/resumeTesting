@@ -542,18 +542,21 @@ header.mobile-scrolled {
 .mission-container {
   position: relative;
 }
+
 .mission-images-row {
   display: flex;
   justify-content: space-between;
   gap: 15px;
   margin-bottom: 20px;
   width: 100%;
-  position: relative;
+  position: relative; /* so overlay can be absolutely positioned inside */
 }
+
 .mission-image {
   flex: 1;
   height: auto;
 }
+
 .mission-text-overlay {
   position: absolute;
   top: 50%;
@@ -563,12 +566,15 @@ header.mobile-scrolled {
   width: 80%;
   max-width: 800px;
 }
+
 .banner-desktop {
   display: block;
 }
+
 .banner-mobile {
   display: none;
 }
+
 @media (max-width: 768px) {
   .banner-desktop {
     display: none;
@@ -579,6 +585,7 @@ header.mobile-scrolled {
     height: auto;
   }
 }
+
 
 /* involved-side-by-side (#63C5DA background) */
 .involved-side-by-side {
