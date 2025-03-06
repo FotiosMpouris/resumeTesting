@@ -1,6 +1,6 @@
 /* ===========================
-   style.css 
-   Merged Unity Coalition + Fotios site
+   style.css - Final Combined
+   Merged from Unity Coalition + Fotios site
 =========================== */
 
 /* Basic Reset */
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* Body and root styling */
+/* Body and Root Styling */
 html, body {
   overflow-x: hidden;
   font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@ html, body {
   color: #333;
 }
 
-/* Variables (for consistency) */
+/* Variables */
 :root {
   --white: #ffffff;
   --blue: #1c2951; /* from Unity site */
@@ -30,7 +30,7 @@ html, body {
   --transition-speed: 0.3s;
 }
 
-/* Global link styling */
+/* Global Link Styling */
 a {
   color: var(--blue);
   text-decoration: none;
@@ -70,7 +70,7 @@ header {
   transition: background-color 0.3s ease;
 }
 
-/* Logo group */
+/* Logo Group */
 .logo-group {
   display: flex;
   align-items: center;
@@ -85,7 +85,7 @@ header {
   color: var(--black);
 }
 
-/* Nav links (desktop) */
+/* Nav Links (Desktop) */
 .nav-links {
   display: flex;
   gap: 20px;
@@ -148,7 +148,7 @@ header {
   transition: background-color 0.3s ease;
 }
 
-/* Responsive breakpoints for the header */
+/* Responsive header nav */
 @media (max-width: 768px) {
   .nav-links {
     display: none; /* replaced by overlay menu */
@@ -285,21 +285,13 @@ main, section {
   display: inline-block;
   text-align: left;
 }
-.join-movement-form label {
-  display: block;
-  margin-bottom: 15px;
-}
-.join-movement-form span {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
 .join-movement-form input {
   width: 100%;
   max-width: 250px;
   padding: 8px;
   border: 1px solid #999;
   border-radius: 4px;
+  margin: 0 5px 5px 0;
 }
 .join-movement-form button {
   margin-top: 10px;
@@ -486,6 +478,14 @@ footer p {
   background-color: var(--red);
 }
 
+/* Additional classes for scrolled header on mobile */
+header.mobile-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.hamburger.scrolled-mobile div {
+  background-color: var(--red);
+}
+
 /* ========== Additional Layout Classes ========== */
 .content-with-image {
   display: flex;
@@ -511,7 +511,8 @@ footer p {
   flex-direction: row-reverse;
 }
 @media (max-width: 768px) {
-  .content-with-image, .content-with-image.reverse {
+  .content-with-image,
+  .content-with-image.reverse {
     flex-direction: column;
   }
   .content-with-image .section-image {
@@ -603,7 +604,8 @@ footer p {
   .involved-side-by-side {
     flex-direction: column;
   }
-  .involved-img, .involved-textbox {
+  .involved-img,
+  .involved-textbox {
     max-width: 100%;
     margin: 0;
   }
@@ -632,7 +634,7 @@ footer p {
   flex: 1;
 }
 
-/* Media Showcases */
+/* MEDIA Showcases */
 .media-container {
   display: flex;
   flex-wrap: wrap;
@@ -648,4 +650,36 @@ footer p {
   cursor: pointer;
 }
 
-/* End of style.css */
+/* SLIDESHOW STYLES (Multimedia) */
+.slideshow-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+.mySlide {
+  display: none;
+}
+.mySlide.active {
+  display: block;
+}
+.slide-media {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin-bottom: 5px;
+}
+.slide-nav {
+  margin: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 4px;
+}
+.slide-nav:hover {
+  background-color: var(--red);
+}
