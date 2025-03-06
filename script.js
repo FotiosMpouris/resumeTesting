@@ -22,13 +22,21 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // 2) Hamburger -> Overlay
-  const overlayBg = document.createElement("div");
-  overlayBg.classList.add("overlay-bg");
-  document.body.appendChild(overlayBg);
+  // Create overlay background if it doesn't exist
+  let overlayBg = document.querySelector(".overlay-bg");
+  if (!overlayBg) {
+    overlayBg = document.createElement("div");
+    overlayBg.classList.add("overlay-bg");
+    document.body.appendChild(overlayBg);
+  }
 
-  const overlayPopup = document.createElement("div");
-  overlayPopup.classList.add("overlay-popup");
-  document.body.appendChild(overlayPopup);
+  // Create popup overlay if it doesn't exist
+  let overlayPopup = document.querySelector(".overlay-popup");
+  if (!overlayPopup) {
+    overlayPopup = document.createElement("div");
+    overlayPopup.classList.add("overlay-popup");
+    document.body.appendChild(overlayPopup);
+  }
 
   // Build overlay menu from navLinks
   let overlayMenuHTML = "";
@@ -38,23 +46,43 @@ document.addEventListener("DOMContentLoaded", function() {
     const text = link.textContent;
     overlayMenuHTML += `<li><a href="${href}" class="${isActive}">${text}</a></li>`;
   });
+  
+  // Add header buttons to the overlay menu as well
+  const headerButtons = document.querySelector(".header-buttons");
+  if (headerButtons) {
+    headerButtons.querySelectorAll("a").forEach(button => {
+      const href = button.getAttribute("href");
+      const text = button.textContent;
+      const id = button.getAttribute("id");
+      overlayMenuHTML += `<li class="mobile-button"><a href="${href}" id="mobile-${id}">${text}</a></li>`;
+    });
+  }
+  
   overlayPopup.innerHTML = `<ul class="overlay-menu">${overlayMenuHTML}</ul>`;
 
+  // Toggle hamburger menu on click
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     overlayBg.classList.toggle("open");
     overlayPopup.classList.toggle("open");
+    document.body.classList.toggle("no-scroll"); // Prevent scrolling when menu is open
   });
+  
+  // Close menu when clicking on the background
   overlayBg.addEventListener("click", () => {
     hamburger.classList.remove("active");
     overlayBg.classList.remove("open");
     overlayPopup.classList.remove("open");
+    document.body.classList.remove("no-scroll");
   });
+  
+  // Close menu when clicking a link
   overlayPopup.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
       overlayBg.classList.remove("open");
       overlayPopup.classList.remove("open");
+      document.body.classList.remove("no-scroll");
     });
   });
 
