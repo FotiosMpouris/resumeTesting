@@ -30,37 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("no-scroll");
   });
 
-  // Particle Animation for Hero Canvas
-  const canvas = document.getElementById("heroCanvas");
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = 400;
-    const particles = Array.from({ length: 50 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 3 + 1,
-      dx: Math.random() * 2 - 1,
-      dy: Math.random() * 2 - 1
-    }));
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(99, 197, 218, 0.8)";
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  }
-
   // Fade-In Animation on Scroll
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver(entries => {
