@@ -29,88 +29,61 @@
     <div class="hamburger"><div></div><div></div><div></div></div>
   </header>
 
-  <div style="background-color:#000; color:yellow; text-align:center; padding:10px; font-weight:bold;">Currently Being Built</div>
+  <div style="background-color:#000; color:#FF6F61; text-align:center; padding:10px; font-weight:bold;">Currently Being Built</div>
 
-  <main style="margin-top:0;">
-    <section class="mission-container fade-in">
-      <div class="mission-images-row banner-desktop">
-        <img src="images/missionbannerleft.png" alt="Left Banner" class="mission-image" loading="lazy" />
-        <img src="images/missionbanner.png" alt="Center Banner" class="mission-image" loading="lazy" />
-        <img src="images/missionbannerright.png" alt="Right Banner" class="mission-image" loading="lazy" />
-        <div class="mission-text-overlay">
-          <div class="translucent-blue">
-            <h1>The PYTHOS App</h1>
-            <p>
-              Pythos empowers those in financial limbo—too much income for aid, too little to thrive. Using AI, crowd-investing, and tokenized services, we’re building a platform for financial literacy and solvency in a digital age. Explore: <a href="https://pythos.app" target="_blank">https://pythos.app</a>
-            </p>
-            <div class="progress-bar">
-              <span>Alpha Phase: 60% Complete</span>
-              <div style="width: 60%;"></div>
-            </div>
-          </div>
+  <main class="container">
+    <section class="mission-section fade-in">
+      <img src="images/pythos-map.png" alt="Pythos Map" class="mission-bg" loading="lazy" />
+      <div class="mission-content">
+        <h1>The PYTHOS App</h1>
+        <p>
+          Pythos empowers those in financial limbo—too much income for aid, too little to thrive. Using AI, crowd-investing, and tokenized services, we’re building a platform for financial literacy and solvency in a digital age. Explore: <a href="https://pythos.app" target="_blank">https://pythos.app</a>
+        </p>
+        <div class="progress-bar">
+          <span>Alpha Phase: 60% Complete</span>
+          <div style="width: 60%;"></div>
         </div>
       </div>
-      <img src="images/missionbanner1.png" alt="Mobile Banner" class="banner-mobile" loading="lazy" />
     </section>
 
-    <section class="involved-side-by-side fade-in">
-      <img src="images/getinvolved.png" alt="Get Involved Banner" class="involved-img" loading="lazy" />
-      <div class="involved-textbox">
-        <p>Join the evolving Pythos platform—become an alpha tester, content contributor, or simply follow our progress. Your involvement helps shape this app’s mission!</p>
-      </div>
+    <section class="involved-section fade-in">
+      <h2>Get Involved</h2>
+      <p>Join the evolving Pythos platform—become an alpha tester, content contributor, or simply follow our progress. Your involvement helps shape this app’s mission!</p>
     </section>
 
-    <div id="volunteerSection" class="modern-volunteer-banner fade-in">
+    <div id="volunteerSection" class="volunteer-banner fade-in">
       <h2>SIGN UP TO VOLUNTEER</h2>
     </div>
-    <div class="modern-form-container fade-in">
-      <form class="modern-volunteer-form" action="#" method="POST">
+    <section class="form-section fade-in">
+      <form class="volunteer-form" action="#" method="POST">
         <div class="form-row">
-          <div class="form-field">
-            <input type="text" name="firstName" placeholder="First Name" required />
-          </div>
-          <div class="form-field">
-            <input type="text" name="lastName" placeholder="Last Name" required />
-          </div>
+          <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name" />
+          <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name" />
         </div>
         <div class="form-row">
-          <div class="form-field">
-            <input type="email" name="email" placeholder="Email" required />
-          </div>
-          <div class="form-field">
-            <input type="text" name="phone" placeholder="Phone" required />
-          </div>
+          <input type="email" name="email" placeholder="Email" required aria-label="Email" />
+          <input type="text" name="phone" placeholder="Phone" required aria-label="Phone" />
         </div>
         <div class="form-row three-column">
-          <div class="form-field">
-            <input type="text" name="zip" placeholder="Zip" required />
-          </div>
-          <div class="form-field">
-            <input type="text" name="city" placeholder="City" required />
-          </div>
-          <div class="form-field">
-            <input type="text" name="state" placeholder="State" required />
-          </div>
+          <input type="text" name="zip" placeholder="Zip" required aria-label="Zip" />
+          <input type="text" name="city" placeholder="City" required aria-label="City" />
+          <input type="text" name="state" placeholder="State" required aria-label="State" />
         </div>
-        <div class="form-field full-width">
-          <textarea name="message" placeholder="Message (optional)"></textarea>
-        </div>
+        <textarea name="message" placeholder="Message (optional)" aria-label="Message"></textarea>
         <div class="checkbox-container">
-          <label class="modern-checkbox">
-            <input type="checkbox" name="not_robot" required />
-            <span class="checkbox-text">I'm not a robot</span>
+          <label class="checkbox-label">
+            <input type="checkbox" name="not_robot" required /> I'm not a robot
           </label>
-          <label class="modern-checkbox">
-            <input type="checkbox" name="privacy_policy" required />
-            <span class="checkbox-text">By providing this information you are acknowledging and agreeing to the Privacy Policy</span>
+          <label class="checkbox-label">
+            <input type="checkbox" name="privacy_policy" required /> By providing this information you are acknowledging and agreeing to the Privacy Policy
           </label>
         </div>
-        <button type="submit" class="modern-submit-btn">SUBMIT</button>
+        <button type="submit" class="cta-btn">SUBMIT</button>
       </form>
-    </div>
+    </section>
 
-    <div id="contributeSection" class="contribute-banner fade-in" style="margin-top:0;">Contribute</div>
-    <section class="translucent-red fade-in">
+    <div id="contributeSection" class="contribute-banner fade-in">Contribute</div>
+    <section class="contribute-section translucent-coral fade-in">
       <p>Pythos is a grassroots initiative embracing open collaboration. Your contributions help fund the development of advanced features and sustain a small team of passionate developers & artists.</p>
       <p>Stay tuned for our GiveSendGo campaign to support infrastructure and team growth, with plans for tokenization to promote financial literacy.</p>
       <div class="donation-logos">
