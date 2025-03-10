@@ -7,19 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Top Banner -->
-  <div class="top-banner">
-    People Are The Solution
-  </div>
-
-  <!-- HEADER -->
+  <div class="top-banner">People Are The Solution</div>
   <header>
     <div class="logo-group">
       <img src="images/fotioslogo.png" alt="Fotios Logo" class="logo" />
       <span class="logo-text">Fotios Mpouris</span>
     </div>
-    <!-- Desktop Navigation -->
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -33,78 +26,78 @@
       <a href="https://www.amazon.com" id="shop-btn">Shop</a>
       <a href="pythos.html#contributeSection" id="contribute-btn">Contribute</a>
     </div>
-    <div class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <div class="hamburger"><div></div><div></div><div></div></div>
   </header>
 
-  <!-- HERO SECTION -->
   <div class="home-banner-container">
-    <img src="images/homebanner.png" alt="Home Banner" class="banner-desktop" />
-    <!-- Mobile-specific banner (optional) -->
-    <img src="images/homebanner.png" alt="Home Banner Mobile" class="banner-mobile" />
-    
+    <canvas id="heroCanvas" class="banner-desktop"></canvas>
+    <img src="images/homebanner.png" alt="Home Banner Mobile" class="banner-mobile" loading="lazy" />
     <div class="home-banner-overlay">
       <div class="overlay-content">
-        <h1>Technical Artist</h1>
+        <h1>Technical Artist & AI Innovator</h1>
         <blockquote>
-          "This is a placeholder for a quote"<br/> — Fotios Mpouris
+          "I fuse art and code to empower creators and solve real-world challenges."<br/> — Fotios Mpouris
         </blockquote>
-        <img src="images/fotios1.png" alt="Fotios Mpouris" class="founder-image" />
+        <img src="images/fotios1.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
         <div class="hero-buttons-group">
-          <a href="pythos.html#volunteerSection" class="hero-volunteer-btn">Volunteer</a>
+          <a href="#work-with-me" class="hero-collaborate-btn">Work With Me</a>
+          <a href="pythos.html#volunteerSection" class="hero-volunteer-btn">Join Pythos</a>
           <a href="pythos.html#contributeSection" class="hero-contribute-btn">Contribute</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- JOIN OUR MOVEMENT -->
-  <section class="join-movement-section" style="margin-bottom:0;">
-    <div class="join-movement-banner">
-      <h2>JOIN OUR MOVEMENT</h2>
-    </div>
+  <section class="join-movement-section">
+    <div class="join-movement-banner"><h2>JOIN OUR MOVEMENT</h2></div>
     <div class="join-movement-form-container">
       <form class="join-movement-form" action="#" method="POST">
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="zip" placeholder="Zip Code" required />
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Email" />
+        <input type="text" name="zip" placeholder="Zip Code" required aria-label="Zip Code" />
         <button type="submit">JOIN</button>
       </form>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
   <main>
     <section class="translucent-blue content-with-image">
       <div class="section-content">
-        <h2>Professional Summary</h2>
+        <h2>About Me</h2>
         <p>
-          Innovative full-stack developer and multimedia specialist combining technical expertise
-          with creative design capabilities. Experienced in Unity/C#, Python, and AI-powered apps...
+          I’m a full-stack developer and multimedia specialist with over 4 years of experience in Unity/C#, Python, and Adobe Creative Suite. 
+          I craft AI-integrated applications, interactive digital experiences, and creative solutions that bridge technical precision with artistic vision. 
+          My mission? To empower creators, dreamers, and communities—whether through bespoke development services or groundbreaking projects like Pythos.
         </p>
       </div>
       <div class="section-image">
-        <img src="images/reform.png" alt="Placeholder" />
+        <img src="images/reform.png" alt="Creative Tech" loading="lazy" />
       </div>
     </section>
 
-    <section class="translucent-red content-with-image reverse">
+    <section class="translucent-red content-with-image reverse" id="work-with-me">
       <div class="section-image">
-        <img src="images/honor.png" alt="Placeholder" />
+        <img src="images/honor.png" alt="Collaboration" loading="lazy" />
       </div>
       <div class="section-content">
-        <h2>Creative Technology Focus</h2>
+        <h2>Work With Me</h2>
         <p>
-          Specializing in Adobe Creative Suite, UI/UX design, generative AI, 
-          and bridging the gap between art and tech for seamless user experiences.
+          Need a technical artist for your next project? I specialize in Unity development, AI solutions, and multimedia design. 
+          Let’s turn your ideas into reality—reach out today!
         </p>
+        <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">Contact Me</a>
       </div>
+    </section>
+
+    <section class="translucent-blue">
+      <h2>Pythos: Empowering Financial Futures</h2>
+      <p>
+        Pythos.app is my passion project—a platform to help those caught in financial limbo, earning too much for aid but too little to thrive. 
+        With AI, crowd-investing, and tokenized services, we’re promoting financial literacy and solvency in a digital age. Join us!
+      </p>
+      <a href="pythos.html" class="cta-btn">Learn More</a>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
       <a href="websites.html">Websites</a>
@@ -112,19 +105,41 @@
       <a href="pythos.html#contributeSection">Contribute</a>
     </div>
     <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank">
-        <img src="images/instagramlogo.png" alt="Instagram Logo" />
-      </a>
-      <a href="https://x.com/FotiosM" target="_blank">
-        <img src="images/xlogo.png" alt="X Logo" />
-      </a>
-      <a href="https://github.com/FotiosMpouris" target="_blank">
-        <img src="images/githublogo.png" alt="GitHub Logo" />
-      </a>
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
     </div>
     <p>© 2025 Fotios Mpouris. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+    const particles = Array.from({ length: 50 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3 + 1,
+      dx: Math.random() * 2 - 1,
+      dy: Math.random() * 2 - 1
+    }));
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(99, 197, 218, 0.8)';
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
