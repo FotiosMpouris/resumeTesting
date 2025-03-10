@@ -1,168 +1,76 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function() {
-  const header = document.querySelector("header");
+  // Hamburger Menu
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const overlayBg = document.createElement("div");
+  overlayBg.classList.add("overlay-bg");
+  document.body.appendChild(overlayBg);
+  const overlayPopup = document.createElement("div");
+  overlayPopup.classList.add("overlay-popup");
+  document.body.appendChild(overlayPopup);
 
-  // 1) Transparent Header on Mobile Scroll
-  window.addEventListener("scroll", () => {
-    if (window.innerWidth <= 768) {
-      if (window.scrollY > 50) {
-        header.classList.add("mobile-scrolled");
-        hamburger.classList.add("scrolled-mobile");
-      } else {
-        header.classList.remove("mobile-scrolled");
-        hamburger.classList.remove("scrolled-mobile");
-      }
-    } else {
-      header.classList.remove("mobile-scrolled");
-      hamburger.classList.remove("scrolled-mobile");
-    }
-  });
-
-  // 2) Hamburger -> Overlay
-  // Create overlay background if it doesn't exist
-  let overlayBg = document.querySelector(".overlay-bg");
-  if (!overlayBg) {
-    overlayBg = document.createElement("div");
-    overlayBg.classList.add("overlay-bg");
-    document.body.appendChild(overlayBg);
-  }
-
-  // Create popup overlay if it doesn't exist
-  let overlayPopup = document.querySelector(".overlay-popup");
-  if (!overlayPopup) {
-    overlayPopup = document.createElement("div");
-    overlayPopup.classList.add("overlay-popup");
-    document.body.appendChild(overlayPopup);
-  }
-
-  // Build overlay menu from navLinks
   let overlayMenuHTML = "";
   navLinks.querySelectorAll("a").forEach(link => {
     const isActive = link.classList.contains("active") ? "active" : "";
-    const href = link.getAttribute("href");
-    const text = link.textContent;
-    overlayMenuHTML += `<li><a href="${href}" class="${isActive}">${text}</a></li>`;
+    overlayMenuHTML += `<li><a href="${link.getAttribute("href")}" class="${isActive}">${link.textContent}</a></li>`;
   });
-  
-  // Add header buttons to the overlay menu as well
-  const headerButtons = document.querySelector(".header-buttons");
-  if (headerButtons) {
-    headerButtons.querySelectorAll("a").forEach(button => {
-      const href = button.getAttribute("href");
-      const text = button.textContent;
-      const id = button.getAttribute("id");
-      overlayMenuHTML += `<li class="mobile-button"><a href="${href}" id="mobile-${id}">${text}</a></li>`;
-    });
-  }
-  
   overlayPopup.innerHTML = `<ul class="overlay-menu">${overlayMenuHTML}</ul>`;
 
-  // Toggle hamburger menu on click
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     overlayBg.classList.toggle("open");
     overlayPopup.classList.toggle("open");
-    document.body.classList.toggle("no-scroll"); // Prevent scrolling when menu is open
+    document.body.classList.toggle("no-scroll");
   });
-  
-  // Close menu when clicking on the background
+
   overlayBg.addEventListener("click", () => {
     hamburger.classList.remove("active");
     overlayBg.classList.remove("open");
     overlayPopup.classList.remove("open");
     document.body.classList.remove("no-scroll");
   });
-  
-  // Close menu when clicking a link
-  overlayPopup.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      overlayBg.classList.remove("open");
-      overlayPopup.classList.remove("open");
-      document.body.classList.remove("no-scroll");
-    });
-  });
 
-  // 3) 10-Second Popup (Shop & Contribute)
-  function createPopup() {
-    const popupOverlay = document.createElement("div");
-    popupOverlay.id = "mobileButtonsOverlay";
-    popupOverlay.innerHTML = `
-      <div class="mobile-buttons-content">
-        <button class="close-mobile-btn">&times;</button>
-        <h3>Check Out</h3>
-        <a href="https://www.amazon.com" id="mobileShopBtn">Shop</a>
-        <a href="pythos.html#contributeSection" id="mobileContributeBtn">Contribute</a>
-      </div>
-    `;
-    document.body.appendChild(popupOverlay);
+  // Particle Animation for Hero Canvas
+  const canvas = document.getElementById("heroCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+    const particles = Array.from({ length: 50 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3 + 1,
+      dx: Math.random() * 2 - 1,
+      dy: Math.random() * 2 - 1
+    }));
 
-    const closeBtn = popupOverlay.querySelector(".close-mobile-btn");
-    closeBtn.addEventListener("click", () => {
-      popupOverlay.classList.remove("show");
-    });
-
-    // Show after 10 seconds
-    setTimeout(() => {
-      popupOverlay.classList.add("show");
-    }, 10000);
-  }
-
-  // Only show the popup once per session
-  if (sessionStorage.getItem("popupShown") !== "true") {
-    createPopup();
-    sessionStorage.setItem("popupShown", "true");
-  }
-
-  // 4) Bitcoin "Coming Soon" alert
-  const bitcoinDonate = document.getElementById("bitcoinDonate");
-  const homeBitcoin = document.getElementById("homeBitcoinLogo");
-  [bitcoinDonate, homeBitcoin].forEach(el => {
-    if (el) {
-      el.addEventListener("click", () => {
-        alert("Coming soon");
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(99, 197, 218, 0.8)";
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
       });
+      requestAnimationFrame(animate);
     }
-  });
+    animate();
+  }
 
-  // 5) Slideshow Logic (Multimedia page)
-  const slides = document.querySelectorAll(".mySlide");
-  let slideIndex = 0;
-  
-  function showSlide(n) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === n);
-      // Pause any video not active
-      const media = slide.querySelector("video");
-      if (media) {
-        if (i === n) {
-          media.play();
-        } else {
-          media.pause();
-        }
+  // Fade-In Animation on Scroll
+  const fadeElements = document.querySelectorAll(".fade-in");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
     });
-  }
+  }, { threshold: 0.1 });
 
-  if (slides.length > 0) {
-    // Show first slide
-    showSlide(slideIndex);
-
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => {
-        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-        showSlide(slideIndex);
-      });
-      nextBtn.addEventListener("click", () => {
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlide(slideIndex);
-      });
-    }
-  }
+  fadeElements.forEach(el => observer.observe(el));
 });
