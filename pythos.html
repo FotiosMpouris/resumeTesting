@@ -23,7 +23,7 @@
       <a href="pythos.html" class="active">Pythos</a>
     </nav>
     <div class="header-buttons">
-      <a href="https://www.amazon.com" id="shop-btn">Shop</a>
+      <a href="https://theabstractamerican.com" id="shop-btn">Shop</a>
       <a href="#contributeSection" id="contribute-btn">Contribute</a>
     </div>
     <div class="hamburger"><div></div><div></div><div></div></div>
@@ -57,19 +57,35 @@
     <section class="form-section fade-in">
       <form class="volunteer-form" action="#" method="POST">
         <div class="form-row">
-          <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name" />
-          <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name" />
+          <div class="form-field">
+            <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name" />
+          </div>
+          <div class="form-field">
+            <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name" />
+          </div>
         </div>
         <div class="form-row">
-          <input type="email" name="email" placeholder="Email" required aria-label="Email" />
-          <input type="text" name="phone" placeholder="Phone" required aria-label="Phone" />
+          <div class="form-field">
+            <input type="email" name="email" placeholder="Email" required aria-label="Email" />
+          </div>
+          <div class="form-field">
+            <input type="text" name="phone" placeholder="Phone" required aria-label="Phone" />
+          </div>
         </div>
         <div class="form-row three-column">
-          <input type="text" name="zip" placeholder="Zip" required aria-label="Zip" />
-          <input type="text" name="city" placeholder="City" required aria-label="City" />
-          <input type="text" name="state" placeholder="State" required aria-label="State" />
+          <div class="form-field">
+            <input type="text" name="zip" placeholder="Zip" required aria-label="Zip" />
+          </div>
+          <div class="form-field">
+            <input type="text" name="city" placeholder="City" required aria-label="City" />
+          </div>
+          <div class="form-field">
+            <input type="text" name="state" placeholder="State" required aria-label="State" />
+          </div>
         </div>
-        <textarea name="message" placeholder="Message (optional)" aria-label="Message"></textarea>
+        <div class="form-field full-width">
+          <textarea name="message" placeholder="Message (optional)" aria-label="Message"></textarea>
+        </div>
         <div class="checkbox-container">
           <label class="checkbox-label">
             <input type="checkbox" name="not_robot" required /> I'm not a robot
@@ -82,12 +98,16 @@
       </form>
     </section>
 
-    <div id="contributeSection" class="contribute-banner fade-in">Contribute</div>
+    <div id="contributeSection" class="contribute-banner fade-in">
+      <h2>CONTRIBUTE</h2>
+    </div>
     <section class="contribute-section translucent-coral fade-in">
       <p>Pythos is a grassroots initiative embracing open collaboration. Your contributions help fund the development of advanced features and sustain a small team of passionate developers & artists.</p>
       <p>Stay tuned for our GiveSendGo campaign to support infrastructure and team growth, with plans for tokenization to promote financial literacy.</p>
       <div class="donation-logos">
         <a href="https://www.givesendgo.com/" target="_blank"><img src="images/givesend-logo.png" alt="GiveSendGo" loading="lazy" /></a>
+        <a href="https://pay.google.com/" target="_blank"><img src="images/googlepay-logo.png" alt="Google Pay" loading="lazy" /></a>
+        <a href="https://bitcoin.org/" target="_blank"><img src="images/bitcoin-logo.png" alt="Bitcoin" loading="lazy" /></a>
       </div>
     </section>
   </main>
