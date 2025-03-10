@@ -42,4 +42,21 @@ document.addEventListener("DOMContentLoaded", function() {
   }, { threshold: 0.1 });
 
   fadeElements.forEach(el => observer.observe(el));
+
+  // Smooth Scroll for Anchor Links
+  document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').split('#')[1];
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerHeight = document.querySelector('header').offsetHeight + 50; // Adjust for header and banner
+        const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: topPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
