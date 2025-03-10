@@ -60,13 +60,11 @@
   </section>
 
   <main>
-    <section class="translucent-blue content-with-image">
+    <section class="translucent-blue content-with-image fade-in">
       <div class="section-content">
-        <h2>About Me</h2>
+        <h2>Professional Summary</h2>
         <p>
-          I’m a full-stack developer and multimedia specialist with over 4 years of experience in Unity/C#, Python, and Adobe Creative Suite. 
-          I craft AI-integrated applications, interactive digital experiences, and creative solutions that bridge technical precision with artistic vision. 
-          My mission? To empower creators, dreamers, and communities—whether through bespoke development services or groundbreaking projects like Pythos.
+          Innovative full-stack developer and multimedia specialist combining technical expertise with creative design capabilities. Features 4+ years of Unity/C# development experience alongside advanced Python application development and Adobe Creative Suite mastery. Demonstrates exceptional ability in developing AI-integrated applications, interactive digital experiences, and automated solutions. Brings unique background in client relations and project coordination, enabling effective communication between technical and non-technical stakeholders.
         </p>
       </div>
       <div class="section-image">
@@ -74,25 +72,23 @@
       </div>
     </section>
 
-    <section class="translucent-red content-with-image reverse" id="work-with-me">
+    <section class="translucent-red content-with-image reverse fade-in" id="work-with-me">
       <div class="section-image">
         <img src="images/honor.png" alt="Collaboration" loading="lazy" />
       </div>
       <div class="section-content">
         <h2>Work With Me</h2>
         <p>
-          Need a technical artist for your next project? I specialize in Unity development, AI solutions, and multimedia design. 
-          Let’s turn your ideas into reality—reach out today!
+          Need a technical artist for your next project? I specialize in Unity development, AI solutions, and multimedia design. Let’s turn your ideas into reality—reach out today!
         </p>
         <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">Contact Me</a>
       </div>
     </section>
 
-    <section class="translucent-blue">
+    <section class="translucent-blue fade-in">
       <h2>Pythos: Empowering Financial Futures</h2>
       <p>
-        Pythos.app is my passion project—a platform to help those caught in financial limbo, earning too much for aid but too little to thrive. 
-        With AI, crowd-investing, and tokenized services, we’re promoting financial literacy and solvency in a digital age. Join us!
+        Pythos.app is my passion project—a platform to help those caught in financial limbo, earning too much for aid but too little to thrive. With AI, crowd-investing, and tokenized services, we’re promoting financial literacy and solvency in a digital age. Join us!
       </p>
       <a href="pythos.html" class="cta-btn">Learn More</a>
     </section>
@@ -105,41 +101,13 @@
       <a href="pythos.html#contributeSection">Contribute</a>
     </div>
     <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
-      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
-      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
     </div>
     <p>© 2025 Fotios Mpouris. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = 400;
-    const particles = Array.from({ length: 50 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 3 + 1,
-      dx: Math.random() * 2 - 1,
-      dy: Math.random() * 2 - 1
-    }));
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99, 197, 218, 0.8)';
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
 </body>
 </html>
