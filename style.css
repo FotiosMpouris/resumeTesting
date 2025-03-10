@@ -3,9 +3,7 @@
    Created for fotiosmpouris.com on March 09, 2025
    ========================================================================== */
 
-/* ==========================================================================
-   1. Reset & Base Styles
-   ========================================================================== */
+/* 1. Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +19,6 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Variables */
 :root {
   --white: #ffffff;
   --blue: #1c2951;
@@ -32,34 +29,25 @@ html, body {
   --transition-speed: 0.3s;
 }
 
-/* Links */
 a {
   color: var(--blue);
   text-decoration: none;
   transition: color var(--transition-speed);
 }
-a:hover {
-  color: var(--red);
-}
+a:hover { color: var(--red); }
 
-/* ==========================================================================
-   2. Typography
-   ========================================================================== */
+/* 2. Typography */
 h1, h2, h3 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.1rem; }
 p { margin-bottom: 1rem; }
 ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
 
-/* ==========================================================================
-   3. Layout Components
-   ========================================================================== */
-
-/* Top Banner */
+/* 3. Layout Components */
 .top-banner {
   position: fixed;
   top: 0;
@@ -70,11 +58,9 @@ ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
   text-align: center;
   padding: 10px;
   font-weight: bold;
-  letter-spacing: 1px;
   z-index: 1000;
 }
 
-/* Header */
 header {
   position: fixed;
   top: 36px;
@@ -87,22 +73,17 @@ header {
   justify-content: space-between;
   padding: 10px 15px;
   z-index: 999;
-  transition: background var(--transition-speed);
 }
 
-/* Logo Group */
 .logo-group {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.logo { max-height: 60px; }
-.logo-text { font-size: 1.25rem; color: var(--black); }
+.logo { max-height: 50px; }
+.logo-text { font-size: 1.1rem; color: var(--black); }
 
-/* Navigation */
-.nav-links {
-  display: none; /* Hidden by default on mobile */
-}
+.nav-links { display: none; }
 .nav-links a {
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -110,10 +91,7 @@ header {
 }
 .nav-links a.active { font-weight: bold; color: var(--red); }
 
-/* Header Buttons */
-.header-buttons {
-  display: none; /* Hidden on mobile */
-}
+.header-buttons { display: none; }
 .header-buttons a {
   padding: 8px 12px;
   border: 2px solid;
@@ -121,20 +99,11 @@ header {
   font-size: 0.9rem;
   transition: all var(--transition-speed);
 }
-#shop-btn {
-  background: var(--blue);
-  color: var(--white);
-  border-color: var(--blue);
-}
+#shop-btn { background: var(--blue); color: var(--white); border-color: var(--blue); }
 #shop-btn:hover { background: var(--white); color: var(--blue); }
-#contribute-btn {
-  background: var(--red);
-  color: var(--white);
-  border-color: var(--red);
-}
+#contribute-btn { background: var(--red); color: var(--white); border-color: var(--red); }
 #contribute-btn:hover { background: var(--white); color: var(--red); }
 
-/* Hamburger */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -147,15 +116,10 @@ header {
   background: var(--blue);
   transition: all var(--transition-speed);
 }
-.hamburger.active div:first-child {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+.hamburger.active div:first-child { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active div:nth-child(2) { opacity: 0; }
-.hamburger.active div:last-child {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+.hamburger.active div:last-child { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* Overlay Menu */
 .overlay-bg {
   position: fixed;
   top: 0;
@@ -193,13 +157,8 @@ header {
 }
 .overlay-menu a:hover, .overlay-menu a.active { color: var(--red); font-weight: bold; }
 
-/* Main Content */
-main {
-  margin-top: 90px; /* Space for fixed header + banner */
-  padding: 15px;
-}
+main { margin-top: 90px; padding: 15px; }
 
-/* Translucent Sections */
 .translucent-blue {
   background: rgba(28, 41, 81, 0.1);
   padding: 15px;
@@ -213,15 +172,13 @@ main {
   margin-bottom: 10px;
 }
 
-/* ==========================================================================
-   4. Hero Section (index.html)
-   ========================================================================== */
+/* 4. Hero Section */
 .home-banner-container {
   position: relative;
   margin-top: 90px;
   overflow: hidden;
 }
-.banner-desktop { display: none; } /* Canvas hidden on mobile */
+.banner-desktop { display: none; }
 .banner-mobile { display: block; width: 100%; height: auto; }
 .home-banner-overlay {
   position: absolute;
@@ -263,9 +220,7 @@ main {
 .hero-collaborate-btn { background: var(--cyan); }
 .hero-collaborate-btn:hover { background: var(--white); color: var(--cyan); }
 
-/* ==========================================================================
-   5. Join Movement Section
-   ========================================================================== */
+/* 5. Join Movement */
 .join-movement-section { padding: 0; }
 .join-movement-banner {
   background: var(--red);
@@ -299,9 +254,7 @@ main {
 }
 .join-movement-form button:hover { background: var(--red); }
 
-/* ==========================================================================
-   6. Content Sections
-   ========================================================================== */
+/* 6. Content Sections */
 .content-with-image {
   display: flex;
   flex-direction: column;
@@ -316,9 +269,14 @@ main {
   gap: 15px;
 }
 .about-img { max-width: 100%; }
-.about-text { flex: 1; }
+.website-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.website-logo { max-width: 150px; }
+.website-media img, .website-media video { width: 100%; max-width: 300px; }
 
-/* Call-to-Action Button */
 .cta-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -330,7 +288,6 @@ main {
 }
 .cta-btn:hover { background: var(--blue); }
 
-/* Project Items (ai-apps.html, websites.html) */
 .project-item {
   display: flex;
   flex-direction: column;
@@ -338,9 +295,7 @@ main {
   margin-bottom: 20px;
 }
 .project-logo { width: 100%; max-width: 150px; }
-.project-details { flex: 1; }
 
-/* Pythos Progress Bar */
 .progress-bar {
   position: relative;
   margin-top: 15px;
@@ -352,7 +307,7 @@ main {
 .progress-bar div {
   height: 100%;
   background: var(--cyan);
-  width: 0; /* Set via inline style in HTML */
+  width: 0;
   transition: width 1s ease;
 }
 .progress-bar span {
@@ -364,9 +319,59 @@ main {
   color: #333;
 }
 
-/* ==========================================================================
-   7. Footer
-   ========================================================================== */
+.involved-side-by-side {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: var(--cyan);
+  padding: 15px;
+}
+.involved-img { width: 100%; }
+.involved-textbox { background: var(--white); padding: 15px; border-radius: 6px; }
+
+.modern-volunteer-banner {
+  background: var(--red);
+  color: var(--white);
+  padding: 15px;
+  text-align: center;
+}
+.modern-form-container { background: #f5f5f5; padding: 15px; }
+.modern-volunteer-form { max-width: 800px; margin: 0 auto; background: var(--white); padding: 20px; border-radius: 8px; }
+.form-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.form-field input, .form-field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+}
+.checkbox-container { margin: 15px 0; }
+.modern-checkbox { display: flex; align-items: flex-start; margin-bottom: 10px; }
+.modern-checkbox input { margin-right: 10px; }
+.checkbox-text { font-size: 0.9rem; }
+.modern-submit-btn {
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+.modern-submit-btn:hover { background: var(--red); }
+
+.contribute-banner {
+  background: var(--red);
+  color: var(--white);
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.donation-logos { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+.donation-logos img { max-width: 100px; }
+
+/* 7. Footer */
 footer {
   background: rgba(99, 197, 218, 0.8);
   padding: 15px;
@@ -387,44 +392,38 @@ footer {
   margin-bottom: 10px;
 }
 .footer-logos img { max-width: 35px; }
-footer p { font-size: 0.8rem; color: #666; }
 
-/* ==========================================================================
-   8. Animations & Interactivity
-   ========================================================================== */
+/* 8. Animations */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  transition: opacity 0.5s ease;
 }
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+.fade-in.visible { opacity: 1; }
 
-/* ==========================================================================
-   9. Desktop Styles (Media Queries)
-   ========================================================================== */
+/* 9. Desktop Styles */
 @media (min-width: 769px) {
-  /* Header */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
   .nav-links { display: flex; gap: 15px; }
   .header-buttons { display: flex; gap: 10px; }
   .hamburger { display: none; }
   header.mobile-scrolled { background: rgba(255, 255, 255, 0.95); }
-
-  /* Hero */
+  main { margin-top: 110px; padding: 20px; }
   .home-banner-container { margin-top: 110px; }
   .banner-desktop { display: block; width: 100%; height: 400px; }
   .banner-mobile { display: none; }
   .home-banner-overlay h1 { font-size: 2rem; }
   .hero-buttons-group { flex-direction: row; }
   .founder-image { max-width: 150px; }
-
-  /* Layout */
-  main { margin-top: 110px; padding: 20px; }
   .content-with-image { flex-direction: row; gap: 20px; }
   .content-with-image.reverse { flex-direction: row-reverse; }
   .about-top-content { flex-direction: row; }
   .about-img { max-width: 300px; }
   .project-item { flex-direction: row; align-items: flex-start; }
-
-  /* Join Movement */
-  .join-movement-form input {
+  .website-container { flex-direction: row; }
+  .join-movement-form input { display: inline-block; margin: 0 5px; }
+  .involved-side-by-side { flex-direction: row; }
+  .form-row { flex-direction: row; }
+  .form-field { flex: 1; }
+}
