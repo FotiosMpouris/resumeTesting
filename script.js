@@ -50,14 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
       const targetId = this.getAttribute('href').split('#')[1];
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight + 20; // Offset for header and banner
+        const headerHeight = document.querySelector('header').offsetHeight + 50; // Adjust for header and banner
         const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
         window.scrollTo({
           top: topPosition,
           behavior: 'smooth'
         });
-      } else if (this.getAttribute('href').includes('pythos.html')) {
-        window.location.href = this.getAttribute('href');
       }
     });
   });
