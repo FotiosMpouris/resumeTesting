@@ -30,6 +30,39 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("no-scroll");
   });
 
+  // Smooth Scroll for Anchor Links
+  document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      const [page, targetId] = href.split('#');
+
+      // If the link points to a different page
+      if (page && window.location.pathname !== `/${page}`) {
+        window.location.href = href; // Navigate to the page with the hash
+      } else if (targetId) {
+        // If the link points to a section on the current page
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight + 50;
+          const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      // Close the mobile menu if open
+      if (hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        overlayBg.classList.remove("open");
+        overlayPopup.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  });
+
   // Fade-In Animation on Scroll
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver(entries => {
@@ -42,21 +75,4 @@ document.addEventListener("DOMContentLoaded", function() {
   }, { threshold: 0.1 });
 
   fadeElements.forEach(el => observer.observe(el));
-
-  // Smooth Scroll for Anchor Links
-  document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').split('#')[1];
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        const headerHeight = document.querySelector('header').offsetHeight + 50; // Adjust for header and banner
-        const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        window.scrollTo({
-          top: topPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
 });
