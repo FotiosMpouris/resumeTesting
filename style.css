@@ -138,10 +138,7 @@ header {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 .overlay-popup.open { display: block; }
-.overlay-menu {
-  list-style: none;
-  text-align: center; /* Fix for centering text */
-}
+.overlay-menu { list-style: none; text-align: center; }
 .overlay-menu li { margin: 15px 0; }
 .overlay-menu a {
   font-size: 1.2rem;
@@ -151,7 +148,7 @@ header {
 }
 .overlay-menu a:hover, .overlay-menu a.active { color: var(--coral); font-weight: bold; }
 
-main { margin-top: 130px; padding: 15px; } /* Increased margin to fix overlap */
+main { margin-top: 110px; padding: 15px; }
 .container { max-width: 1200px; margin: 0 auto; }
 
 .translucent-teal { background: rgba(78, 205, 196, 0.1); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--black); }
@@ -160,7 +157,7 @@ main { margin-top: 130px; padding: 15px; } /* Increased margin to fix overlap */
 /* 4. Hero Section */
 .home-banner-container {
   position: relative;
-  margin-top: 130px; /* Adjusted for overlap */
+  margin-top: 110px;
   overflow: hidden;
   height: 400px;
 }
@@ -252,10 +249,7 @@ main { margin-top: 130px; padding: 15px; } /* Increased margin to fix overlap */
 .about-img { max-width: 100%; border-radius: 6px; }
 .website-container { display: flex; flex-direction: column; gap: 20px; }
 .website-logo { max-width: 150px; }
-.website-media { margin-top: 20px; } /* Move collage below text */
-.website-collage-mobile { width: 100%; max-width: 400px; margin: 0 auto; } /* Responsive scaling */
-.website-video { width: 100%; max-width: 500px; height: auto; } /* Responsive video sizing */
-.media-video { width: 100%; max-width: 600px; height: auto; } /* Limit size for multimedia */
+.website-media img, .website-media video { width: 100%; max-width: 350px; border-radius: 6px; }
 
 .cta-btn {
   display: inline-block;
@@ -320,7 +314,7 @@ main { margin-top: 130px; padding: 15px; } /* Increased margin to fix overlap */
 
 .mission-section {
   position: relative;
-  margin-top: 130px; /* Adjusted for overlap */
+  margin-top: 110px;
   height: 400px;
   overflow: hidden;
 }
@@ -406,7 +400,7 @@ footer p { font-size: 0.8rem; color: var(--black); }
   .hamburger { display: none; }
   header { padding: 15px 30px; }
   .container { padding: 30px; }
-  .home-banner-container { margin-top: 130px; height: 500px; }
+  .home-banner-container { margin-top: 110px; height: 500px; }
   .banner-mobile { display: none; }
   .home-banner-overlay { width: 70%; }
   .hero-buttons-group { flex-direction: row; justify-content: center; }
@@ -414,14 +408,10 @@ footer p { font-size: 0.8rem; color: var(--black); }
   .content-with-image.reverse { flex-direction: row-reverse; }
   .about-top-content { flex-direction: row; }
   .about-img { max-width: 350px; }
-  .website-container { flex-direction: column; } /* Stack content vertically */
-  .website-text { flex: 1; }
-  .website-collage-mobile { display: none; } /* Hide mobile version on desktop */
-  .website-collage { width: 100%; max-width: 400px; margin: 20px auto; } /* New desktop positioning */
+  .website-container { flex-direction: row; }
   .project-item { flex-direction: row; align-items: flex-start; }
   .involved-section { text-align: left; }
   .form-row { flex-direction: row; }
   .form-row.three-column { flex-direction: row; }
   .form-field { margin: 0 10px; }
-  .media-video { max-width: 800px; } /* Adjust for desktop multimedia */
 }
