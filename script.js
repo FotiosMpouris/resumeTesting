@@ -30,6 +30,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("no-scroll");
   });
 
+  // Video Playback with Sound Toggle
+  const videos = document.querySelectorAll(".media-video");
+  videos.forEach(video => {
+    video.muted = true; // Start muted
+    video.play(); // Auto-play muted
+
+    video.addEventListener("click", function() {
+      this.muted = !this.muted; // Toggle mute on click
+    });
+  });
+
   // Smooth Scroll for Anchor Links
   document.querySelectorAll('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -37,15 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
       const href = this.getAttribute('href');
       const [page, targetId] = href.split('#');
 
-      // If the link points to a different page
       if (page && window.location.pathname !== `/${page}`) {
-        window.location.href = href; // Navigate to the page with the hash
+        window.location.href = href;
       } else if (targetId) {
-        // If the link points to a section on the current page
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          const headerHeight = document.querySelector('header').offsetHeight + 50;
-          const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight;
+          const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Add offset to show banner
           window.scrollTo({
             top: topPosition,
             behavior: 'smooth'
@@ -53,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
 
-      // Close the mobile menu if open
       if (hamburger.classList.contains("active")) {
         hamburger.classList.remove("active");
         overlayBg.classList.remove("open");
