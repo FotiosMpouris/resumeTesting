@@ -140,24 +140,31 @@ header {
 .overlay-popup.open { display: block; }
 .overlay-menu { 
   list-style: none; 
-  text-align: center; 
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
   align-items: center; 
   height: 100%; 
-  padding: 10px 0; /* Added padding to ensure vertical centering */
+  padding: 0; 
+  margin: 0;
 }
-.overlay-menu li { margin: 15px 0; }
+.overlay-menu li { 
+  margin: 15px 0; 
+  width: 100%; 
+  text-align: center; 
+}
 .overlay-menu a {
   font-size: 1.2rem;
+  font-weight: bold; /* Increased font weight for stronger appearance */
   text-transform: uppercase;
   color: var(--sky-blue);
   transition: color var(--transition-speed);
-  display: block; /* Ensure each link takes full width for centering */
-  text-align: center;
+  display: block;
 }
-.overlay-menu a:hover, .overlay-menu a.active { color: var(--coral); font-weight: bold; }
+.overlay-menu a:hover, .overlay-menu a.active { 
+  color: var(--coral); 
+  font-weight: bold; 
+}
 
 main { 
   margin-top: 120px; /* Increased to ensure no overlap with header */
@@ -270,10 +277,6 @@ main {
   max-width: 350px; 
   border-radius: 6px; 
 }
-.website-collage-mobile {
-  width: 100%;
-  max-width: 350px;
-}
 
 .cta-btn {
   display: inline-block;
@@ -338,7 +341,7 @@ main {
 
 .mission-section {
   position: relative;
-  margin-top: 120px; /* Adjusted for consistency */
+  margin-top: 120px;
   height: 400px;
   overflow: hidden;
 }
@@ -470,9 +473,6 @@ footer p { font-size: 0.8rem; color: var(--black); }
     max-height: 200px;
   }
   .home-banner-container {
-    margin-top: 120px; /* Ensure proper spacing on mobile */
-  }
-  .website-collage-mobile {
-    margin: 0 auto;
+    margin-top: 140px; /* Increased to ensure no overlap on mobile */
   }
 }
