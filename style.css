@@ -180,7 +180,7 @@ main {
 /* 4. Hero Section */
 .home-banner-container {
   position: relative;
-  margin-top: 120px; /* Reduced to minimize cream-colored space */
+  margin-top: 120px;
   overflow: hidden;
   height: 400px;
 }
@@ -194,7 +194,7 @@ main {
   width: 90%;
   text-align: center;
   color: var(--black);
-  padding-bottom: 20px; /* Added padding to ensure bottom visibility */
+  padding-bottom: 20px;
 }
 .overlay-content {
   background: rgba(247, 237, 226, 0.9);
@@ -271,7 +271,7 @@ main {
 .content-with-image.reverse { flex-direction: column-reverse; }
 .about-top-content { display: flex; flex-direction: column; gap: 20px; }
 .about-img { max-width: 100%; border-radius: 6px; }
-.website-container { display: flex; flex-direction: column; gap: 20px; }
+.website-container { display: flex; flex-direction: column; gap: 10px; /* Reduced gap to minimize extra space */ }
 .website-logo { max-width: 150px; }
 .website-media img, .website-media video { 
   width: 100%; 
@@ -457,7 +457,7 @@ footer p { font-size: 0.8rem; color: var(--black); }
   .content-with-image.reverse { flex-direction: row-reverse; }
   .about-top-content { flex-direction: row; }
   .about-img { max-width: 350px; }
-  .website-container { flex-direction: row; }
+  .website-container { flex-direction: row; gap: 20px; }
   .website-media img, .website-media video { 
     max-width: 500px;
   }
@@ -474,11 +474,11 @@ footer p { font-size: 0.8rem; color: var(--black); }
     max-height: 200px;
   }
   .home-banner-container {
-    margin-top: 120px; /* Adjusted back to reduce cream-colored space */
-    height: 450px; /* Increased height to ensure content fits */
+    margin-top: 120px;
+    height: 450px;
   }
   .home-banner-overlay {
-    top: 40%; /* Moved higher to ensure visibility */
-    transform: translate(-50%, -40%);
+    top: 35%; /* Fine-tuned for better centering */
+    transform: translate(-50%, -35%);
   }
 }
