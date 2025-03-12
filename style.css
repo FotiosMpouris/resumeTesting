@@ -177,6 +177,11 @@ main {
 .translucent-blue { background: rgba(69, 183, 209, 0.2); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--black); }
 .translucent-red { background: rgba(255, 111, 97, 0.2); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--black); }
 
+/* Add padding to the first translucent-blue section to prevent title cutoff */
+main .translucent-blue:first-child {
+  padding-top: 30px;
+}
+
 /* 4. Hero Section */
 .home-banner-container {
   position: relative;
