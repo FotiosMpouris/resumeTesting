@@ -155,7 +155,7 @@ header {
 }
 .overlay-menu a {
   font-size: 1.2rem;
-  font-weight: bold; /* Increased font weight for stronger appearance */
+  font-weight: bold;
   text-transform: uppercase;
   color: var(--sky-blue);
   transition: color var(--transition-speed);
@@ -167,7 +167,7 @@ header {
 }
 
 main { 
-  margin-top: 120px; /* Increased to ensure no overlap with header */
+  margin-top: 120px;
   padding: 15px; 
 }
 .container { max-width: 1200px; margin: 0 auto; }
@@ -180,7 +180,7 @@ main {
 /* 4. Hero Section */
 .home-banner-container {
   position: relative;
-  margin-top: 120px; /* Adjusted for mobile spacing */
+  margin-top: 120px; /* Reduced to minimize cream-colored space */
   overflow: hidden;
   height: 400px;
 }
@@ -194,6 +194,7 @@ main {
   width: 90%;
   text-align: center;
   color: var(--black);
+  padding-bottom: 20px; /* Added padding to ensure bottom visibility */
 }
 .overlay-content {
   background: rgba(247, 237, 226, 0.9);
@@ -473,6 +474,11 @@ footer p { font-size: 0.8rem; color: var(--black); }
     max-height: 200px;
   }
   .home-banner-container {
-    margin-top: 140px; /* Increased to ensure no overlap on mobile */
+    margin-top: 120px; /* Adjusted back to reduce cream-colored space */
+    height: 450px; /* Increased height to ensure content fits */
+  }
+  .home-banner-overlay {
+    top: 40%; /* Moved higher to ensure visibility */
+    transform: translate(-50%, -40%);
   }
 }
