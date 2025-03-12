@@ -358,7 +358,6 @@ main {
   border: 2px solid var(--black);
 }
 .involved-section { padding: 20px; text-align: center; }
-
 .volunteer-banner {
   background: var(--coral);
   color: var(--off-white);
