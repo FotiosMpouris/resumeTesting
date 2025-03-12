@@ -54,7 +54,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight;
-          const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Add offset to show banner
+          let topPosition;
+
+          // Special case for volunteerSection and contributeSection to align banner at the top
+          if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
+            topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          } else {
+            topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
+          }
+
           window.scrollTo({
             top: topPosition,
             behavior: 'smooth'
