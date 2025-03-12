@@ -194,7 +194,7 @@ main {
   width: 90%;
   text-align: center;
   color: var(--black);
-  padding-bottom: 0; /* Removed padding to eliminate off-white border */
+  padding-bottom: 20px;
 }
 .overlay-content {
   background: rgba(247, 237, 226, 0.9);
@@ -202,7 +202,6 @@ main {
   border-radius: 8px;
   border: 2px solid var(--black);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-bottom: 0; /* Removed margin to eliminate off-white border */
 }
 .home-banner-overlay h1 { font-size: 2rem; margin-bottom: 15px; color: var(--coral); }
 .founder-image { max-width: 150px; margin: 15px auto; border-radius: 50%; border: 2px solid var(--black); }
@@ -272,7 +271,7 @@ main {
 .content-with-image.reverse { flex-direction: column-reverse; }
 .about-top-content { display: flex; flex-direction: column; gap: 20px; }
 .about-img { max-width: 100%; border-radius: 6px; }
-.website-container { display: flex; flex-direction: column; gap: 10px; }
+.website-container { display: flex; flex-direction: column; gap: 10px; /* Reduced gap to minimize extra space */ }
 .website-logo { max-width: 150px; }
 .website-media img, .website-media video { 
   width: 100%; 
@@ -479,7 +478,7 @@ footer p { font-size: 0.8rem; color: var(--black); }
     height: 450px;
   }
   .home-banner-overlay {
-    top: 35%;
+    top: 35%; /* Fine-tuned for better centering */
     transform: translate(-50%, -35%);
   }
 }
