@@ -41,25 +41,38 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  // Function to calculate header height
+  const getHeaderHeight = () => {
+    const header = document.querySelector('header');
+    const topBanner = document.querySelector('.top-banner');
+    const headerHeight = (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0);
+    return headerHeight || 0; // Fallback to 0 if elements are not found
+  };
+
   // Function to handle scrolling to a target element
-  const scrollToTarget = (targetId) => {
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight;
-      let topPosition;
+  const scrollToTarget = (targetId, delay = 0) => {
+    setTimeout(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerHeight = getHeaderHeight();
+        let topPosition;
 
-      // Special case for volunteerSection and contributeSection to align banner at the top
-      if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
-        topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-      } else {
-        topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
+        // Special case for volunteerSection and contributeSection to align banner at the top
+        if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
+          // Ensure we're targeting the banner itself
+          const banner = targetElement.querySelector(targetId === 'volunteerSection' ? '.volunteer-banner' : '.contribute-banner');
+          const elementToScroll = banner || targetElement; // Fallback to targetElement if banner not found
+          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5; // Small buffer
+        } else {
+          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
+        }
+
+        window.scrollTo({
+          top: topPosition,
+          behavior: 'smooth'
+        });
       }
-
-      window.scrollTo({
-        top: topPosition,
-        behavior: 'smooth'
-      });
-    }
+    }, delay);
   };
 
   // Smooth Scroll for Anchor Links
@@ -90,13 +103,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Handle scrolling on page load if there's a hash in the URL
   const hash = window.location.hash.replace('#', '');
   if (hash) {
-    scrollToTarget(hash);
+    scrollToTarget(hash, 100); // Small delay to ensure DOM is fully rendered
   }
 
   // Handle scrolling after page load if a target was stored in sessionStorage
   const storedTarget = sessionStorage.getItem('scrollToTarget');
   if (storedTarget) {
-    scrollToTarget(storedTarget);
+    scrollToTarget(storedTarget, 100); // Small delay to ensure DOM is fully rendered
     sessionStorage.removeItem('scrollToTarget'); // Clear the stored target
   }
 
