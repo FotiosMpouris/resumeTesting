@@ -41,6 +41,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  // Function to handle scrolling to a target element
+  const scrollToTarget = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight;
+      let topPosition;
+
+      // Special case for volunteerSection and contributeSection to align banner at the top
+      if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
+        topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      } else {
+        topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
+      }
+
+      window.scrollTo({
+        top: topPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Smooth Scroll for Anchor Links
   document.querySelectorAll('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -49,35 +70,35 @@ document.addEventListener("DOMContentLoaded", function() {
       const [page, targetId] = href.split('#');
 
       if (page && window.location.pathname !== `/${page}`) {
+        // Store the target ID in sessionStorage to handle after page load
+        sessionStorage.setItem('scrollToTarget', targetId);
         window.location.href = href;
       } else if (targetId) {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          const headerHeight = document.querySelector('header').offsetHeight + document.querySelector('.top-banner').offsetHeight;
-          let topPosition;
+        scrollToTarget(targetId);
 
-          // Special case for volunteerSection and contributeSection to align banner at the top
-          if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
-            topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          } else {
-            topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
-          }
-
-          window.scrollTo({
-            top: topPosition,
-            behavior: 'smooth'
-          });
+        // Close the hamburger menu if open
+        if (hamburger.classList.contains("active")) {
+          hamburger.classList.remove("active");
+          overlayBg.classList.remove("open");
+          overlayPopup.classList.remove("open");
+          document.body.classList.remove("no-scroll");
         }
-      }
-
-      if (hamburger.classList.contains("active")) {
-        hamburger.classList.remove("active");
-        overlayBg.classList.remove("open");
-        overlayPopup.classList.remove("open");
-        document.body.classList.remove("no-scroll");
       }
     });
   });
+
+  // Handle scrolling on page load if there's a hash in the URL
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    scrollToTarget(hash);
+  }
+
+  // Handle scrolling after page load if a target was stored in sessionStorage
+  const storedTarget = sessionStorage.getItem('scrollToTarget');
+  if (storedTarget) {
+    scrollToTarget(storedTarget);
+    sessionStorage.removeItem('scrollToTarget'); // Clear the stored target
+  }
 
   // Fade-In Animation on Scroll
   const fadeElements = document.querySelectorAll(".fade-in");
