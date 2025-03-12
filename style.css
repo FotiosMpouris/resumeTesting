@@ -146,6 +146,7 @@ header {
   justify-content: center; 
   align-items: center; 
   height: 100%; 
+  padding: 10px 0; /* Added padding to ensure vertical centering */
 }
 .overlay-menu li { margin: 15px 0; }
 .overlay-menu a {
@@ -153,6 +154,8 @@ header {
   text-transform: uppercase;
   color: var(--sky-blue);
   transition: color var(--transition-speed);
+  display: block; /* Ensure each link takes full width for centering */
+  text-align: center;
 }
 .overlay-menu a:hover, .overlay-menu a.active { color: var(--coral); font-weight: bold; }
 
@@ -170,7 +173,7 @@ main {
 /* 4. Hero Section */
 .home-banner-container {
   position: relative;
-  margin-top: 110px;
+  margin-top: 120px; /* Adjusted for mobile spacing */
   overflow: hidden;
   height: 400px;
 }
@@ -335,7 +338,7 @@ main {
 
 .mission-section {
   position: relative;
-  margin-top: 110px;
+  margin-top: 120px; /* Adjusted for consistency */
   height: 400px;
   overflow: hidden;
 }
@@ -399,15 +402,15 @@ textarea { height: 100px; }
 .media-item {
   flex: 1;
   min-width: 300px;
-  max-width: 400px; /* Limit video width on desktop */
+  max-width: 400px;
   text-align: center;
 }
 .media-video {
   width: 100%;
-  max-height: 300px; /* Control video height on desktop */
+  max-height: 300px;
   border-radius: 6px;
   border: 1px solid var(--black);
-  display: block; /* Ensure videos are visible on mobile */
+  display: block;
 }
 
 /* 8. Footer */
@@ -452,11 +455,7 @@ footer p { font-size: 0.8rem; color: var(--black); }
   .about-img { max-width: 350px; }
   .website-container { flex-direction: row; }
   .website-media img, .website-media video { 
-    max-width: 500px; /* Slightly larger on desktop */
-  }
-  .website-collage-mobile {
-    max-width: 400px;
-    margin: 0 auto; /* Center the collage on desktop */
+    max-width: 500px;
   }
   .project-item { flex-direction: row; align-items: flex-start; }
   .involved-section { text-align: left; }
@@ -468,9 +467,12 @@ footer p { font-size: 0.8rem; color: var(--black); }
 /* 11. Mobile-Specific Styles */
 @media (max-width: 768px) {
   .media-video {
-    max-height: 200px; /* Smaller height on mobile */
+    max-height: 200px;
+  }
+  .home-banner-container {
+    margin-top: 120px; /* Ensure proper spacing on mobile */
   }
   .website-collage-mobile {
-    margin: 0 auto; /* Keep centered on mobile */
+    margin: 0 auto;
   }
 }
