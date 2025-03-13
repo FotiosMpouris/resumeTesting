@@ -167,7 +167,7 @@ header {
 }
 
 main { 
-  margin-top: 120px;
+  margin-top: 130px; /* Increased from 120px to 130px to ensure proper spacing below fixed header */
   padding: 15px; 
 }
 .container { max-width: 1200px; margin: 0 auto; }
@@ -179,7 +179,7 @@ main {
 
 /* Add padding to the first translucent-blue section to create consistent spacing */
 main .translucent-blue:first-child {
-  padding-top: 50px; /* Increased from 40px to 50px to match Multimedia page spacing */
+  padding-top: 30px; /* Reduced from 50px to 30px since we increased main's margin-top */
 }
 
 /* 4. Hero Section */
