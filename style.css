@@ -177,9 +177,9 @@ main {
 .translucent-blue { background: rgba(69, 183, 209, 0.2); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--black); }
 .translucent-red { background: rgba(255, 111, 97, 0.2); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--black); }
 
-/* Add padding to the first translucent-blue section to prevent title cutoff */
+/* Add padding to the first translucent-blue section to create consistent spacing */
 main .translucent-blue:first-child {
-  padding-top: 40px; /* Increased from 30px to 40px to ensure title is not obscured */
+  padding-top: 50px; /* Increased from 40px to 50px to match Multimedia page spacing */
 }
 
 /* 4. Hero Section */
