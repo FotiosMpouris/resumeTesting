@@ -179,7 +179,7 @@ main {
 
 /* Add padding to the first translucent-blue section to create consistent spacing */
 main .translucent-blue:first-child {
-  padding-top: 50px; /* Increased from 40px to 50px to match Multimedia page spacing */
+  padding-top: 70px; /* Increased from 50px to 70px to ensure text is fully visible below the header */
 }
 
 /* 4. Hero Section */
