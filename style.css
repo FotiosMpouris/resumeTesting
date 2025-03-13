@@ -424,6 +424,10 @@ textarea { height: 100px; }
   padding-top: 30px !important; /* Using !important to override the first-child rule */
 }
 
+.aiapps-section {
+  padding-top: 30px !important; /* Using !important to override the first-child rule */
+}
+
 /* 7. Multimedia Page Video Styles */
 .media-container {
   display: flex;
