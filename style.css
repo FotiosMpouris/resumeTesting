@@ -30,7 +30,7 @@ body.light-mode {
   --coral: #FF5733; /* Vibrant coral from screenshots */
   --teal: #4ECDC4;
   --sky-blue: #45B7D1;
-  --off-white: #F7E8C7;
+  --off-white: #F7EDE2;
   --light-gray: #ddd;
   --dark-teal: #1A3C34; /* Deep teal */
   --soft-teal: #66BFBF;
@@ -459,14 +459,18 @@ body.light-mode .contribute-banner { color: #1A3C34; border-color: #1A3C34; }
 .donation-logos img { max-width: 100px; border-radius: 6px; border: 1px solid #F5E8C7; }
 body.light-mode .donation-logos img { border-color: #1A3C34; }
 
-/* About page specific styling */
-.about-top-content {
-  display: flex;
-  flex-direction: column; /* Stack on mobile */
-  gap: 20px;
+/* About page specific spacing */
+.about-section {
+  padding-top: 30px !important;
 }
-.about-img { width: 100%; max-width: 300px; border-radius: 6px; }
-.about-text { flex: 1; }
+
+.aiapps-section {
+  padding-top: 30px !important;
+}
+
+.websitespad-section {
+  padding-top: 30px !important;
+}
 
 /* 7. Multimedia Page Video Styles */
 .media-container {
@@ -532,8 +536,6 @@ body.light-mode footer p { color: #1A3C34; }
   .hero-buttons-group { flex-direction: row; justify-content: center; }
   .content-with-image { flex-direction: row; }
   .content-with-image.reverse { flex-direction: row-reverse; }
-  .about-top-content { flex-direction: row; } /* Image left, text right on desktop */
-  .about-img { max-width: 350px; }
   .website-container { flex-direction: row; gap: 10px; }
   .website-media img, .website-media video { max-width: 500px; }
   .project-item { flex-direction: row; align-items: flex-start; }
@@ -545,7 +547,15 @@ body.light-mode footer p { color: #1A3C34; }
 
 /* 11. Mobile-Specific Styles */
 @media (max-width: 768px) {
-  .media-video { max-height: 200px; }
-  .home-banner-container { margin-top: 120px; height: 450px; }
-  .home-banner-overlay { top: 50%; transform: translate(-50%, -50%); }
+  .media-video {
+    max-height: 200px;
+  }
+  .home-banner-container {
+    margin-top: 120px;
+    height: 450px;
+  }
+  .home-banner-overlay {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
