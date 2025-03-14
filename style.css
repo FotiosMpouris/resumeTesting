@@ -78,26 +78,26 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px; /* Slightly more horizontal padding */
+  padding: 12px 20px;
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  height: 70px; /* Height that matches current header */
+  height: 70px;
 }
 body.light-mode header { background: var(--off-white); border-bottom: 2px solid #1A3C34; }
 
 .logo-group {
   display: flex;
   align-items: center;
-  gap: 12px; /* Slightly more gap between logo and text */
-  height: 50px;
+  gap: 12px;
+  flex-shrink: 0; /* Prevent logo group from shrinking */
 }
 
 .logo { max-height: 50px; }
 
 .logo-text {
-  font-size: 1.2rem; /* Slightly larger text */
+  font-size: 1.2rem;
   line-height: 1.2;
-  font-weight: 500; /* Semi-bold for better visibility */
+  font-weight: 500;
   color: #F5E8C7;
 }
 body.light-mode .logo-text { color: #1A3C34; }
@@ -105,15 +105,15 @@ body.light-mode .logo-text { color: #1A3C34; }
 .nav-links {
   display: none;
   justify-content: center;
-  gap: 25px; /* More space between links to match current layout */
-  height: 50px;
+  gap: 25px;
   align-items: center;
-  flex-grow: 1; /* Allow nav-links to take available space */
+  flex-grow: 1; /* Take up remaining space */
+  margin: 0 20px; /* Add margin to balance with header padding */
 }
 .nav-links a {
   text-transform: uppercase;
   font-size: 0.9rem;
-  padding: 0; /* Remove padding to ensure consistent spacing with gap */
+  padding: 0;
   transition: color var(--transition-speed);
 }
 .nav-links a.active { font-weight: bold; color: var(--coral); }
@@ -125,8 +125,8 @@ body.light-mode .nav-links a:hover { color: var(--soft-teal); }
 .header-buttons {
   display: none;
   gap: 15px;
-  height: 50px;
   align-items: center;
+  flex-shrink: 0; /* Prevent header buttons from shrinking */
 }
 .header-buttons a, #dark-mode-toggle {
   padding: 8px 12px;
