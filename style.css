@@ -30,7 +30,7 @@ body.light-mode {
   --coral: #FF5733; /* Vibrant coral from screenshots */
   --teal: #4ECDC4;
   --sky-blue: #45B7D1;
-  --off-white: #F7EDE2;
+  --off-white: #F7E8C7;
   --light-gray: #ddd;
   --dark-teal: #1A3C34; /* Deep teal */
   --soft-teal: #66BFBF;
@@ -89,11 +89,15 @@ body.light-mode header { background: var(--off-white); border-bottom: 2px solid 
 .logo-text { font-size: 1.1rem; color: #F5E8C7; }
 body.light-mode .logo-text { color: #1A3C34; }
 
-.nav-links { display: none; }
+.nav-links { 
+  display: none; 
+  justify-content: center; /* Center the links */
+  flex-grow: 1; /* Allow nav-links to take available space */
+}
 .nav-links a {
   text-transform: uppercase;
   font-size: 0.9rem;
-  padding: 8px;
+  padding: 8px 15px; /* Even padding for consistent spacing */
   transition: color var(--transition-speed);
 }
 .nav-links a.active { font-weight: bold; color: var(--coral); }
@@ -196,8 +200,10 @@ main { margin-top: 120px; padding: 15px; }
 
 .translucent-teal { background: rgba(78, 205, 196, 0.1); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #F5E8C7; }
 .translucent-coral { background: rgba(255, 87, 51, 0.1); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #F5E8C7; }
+.translucent-blue { background: rgba(69, 183, 209, 0.1); padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #F5E8C7; }
 body.light-mode .translucent-teal { background: rgba(78, 205, 196, 0.1); border-color: #1A3C34; }
 body.light-mode .translucent-coral { background: rgba(255, 87, 51, 0.1); border-color: #1A3C34; }
+body.light-mode .translucent-blue { background: rgba(69, 183, 209, 0.1); border-color: #1A3C34; }
 main .translucent-blue:first-child { padding-top: 90px; }
 
 /* 4. Hero Section */
@@ -347,12 +353,12 @@ body.light-mode .link-btn:hover { background: #1A3C34; color: var(--soft-teal); 
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 15px;
+  border-radius: 6px;
   margin-bottom: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
+  border: 1px solid #F5E8C7;
 }
+body.light-mode .project-item { border-color: #1A3C34; }
 .project-logo { width: 100%; max-width: 150px; }
 
 .progress-bar {
@@ -453,18 +459,14 @@ body.light-mode .contribute-banner { color: #1A3C34; border-color: #1A3C34; }
 .donation-logos img { max-width: 100px; border-radius: 6px; border: 1px solid #F5E8C7; }
 body.light-mode .donation-logos img { border-color: #1A3C34; }
 
-/* About page specific spacing */
-.about-section {
-  padding-top: 30px !important;
+/* About page specific styling */
+.about-top-content {
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  gap: 20px;
 }
-
-.aiapps-section {
-  padding-top: 30px !important;
-}
-
-.websitespad-section {
-  padding-top: 30px !important;
-}
+.about-img { width: 100%; max-width: 300px; border-radius: 6px; }
+.about-text { flex: 1; }
 
 /* 7. Multimedia Page Video Styles */
 .media-container {
@@ -530,7 +532,7 @@ body.light-mode footer p { color: #1A3C34; }
   .hero-buttons-group { flex-direction: row; justify-content: center; }
   .content-with-image { flex-direction: row; }
   .content-with-image.reverse { flex-direction: row-reverse; }
-  .about-top-content { flex-direction: row; }
+  .about-top-content { flex-direction: row; } /* Image left, text right on desktop */
   .about-img { max-width: 350px; }
   .website-container { flex-direction: row; gap: 10px; }
   .website-media img, .website-media video { max-width: 500px; }
@@ -543,15 +545,7 @@ body.light-mode footer p { color: #1A3C34; }
 
 /* 11. Mobile-Specific Styles */
 @media (max-width: 768px) {
-  .media-video {
-    max-height: 200px;
-  }
-  .home-banner-container {
-    margin-top: 120px;
-    height: 450px;
-  }
-  .home-banner-overlay {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+  .media-video { max-height: 200px; }
+  .home-banner-container { margin-top: 120px; height: 450px; }
+  .home-banner-overlay { top: 50%; transform: translate(-50%, -50%); }
 }
