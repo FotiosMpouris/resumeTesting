@@ -126,13 +126,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
   fadeElements.forEach(el => observer.observe(el));
 
-  // Dark Mode Toggle with Sun Button (Toggles to Light Mode)
+  // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
   const darkModeToggle = document.getElementById("dark-mode-toggle");
-  darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    localStorage.setItem("lightMode", document.body.classList.contains("light-mode"));
-  });
-  if (localStorage.getItem("lightMode") !== "true") {
-    document.body.classList.remove("light-mode"); // Ensure dark mode by default
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      if (isDarkMode) {
+        document.body.classList.remove("dark-mode");
+        document.body.classList.add("light-mode");
+        localStorage.setItem("darkMode", "false");
+      } else {
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "true");
+      }
+    });
+
+    // Initialize based on localStorage or default to dark mode
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "false") {
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+    } else {
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+    }
   }
 });
