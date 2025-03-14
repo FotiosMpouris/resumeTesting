@@ -30,30 +30,23 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("no-scroll");
   });
 
-  // Dark Mode Toggle
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-  });
-  if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
-  }
+  // Video Playback with Sound Toggle
+  const videos = document.querySelectorAll(".media-video");
+  videos.forEach(video => {
+    video.muted = true;
+    video.play();
 
-  // Parallax Effect for Hero Banner
-  const bannerDesktop = document.querySelector(".banner-desktop");
-  const bannerMobile = document.querySelector(".banner-mobile");
-  window.addEventListener("scroll", () => {
-    const scrollPosition = window.pageYOffset;
-    if (bannerDesktop) bannerDesktop.style.transform = `translateY(${scrollPosition * 0.2}px)`;
-    if (bannerMobile) bannerMobile.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+    video.addEventListener("click", function() {
+      this.muted = !this.muted;
+    });
   });
 
   // Function to calculate header height
   const getHeaderHeight = () => {
     const header = document.querySelector('header');
     const topBanner = document.querySelector('.top-banner');
-    return (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0) || 0;
+    const headerHeight = (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0);
+    return headerHeight || 0;
   };
 
   // Function to handle scrolling to a target element
@@ -62,8 +55,20 @@ document.addEventListener("DOMContentLoaded", function() {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const headerHeight = getHeaderHeight();
-        const topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
-        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+        let topPosition;
+
+        if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
+          const banner = targetElement.querySelector(targetId === 'volunteerSection' ? '.volunteer-banner' : '.contribute-banner');
+          const elementToScroll = banner || targetElement;
+          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5;
+        } else {
+          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
+        }
+
+        window.scrollTo({
+          top: topPosition,
+          behavior: 'smooth'
+        });
       }
     }, delay);
   };
@@ -80,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = href;
       } else if (targetId) {
         scrollToTarget(targetId);
+
         if (hamburger.classList.contains("active")) {
           hamburger.classList.remove("active");
           overlayBg.classList.remove("open");
@@ -92,9 +98,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Handle scrolling on page load if there's a hash
   const hash = window.location.hash.replace('#', '');
-  if (hash) scrollToTarget(hash, 100);
+  if (hash) {
+    scrollToTarget(hash, 100);
+  }
 
-  // Handle stored scroll target
+  // Handle scrolling after page load if a target was stored
   const storedTarget = sessionStorage.getItem('scrollToTarget');
   if (storedTarget) {
     scrollToTarget(storedTarget, 100);
@@ -113,4 +121,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }, { threshold: 0.1 });
 
   fadeElements.forEach(el => observer.observe(el));
+
+  // Dark Mode Toggle with Moon Button
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+  });
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
 });
