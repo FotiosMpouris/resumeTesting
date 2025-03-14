@@ -33,46 +33,44 @@ document.addEventListener("DOMContentLoaded", function() {
   // Video Playback with Sound Toggle
   const videos = document.querySelectorAll(".media-video");
   videos.forEach(video => {
-    video.muted = true;
-    video.play();
+    video.muted = true; // Start muted
+    video.play(); // Auto-play muted
+
     video.addEventListener("click", function() {
-      this.muted = !this.muted;
+      this.muted = !this.muted; // Toggle mute on click
     });
   });
 
-  // Dark Mode Toggle
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
-    });
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") document.body.classList.add("dark-mode");
-  }
-
-  // Header Height Calculation
+  // Function to calculate header height
   const getHeaderHeight = () => {
     const header = document.querySelector('header');
     const topBanner = document.querySelector('.top-banner');
-    return (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0) || 0;
+    const headerHeight = (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0);
+    return headerHeight || 0; // Fallback to 0 if elements are not found
   };
 
-  // Scroll to Target
+  // Function to handle scrolling to a target element
   const scrollToTarget = (targetId, delay = 0) => {
     setTimeout(() => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const headerHeight = getHeaderHeight();
         let topPosition;
+
+        // Special case for volunteerSection and contributeSection to align banner at the top
         if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
+          // Ensure we're targeting the banner itself
           const banner = targetElement.querySelector(targetId === 'volunteerSection' ? '.volunteer-banner' : '.contribute-banner');
-          const elementToScroll = banner || targetElement;
-          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5;
+          const elementToScroll = banner || targetElement; // Fallback to targetElement if banner not found
+          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5; // Small buffer
         } else {
-          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
+          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
         }
-        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+
+        window.scrollTo({
+          top: topPosition,
+          behavior: 'smooth'
+        });
       }
     }, delay);
   };
@@ -83,11 +81,15 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
       const href = this.getAttribute('href');
       const [page, targetId] = href.split('#');
+
       if (page && window.location.pathname !== `/${page}`) {
+        // Store the target ID in sessionStorage to handle after page load
         sessionStorage.setItem('scrollToTarget', targetId);
         window.location.href = href;
       } else if (targetId) {
         scrollToTarget(targetId);
+
+        // Close the hamburger menu if open
         if (hamburger.classList.contains("active")) {
           hamburger.classList.remove("active");
           overlayBg.classList.remove("open");
@@ -98,18 +100,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Handle Hash on Page Load
+  // Handle scrolling on page load if there's a hash in the URL
   const hash = window.location.hash.replace('#', '');
-  if (hash) scrollToTarget(hash, 100);
-
-  // Handle Stored Target
-  const storedTarget = sessionStorage.getItem('scrollToTarget');
-  if (storedTarget) {
-    scrollToTarget(storedTarget, 100);
-    sessionStorage.removeItem('scrollToTarget');
+  if (hash) {
+    scrollToTarget(hash, 100); // Small delay to ensure DOM is fully rendered
   }
 
-  // Fade-In Animation
+  // Handle scrolling after page load if a target was stored in sessionStorage
+  const storedTarget = sessionStorage.getItem('scrollToTarget');
+  if (storedTarget) {
+    scrollToTarget(storedTarget, 100); // Small delay to ensure DOM is fully rendered
+    sessionStorage.removeItem('scrollToTarget'); // Clear the stored target
+  }
+
+  // Fade-In Animation on Scroll
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -119,5 +123,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }, { threshold: 0.1 });
+
   fadeElements.forEach(el => observer.observe(el));
 });
+
+
+
