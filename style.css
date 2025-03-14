@@ -105,16 +105,25 @@ body.light-mode .logo-text { color: #1A3C34; }
 .nav-links {
   display: none;
   justify-content: center;
-  gap: 25px;
+  gap: 15px; /* Reduce from 25px to create more space */
   align-items: center;
-  flex-grow: 1; /* Take up remaining space */
-  margin: 0 20px; /* Add margin to balance with header padding */
+  flex-grow: 1;
+  white-space: nowrap; /* Prevent text wrapping */
 }
+
 .nav-links a {
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Slightly smaller font size to fit better */
   padding: 0;
   transition: color var(--transition-speed);
+  white-space: nowrap; /* Ensure no wrapping */
+}
+/* In desktop mode, ensure consistent spacing */
+@media (min-width: 769px) {
+  .nav-links { 
+    display: flex;
+    gap: 15px; /* Consistent with mobile */
+  }
 }
 .nav-links a.active { font-weight: bold; color: var(--coral); }
 .nav-links a:hover { color: var(--teal); }
