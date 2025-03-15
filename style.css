@@ -403,10 +403,58 @@ body.light-mode .link-btn:hover { background: #1A3C34; color: var(--soft-teal); 
 body.light-mode .project-item { border-color: #1A3C34; }
 .project-logo { width: 100%; max-width: 150px; }
 
-.website-logo { 
-  max-width: 100px; 
+/* Website container and elements styling */
+.website-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 15px;
+}
+
+.website-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.website-logo {
+  max-width: 100px;
   height: auto;
   margin-bottom: 15px;
+}
+
+.website-media img, 
+.website-media video {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 6px;
+  border: 1px solid #F5E8C7;
+}
+
+body.light-mode .website-media img,
+body.light-mode .website-media video {
+  border-color: #1A3C34;
+}
+
+/* Desktop styles for website sections */
+@media (min-width: 769px) {
+  .website-container {
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .website-text {
+    flex: 1;
+  }
+  
+  .website-media {
+    flex: 1;
+  }
+  
+  .website-media img, 
+  .website-media video {
+    max-width: 500px;
+  }
 }
 
 .progress-bar {
