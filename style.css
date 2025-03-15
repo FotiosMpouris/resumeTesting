@@ -780,3 +780,8 @@ body.light-mode .about-img {
 div[style*="background-color:#000"] + main .mission-section {
   margin-top: 0;
 }
+
+/* Unity projects page specific spacing */
+.unity-projects-section {
+  padding-top: 30px !important;
+}
