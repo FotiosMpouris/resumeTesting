@@ -555,6 +555,51 @@ body.light-mode .footer-links a:hover { color: var(--soft-teal); }
 footer p { font-size: 0.8rem; color: #F5E8C7; }
 body.light-mode footer p { color: #1A3C34; }
 
+/* For the about page layout specifically */
+.about-top-content { 
+  display: flex; 
+  flex-direction: column; /* Default for mobile */
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.about-img { 
+  max-width: 100%; 
+  border-radius: 6px;
+  border: 2px solid #F5E8C7; /* Matching the theme's color scheme */
+}
+
+body.light-mode .about-img {
+  border-color: #1A3C34;
+}
+
+/* Desktop layout for about page */
+@media (min-width: 769px) {
+  .about-top-content { 
+    flex-direction: row; /* Side by side on desktop */
+    align-items: flex-start;
+    gap: 30px;
+  }
+  
+  .about-img { 
+    max-width: 350px; /* Control the image size on desktop */
+    flex-shrink: 0; /* Prevent image from shrinking */
+  }
+  
+  .about-text {
+    flex: 1; /* Let the text take remaining space */
+  }
+}
+
+/* Mobile-specific size for the profile image */
+@media (max-width: 768px) {
+  .about-img {
+    max-width: 250px; /* Smaller on mobile to not take up too much space */
+    margin: 0 auto; /* Center the image on mobile */
+    display: block;
+  }
+}
+
 /* 9. Animations */
 .fade-in {
   opacity: 0;
