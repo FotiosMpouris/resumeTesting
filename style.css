@@ -646,3 +646,8 @@ body.light-mode .about-img {
     transform: translate(-50%, -50%);
   }
 }
+
+/* About page specific spacing */
+.about-section {
+  padding-top: 30px !important; /* Using !important to override the first-child rule */
+}
