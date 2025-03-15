@@ -786,18 +786,6 @@ div[style*="background-color:#000"] + main .mission-section {
   padding-top: 30px !important;
 }
 
-/* Fix spacing on Pythos page */
-.build-banner + .mission-section,
-div[style*="background-color:#000"] + main .mission-section {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-.mission-section {
-  min-height: 100px;
-  height: auto;
-}
-
 @media (max-width: 768px) {
   #dark-mode-toggle {
     position: fixed;
@@ -833,4 +821,24 @@ div[style*="background-color:#000"] + main .mission-section {
 /* Ensure negative margin doesn't cause overlap issues */
 main {
   padding-top: 0 !important;
+}
+
+/* Fix spacing in contribute section for desktop view */
+@media (min-width: 769px) {
+  .pythos-contribute-fix {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+  
+  .pythos-contribute-fix p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .pythos-contribute-fix .donation-logos {
+    margin-top: 25px;
+  }
 }
