@@ -812,16 +812,11 @@ div[style*="background-color:#000"] + main .mission-section {
   }
 }
 
-/* Custom fixes for section spacing issues - Added March 2025 */
-
-/* Direct fix for Multimedia page first section */
-.translucent-blue h2:first-of-type {
-    margin-top: 5px !important;
-    padding-top: 5px !important;
+/* Section-specific spacing fixes */
+.multimedia-section {
+  padding-top: 30px !important;
 }
 
-/* Direct fix for Websites page first section */
-.websites-section h2 {
-    margin-top: 5px !important;
-    padding-top: 5px !important;
+.website-first-section {
+  padding-top: 30px !important;
 }
