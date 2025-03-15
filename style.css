@@ -785,3 +785,15 @@ div[style*="background-color:#000"] + main .mission-section {
 .unity-projects-section {
   padding-top: 30px !important;
 }
+
+/* Fix spacing on Pythos page */
+.build-banner + .mission-section,
+div[style*="background-color:#000"] + main .mission-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.mission-section {
+  min-height: 300px;
+  height: auto;
+}
