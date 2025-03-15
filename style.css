@@ -771,4 +771,12 @@ body.light-mode .about-img {
   }
 }
 
+/* Reduce space after build banner */
+.build-banner + main .mission-section {
+  margin-top: 0;
+}
 
+/* Or if you're using the div with inline style */
+div[style*="background-color:#000"] + main .mission-section {
+  margin-top: 0;
+}
