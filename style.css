@@ -812,3 +812,18 @@ div[style*="background-color:#000"] + main .mission-section {
   }
 }
 
+/* Add these specific CSS rules to your style.css file */
+
+/* Fix for Multimedia page first section */
+body[class] .multimedia-page .translucent-blue:first-child {
+  padding-top: 15px; /* Reduced padding */
+}
+
+/* Fix for Websites page first section */
+body[class] .websites-section h2 {
+  margin-top: 0; /* Remove margin from heading */
+}
+
+body[class] .websites-section .website-container {
+  margin-top: 15px; /* Consistent spacing below heading */
+}
