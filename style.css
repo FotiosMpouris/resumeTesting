@@ -377,6 +377,14 @@ body.light-mode .cta-btn { color: #1A3C34; border-color: #1A3C34; }
 .cta-btn:hover { background: var(--sky-blue); transform: scale(1.05); }
 body.light-mode .cta-btn:hover { background: #1A3C34; color: var(--soft-teal); }
 
+/* Specific styling for website page buttons */
+.cta-btn.website-btn {
+  display: inline-block;
+  width: auto;
+  max-width: 200px;
+  text-align: center;
+}
+
 .link-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
 .link-btn {
   padding: 8px 15px;
