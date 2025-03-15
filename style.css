@@ -583,8 +583,15 @@ body.light-mode .form-field input, body.light-mode .form-field textarea { border
 .form-field.full-width { margin-top: 15px; }
 textarea { height: 100px; }
 .checkbox-container { margin: 15px 0; }
-.checkbox-label { display: flex; align-items: flex-start; margin-bottom: 10px; }
-.checkbox-label input { margin-right: 10px; }
+.checkbox-label { 
+  display: flex; 
+  align-items: center; /* Changed from flex-start to center */
+  margin-bottom: 10px; 
+}
+.checkbox-label input { 
+  margin-right: 10px;
+  margin-top: 0; /* Ensure no browser default margins affect alignment */
+}
 .contribute-banner {
   background: var(--coral);
   color: #F5E8C7;
