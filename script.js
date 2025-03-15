@@ -153,3 +153,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+
+// Add mobile dark mode toggle
+document.addEventListener("DOMContentLoaded", function() {
+  // Create mobile dark mode button
+  const mobileToggle = document.createElement('button');
+  mobileToggle.id = 'mobile-dark-mode-toggle';
+  mobileToggle.innerHTML = '☀️';
+  mobileToggle.style.position = 'fixed';
+  mobileToggle.style.bottom = '20px';
+  mobileToggle.style.right = '20px';
+  mobileToggle.style.zIndex = '1500';
+  mobileToggle.style.width = '40px';
+  mobileToggle.style.height = '40px';
+  mobileToggle.style.borderRadius = '50%';
+  mobileToggle.style.background = '#F5E8C7';
+  mobileToggle.style.color = '#2F4F4F';
+  mobileToggle.style.display = 'none';
+  mobileToggle.style.alignItems = 'center';
+  mobileToggle.style.justifyContent = 'center';
+  mobileToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+  mobileToggle.style.border = 'none';
+  document.body.appendChild(mobileToggle);
+  
+  // Show button only on mobile
+  if (window.innerWidth <= 768) {
+    mobileToggle.style.display = 'flex';
+  }
+  
+  // Add click handler
+  mobileToggle.addEventListener('click', function() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    if (isDarkMode) {
+      document.body.classList.remove('dark-mode');
+      document.body.classList.add('light-mode');
+      localStorage.setItem('darkMode', 'false');
+    } else {
+      document.body.classList.remove('light-mode');
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+    }
+  });
+});
