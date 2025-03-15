@@ -812,18 +812,16 @@ div[style*="background-color:#000"] + main .mission-section {
   }
 }
 
-/* Add these specific CSS rules to your style.css file */
+/* Custom fixes for section spacing issues - Added March 2025 */
 
-/* Fix for Multimedia page first section */
-body[class] .multimedia-page .translucent-blue:first-child {
-  padding-top: 15px; /* Reduced padding */
+/* Direct fix for Multimedia page first section */
+.translucent-blue h2:first-of-type {
+    margin-top: 5px !important;
+    padding-top: 5px !important;
 }
 
-/* Fix for Websites page first section */
-body[class] .websites-section h2 {
-  margin-top: 0; /* Remove margin from heading */
-}
-
-body[class] .websites-section .website-container {
-  margin-top: 15px; /* Consistent spacing below heading */
+/* Direct fix for Websites page first section */
+.websites-section h2 {
+    margin-top: 5px !important;
+    padding-top: 5px !important;
 }
