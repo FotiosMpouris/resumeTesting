@@ -849,3 +849,17 @@ main {
     margin-top: 25px;
   }
 }
+
+/* Fix space between "Currently Being Built" banner and mission section */
+.build-banner {
+  margin-bottom: 0 !important; /* Remove bottom margin from banner */
+}
+
+/* Target the mission section that follows the build banner */
+.build-banner + main {
+  margin-top: 0 !important; /* Remove top margin from main container */
+}
+
+.mission-section {
+  margin-top: 0 !important; /* Ensure no top margin on mission section */
+}
