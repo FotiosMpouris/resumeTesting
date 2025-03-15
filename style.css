@@ -649,5 +649,5 @@ body.light-mode .about-img {
 
 /* About page specific spacing */
 .about-section {
-  padding-top: 30px !important; /* Using !important to override the first-child rule */
+  padding-top: 60px !important; /* Using !important to override the first-child rule */
 }
