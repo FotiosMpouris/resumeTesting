@@ -863,3 +863,21 @@ main {
 .mission-section {
   margin-top: 0 !important; /* Ensure no top margin on mission section */
 }
+
+/* Fix for mission section content on mobile devices */
+@media (max-width: 768px) {
+  .mission-section .mission-content {
+    padding-bottom: 30px; /* Add extra padding at the bottom */
+  }
+
+  .mission-section a {
+    display: block; /* Make the link display as a block for better visibility */
+    margin-top: 10px; /* Add space above the link */
+    word-break: break-all; /* Allow long URLs to break */
+  }
+
+  /* Progress bar adjustment for mobile */
+  .progress-bar {
+    margin-top: 20px; /* Increase top margin on mobile */
+  }
+}
