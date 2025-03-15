@@ -794,6 +794,6 @@ div[style*="background-color:#000"] + main .mission-section {
 }
 
 .mission-section {
-  min-height: 300px;
+  min-height: 200px;
   height: auto;
 }
