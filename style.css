@@ -960,3 +960,28 @@ body.light-mode .popup-btn:hover {
   background: var(--coral);
   color: var(--dark-teal);
 }
+
+/* Popup Close Button Styles */
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--warm-beige);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+body.light-mode .popup-close-btn {
+  color: var(--dark-teal);
+}
+
+.popup-close-btn:hover {
+  color: var(--coral);
+}
+
+body.light-mode .popup-close-btn:hover {
+  color: var(--coral);
+}
