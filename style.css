@@ -985,3 +985,27 @@ body.light-mode .popup-close-btn {
 body.light-mode .popup-close-btn:hover {
   color: var(--coral);
 }
+
+/* New Application Flashing Label */
+.new-app-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--coral);
+  color: var(--warm-beige);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: flash 2s infinite ease-in-out;
+}
+
+body.light-mode .new-app-label {
+  color: var(--dark-teal);
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
