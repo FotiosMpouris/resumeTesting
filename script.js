@@ -201,50 +201,43 @@ document.addEventListener("DOMContentLoaded", function() {
 // Popup for "What's Fotios Working On Right Now?"
 // Popup for "What's Fotios Working On Right Now?"
 document.addEventListener("DOMContentLoaded", function() {
-  // Only show the popup on the homepage (index.html)
-  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    // Track whether the popup has been dismissed during this page load
-    let isPopupDismissed = false;
+  // Only show the popup on the homepage (index.html)
+  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    // Check if the popup has already been dismissed in this session
+    const popupDismissed = sessionStorage.getItem('popupDismissed');
+    if (popupDismissed) {
+      return; // Don't show the popup if it was dismissed
+    }
 
-    // Create the popup element
-    const popup = document.createElement("div");
-    popup.classList.add("fotios-popup");
-    popup.innerHTML = `
-      <div class="popup-content">
-        <button class="popup-close-btn" aria-label="Close Popup">✖</button>
-        <h3>What's Fotios Working On Right Now?</h3>
-        <a href="ai-apps.html#top" class="popup-btn">Click Here</a>
-      </div>
-    `;
-    document.body.appendChild(popup);
+    // Create the popup element
+    const popup = document.createElement("div");
+    popup.classList.add("fotios-popup");
+    popup.innerHTML = `
+      <div class="popup-content">
+        <button class="popup-close-btn" aria-label="Close Popup"> </button>
+        <h3>What's Fotios Working On Right Now?</h3>
+        <a href="ai-apps.html#top" class="popup-btn">Click Here</a>
+      </div>
+    `;
+    document.body.appendChild(popup);
 
-    // Show the popup after 10 seconds, unless dismissed
-    setTimeout(() => {
-      if (!isPopupDismissed) {
-        popup.classList.add("visible");
-      }
-    }, 10000); // 10 seconds delay
+    // Show the popup after 10 seconds
+    setTimeout(() => {
+      popup.classList.add("visible");
+    }, 10000); // 10 seconds delay
 
-    // Close the popup when the button is clicked
-    const popupBtn = popup.querySelector(".popup-btn");
-    popupBtn.addEventListener("click", () => {
-      popup.classList.remove("visible");
-      isPopupDismissed = true; // Mark as dismissed for this page load
-    });
+    // Close the popup when the button is clicked
+    const popupBtn = popup.querySelector(".popup-btn");
+    popupBtn.addEventListener("click", () => {
+      popup.classList.remove("visible");
+      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+    });
 
-    // Close the popup when the "X" button is clicked
-    const closeBtn = popup.querySelector(".popup-close-btn");
-    closeBtn.addEventListener("click", () => {
-      popup.classList.remove("visible");
-      isPopupDismissed = true; // Mark as dismissed for this page load
-    });
-
-    // Close the popup when clicking the overlay background
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) { // Only close if clicking the overlay, not the content
-        popup.classList.remove("visible");
-        isPopupDismissed = true; // Mark as dismissed for this page load
-      }
-    });
-  }
+    // Close the popup when the "X" button is clicked
+    const closeBtn = popup.querySelector(".popup-close-btn");
+    closeBtn.addEventListener("click", () => {
+      popup.classList.remove("visible");
+      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+    });
+  }
 });
