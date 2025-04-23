@@ -238,5 +238,13 @@ document.addEventListener("DOMContentLoaded", function() {
       popup.classList.remove("visible");
       isPopupDismissed = true; // Mark as dismissed for this page load
     });
+
+    // Close the popup when clicking the overlay background
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) { // Only close if clicking the overlay, not the content
+        popup.classList.remove("visible");
+        isPopupDismissed = true; // Mark as dismissed for this page load
+      }
+    });
   }
 });
