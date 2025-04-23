@@ -203,11 +203,8 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
   // Only show the popup on the homepage (index.html)
   if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    // Check if the popup has already been dismissed in this session
-    const popupDismissed = sessionStorage.getItem('popupDismissed');
-    if (popupDismissed) {
-      return; // Don't show the popup if it was dismissed
-    }
+    // Track whether the popup has been dismissed during this page load
+    let isPopupDismissed = false;
 
     // Create the popup element
     const popup = document.createElement("div");
@@ -221,23 +218,25 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     document.body.appendChild(popup);
 
-    // Show the popup after 10 seconds
+    // Show the popup after 10 seconds, unless dismissed
     setTimeout(() => {
-      popup.classList.add("visible");
+      if (!isPopupDismissed) {
+        popup.classList.add("visible");
+      }
     }, 10000); // 10 seconds delay
 
     // Close the popup when the button is clicked
     const popupBtn = popup.querySelector(".popup-btn");
     popupBtn.addEventListener("click", () => {
       popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+      isPopupDismissed = true; // Mark as dismissed for this page load
     });
 
     // Close the popup when the "X" button is clicked
     const closeBtn = popup.querySelector(".popup-close-btn");
     closeBtn.addEventListener("click", () => {
       popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+      isPopupDismissed = true; // Mark as dismissed for this page load
     });
   }
 });
