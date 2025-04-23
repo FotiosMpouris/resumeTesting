@@ -196,3 +196,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+
+// Popup for "What's Fotios Working On Right Now?"
+document.addEventListener("DOMContentLoaded", function() {
+  // Only show the popup on the homepage (index.html)
+  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    // Create the popup element
+    const popup = document.createElement("div");
+    popup.classList.add("fotios-popup");
+    popup.innerHTML = `
+      <div class="popup-content">
+        <h3>What's Fotios Working On Right Now?</h3>
+        <a href="ai-apps.html#top" class="popup-btn">Click Here</a>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    // Show the popup after 10 seconds
+    setTimeout(() => {
+      popup.classList.add("visible");
+    }, 10000); // 10 seconds delay
+
+    // Close the popup when the button is clicked
+    const popupBtn = popup.querySelector(".popup-btn");
+    popupBtn.addEventListener("click", () => {
+      popup.classList.remove("visible");
+    });
+  }
+});
