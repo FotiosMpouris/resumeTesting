@@ -26,16 +26,23 @@ body.light-mode {
 }
 
 :root {
+  /* --- NEW COLOR PALETTE --- */
+  /* Dark "Cyber" Mode Palette */
+  --cyber-bg: #0A0A0E;          /* Near-black for main background */
+  --cyber-header-bg: #101117;   /* Slightly lighter black for header */
+  --cyber-text: #00BFFF;         /* Deep Sky Blue for body text */
+  --cyber-glow-text: #00FFFF;   /* Cyan for links and glowing elements */
+  --cyber-accent-red: #E5001A;   /* Vibrant red for buttons, banners, highlights */
+
+  /* Light "Spartan" Mode Palette */
+  --spartan-bg: #7D7F68;         /* Muted olive/khaki for main background */
+  --spartan-section-bg: #EAEEDA; /* Light off-white for sections/overlays */
+  --spartan-text: #2E382E;       /* Very dark green for body text */
+  --spartan-accent-dark: #4A5443;/* Dark green for buttons, headers, accents */
+  --spartan-border: #2E382E;     /* Dark green for borders */
+
+  /* General Variables */
   --black: #000000;
-  --coral: #FF5733; /* Vibrant coral from screenshots */
-  --teal: #4ECDC4;
-  --sky-blue: #45B7D1;
-  --off-white: #F7EDE2;
-  --light-gray: #ddd;
-  --dark-teal: #1A3C34; /* Deep teal */
-  --soft-teal: #66BFBF;
-  --dark-slate: #2F4F4F; /* Dark slate gray */
-  --warm-beige: #F5E8C7; /* Warm beige */
   --transition-speed: 0.3s;
 }
 
