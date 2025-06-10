@@ -13,46 +13,51 @@
 html, body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background: #2F4F4F; /* Dark slate gray from screenshots */
-  color: #F5E8C7; /* Warm beige */
+  background: var(--dm-bg); 
+  color: var(--dm-text);
   overflow-x: hidden;
   scroll-behavior: smooth;
   transition: background 0.3s, color 0.3s;
 }
 
 body.light-mode {
-  background: #F5E8C7; /* Warm beige for light mode */
-  color: #1A3C34; /* Deep teal */
+  background: var(--lm-bg);
+  color: var(--lm-text);
 }
 
 :root {
+  /* New Color Palette */
+  /* Dark Mode (Cyberpunk City) */
+  --dm-bg: #0A0F1E;             /* Deep, dark blue */
+  --dm-text: #EAEAEA;            /* Light grey/off-white */
+  --dm-accent-primary: #FF003C;  /* Glowing Red */
+  --dm-accent-secondary: #00F6FF;/* Glowing Cyan */
+
+  /* Light Mode (Master Chief) */
+  --lm-bg: #6B7468;             /* Muted Olive Green */
+  --lm-text: #1E2D24;            /* Dark Green/Charcoal */
+  --lm-accent-primary: #FFB800;  /* Visor Gold/Orange */
+  --lm-accent-secondary: #F0EAD6;/* Off-white */
+  
+  --transition-speed: 0.3s;
+  
+  /* Deprecated Colors - To be fully replaced */
   --black: #000000;
-  --coral: #FF5733; /* Vibrant coral from screenshots */
+  --coral: #FF5733;
   --teal: #4ECDC4;
   --sky-blue: #45B7D1;
   --off-white: #F7EDE2;
   --light-gray: #ddd;
-  --dark-teal: #1A3C34; /* Deep teal */
-  --soft-teal: #66BFBF;
-  --dark-slate: #2F4F4F; /* Dark slate gray */
-  --warm-beige: #F5E8C7; /* Warm beige */
-  --transition-speed: 0.3s;
 }
 
-a { color: var(--sky-blue); text-decoration: none; transition: color var(--transition-speed); }
-a:hover { color: var(--coral); }
-body.light-mode a { color: var(--soft-teal); }
-body.light-mode a:hover { color: var(--coral); }
+a { color: var(--dm-accent-secondary); text-decoration: none; transition: color var(--transition-speed); }
+a:hover { color: var(--dm-accent-primary); }
+body.light-mode a { color: var(--lm-text); }
+body.light-mode a:hover { color: var(--lm-accent-primary); }
 
 /* 2. Typography */
-h1, h2, h3 { font-weight: bold; margin-bottom: 1rem; color: #F5E8C7; }
-body.light-mode h1, body.light-mode h2, body.light-mode h3 { color: #1A3C34; }
-h1 { font-size: 1.5rem; }
-h2 { font-size: 1.25rem; }
-h3 { font-size: 1.1rem; }
-p { margin-bottom: 1rem; }
-ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
-
+h1, h2, h3 { font-weight: bold; margin-bottom: 1rem; color: var(--dm-text); }
+body.light-mode h1, body.light-mode h2, body.light-mode h3 { color: var(--lm-text); }
 /* 3. Layout Components */
 .top-banner {
   position: fixed;
