@@ -48,24 +48,42 @@
   <!-- ... -->
 
   <main>
-  <section class="translucent-blue ai-apps-section aiapps-section fade-in" id="top">
+ <!-- REPLACE THE FIRST PROJECT SECTION WITH THIS -->
+<section class="ai-apps-section aiapps-section fade-in" id="top">
   <h2>AI-Powered Applications</h2>
-  <div class="project-item">
-    <span class="new-app-label">New Application</span>
-    <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
-    <div class="project-details">
-      <h3>Hard-E: Agentic Framework Cloning Sales Director Knowledge | Python/Streamlit</h3>
-      <p>In the rapidly evolving landscape of artificial intelligence, a new player has emerged that’s poised to redefine how industries leverage technology for operational excellence. Meet Hard-E, a groundbreaking AI application developed by Fotios Mpouris, a technical artist and innovator whose work is making waves in the construction sector. Designed to emulate the expertise of a seasoned sales director, Hard-E isn’t just another AI tool—it’s a visionary leap into the future of sales automation, harnessing cutting-edge agent technology to deliver unparalleled efficiency and insight in multiple languages, including Greek, through advanced Speech-to-Text and Text-to-Speech capabilities.</p>
-      <ul>
-        <li>Powered by the OpenAI Agents SDK, orchestrating multiple AI agents to handle tasks like data retrieval, job analysis, and script generation in real time</li>
-        <li>Supports multilingual interactions, accepting STT and producing TTS in languages like Greek of course, for broader accessibility</li>
-        <li>Features natural, engaging dialogue with xAI’s Grok 3 Mini Beta through a voice-interactive Streamlit interface</li>
-        <li>Delivers real-time industry insights using the Perplexity API, ensuring informed sales strategies</li>
-      </ul>
-      <a href="https://harde.app" target="_blank" class="cta-btn website-btn">Visit Website</a>
+
+  <!-- The project-item is now a clickable link -->
+  <a href="https://harde.app" target="_blank" class="project-card-link">
+    <div class="project-item project-card">
+      <!-- Video background for this specific project -->
+      <video loop muted playsinline class="project-video-bg">
+        <source src="images/aiapps.mp4" type="video/mp4"> <!-- Use Hard-E specific video here if you have one -->
+      </video>
+      <div class="project-overlay"></div> <!-- Overlay for text readability -->
+
+      <!-- All content is now in a container to sit on top of the video -->
+      <div class="project-content">
+        <span class="new-app-label">
+          <span class="label-default">New Application</span>
+          <span class="label-hover">Visit Project →</span>
+        </span>
+        <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
+        <div class="project-details">
+          <h3>Hard-E: Agentic Framework Cloning Sales Director Knowledge</h3>
+          <p>A groundbreaking AI application designed to emulate the expertise of a seasoned sales director, harnessing cutting-edge agent technology to deliver unparalleled efficiency and insight in multiple languages...</p>
+          <!-- I've shortened the text for clarity, you can keep the full version -->
+          <ul>
+            <li>Powered by the OpenAI Agents SDK</li>
+            <li>Multilingual STT & TTS support</li>
+            <li>Natural dialogue with xAI’s Grok 3 Mini Beta</li>
+            <li>Real-time insights via Perplexity API</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
+<!-- You can apply the same .project-card structure to your other apps -->
 
     
     <section class="translucent-coral fade-in">
