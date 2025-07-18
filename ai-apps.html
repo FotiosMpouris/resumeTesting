@@ -86,64 +86,92 @@
 <!-- You can apply the same .project-card structure to your other apps -->
 
     
-    <section class="translucent-coral fade-in">
-  <div class="project-item">
-    <img src="images/oriana-logo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-    <div class="project-details">
-      <h3>Oriana: Article Summarizer & Reader | Python/Streamlit</h3>
-      <ul>
-        <li>Built an AI-powered app to summarize articles and read them aloud using ElevenLabs TTS, with OpenAI TTS as a fallback</li>
-        <li>Supports URL fetching, text pasting, and multi-language summaries with automatic text chunking for long articles</li>
-        <li>Offers customizable audio playback and MP3 downloads for offline listening</li>
-      </ul>
-      <p><a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank" class="link-btn">View Repository</a></p>
-    </div>
-  </div>
+   <!-- =================================================================== -->
+<!-- START: NEW PROJECT GRID - REPLACE YOUR OLD SECTIONS WITH THIS BLOCK -->
+<!-- =================================================================== -->
+
+<section class="project-grid-container fade-in">
+  <h2>Additional Projects</h2>
+  <div class="project-grid">
+
+    <!-- Card 1: Oriana Summarizer -->
+    <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank" class="project-card-link">
+      <div class="project-item project-card">
+        <video loop muted playsinline class="project-video-bg">
+          <source src="images/video1.mp4" type="video/mp4"> <!-- Placeholder Video 1 -->
+        </video>
+        <div class="project-overlay"></div>
+        <div class="project-content">
+          <img src="images/oriana-logo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
+          <div class="project-details">
+            <h3>Oriana: Article Summarizer & Reader</h3>
+            <ul>
+              <li>AI-powered summarization with ElevenLabs TTS</li>
+              <li>Supports URLs, text pasting, and multi-language</li>
+              <li>Offers MP3 downloads for offline listening</li>
+            </ul>
+            <div class="link-buttons-footer">View on GitHub →</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2: Resume Tailor -->
+    <a href="https://ai-resume-tailor2.streamlit.app/" target="_blank" class="project-card-link">
+      <div class="project-item project-card">
+        <video loop muted playsinline class="project-video-bg">
+          <source src="images/video2.mp4" type="video/mp4"> <!-- Placeholder Video 2 -->
+        </video>
+        <div class="project-overlay"></div>
+        <div class="project-content">
+          <img src="images/resume-tailor.png" alt="Resume Tailor Logo" class="project-logo" loading="lazy" />
+          <div class="project-details">
+            <h3>Resume Tailor</h3>
+            <ul>
+              <li>Version 1: Resume analysis and PDF output</li>
+              <li>Version 2: Enhanced AI customization and UI</li>
+            </ul>
+            <div class="link-buttons-footer">Launch V2 App →</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3: Oriana Investigative Assistant -->
+    <a href="https://oriana.streamlit.app/" target="_blank" class="project-card-link">
+      <div class="project-item project-card">
+        <video loop muted playsinline class="project-video-bg">
+          <source src="images/video1.mp4" type="video/mp4"> <!-- You can reuse or use a new video -->
+        </video>
+        <div class="project-overlay"></div>
+        <div class="project-content">
+          <img src="images/oriana.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
+          <div class="project-details">
+            <h3>Oriana: AI Investigative Assistant</h3>
+            <ul>
+              <li>Sophisticated AI journalism tool</li>
+              <li>Advanced source management system</li>
+              <li>Automated transcript generation</li>
+            </ul>
+            <div class="link-buttons-footer">Launch App →</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div> <!-- End .project-grid -->
 </section>
-    
-    <section class="translucent-teal fade-in">
-      <div class="project-item">
-        <img src="images/resume-tailor.png" alt="Resume Tailor Logo" class="project-logo" loading="lazy" />
-        <div class="project-details">
-          <h3>Resume Tailor | Python/Streamlit</h3>
-          <ul>
-            <li>Version 1: Resume analysis, summary generation, PDF output</li>
-            <li>Version 2: Enhanced AI customization, user-friendly interface</li>
-          </ul>
-          <div class="link-buttons">
-            <a href="https://github.com/FotiosMpouris/ReggieResume2" target="_blank" class="link-btn">V1 Repo</a>
-            <a href="https://reggieresume2-6dr9c9mscx7jcajhrbz7yd.streamlit.app/" target="_blank" class="link-btn">V1 App</a>
-            <a href="https://github.com/FotiosMpouris/Ai-Resume-Tailor2" target="_blank" class="link-btn">V2 Repo</a>
-            <a href="https://ai-resume-tailor2.streamlit.app/" target="_blank" class="link-btn">V2 App</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="translucent-coral fade-in">
-      <div class="project-item">
-        <img src="images/oriana.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-        <div class="project-details">
-          <h3>Oriana: AI Investigative Assistant</h3>
-          <ul>
-            <li>Developed sophisticated AI journalism tool using multiple AI APIs</li>
-            <li>Implemented advanced source management system</li>
-            <li>Created automated transcript generation pipeline</li>
-            <li>Engineered comprehensive error handling system</li>
-          </ul>
-          <div class="link-buttons">
-            <a href="https://github.com/FotiosMpouris/Oriana/tree/main" target="_blank" class="link-btn">View Repository</a>
-            <a href="https://oriana.streamlit.app/" target="_blank" class="link-btn">Launch App</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Final Call to Action Section -->
+<section class="translucent-teal fade-in final-cta-section">
+  <h2>Let's Build Together</h2>
+  <p>Interested in AI solutions? Let's collaborate—contact me to discuss your project!</p>
+  <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">Get in Touch</a>
+</section>
 
-    <section class="translucent-teal fade-in">
-      <h2>Let's Build Together</h2>
-      <p>Interested in AI solutions? Let's collaborate—contact me to discuss your project!</p>
-      <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">Get in Touch</a>
-    </section>
+<!-- =================================================================== -->
+<!-- END: NEW PROJECT GRID -->
+<!-- =================================================================== -->
   </main>
 
   <footer>
