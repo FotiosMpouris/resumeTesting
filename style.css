@@ -804,3 +804,117 @@ body.light-mode .project-card:hover .link-buttons-footer {
   padding: 40px 20px;
 }
 
+/* ==========================================================================
+   FINAL AI-APPS PAGE STYLES (Video, Layout, and Mobile Fixes)
+   ========================================================================== */
+
+/* --- 1. Globe Video & Stacking Fix --- */
+.main-content-wrapper {
+  position: relative; /* Creates the stacking context */
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.globe-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Sits at the bottom of the wrapper */
+  opacity: 0.3;
+}
+
+.content-on-top {
+  position: relative; /* Ensures this content sits above the video */
+  z-index: 1;         /* Stacks it on top of the z-index: 0 video */
+}
+
+body.light-mode .globe-video-bg {
+  opacity: 0.2;
+}
+
+/* --- 2. Equal Height Project Cards Fix --- */
+.project-card {
+  height: 100%; /* Makes the card fill its link container */
+  display: flex; /* Activates Flexbox for internal layout */
+  flex-direction: column; /* Stacks content vertically */
+  background-color: transparent; /* Makes card see-through */
+}
+
+.project-card .project-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows this container to grow and fill space */
+}
+
+.project-card .project-details {
+  flex-grow: 1; /* This is the key: makes the details section grow */
+}                 /* This pushes the "View on GitHub" text to the bottom */
+
+/* --- 3. Enhanced Headlines --- */
+.ai-apps-section h2, .project-grid-container h2 {
+  font-size: 2rem;
+  text-shadow: 0 0 10px var(--seventies-d-highlight);
+  border-bottom: 2px solid var(--seventies-d-accent1);
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+body.light-mode .ai-apps-section h2, 
+body.light-mode .project-grid-container h2 {
+  text-shadow: none;
+}
+
+/* --- 4. Mobile-Safe Hover Effects --- */
+/* These styles apply ONLY to devices that can truly hover (like desktops) */
+@media (hover: hover) {
+  .project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--seventies-d-accent1);
+  }
+
+  .project-card:hover .project-video-bg {
+    opacity: 1;
+  }
+  
+  .project-card:hover .project-overlay {
+    background: rgba(0, 18, 25, 0.65);
+  }
+
+  body.light-mode .project-card:hover .project-overlay {
+    background: rgba(253, 248, 235, 0.7);
+  }
+  
+  .project-card:hover .project-logo {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--seventies-d-accent1);
+    border-radius: 50%;
+  }
+
+  body.light-mode .project-card:hover .project-logo {
+    box-shadow: 0 0 20px var(--seventies-l-accent1);
+  }
+
+  .project-card:hover .link-buttons-footer {
+    color: var(--seventies-d-text);
+  }
+
+  body.light-mode .project-card:hover .link-buttons-footer {
+    color: var(--seventies-l-text);
+  }
+}
+
+/* --- 5. Base Card Styles (No Hover) --- */
+/* This is what mobile and desktop users see by default */
+.project-overlay {
+  background: rgba(0, 95, 115, 0.4); 
+  transition: background-color 0.4s ease;
+}
+
+body.light-mode .project-overlay {
+  background: rgba(253, 248, 235, 0.9);
+}
