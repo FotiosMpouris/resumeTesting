@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="popup-content">
         <button class="popup-close-btn" aria-label="Close Popup"> </button>
         <h3>What's Fotios Working On Right Now?</h3>
-        <a href="ai-apps.html#top" class="popup-btn">Click Here</a>
+        <a href="ai-apps.html#hero-video" class="popup-btn">Click Here</a>
       </div>
     `;
     document.body.appendChild(popup);
