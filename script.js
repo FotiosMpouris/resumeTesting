@@ -241,3 +241,51 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+
+// ===============================================
+// NEW - AI Apps Page Interactive Elements
+// ===============================================
+document.addEventListener("DOMContentLoaded", function() {
+
+  // --- Interactive Project Cards Video Playback ---
+  const projectCards = document.querySelectorAll(".project-card");
+
+  projectCards.forEach(card => {
+    const video = card.querySelector(".project-video-bg");
+    if (video) {
+      card.addEventListener("mouseenter", () => {
+        // The .play() method returns a Promise. We should handle it.
+        video.play().catch(error => {
+          // This catch block prevents console errors on browsers that
+          // block autoplay, even though it's muted.
+          console.log("Video autoplay prevented: ", error);
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0; // Optional: Reset video to the start
+      });
+    }
+  });
+
+
+  // --- Typewriter Effect for Hero Section ---
+  const typewriterElement = document.getElementById('hero-typewriter');
+  if (typewriterElement) {
+    const text = typewriterElement.innerHTML;
+    typewriterElement.innerHTML = '';
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        typewriterElement.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80); // Adjust typing speed here (in ms)
+      }
+    }
+    // Start typing after a short delay
+    setTimeout(typeWriter, 500);
+  }
+
+});
