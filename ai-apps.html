@@ -61,36 +61,33 @@
 <section class="ai-apps-section aiapps-section fade-in" id="top">
   <h2>AI-Powered Applications</h2>
 
-  <!-- The project-item is now a clickable link -->
-  <a href="https://harde.app" target="_blank" class="project-card-link">
-    <div class="project-item project-card">
-      <!-- Video background for this specific project -->
-      <video loop muted playsinline class="project-video-bg">
-        <source src="images/aiapps.mp4" type="video/mp4"> <!-- Use Hard-E specific video here if you have one -->
-      </video>
-      <div class="project-overlay"></div> <!-- Overlay for text readability -->
+  <div class="project-card-link"> <!-- No href, just a container -->
+  <div class="project-item project-card">
+    <!-- No video background needed -->
+    <div class="project-overlay"></div>
 
-      <!-- All content is now in a container to sit on top of the video -->
-      <div class="project-content">
-        <span class="new-app-label">
-          <span class="label-default">New Application</span>
-          <span class="label-hover">Visit Project →</span>
-        </span>
-        <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
-        <div class="project-details">
-          <h3>Hard-E: Agentic Framework Cloning Sales Director Knowledge</h3>
-          <p>A groundbreaking AI application designed to emulate the expertise of a seasoned sales director, harnessing cutting-edge agent technology to deliver unparalleled efficiency and insight in multiple languages...</p>
-          <!-- I've shortened the text for clarity, you can keep the full version -->
-          <ul>
-            <li>Powered by the OpenAI Agents SDK</li>
-            <li>Multilingual STT & TTS support</li>
-            <li>Natural dialogue with xAI’s Grok 3 Mini Beta</li>
-            <li>Real-time insights via Perplexity API</li>
-          </ul>
-        </div>
+    <div class="project-content">
+      <span class="new-app-label">
+        <span class="label-default">New Application</span>
+        <span class="label-hover">Featured Project</span>
+      </span>
+      <img src="images/fotifotilogo.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
+      <div class="project-details">
+        <h3>FotiFoti Art Agent: Multi-Platform Content Automation System</h3>
+        <p>An autonomous AWS-powered agent that eliminates manual social media management. This production-grade system orchestrates artwork promotion across Instagram, Facebook, and web platforms—selecting content, generating AI captions with custom brand voice, and publishing on schedule without human intervention.</p>
+        <ul>
+          <li><strong>Serverless AWS architecture:</strong> EventBridge scheduling, Lambda execution, S3 storage, DynamoDB state management, Secrets Manager security</li>
+          <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o creates unique captions using "Artemis" persona—avoiding generic marketing copy through enforced creativity rules</li>
+          <li><strong>Cross-platform automation:</strong> Instagram Graph API (container creation + polling), Facebook Page API, GitHub repository updates</li>
+          <li><strong>Zero-touch artwork sync:</strong> Automatically discovers new files in S3, prevents duplicate posts via DynamoDB tracking</li>
+          <li><strong>Production-ready infrastructure:</strong> Retry logic, CloudWatch logging, secure token management, 60-second execution window</li>
+          <li><strong>Business impact:</strong> Posts every 3 days indefinitely—60+ posts/year with consistent brand voice, freeing creators to focus on production</li>
+        </ul>
+        <p class="tech-stack"><strong>Tech Stack:</strong> Python 3.12 • AWS Lambda • EventBridge • S3 • DynamoDB • Secrets Manager • OpenAI API • Meta Graph API • GitHub API</p>
       </div>
     </div>
-  </a>
+  </div>
+</div>
 </section>
 <!-- You can apply the same .project-card structure to your other apps -->
 
@@ -102,7 +99,28 @@
 <section class="project-grid-container fade-in">
   <h2>Additional Projects</h2>
   <div class="project-grid">
-
+<!-- Card: Hard-E (moved from top) -->
+<a href="https://harde.app" target="_blank" class="project-card-link">
+  <div class="project-item project-card">
+    <video loop muted playsinline class="project-video-bg">
+      <source src="images/aiapps.mp4" type="video/mp4">
+    </video>
+    <div class="project-overlay"></div>
+    <div class="project-content">
+      <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
+      <div class="project-details">
+        <h3>Hard-E: Agentic Framework Cloning Sales Director Knowledge</h3>
+        <ul>
+          <li>Powered by the OpenAI Agents SDK</li>
+          <li>Multilingual STT & TTS support</li>
+          <li>Natural dialogue with xAI's Grok 3 Mini Beta</li>
+          <li>Real-time insights via Perplexity API</li>
+        </ul>
+        <div class="link-buttons-footer">Visit Project →</div>
+      </div>
+    </div>
+  </div>
+</a>
     <!-- Card 1: Oriana Summarizer -->
     <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank" class="project-card-link">
       <div class="project-item project-card">
