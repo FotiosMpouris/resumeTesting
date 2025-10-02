@@ -61,9 +61,8 @@
 <section class="ai-apps-section aiapps-section fade-in" id="top">
   <h2>AI-Powered Applications</h2>
 
-  <div class="project-card-link"> <!-- No href, just a container -->
+  <div class="project-card-link">
   <div class="project-item project-card">
-    <!-- No video background needed -->
     <div class="project-overlay"></div>
 
     <div class="project-content">
@@ -71,19 +70,32 @@
         <span class="label-default">New Application</span>
         <span class="label-hover">Featured Project</span>
       </span>
-      <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
+      <img src="images/fotifoti1logo.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
       <div class="project-details">
         <h3>FotiFoti Art Agent: Multi-Platform Content Automation System</h3>
         <p>An autonomous AWS-powered agent that eliminates manual social media management. This production-grade system orchestrates artwork promotion across Instagram, Facebook, and web platforms—selecting content, generating AI captions with custom brand voice, and publishing on schedule without human intervention.</p>
         <ul>
           <li><strong>Serverless AWS architecture:</strong> EventBridge scheduling, Lambda execution, S3 storage, DynamoDB state management, Secrets Manager security</li>
-          <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o customizable prompt avoids generic marketing copy through enforced creativity rules</li>
+          <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o creates unique captions with role prompts through enforced creativity rules</li>
           <li><strong>Cross-platform automation:</strong> Instagram Graph API (container creation + polling), Facebook Page API, GitHub repository updates</li>
           <li><strong>Zero-touch artwork sync:</strong> Automatically discovers new files in S3, prevents duplicate posts via DynamoDB tracking</li>
           <li><strong>Production-ready infrastructure:</strong> Retry logic, CloudWatch logging, secure token management, 60-second execution window</li>
           <li><strong>Business impact:</strong> Currently posts every 3 days indefinitely—60+ posts/year with consistent brand voice, freeing creators to focus on production</li>
         </ul>
         <p class="tech-stack"><strong>Tech Stack:</strong> Python 3.12 • AWS Lambda • EventBridge • S3 • DynamoDB • Secrets Manager • OpenAI API • Meta Graph API • GitHub API</p>
+        
+        <!-- Social proof links -->
+        <div class="link-buttons-footer" style="display: flex; gap: 15px; margin-top: 15px;">
+          <a href="https://www.instagram.com/fotifoti.art/" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
+            View Instagram Posts →
+          </a>
+          <a href="https://www.facebook.com/fotifoti.art" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
+            View Facebook Page →
+          </a>
+          <a href="https://colorfotifoti.com" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
+            View Website Gallery →
+          </a>
+        </div>
       </div>
     </div>
   </div>
