@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard-E: Technical Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #764ba2;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin: 20px 0 20px 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box strong {
+            color: #4CAF50;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hard-E: Technical Architecture</h1>
+            <p class="subtitle">A Deep Dive into Multi-Agent Systems Engineering</p>
+        </header>
+
+        <div class="content">
+            <a href="index.html" class="back-link">← Back to Overview</a>
+
+            <p>
+                Hard-E is a production-deployed AI application that clones the knowledge and capabilities of a Sales Director for a contracting company. This document outlines the technical decisions, architectural trade-offs, and engineering challenges involved in building a real-world agentic system.
+            </p>
+
+            <h2>The Core Problem</h2>
+            <p>
+                Sales teams need instant access to company knowledge, CRM data, and the ability to generate personalized content—but they need it to feel conversational and natural, not robotic. The challenge wasn't just connecting APIs; it was building a system that could handle complex, multi-turn conversations while managing state across specialized tasks like script generation and customer creation.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Key Insight:</strong> A single monolithic chatbot couldn't handle this complexity. The solution required a multi-agent architecture where specialized AI agents handle specific domains, coordinated by an intelligent routing system.
+            </div>
+
+            <h2>Architecture Overview: Hybrid Orchestration</h2>
+            <p>
+                The application uses a dual-flow architecture that routes requests based on complexity:
+            </p>
+
+            <h3>1. Manual Streaming Flow (Simple Queries)</h3>
+            <ul>
+                <li><strong>Use case:</strong> Knowledge base lookups, CRM queries, web searches</li>
+                <li><strong>Implementation:</strong> Direct OpenAI Chat Completions API calls with <code>stream=True</code></li>
+                <li><strong>Why:</strong> Provides real-time, word-by-word text streaming for immediate user feedback</li>
+                <li><strong>Trade-off:</strong> Sacrifices the SDK's built-in state management for perceived responsiveness</li>
+            </ul>
+
+            <h3>2. SDK-Based Flow (Complex Workflows)</h3>
+            <ul>
+                <li><strong>Use case:</strong> Multi-turn script generation, customer creation with validation</li>
+                <li><strong>Implementation:</strong> OpenAI Agents SDK (v0.0.17) with custom state management via dataclasses</li>
+                <li><strong>Why:</strong> Enables robust, stateful conversations that collect and validate information across multiple turns</li>
+                <li><strong>Trade-off:</strong> Slightly less responsive text display, but maintains conversation context perfectly</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>The Routing Decision:</strong> A keyword-based classifier in <code>main()</code> analyzes user input and session state to determine which flow handles the request. Keywords like "create script" or "add customer" trigger the SDK flow; everything else uses manual streaming.
+            </div>
+
+            <h2>State Management Strategy</h2>
+            <p>
+                One of the hardest problems was maintaining conversation state across multiple turns. The OpenAI Agents SDK isn't stateful by default—each <code>Runner.run()</code> call is independent.
+            </p>
+
+            <h3>The Solution: Context-Aware Dataclasses</h3>
+            <p>
+                Created custom state containers (<code>ScriptDraftState</code>, <code>NewClientState</code>) stored in Streamlit's session state and passed to the SDK via the <code>context</code> parameter:
+            </p>
+
+            <ul>
+                <li><strong>ScriptDraftState:</strong> Tracks client name, project type, focus material, job ID across script generation conversation</li>
+                <li><strong>NewClientState:</strong> Manages customer field collection with validation, speech artifact handling, and "skip" functionality</li>
+                <li><strong>Access pattern:</strong> Tools receive state via <code>ctx.context</code> and can read/modify it directly</li>
+            </ul>
+
+            <p>
+                This approach enabled multi-turn conversations where the agent remembers what it's already collected and asks for only missing information.
+            </p>
+
+            <h2>Multi-Agent System Design</h2>
+            <p>
+                Hard-E uses seven specialized agents, each with focused responsibilities:
+            </p>
+
+            <ol>
+                <li><strong>TriageAgent:</strong> Routes queries to the appropriate specialist (no direct answers)</li>
+                <li><strong>LeapInteractionAgent:</strong> Handles all CRM operations (fetch jobs, add notes, update stages)</li>
+                <li><strong>KnowledgeAgent:</strong> Queries multiple S3 knowledge bases (training docs, project-specific files)</li>
+                <li><strong>AnalysisAgent:</strong> Analyzes patterns across 90+ distilled transcript JSONs</li>
+                <li><strong>WebSearchAgent_SDK:</strong> Performs external research via Perplexity API</li>
+                <li><strong>ScriptingAgent:</strong> Manages stateful script generation (standard and primer videos)</li>
+                <li><strong>NewClientsAgent:</strong> Handles customer creation with LLM-powered field extraction</li>
+            </ol>
+
+            <h3>Why This Matters</h3>
+            <p>
+                Each agent has a narrow scope, making them easier to debug, update, and reason about. When script generation broke, I only had to look at <code>ScriptingAgent</code> logic—not the entire system.
+            </p>
+
+            <h2>Technical Challenges & Solutions</h2>
+
+            <h3>Challenge 1: Natural Language Entity Extraction</h3>
+            <p>
+                <strong>Problem:</strong> Voice input produced speech artifacts like "emily at demo dot com" instead of "emily@demo.com"
+            </p>
+            <p>
+                <strong>Solution:</strong> Built an LLM-powered extraction pipeline using GPT-4.1-mini with function calling:
+            </p>
+            <ul>
+                <li>Advanced regex for spaced ("at") and fused ("emilyatdemo") email patterns</li>
+                <li>Synonym mapping (user says "street" → system maps to "address")</li>
+                <li>State code validation (MA → Massachusetts ID 21, not Missouri ID 25)</li>
+                <li>Achieved 95%+ success rate for single-pass voice customer creation</li>
+            </ul>
+
+            <h3>Challenge 2: Package Version Compatibility</h3>
+            <p>
+                <strong>Problem:</strong> Building a streaming version required different package versions than production, leading to import errors
+            </p>
+            <p>
+                <strong>Solution:</strong> Implemented complete environment isolation:
+            </p>
+            <ul>
+                <li>Separate project directories (<code>hard-e-production/</code>, <code>hard-e-streaming/</code>)</li>
+                <li>Independent virtual environments with version-specific requirements</li>
+                <li>Production: <code>openai-agents==0.0.4</code> | Streaming: <code>openai-agents>=0.0.17,<0.1</code></li>
+                <li>Dual systemd services managing lifecycle independently</li>
+            </ul>
+
+            <h3>Challenge 3: Virtual Environment Path Hardcoding</h3>
+            <p>
+                <strong>Problem:</strong> Moving directories broke virtual environments—executables had hardcoded shebangs pointing to old paths
+            </p>
+            <p>
+                <strong>Solution:</strong> Used <code>python3.9 -m venv --upgrade .venv</code> to rewrite all executable paths in place, preserving installed packages
+            </p>
+
+            <h2>Production Infrastructure</h2>
+            <p>
+                Hard-E runs on AWS EC2 (t3.small) with a robust deployment setup:
+            </p>
+
+            <h3>Dual-Domain Architecture</h3>
+            <ul>
+                <li><strong>Production:</strong> <code>agent.harde.app</code> (port 8501)</li>
+                <li><strong>Streaming:</strong> <code>streaming.harde.app</code> (port 8504)</li>
+                <li><strong>SSL:</strong> Single Let's Encrypt certificate covering both domains</li>
+            </ul>
+
+            <h3>Infrastructure Components</h3>
+            <ul>
+                <li><strong>Nginx:</strong> Reverse proxy with dual server blocks, WebSocket support for Streamlit</li>
+                <li><strong>Systemd:</strong> Independent services (<code>harde-streamlit</code>, <code>harde-streaming</code>) with auto-restart</li>
+                <li><strong>Security:</strong> HTTP Basic Auth, HTTPS enforcement, restricted API key storage</li>
+                <li><strong>Process Management:</strong> Each version runs persistently, isolated from terminal sessions</li>
+            </ul>
+
+            <h3>Why This Setup Works</h3>
+            <p>
+                The dual-environment approach allows safe development and testing of the streaming version without touching production. If streaming crashes, production stays online. Both versions can be updated, restarted, and monitored independently.
+            </p>
+
+            <h2>API Integration Complexity</h2>
+            <p>
+                Hard-E orchestrates six external APIs simultaneously:
+            </p>
+
+            <div class="tech-stack">
+                <span class="tech-badge">OpenAI (GPT-4.1, Whisper, TTS)</span>
+                <span class="tech-badge">xAI Grok (Response Refinement)</span>
+                <span class="tech-badge">Perplexity (Web Search)</span>
+                <span class="tech-badge">Leap CRM (Customer/Job Data)</span>
+                <span class="tech-badge">AWS S3 (Knowledge Bases)</span>
+                <span class="tech-badge">ElevenLabs (Voice Synthesis)</span>
+            </div>
+
+            <p>
+                Each integration required:
+            </p>
+            <ul>
+                <li>Error handling for rate limits, timeouts, and malformed responses</li>
+                <li>Retry logic with exponential backoff</li>
+                <li>Response validation and schema enforcement</li>
+                <li>Secure credential management via <code>secrets.toml</code></li>
+            </ul>
+
+            <h2>Data Pipeline Architecture</h2>
+            <p>
+                Hard-E pulls from multiple data sources with different access patterns:
+            </p>
+
+            <h3>S3 Knowledge Bases</h3>
+            <ul>
+                <li><code>training/</code>: General sales process documentation</li>
+                <li><code>Yarmouth/</code>: Project-specific knowledge (isolated routing)</li>
+                <li><code>distilled_transcripts/</code>: 90 structured JSON summaries for analysis</li>
+            </ul>
+
+            <h3>Real-Time CRM Access</h3>
+            <ul>
+                <li>Live job status, customer addresses, notes via Leap API</li>
+                <li>Write-back capabilities for adding notes and updating job stages</li>
+            </ul>
+
+            <h3>Web Search Fallback</h3>
+            <ul>
+                <li>Perplexity API for product specs, warranty info, competitive intelligence</li>
+                <li>Triggered when internal data sources don't contain answers</li>
+            </ul>
+
+            <h2>What I Learned</h2>
+
+            <h3>1. State Management is Hard</h3>
+            <p>
+                Multi-turn conversations require explicit state tracking. The SDK doesn't automatically remember context between calls—you have to architect for it from the start.
+            </p>
+
+            <h3>2. Rapid AI Evolution Requires Version Control</h3>
+            <p>
+                Package versions matter enormously. A minor OpenAI Agents SDK update broke production because it expected response types that didn't exist yet. Pinning versions and testing thoroughly before upgrades is non-negotiable.
+            </p>
+
+            <h3>3. Production Deployment is a Different Beast</h3>
+            <p>
+                Getting it to work locally is 30% of the job. The other 70% is systemd services, Nginx configs, SSL certificates, security hardening, and ensuring it stays running when you close your terminal.
+            </p>
+
+            <h3>4. User Experience Drives Architecture</h3>
+            <p>
+                The hybrid streaming model exists because users found the SDK's batched responses too slow for simple queries. Technical purity took a back seat to perceived responsiveness.
+            </p>
+
+            <h2>Current Status & Next Steps</h2>
+            <p>
+                Hard-E is production-ready with active dual-domain deployment. The system handles:
+            </p>
+            <ul>
+                <li>Multi-turn script generation (standard + primer videos)</li>
+                <li>Voice-to-text customer creation with validation</li>
+                <li>Real-time CRM operations</li>
+                <li>Knowledge base queries across multiple sources</li>
+                <li>Web search for external information</li>
+            </ul>
+
+            <p>
+                Planned enhancements include image analysis for job site photos, automated primer video creation via Shotstack API, and query logging for usage analytics.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Bottom Line:</strong> Hard-E demonstrates full-stack AI application development—from prompt engineering and state management to production infrastructure and API orchestration. It's not just connecting APIs; it's architecting a system that solves real business problems at scale.
+            </div>
+
+            <a href="index.html" class="back-link" style="margin-top: 40px; display: inline-block;">← Back to Overview</a>
+        </div>
+    </div>
+</body>
+</html>
