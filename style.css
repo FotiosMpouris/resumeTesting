@@ -1074,3 +1074,79 @@ body.light-mode .project-overlay {
 .build-banner {
   margin-top: 0; /* Remove any top margin that creates gap */
 }
+
+/* Social Links Grid */
+.social-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.social-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(94, 234, 212, 0.3);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link-card:hover {
+  background: rgba(94, 234, 212, 0.1);
+  border-color: rgba(94, 234, 212, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(94, 234, 212, 0.2);
+}
+
+.social-link-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.social-link-card:hover img {
+  filter: brightness(1.2);
+}
+
+.social-link-card span {
+  color: #5eead4;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .social-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .social-link-card {
+    padding: 1.5rem;
+  }
+  
+  .social-link-card img {
+    width: 60px;
+    height: 60px;
+  }
+}
