@@ -1039,12 +1039,7 @@ body.light-mode .project-overlay {
   font-weight: 600;
 }
 
-/* Make sure the section has proper positioning */
-.mission-section1 {
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-}
+
 
 /* Video overlay for text readability */
 .video-overlay {
