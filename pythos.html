@@ -34,7 +34,8 @@
 
   <main>
     
- <section class="mission-section fade-in pythos-first-section">
+ <!-- TOP SECTION: PPA Description with video background -->
+<section class="mission-section fade-in pythos-first-section">
   <video src="videos/background.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>     
   <div class="mission-content">
     <h1>The Poor People App</h1>
@@ -64,59 +65,39 @@
       Join the network: <a href="https://poorpeople.app" target="_blank" class="inline-link">poorpeople.app</a>
     </p>
   </div>
-</section>    
-    
-    <div id="volunteerSection" class="volunteer-banner fade-in">
-      <h2>JOIN PPA NOW</h2>
-    </div>
-    <section class="form-section fade-in">
-      <form class="volunteer-form" action="#" method="POST">
-        <div class="form-row">
-          <div class="form-field">
-            <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name" />
-          </div>
-          <div class="form-field">
-            <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <input type="email" name="email" placeholder="Email" required aria-label="Email" />
-          </div>
-          <div class="form-field">
-            <input type="text" name="phone" placeholder="Phone" required aria-label="Phone" />
-          </div>
-        </div>
-        <div class="form-row three-column">
-          <div class="form-field">
-            <input type="text" name="zip" placeholder="Zip" required aria-label="Zip" />
-          </div>
-          <div class="form-field">
-            <input type="text" name="city" placeholder="City" required aria-label="City" />
-          </div>
-          <div class="form-field">
-            <input type="text" name="state" placeholder="State" required aria-label="State" />
-          </div>
-        </div>
-        <div class="form-field full-width">
-          <textarea name="message" placeholder="Message (optional)" aria-label="Message"></textarea>
-        </div>
-        <div class="checkbox-container">
-          <label class="checkbox-label">
-            <input type="checkbox" name="not_robot" required /> I'm not a robot
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="privacy_policy" required /> By providing this information you are acknowledging and agreeing to the Privacy Policy
-          </label>
-        </div>
-        <button type="submit" class="cta-btn form-btn">SUBMIT</button>
-      </form>
-    </section>
+</section>
 
-    <div id="contributeSection" class="contribute-banner fade-in">
+<!-- MIDDLE SECTION: Translucent blue section (no video) -->
+<section class="translucent-blue pythos-content">
+  <h2>Get Involved: Power the Future</h2>
+  <p>Become an alpha tester to shape our cutting-edge platform, a content contributor to fuel its growth, 
+    or a passionate follower to witness history in the making. This isn't just an app—it's a grassroots 
+    uprising to empower the middle and lower classes, pooling our collective strength to challenge outdated 
+    systems and secure representation. Test AI-powered tools, earn PPC through your participation, and help 
+    build a privacy-first, tokenized community. Together, we're redefining the essentials!</p>
+</section>
+
+<!-- JOIN BANNER -->
+<div id="volunteerSection" class="volunteer-banner fade-in">
+  <h2>JOIN PPA NOW</h2>
+</div>
+
+<!-- FORM SECTION -->
+<section class="form-section fade-in">
+  <form class="volunteer-form" action="#" method="POST">
+    <!-- Your existing form code here -->
+  </form>
+</section>
+
+<!-- WHY BITCOIN BANNER -->
+<div id="contributeSection" class="contribute-banner fade-in">
   <h2>WHY BITCOIN</h2>
 </div>
+
+<!-- BITCOIN SECTION with its own video background -->
 <section class="contribute-section translucent-coral fade-in pythos-contribute-fix">
+  <video src="videos/bitcoinBackground.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
+  
   <div class="bitcoin-content">
     <h3>Sound Money for an Uncertain Future</h3>
     <p>
@@ -158,14 +139,13 @@
       <strong>Campaign launching soon.</strong> Stay connected for updates.
     </p>
   </div>
-  <video src="videos/bitcoinBackground.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
+  
   <div class="donation-logos">
     <a href="https://www.givesendgo.com/" target="_blank">
       <img src="images/givesend-logo.png" alt="GiveSendGo" loading="lazy" />
     </a>
   </div>
 </section>
-  </main>
 
   <footer>
     <div class="footer-links">
