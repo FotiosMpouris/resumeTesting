@@ -1040,7 +1040,7 @@ body.light-mode .project-overlay {
 }
 
 /* Make sure the section has proper positioning */
-.mission-section {
+.mission-section1 {
   position: relative;
   overflow: hidden;
   min-height: 600px;
