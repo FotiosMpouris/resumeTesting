@@ -1045,3 +1045,37 @@ body.light-mode .project-overlay {
   overflow: hidden;
   min-height: 600px;
 }
+
+/* Video overlay for text readability */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent overlay */
+  z-index: 1;
+}
+
+/* Make sure content sits above overlay */
+.ppa-content {
+  position: relative;
+  z-index: 3; /* Above both video (1) and overlay (2) */
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 3rem 2rem;
+}
+
+/* Ensure mission section doesn't get cut off */
+.mission-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 700px; /* Increase if text is still cut off */
+  padding-bottom: 2rem;
+}
+
+/* Add some breathing room after mission section */
+.build-banner {
+  margin-top: 0; /* Remove any top margin that creates gap */
+}
