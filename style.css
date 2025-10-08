@@ -1068,7 +1068,7 @@ body.light-mode .project-overlay {
 }
 
 /* Ensure mission section doesn't get cut off */
-.mission-section {
+.mission-section1 {
   position: relative;
   overflow: hidden;
   min-height: 700px; /* Increase if text is still cut off */
