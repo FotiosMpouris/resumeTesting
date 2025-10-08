@@ -1085,9 +1085,9 @@ body.light-mode .project-overlay {
 
 .social-links-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 800px;
+  grid-template-columns: repeat(4, 1fr); /* Changed: forces 4 columns on desktop */
+  gap: 1.5rem; /* Reduced gap slightly */
+  max-width: 1000px; /* Increased max-width */
   margin: 0 auto;
   padding: 2rem;
 }
@@ -1097,7 +1097,7 @@ body.light-mode .project-overlay {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem; /* Reduced padding slightly */
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(94, 234, 212, 0.3);
   border-radius: 16px;
@@ -1114,8 +1114,8 @@ body.light-mode .project-overlay {
 }
 
 .social-link-card img {
-  width: 60px;
-  height: 60px;
+  width: 70px; /* Slightly smaller for better fit */
+  height: 70px;
   object-fit: contain;
   margin-bottom: 1rem;
   filter: brightness(0.9);
@@ -1129,7 +1129,7 @@ body.light-mode .project-overlay {
 .social-link-card span {
   color: #5eead4;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem; /* Slightly smaller text */
   text-align: center;
 }
 
