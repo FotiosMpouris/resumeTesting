@@ -289,3 +289,60 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 });
+
+
+// --- PPA Signup Form Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+  const ppaForm = document.getElementById('ppa-signup-form');
+
+  if (ppaForm) {
+    const statusMessage = document.getElementById('form-status-message');
+    const submitButton = document.getElementById('submit-button');
+
+    ppaForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent the default form submission
+      
+      // Disable button and show submitting message
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      statusMessage.textContent = '';
+
+      const formData = new FormData(ppaForm);
+      const data = {
+        firstName: formData.get('firstName'),
+        email: formData.get('email'),
+        zipCode: formData.get('zipCode'),
+        involvement: {
+          isUser: formData.has('isUser'),
+          isPartner: formData.has('isPartner'),
+          isVolunteer: formData.has('isVolunteer'),
+        },
+        howHeard: 'Personal Website', // We can hardcode the source
+      };
+      
+      try {
+        const response = await fetch('https://e9d086nusl.execute-api.us-east-2.amazonaws.com/prod/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          // If the server response is not OK, throw an error to be caught below
+          const errorResult = await response.json();
+          throw new Error(errorResult.message || 'An API error occurred.');
+        }
+
+        // If submission is successful, redirect to the share page
+        window.location.href = 'https://poorpeople.app/share';
+
+      } catch (error) {
+        // If there's an error, display it to the user and re-enable the button
+        statusMessage.textContent = `Error: ${error.message}`;
+        statusMessage.style.color = 'red';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Secure My Spot';
+      }
+    });
+  }
+});
