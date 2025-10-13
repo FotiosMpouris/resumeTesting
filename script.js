@@ -127,15 +127,9 @@ document.addEventListener("DOMContentLoaded", function() {
   fadeElements.forEach(el => observer.observe(el));
 
   // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
-  // Dark Mode Toggle with Moon/Sun Button
+  // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   if (darkModeToggle) {
-    // Function to update button emoji based on current mode
-    function updateToggleEmoji() {
-      const isDarkMode = document.body.classList.contains("dark-mode");
-      darkModeToggle.textContent = isDarkMode ? "🌙" : "☀️";
-    }
-
     darkModeToggle.addEventListener("click", () => {
       const isDarkMode = document.body.classList.contains("dark-mode");
       if (isDarkMode) {
@@ -147,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.classList.add("dark-mode");
         localStorage.setItem("darkMode", "true");
       }
-      updateToggleEmoji(); // Update emoji after toggle
     });
 
     // Initialize based on localStorage or default to dark mode
@@ -159,10 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
     }
-    
-    updateToggleEmoji(); // Set initial emoji on page load
   }
-
 
 // Add mobile dark mode toggle
 document.addEventListener("DOMContentLoaded", function() {
