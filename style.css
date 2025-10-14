@@ -559,18 +559,31 @@ body.light-mode .popup-btn:hover { background: var(--seventies-l-accent2); borde
 
 .popup-close-btn { 
   position: absolute; 
-  top: 10px; 
-  right: 10px; 
-  background: none; 
-  border: none; 
-  color: var(--seventies-d-text); 
-  font-size: 1.5rem; 
+  top: 5px; 
+  right: 5px; 
+  background: rgba(0, 0, 0, 0.3); /* Subtle dark background */
+  border: 2px solid var(--seventies-d-accent1); /* Gold border */
+  color: var(--seventies-d-accent1); /* Gold color */
+  font-size: 1.8rem; 
   cursor: pointer; 
-  transition: color var(--transition-speed);
+  transition: all var(--transition-speed);
   font-weight: bold;
   line-height: 1;
-  padding: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.popup-close-btn:hover {
+  background: var(--seventies-d-accent1); /* Gold background on hover */
+  color: var(--seventies-d-bg); /* Dark text on hover */
+  transform: scale(1.1);
+}
+
 body.light-mode .popup-close-btn { color: var(--seventies-l-text); }
 .popup-close-btn:hover { color: var(--seventies-d-accent1); }
 body.light-mode .popup-close-btn:hover { color: var(--seventies-l-accent1); }
