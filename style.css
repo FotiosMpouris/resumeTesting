@@ -237,21 +237,27 @@ body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active { 
 main { margin-top: 120px; padding: 15px; }
 .container { max-width: 1200px; margin: 0 auto; }
 
-/* Glassmorphism UI Sections */
+/* Glassmorphism UI Sections (Enhanced) */
 .translucent-teal, .translucent-coral, .translucent-blue, .mission-content {
-  background: var(--dark-surface);
-  border: 1px solid var(--dark-border);
-  border-radius: 16px; /* Softer, more modern corners */
-  padding: 30px; /* More breathing room */
-  margin-bottom: 40px; /* Increased spacing between sections */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Creates depth */
-
-  /* This is the magic for the frosted glass effect */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* This new background adds a very subtle gradient to simulate light */
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.6), rgba(20, 20, 40, 0.4));
   
-  position: relative; /* Essential for containing elements */
-  z-index: 2; /* Ensures content is above background videos */
+  /* This new border simulates a bright, lit edge on the glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+
+  /* A darker, more defined shadow to truly "lift" the element */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+  /* A much stronger blur for a more dramatic and professional effect */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  
+  position: relative;
+  z-index: 2;
 }
 
 body.light-mode .translucent-teal,
