@@ -4,22 +4,27 @@
    ========================================================================== */
 
 :root {
-  /* --- 1970s "Groovy" Palette --- */
-  --seventies-d-bg: #001219;        /* Dark Blue - Dark Mode BG */
-  --seventies-d-header: #005f73;    /* Deep Teal - Dark Mode Header/Accents */
-  --seventies-d-text: #e9d8a6;      /* Sand - Dark Mode Text */
-  --seventies-d-accent1: #ee9b00;   /* Gold - Dark Mode Primary Accent */
-  --seventies-d-accent2: #ca6702;   /* Burnt Orange - Dark Mode Secondary Accent */
-  --seventies-d-highlight: #0a9396; /* Bright Teal - Dark Mode Links/Highlights */
+  /* --- Digital Canvas Palette --- */
+  /* Dark Mode (Default) */
+  --dark-bg: #0a0a1a; /* Deep, dark navy blue */
+  --dark-surface: rgba(20, 20, 40, 0.5); /* Semi-transparent surface for glass effect */
+  --dark-text-primary: #e0e0e0; /* Soft white for readability */
+  --dark-text-secondary: #a0a0c0; /* Muted lavender for subtitles */
+  --dark-accent-primary: #00ffff; /* Electric Cyan for tech feel */
+  --dark-accent-secondary: #ffc700; /* Warm Gold for key CTAs */
+  --dark-border: rgba(0, 255, 255, 0.2); /* Faint cyan border for glass effect */
 
-  --seventies-l-bg: #ee9b00;        /* Sand - Light Mode BG */
-  --seventies-l-section: #fdf8eb;   /* Lighter Sand - Light Mode Sections */
-  --seventies-l-text: #001219;      /* Dark Blue - Light Mode Text */
-  --seventies-l-accent1: #001219;   /* Deep Rust - Light Mode Primary Accent */
-  --seventies-l-accent2: #005f73;   /* Deep Teal - Light Mode Secondary Accent */
-  --seventies-l-border: #005f73;    /* Deep Teal - Light Mode Borders */
+  /* Light Mode */
+  --light-bg: #f5f5fa; /* Clean, slightly cool white */
+  --light-surface: rgba(255, 255, 255, 0.5); /* Semi-transparent white for glass effect */
+  --light-text-primary: #1a1a2e; /* Dark navy for strong contrast */
+  --light-text-secondary: #4a4a6a; /* Muted navy for subtitles */
+  --light-accent-primary: #007bff; /* Vibrant Blue as a light mode alternative to cyan */
+  --light-accent-secondary: #d4a000; /* Richer gold for light mode */
+  --light-border: rgba(26, 26, 46, 0.2); /* Faint dark border for glass effect */
   
-  --black: #000000;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Roboto', sans-serif;
   --transition-speed: 0.3s;
 }
 
@@ -31,18 +36,19 @@
 }
 
 html, body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background: var(--seventies-d-bg);
-  color: var(--seventies-d-text);
+  font-family: var(--font-body);
+  font-weight: 300; /* Use the lighter weight of Roboto for a sleeker feel */
+  line-height: 1.7; /* Increased for better readability */
+  background: var(--dark-bg);
+  color: var(--dark-text-primary);
   overflow-x: hidden;
   scroll-behavior: smooth;
   transition: background 0.3s, color 0.3s;
 }
 
 body.light-mode {
-  background: var(--seventies-l-bg);
-  color: var(--seventies-l-text);
+  background: var(--light-bg);
+  color: var(--light-text-primary);
 }
 
 a { color: var(--seventies-d-highlight); text-decoration: none; transition: color var(--transition-speed); }
@@ -50,13 +56,22 @@ a:hover { color: var(--seventies-d-accent1); }
 body.light-mode a { color: var(--seventies-l-accent2); }
 body.light-mode a:hover { color: var(--seventies-l-accent1); }
 
-/* 2. Typography */
-h1, h2, h3 { font-weight: bold; margin-bottom: 1rem; color: var(--seventies-d-text); }
-body.light-mode h1, body.light-mode h2, body.light-mode h3 { color: var(--seventies-l-text); }
-h1 { font-size: 1.5rem; }
-h2 { font-size: 1.25rem; }
-h3 { font-size: 1.1rem; }
-p { margin-bottom: 1rem; }
+h1, h2, h3 { 
+  font-family: var(--font-heading);
+  font-weight: 700; 
+  margin-bottom: 1.5rem; 
+  color: var(--dark-text-primary);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.3); /* Subtle cyan glow */
+}
+body.light-mode h1, body.light-mode h2, body.light-mode h3 { 
+  color: var(--light-text-primary); 
+  text-shadow: none;
+}
+h1 { font-size: 2.8rem; } /* Upscale for more impact */
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+p { margin-bottom: 1.2rem; color: var(--dark-text-secondary); }
+body.light-mode p { color: var(--light-text-secondary); }
 ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
 
 /* 3. Layout Components */
