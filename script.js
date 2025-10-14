@@ -156,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function() {
       darkModeToggle.innerHTML = "🌙"; // Show moon in dark mode
     }
   }
-});
 
 
 // Add mobile dark mode toggle
