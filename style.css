@@ -557,7 +557,7 @@ body.light-mode .popup-btn { background: var(--seventies-l-accent1); color: var(
 .popup-btn:hover { background: var(--seventies-d-accent2); border-color: var(--seventies-d-accent2); transform: scale(1.05); }
 body.light-mode .popup-btn:hover { background: var(--seventies-l-accent2); border-color: var(--seventies-l-accent2); }
 
-.popup-close-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--seventies-d-text); font-size: 1.5rem; cursor: pointer; transition: color var(--transition-speed); font-weight: bold; line-height: 1; padding: 5px; }
+.popup-close-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--seventies-d-text); font-size: 1rem; cursor: pointer; transition: color var(--transition-speed); }
 body.light-mode .popup-close-btn { color: var(--seventies-l-text); }
 .popup-close-btn:hover { color: var(--seventies-d-accent1); }
 body.light-mode .popup-close-btn:hover { color: var(--seventies-l-accent1); }
@@ -1151,3 +1151,4 @@ body.light-mode .project-overlay {
     height: 60px;
   }
 }
+
