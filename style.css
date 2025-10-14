@@ -258,6 +258,20 @@ main { margin-top: 120px; padding: 15px; }
   
   position: relative;
   z-index: 2;
+
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* This creates a fluid motion */
+}
+
+/* This ONLY applies when a device can actually hover (i.e., a mouse cursor) */
+@media (hover: hover) {
+  .translucent-teal:hover, 
+  .translucent-coral:hover, 
+  .translucent-blue:hover, 
+  .mission-content:hover {
+    transform: scale(1.02) translateY(-10px); /* Lifts up and gets slightly bigger */
+    box-shadow: 0 16px 70px rgba(0, 0, 0, 0.7); /* Shadow becomes deeper and softer */
+    border-color: rgba(255, 255, 255, 0.3); /* The edge gets brighter */
+  }
 }
 
 body.light-mode .translucent-teal,
