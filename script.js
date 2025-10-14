@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   fadeElements.forEach(el => observer.observe(el));
 
-  // Dark Mode Toggle with Moon/Sun Button (Toggles between dark-mode and light-mode)
+  // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   if (darkModeToggle) {
     darkModeToggle.addEventListener("click", () => {
@@ -135,12 +135,10 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.classList.remove("dark-mode");
         document.body.classList.add("light-mode");
         localStorage.setItem("darkMode", "false");
-        darkModeToggle.innerHTML = "☀️"; // Show sun in light mode
       } else {
         document.body.classList.remove("light-mode");
         document.body.classList.add("dark-mode");
         localStorage.setItem("darkMode", "true");
-        darkModeToggle.innerHTML = "🌙"; // Show moon in dark mode
       }
     });
 
@@ -149,13 +147,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (savedMode === "false") {
       document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");
-      darkModeToggle.innerHTML = "☀️"; // Show sun in light mode
     } else {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
-      darkModeToggle.innerHTML = "🌙"; // Show moon in dark mode
     }
   }
+});
 
 
 // Add mobile dark mode toggle
@@ -163,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Create mobile dark mode button
   const mobileToggle = document.createElement('button');
   mobileToggle.id = 'mobile-dark-mode-toggle';
-  mobileToggle.innerHTML = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+  mobileToggle.innerHTML = '☀️';
   mobileToggle.style.position = 'fixed';
   mobileToggle.style.bottom = '20px';
   mobileToggle.style.right = '20px';
@@ -192,14 +189,13 @@ document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.remove('dark-mode');
       document.body.classList.add('light-mode');
       localStorage.setItem('darkMode', 'false');
-      mobileToggle.innerHTML = '☀️'; // Show sun in light mode
     } else {
       document.body.classList.remove('light-mode');
       document.body.classList.add('dark-mode');
       localStorage.setItem('darkMode', 'true');
-      mobileToggle.innerHTML = '🌙'; // Show moon in dark mode
     }
   });
+});
 
 
 // Popup for "What's Fotios Working On Right Now?"
@@ -350,4 +346,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 
