@@ -97,19 +97,24 @@ header {
   top: 36px;
   left: 0;
   right: 0;
-  background: rgba(0, 95, 115, 0.95); /* var(--seventies-d-header) with opacity */
-  border-bottom: 2px solid var(--seventies-d-accent1);
+  background: var(--dark-surface);
+  border-bottom: 1px solid var(--dark-border); /* Thinner, more subtle border */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
   z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   height: 70px;
+  
+  /* Add the glass effect to the header */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 body.light-mode header { 
-  background: rgba(253, 248, 235, 0.95); /* var(--seventies-l-section) with opacity */
-  border-bottom: 2px solid var(--seventies-l-border); 
+  background: var(--light-surface);
+  border-bottom: 1px solid var(--light-border); 
 }
 
 .logo-group {
@@ -232,19 +237,30 @@ body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active { 
 main { margin-top: 120px; padding: 15px; }
 .container { max-width: 1200px; margin: 0 auto; }
 
-/* Groovy translucent sections */
-.translucent-teal, .translucent-coral, .translucent-blue { 
-  background: rgba(0, 95, 115, 0.2); /* var(--seventies-d-header) */
-  padding: 15px; 
-  border-radius: 6px; 
-  margin-bottom: 20px; 
-  border: 1px solid var(--seventies-d-highlight); 
+/* Glassmorphism UI Sections */
+.translucent-teal, .translucent-coral, .translucent-blue, .mission-content {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 16px; /* Softer, more modern corners */
+  padding: 30px; /* More breathing room */
+  margin-bottom: 40px; /* Increased spacing between sections */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Creates depth */
+
+  /* This is the magic for the frosted glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  position: relative; /* Essential for containing elements */
+  z-index: 2; /* Ensures content is above background videos */
 }
+
 body.light-mode .translucent-teal,
 body.light-mode .translucent-coral,
-body.light-mode .translucent-blue {
-  background: rgba(253, 248, 235, 0.8); /* var(--seventies-l-section) */
-  border-color: var(--seventies-l-border);
+body.light-mode .translucent-blue,
+body.light-mode .mission-content {
+  background: var(--light-surface);
+  border: 1px solid var(--light-border);
+  box-shadow: 0 8px 32px 0 rgba(100, 100, 100, 0.2);
 }
 main .translucent-blue:first-child { padding-top: 90px; }
 
