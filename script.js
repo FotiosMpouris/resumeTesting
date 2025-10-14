@@ -127,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function() {
   fadeElements.forEach(el => observer.observe(el));
 
   // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
-  // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   if (darkModeToggle) {
     darkModeToggle.addEventListener("click", () => {
@@ -153,6 +152,8 @@ document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.remove("light-mode");
     }
   }
+});
+
 
 // Add mobile dark mode toggle
 document.addEventListener("DOMContentLoaded", function() {
@@ -200,45 +201,45 @@ document.addEventListener("DOMContentLoaded", function() {
 // Popup for "What's Fotios Working On Right Now?"
 // Popup for "What's Fotios Working On Right Now?"
 document.addEventListener("DOMContentLoaded", function() {
-  // Only show the popup on the homepage (index.html)
-  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    // Check if the popup has already been dismissed in this session
-    const popupDismissed = sessionStorage.getItem('popupDismissed');
-    if (popupDismissed) {
-      return; // Don't show the popup if it was dismissed
-    }
+  // Only show the popup on the homepage (index.html)
+  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    // Check if the popup has already been dismissed in this session
+    const popupDismissed = sessionStorage.getItem('popupDismissed');
+    if (popupDismissed) {
+      return; // Don't show the popup if it was dismissed
+    }
 
-    // Create the popup element
-    const popup = document.createElement("div");
-    popup.classList.add("fotios-popup");
-    popup.innerHTML = `
-      <div class="popup-content">
-        <button class="popup-close-btn" aria-label="Close Popup">x</button>
-        <h3>What's Fotios Working On Right Now?</h3>
-        <a href="ai-apps.html#hero-video" class="popup-btn">Click Here</a>
-      </div>
-    `;
-    document.body.appendChild(popup);
+    // Create the popup element
+    const popup = document.createElement("div");
+    popup.classList.add("fotios-popup");
+    popup.innerHTML = `
+      <div class="popup-content">
+        <button class="popup-close-btn" aria-label="Close Popup">x</button>
+        <h3>What's Fotios Working On Right Now?</h3>
+        <a href="ai-apps.html#hero-video" class="popup-btn">Click Here</a>
+      </div>
+    `;
+    document.body.appendChild(popup);
 
-    // Show the popup after 10 seconds
-    setTimeout(() => {
-      popup.classList.add("visible");
-    }, 10000); // 10 seconds delay
+    // Show the popup after 10 seconds
+    setTimeout(() => {
+      popup.classList.add("visible");
+    }, 10000); // 10 seconds delay
 
-    // Close the popup when the button is clicked
-    const popupBtn = popup.querySelector(".popup-btn");
-    popupBtn.addEventListener("click", () => {
-      popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
-    });
+    // Close the popup when the button is clicked
+    const popupBtn = popup.querySelector(".popup-btn");
+    popupBtn.addEventListener("click", () => {
+      popup.classList.remove("visible");
+      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+    });
 
-    // Close the popup when the "X" button is clicked
-    const closeBtn = popup.querySelector(".popup-close-btn");
-    closeBtn.addEventListener("click", () => {
-      popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
-    });
-  }
+    // Close the popup when the "X" button is clicked
+    const closeBtn = popup.querySelector(".popup-close-btn");
+    closeBtn.addEventListener("click", () => {
+      popup.classList.remove("visible");
+      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
+    });
+  }
 });
 
 
@@ -345,3 +346,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
