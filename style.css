@@ -1229,9 +1229,8 @@ body.light-mode .project-overlay {
   }
 }
 
-
 /* ==========================================================================
-   Floating Animated Shapes
+   Floating Animated Shapes (Solid Graphic Style)
    ========================================================================== */
 
 /* 1. The container for the shapes */
@@ -1241,39 +1240,42 @@ body.light-mode .project-overlay {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Sits behind the main content */
-  overflow: hidden; /* Prevents shapes from causing scrollbars */
-  pointer-events: none; /* Allows clicks to go through to content behind */
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 /* 2. The base style for all shapes */
 .shape {
   position: absolute;
   border-radius: 50%;
-  /* Creates a soft, glowing effect using our accent color */
-  background: radial-gradient(circle, var(--dark-accent-primary), transparent 60%);
-  opacity: 0.15; /* Makes them very subtle */
-  /* The animation: name, duration, timing, repetition, direction */
+  /* Higher opacity to make them solid, not hazy */
+  opacity: 0.7; 
+  /* The animation remains the same */
   animation: float 30s ease-in-out infinite alternate;
+  /* Add a filter to blur the edges slightly so they don't feel too sharp */
+  filter: blur(20px);
 }
 
-/* 3. Individual shape properties */
+/* 3. Individual shape properties with solid gradients */
 .shape-1 {
   width: 400px;
   height: 400px;
   top: 10%;
   left: 5%;
-  animation-duration: 35s; /* Slower animation */
+  /* Gradient from a new purple to our primary cyan */
+  background: linear-gradient(135deg, #8A2BE2, var(--dark-accent-primary));
+  animation-duration: 35s;
 }
 
 .shape-2 {
   width: 600px;
   height: 600px;
-  bottom: 0%;
-  right: 0%;
-  /* Uses the secondary accent color */
-  background: radial-gradient(circle, var(--dark-accent-secondary), transparent 60%);
-  animation-delay: 3s; /* Starts animation later */
+  bottom: -10%; /* Move slightly off-screen for better composition */
+  right: -5%;
+  /* Gradient from a new deep red to our secondary gold */
+  background: linear-gradient(135deg, #e0214a, var(--dark-accent-secondary));
+  animation-delay: 3s;
 }
 
 .shape-3 {
@@ -1281,12 +1283,13 @@ body.light-mode .project-overlay {
   height: 300px;
   top: 20%;
   right: 15%;
-  animation-duration: 25s; /* Faster animation */
+  /* A simple gradient with our primary accent for a pop of color */
+  background: linear-gradient(135deg, #007bff, var(--dark-accent-primary));
+  animation-duration: 25s;
   animation-delay: 1.5s;
 }
 
-
-/* 4. The keyframe animation for the floating effect */
+/* 4. The keyframe animation (no changes needed here) */
 @keyframes float {
   0% {
     transform: translate(0, 0) rotate(0deg);
