@@ -510,12 +510,7 @@ body.light-mode .progress-bar { border-color: var(--seventies-l-border); backgro
 .progress-bar span { position: absolute; top: 50%; left: 10px; transform: translateY(-50%); font-size: 0.9rem; color: var(--seventies-d-text); }
 body.light-mode .progress-bar span { color: var(--seventies-l-section); }
 
-.mission-section {
-  position: relative;
-  overflow: hidden;
-  height: 60vh; /* Set height to 60% of the viewport height */
-  min-height: 400px; /* Ensure it's never too short */
-}
+.mission-section { position: relative; margin-top: 120px; height: 400px; overflow: hidden; }
 .mission-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 .mission-content {
   position: relative;
