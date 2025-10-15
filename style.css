@@ -43,8 +43,12 @@ html, body {
   color: var(--dark-text-primary);
   overflow-x: hidden;
   scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;
-  padding-top: 70px; /* This is the global fix */
+  transition: background 0.3s, color 0.3s;  
+}
+
+/* Utility class for standard pages with no full-screen hero */
+.page-with-standard-header {
+  padding-top: 70px;
 }
 
 body.light-mode {
@@ -680,6 +684,11 @@ main { padding-top: 0 !important; }
   position: relative; /* Needed for the close button */
 }
 
+body.light-mode .popup-content {
+  border: 1px solid var(--light-accent-primary);
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.5), inset 0 0 1px 1px rgba(26, 26, 46, 0.1);
+}
+
 body.light-mode .popup-content { background: var(--seventies-l-section); border-color: var(--seventies-l-border); }
 .popup-content h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--seventies-d-accent1); }
 body.light-mode .popup-content h3 { color: var(--seventies-l-accent1); }
@@ -728,6 +737,8 @@ body.light-mode .popup-btn:hover { background: var(--seventies-l-accent2); borde
 body.light-mode .popup-close-btn { color: var(--seventies-l-text); }
 .popup-close-btn:hover { color: var(--seventies-d-accent1); }
 body.light-mode .popup-close-btn:hover { color: var(--seventies-l-accent1); }
+
+
 
 /* New Application Flashing Label */
 .new-app-label {
