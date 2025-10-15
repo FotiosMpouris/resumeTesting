@@ -719,17 +719,21 @@ body.light-mode .hero-video-content h1 {
 
 .project-card {
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--seventies-d-highlight);
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: var(--seventies-d-bg); /* Fallback bg */
+  overflow: hidden; /* CRITICAL: Keeps video corners rounded */
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.6), rgba(20, 20, 40, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%; /* Ensures cards in a grid are equal height */
 }
 
 .project-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-color: var(--seventies-d-accent1);
+  transform: scale(1.02) translateY(-10px);
+  box-shadow: 0 16px 70px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 body.light-mode .project-card {
@@ -764,7 +768,7 @@ body.light-mode .project-card:hover {
   width: 100%;
   height: 100%;
   z-index: 2;
-  background: rgba(0, 18, 25, 0.85); /* Dark overlay for readability */
+  background: transparent; /* Allow the card's glass background to show */
   transition: background-color 0.4s ease;
 }
 
