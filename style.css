@@ -601,22 +601,6 @@ body.light-mode footer p { color: var(--seventies-l-text); }
 .about-img { max-width: 100%; border-radius: 6px; border: 2px solid var(--seventies-d-header); }
 body.light-mode .about-img { border-color: var(--seventies-l-border); }
 
-body.light-mode .popup-content h3 {
-  color: var(--light-text-primary); /* Use the site's main dark text color */
-}
-
-body.light-mode .popup-content .popup-btn {
-  color: var(--light-text-primary);
-}
-
-body.light-mode .hero-video-content {
-  color: var(--light-text-primary);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow for light mode */
-}
-
-body.light-mode .hero-video-content h1 {
-    color: var(--light-text-primary);
-}
 /* 9. Animations */
 .fade-in { opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
