@@ -229,6 +229,10 @@ body.light-mode .hamburger div { background: var(--light-text-primary); }
   -webkit-backdrop-filter: blur(18px);
 }
 
+.overlay-popup.open {
+  display: block;
+}
+
 .overlay-menu a {
   font-family: var(--font-heading);
   font-size: 1.2rem;
