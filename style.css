@@ -94,7 +94,7 @@ body.light-mode .top-banner {
 
 header {
   position: fixed;
-  top: 36px;
+  top: 0;
   left: 0;
   right: 0;
   background: var(--dark-surface);
@@ -234,7 +234,7 @@ body.light-mode .overlay-popup { background: var(--seventies-l-section); }
 body.light-mode .overlay-menu a { color: var(--seventies-l-text); }
 body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active { color: var(--seventies-l-accent1); }
 
-main { margin-top: 120px; padding: 15px; }
+main { padding: 40px 15px; /* Adjust padding for new flow */ }
 .container { max-width: 1200px; margin: 0 auto; }
 
 
@@ -403,7 +403,10 @@ body.light-mode .hero-collaborate-btn:hover { background: var(--seventies-l-acce
 .mission-section, .pythos-content, .form-section, .contribute-section { margin-top: 30px; margin-bottom: 30px; }
 
 /* 5. Join Movement */
-.join-movement-section { padding: 0; }
+.join-movement-section {
+  padding: 60px 0; /* Add vertical padding */
+  text-align: center;
+}
 .join-movement-banner { background: var(--seventies-d-accent1); color: var(--seventies-d-bg); text-align: center; padding: 15px; }
 body.light-mode .join-movement-banner { background: var(--seventies-l-accent1); color: var(--seventies-l-section); }
 .join-movement-banner h2 { font-size: 1.5rem; text-transform: uppercase; }
@@ -1237,11 +1240,10 @@ body.light-mode .project-overlay {
 
 .social-links-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Changed: forces 4 columns on desktop */
-  gap: 1.5rem; /* Reduced gap slightly */
-  max-width: 1000px; /* Increased max-width */
-  margin: 0 auto;
-  padding: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Consistent gap */
+  max-width: 1000px;
+  margin: 40px auto 0 auto; /* Add margin-top to space from the title */
 }
 
 .social-link-card {
@@ -1301,4 +1303,22 @@ body.light-mode .project-overlay {
     width: 60px;
     height: 60px;
   }
+}
+
+
+/* --- MOBILE HERO & LAYOUT FIXES --- */
+@media (max-width: 768px) {
+  .home-banner-container {
+    /* Use a specific height instead of 100vh to avoid mobile browser issues */
+    height: 800px; 
+  }
+
+  .hero-content-wrapper .glass-panel {
+    /* Reduce padding on mobile to give content more space */
+    padding: 30px 20px;
+  }
+
+  /* Reduce heading sizes on mobile for better readability */
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
 }
