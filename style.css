@@ -201,8 +201,8 @@ body.light-mode #dark-mode-toggle { background: var(--seventies-l-text); color: 
 body.light-mode #dark-mode-toggle:hover { background: var(--seventies-l-accent2); color: var(--seventies-l-section); }
 
 .hamburger { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
-.hamburger div { width: 25px; height: 3px; background: var(--seventies-d-text); transition: all var(--transition-speed); }
-body.light-mode .hamburger div { background: var(--seventies-l-text); }
+.hamburger div { width: 25px; height: 3px; background: var(--dark-text-primary); transition: all var(--transition-speed); }
+body.light-mode .hamburger div { background: var(--light-text-primary); }
 .hamburger.active div:first-child { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active div:nth-child(2) { opacity: 0; }
 .hamburger.active div:last-child { transform: rotate(-45deg) translate(5px, -5px); }
@@ -214,30 +214,42 @@ body.light-mode .hamburger div { background: var(--seventies-l-text); }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--seventies-d-header);
-  padding: 20px;
-  border-radius: 8px;
-  z-index: 1002;
   width: 80%;
   max-width: 300px;
   display: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1002;
+
+  /* Apply Glassmorphism */
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.8), rgba(20, 20, 40, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
-body.light-mode .overlay-popup { background: var(--seventies-l-section); }
-.overlay-popup.open { display: block; }
-.overlay-menu { list-style: none; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 0; margin: 0; }
-.overlay-menu li { margin: 15px 0; width: 100%; text-align: center; }
+
 .overlay-menu a {
+  font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--seventies-d-text);
+  color: var(--dark-text-primary);
   transition: color var(--transition-speed);
   display: block;
 }
-.overlay-menu a:hover, .overlay-menu a.active { color: var(--seventies-d-accent1); }
-body.light-mode .overlay-menu a { color: var(--seventies-l-text); }
-body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active { color: var(--seventies-l-accent1); }
+
+.overlay-menu a:hover, .overlay-menu a.active {
+  color: var(--dark-accent-primary);
+}
+
+body.light-mode .overlay-menu a {
+  color: var(--light-text-primary);
+}
+
+body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active {
+  color: var(--light-accent-primary);
+}
 
 main { padding: 40px 15px; /* Adjust padding for new flow */ }
 .container { max-width: 1200px; margin: 0 auto; }
@@ -510,7 +522,16 @@ body.light-mode .progress-bar { border-color: var(--seventies-l-border); backgro
 .progress-bar span { position: absolute; top: 50%; left: 10px; transform: translateY(-50%); font-size: 0.9rem; color: var(--seventies-d-text); }
 body.light-mode .progress-bar span { color: var(--seventies-l-section); }
 
-.mission-section { position: relative; margin-top: 120px; height: 400px; overflow: hidden; }
+.mission-section {
+  position: relative;
+  display: flex; /* Enables easy centering of content */
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
+  min-height: 75vh; /* Sets a minimum height of 75% of the viewport. Adjust if needed. */
+  padding: 40px 20px; /* Adds padding for content */
+  overflow: hidden;
+  text-align: center;
+}
 .mission-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 .mission-content {
   position: relative;
@@ -1351,4 +1372,17 @@ body.light-mode .project-overlay {
   /* Reduce heading sizes on mobile for better readability */
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.8rem; }
+}
+
+
+/* --- LIGHT MODE TEXT COLOR FIXES --- */
+body.light-mode .popup-content h3,
+body.light-mode .popup-content a {
+  color: var(--light-text-primary); /* Sets popup text to the correct dark color */
+}
+
+body.light-mode .hero-video-content h1,
+body.light-mode .hero-video-content p {
+  color: #ffffff; /* Overrides to pure white for max contrast on video */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Adds a shadow to ensure readability */
 }
