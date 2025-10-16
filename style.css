@@ -724,23 +724,6 @@ main { padding-top: 0 !important; }
 }
 
 
-body.light-mode .popup-content { background: var(--seventies-l-section); border-color: var(--seventies-l-border); }
-.popup-content h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--seventies-d-accent1); }
-body.light-mode .popup-content h3 { color: var(--seventies-l-accent1); }
-.popup-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--seventies-d-accent1);
-  color: var(--seventies-d-bg);
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: all var(--transition-speed);
-  border: 2px solid var(--seventies-d-accent1);
-}
-body.light-mode .popup-btn { background: var(--seventies-l-accent1); color: var(--seventies-l-section); border-color: var(--seventies-l-accent1); }
-.popup-btn:hover { background: var(--seventies-d-accent2); border-color: var(--seventies-d-accent2); transform: scale(1.05); }
-body.light-mode .popup-btn:hover { background: var(--seventies-l-accent2); border-color: var(--seventies-l-accent2); }
 
 .popup-close-btn { 
   position: absolute; 
