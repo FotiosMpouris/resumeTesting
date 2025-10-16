@@ -722,6 +722,7 @@ main { padding-top: 0 !important; }
   margin-bottom: 15px;
 }
 
+
 /* The key change: We use 'a.popup-btn' for higher specificity */
 a.popup-btn {
   display: inline-block;
@@ -732,9 +733,10 @@ a.popup-btn {
   transition: all var(--transition-speed);
   text-decoration: none;
   
-  /* New definitive colors */
+  /* Corrected definitive colors */
   background: var(--dark-accent-primary);
-  color: var(--dark-bg) !important; /* Use !important as a final guarantee */
+  color: #ffffff !important; /* Change to white */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Add white glow */
   border: 2px solid var(--dark-accent-primary);
 }
 
