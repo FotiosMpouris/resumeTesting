@@ -79,6 +79,12 @@ p { margin-bottom: 1.2rem; color: var(--dark-text-secondary); }
 body.light-mode p { color: var(--light-text-secondary); }
 ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
 
+/* --- UTILITY for high-contrast paragraph text --- */
+.high-contrast-text p {
+  color: #ffffff; /* Force paragraph text to be white */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* Add subtle shadow for depth */
+}
+
 /* 3. Layout Components */
 .top-banner {
   position: fixed;
@@ -690,18 +696,16 @@ main { padding-top: 0 !important; }
 .fotios-popup { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1500; display: none; justify-content: center; align-items: center; }
 .fotios-popup.visible { display: flex; animation: fadeInPopup 0.5s ease forwards; }
 @keyframes fadeInPopup { from { opacity: 0; } to { opacity: 1; } }
+
+
 .popup-content {
-  position: relative;
   /* Inherit all the glass styles */
   background: linear-gradient(135deg, rgba(20, 20, 40, 0.6), rgba(20, 20, 40, 0.4));
   border: 1px solid var(--dark-accent-primary); /* Bright cyan border */
   border-radius: 16px;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  
-  /* Add the glow effect */
   box-shadow: 0 0 40px rgba(0, 255, 255, 0.5), inset 0 0 1px 1px rgba(255, 255, 255, 0.1);
-
   padding: 30px;
   text-align: center;
   max-width: 400px;
@@ -709,22 +713,16 @@ main { padding-top: 0 !important; }
   position: relative; /* Needed for the close button */
 }
 
-body.light-mode .popup-content {
-  border: 1px solid var(--light-accent-primary);
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.5), inset 0 0 1px 1px rgba(26, 26, 46, 0.1);
+/* Explicitly define text and button colors for the popup */
+.popup-content h3 {
+    color: var(--dark-accent-primary);
+}
+.popup-btn {
+    background: var(--dark-accent-primary);
+    color: var(--dark-bg); /* Dark text on a cyan button */
+    border-color: var(--dark-accent-primary);
 }
 
-/* Fix text color inside light mode popup */
-body.light-mode .popup-content h3 {
-  color: var(--light-text-primary);
-}
-
-/* Style the button for light mode */
-body.light-mode .popup-btn {
-  background: var(--light-accent-primary);
-  color: #ffffff; /* White text on a blue button */
-  border-color: var(--light-accent-primary);
-}
 
 body.light-mode .popup-content { background: var(--seventies-l-section); border-color: var(--seventies-l-border); }
 .popup-content h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--seventies-d-accent1); }
