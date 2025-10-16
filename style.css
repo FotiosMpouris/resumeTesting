@@ -844,21 +844,32 @@ body.light-mode .hero-video-overlay {
   opacity: 0.6;
 }
 
+/* --- DEFINITIVE HERO TEXT STYLES --- */
+
+/* Universal base style for all hero content */
 .hero-video-content {
   position: relative;
   z-index: 3;
   padding: 20px;
 }
 
+/* Style for the main heading (H1) */
 .hero-video-content h1 {
   color: var(--dark-text-primary);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
-/* Universal high-contrast style for all hero subtitles */
+/* Make the subtitle (P) pop in DARK mode */
 .hero-video-content p {
-  color: #ffffff; /* Always white */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Always have a strong shadow */
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); /* Enhanced shadow for more pop */
+}
+
+/* SPECIFIC FIX FOR LIGHT MODE to override general styles */
+body.light-mode .hero-video-content h1,
+body.light-mode .hero-video-content p {
+  color: #ffffff; /* Force white color */
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); /* Ensure it also has the strong shadow */
 }
 
 
