@@ -612,22 +612,68 @@ body.light-mode .media-video { border-color: var(--seventies-l-border); }
 
 /* 8. Footer */
 footer {
-  background: rgba(0, 95, 115, 0.2); /* var(--seventies-d-header) with opacity */
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
-  border-top: 2px solid var(--seventies-d-header);
+
+  /* Apply Glassmorphism */
+  background: linear-gradient(135deg, rgba(20, 20, 40, 0.6), rgba(20, 20, 40, 0.4));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
-body.light-mode footer { background: rgba(0, 95, 115, 0.1); border-color: var(--seventies-l-border); }
-.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 15px; }
-.footer-links a { text-transform: uppercase; font-size: 0.9rem; transition: color var(--transition-speed); }
-.footer-links a:hover { color: var(--seventies-d-accent1); }
-body.light-mode .footer-links a { color: var(--seventies-l-text); }
-body.light-mode .footer-links a:hover { color: var(--seventies-l-accent1); }
-.footer-logos { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
-.footer-logos img { max-width: 35px; transition: transform var(--transition-speed); }
-.footer-logos img:hover { transform: scale(1.1); }
-footer p { font-size: 0.8rem; color: var(--seventies-d-text); }
-body.light-mode footer p { color: var(--seventies-l-text); }
+
+body.light-mode footer {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+  border-top: 1px solid rgba(26, 26, 46, 0.1);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.footer-links a {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--dark-text-secondary);
+  transition: color var(--transition-speed);
+}
+.footer-links a:hover {
+  color: var(--dark-accent-primary);
+}
+body.light-mode .footer-links a {
+  color: var(--light-text-secondary);
+}
+body.light-mode .footer-links a:hover {
+  color: var(--light-accent-primary);
+}
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.footer-logos img {
+  max-width: 35px;
+  transition: transform var(--transition-speed);
+  filter: grayscale(50%) opacity(70%); /* Muted look for icons */
+}
+.footer-logos img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%) opacity(100%);
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--dark-text-secondary);
+}
+body.light-mode footer p {
+  color: var(--light-text-secondary);
+}
 
 /* About page layout */
 .about-top-content { display: flex; flex-direction: column; gap: 20px; padding-bottom: 20px; }
