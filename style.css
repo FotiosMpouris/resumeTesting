@@ -79,6 +79,35 @@ p { margin-bottom: 1.2rem; color: var(--dark-text-secondary); }
 body.light-mode p { color: var(--light-text-secondary); }
 ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
 
+
+/* --- UNIFIED LIST STYLES --- */
+ul {
+  list-style: none; /* Remove the default browser bullet points */
+  padding-left: 0; /* Remove the default browser indentation */
+  text-align: left; /* Ensure list text aligns left within the container */
+  max-width: 600px; /* Constrain width for readability */
+  margin: 0 auto 1.5rem auto; /* Center the list block */
+}
+
+li {
+  position: relative; /* This is the anchor for our custom bullet */
+  padding-left: 25px; /* Creates space for our custom bullet */
+  margin-bottom: 0.8rem; /* Space between list items */
+}
+
+/* Create our custom, modern bullet point */
+li::before {
+  content: '•'; /* The bullet character */
+  position: absolute;
+  left: 0;
+  top: 2px; /* Fine-tune vertical alignment */
+  
+  /* Style the bullet to match our theme */
+  color: var(--dark-accent-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 /* --- UTILITY for high-contrast paragraph text --- */
 .high-contrast-text p {
   color: #ffffff; /* Force paragraph text to be white */
