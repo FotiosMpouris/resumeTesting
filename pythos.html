@@ -110,52 +110,60 @@
 
 <!-- PPA SIGNUP FORM SECTION -->
 <section class="form-section fade-in">
-  <form id="ppa-signup-form" class="ppa-form-container">
-    <!-- First Name -->
-    <div>
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" name="firstName" required />
+  <form id="ppa-signup-form" class="ppa-form-container glass-panel">
+  <h2>Join the Network</h2>
+  <p>Be a founding node. Let's build this together.</p>
+  
+  <div class="form-field">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" required>
+  </div>
+  
+  <div class="form-field">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  
+  <div class="form-field">
+    <label for="zipCode">5-Digit Zip Code</label>
+    <input type="text" id="zipCode" name="zipCode" pattern="\d{5}" required>
+  </div>
+  
+  <div class="form-field">
+    <label>I am interested in...</label>
+    <div class="checkbox-option">
+      <input type="checkbox" id="isUser" name="isUser" checked>
+      <label for="isUser">Being a future user</label>
     </div>
-    <!-- Email Address -->
-    <div>
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+    <div class="checkbox-option">
+      <input type="checkbox" id="isPartner" name="isPartner">
+      <label for="isPartner">Partnering as an organization</label>
     </div>
-    <!-- Zip Code -->
-    <div>
-      <label for="zipCode">5-Digit Zip Code</label>
-      <input type="text" id="zipCode" name="zipCode" pattern="\d{5}" title="Please enter a 5-digit zip code" required />
+    <div class="checkbox-option">
+      <input type="checkbox" id="isVolunteer" name="isVolunteer">
+      <label for="isVolunteer">Volunteering my time/skills</label>
     </div>
-    <!-- Involvement Checkboxes -->
-    <div class="checkbox-group">
-      <label class="group-label">I am interested in...</label>
-      <div class="checkbox-option">
-        <input id="isUser" name="isUser" type="checkbox" checked />
-        <label for="isUser">Being a future user</label>
-      </div>
-      <div class="checkbox-option">
-        <input id="isPartner" name="isPartner" type="checkbox" />
-        <label for="isPartner">Partnering as an organization</label>
-      </div>
-      <div class="checkbox-option">
-        <input id="isVolunteer" name="isVolunteer" type="checkbox" />
-        <label for="isVolunteer">Volunteering my time/skills</label>
-      </div>
-    </div>
-    <!-- Terms Agreement -->
-    <div class="terms-group">
-      <input id="terms" name="terms" type="checkbox" required />
-      <label for="terms">
-        I agree to the 
-        <a href="https://poorpeople.app/privacy" target="_blank">Privacy Policy</a> & 
-        <a href="https://poorpeople.app/terms" target="_blank">Terms of Service</a>.
-      </label>
-    </div>
-    <!-- Status Message -->
-    <p id="form-status-message" class="form-status"></p>
-    <!-- Submit Button -->
-    <button type="submit" id="submit-button">Secure My Spot</button>
-  </form>
+  </div>
+
+  <div class="form-field">
+    <label for="howHeard">How did you hear about us?</label>
+    <select id="howHeard" name="howHeard" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="X (Twitter)">X (Twitter)</option>
+      <option value="Nostr">Nostr</option>
+      <option value="Friend or Colleague">Friend or Colleague</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="terms-group">
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">I agree to the <a href="https://poorpeople.app/privacy" target="_blank">Privacy Policy</a> & <a href="https://poorpeople.app/terms" target="_blank">Terms of Service</a>.</label>
+  </div>
+  
+  <p id="form-status-message" class="form-status"></p>
+  <button type="submit" id="submit-button">Secure My Spot</button>
+</form>
 </section>
 
 <!-- WHY BITCOIN BANNER -->
