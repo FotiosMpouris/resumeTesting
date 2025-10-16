@@ -714,13 +714,33 @@ main { padding-top: 0 !important; }
 }
 
 /* Explicitly define text and button colors for the popup */
+/* --- DEFINITIVE POPUP STYLES (UNIVERSAL) --- */
 .popup-content h3 {
-    color: var(--dark-accent-primary);
+  font-family: var(--font-heading);
+  color: var(--dark-accent-primary);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
 }
-.popup-btn {
-    background: var(--dark-accent-primary);
-    color: var(--dark-bg); /* Dark text on a cyan button */
-    border-color: var(--dark-accent-primary);
+
+/* The key change: We use 'a.popup-btn' for higher specificity */
+a.popup-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+  
+  /* New definitive colors */
+  background: var(--dark-accent-primary);
+  color: var(--dark-bg) !important; /* Use !important as a final guarantee */
+  border: 2px solid var(--dark-accent-primary);
+}
+
+a.popup-btn:hover {
+  background: transparent;
+  color: var(--dark-accent-primary) !important;
 }
 
 
