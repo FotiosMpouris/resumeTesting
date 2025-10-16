@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
           isPartner: formData.has('isPartner'),
           isVolunteer: formData.has('isVolunteer'),
         },
-        howHeard: 'Personal Website', // We can hardcode the source
+        howHeard: formData.get('howHeard'), // Read value from the new dropdown
       };
       
       try {
