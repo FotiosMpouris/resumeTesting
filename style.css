@@ -253,12 +253,14 @@ body.light-mode .hamburger div { background: var(--light-text-primary); }
   color: var(--dark-accent-primary);
 }
 
+/* Definitive style for light mode mobile menu text */
 body.light-mode .overlay-menu a {
-  color: var(--light-text-primary);
+  color: #ffffff; /* Force white text */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6); /* Add shadow for readability */
 }
 
 body.light-mode .overlay-menu a:hover, body.light-mode .overlay-menu a.active {
-  color: var(--light-accent-primary);
+  color: var(--light-accent-primary); /* Keep the blue color for hover/active state */
 }
 
 main { padding: 40px 15px; /* Adjust padding for new flow */ }
