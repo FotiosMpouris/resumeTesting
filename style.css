@@ -774,9 +774,7 @@ a.popup-btn:hover {
   transform: scale(1.1);
 }
 
-body.light-mode .popup-close-btn { color: var(--seventies-l-text); }
-.popup-close-btn:hover { color: var(--seventies-d-accent1); }
-body.light-mode .popup-close-btn:hover { color: var(--seventies-l-accent1); }
+
 
 
 
