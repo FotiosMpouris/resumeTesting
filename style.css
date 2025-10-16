@@ -1414,7 +1414,7 @@ body.light-mode .glass-panel a {
 /* --- PPA SIGNUP FORM STYLES --- */
 .ppa-form-container {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 0 auto; /* Center the form within the parent video section */
   text-align: left;
 }
 
@@ -1511,4 +1511,12 @@ body.light-mode .glass-panel a {
 #submit-button:disabled {
   background: #555;
   cursor: not-allowed;
+}
+
+
+/* --- CONTAINER FOR SECTIONS WITH VIDEO BACKGROUNDS --- */
+.video-background-section {
+  position: relative; /* This is the anchor for the absolute positioned video */
+  overflow: hidden; /* Ensures the video corners don't poke out if rounded */
+  padding: 60px 20px; /* Gives the section height and space for the content inside */
 }
