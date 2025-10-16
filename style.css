@@ -714,6 +714,18 @@ body.light-mode .popup-content {
   box-shadow: 0 0 40px rgba(0, 123, 255, 0.5), inset 0 0 1px 1px rgba(26, 26, 46, 0.1);
 }
 
+/* Fix text color inside light mode popup */
+body.light-mode .popup-content h3 {
+  color: var(--light-text-primary);
+}
+
+/* Style the button for light mode */
+body.light-mode .popup-btn {
+  background: var(--light-accent-primary);
+  color: #ffffff; /* White text on a blue button */
+  border-color: var(--light-accent-primary);
+}
+
 body.light-mode .popup-content { background: var(--seventies-l-section); border-color: var(--seventies-l-border); }
 .popup-content h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--seventies-d-accent1); }
 body.light-mode .popup-content h3 { color: var(--seventies-l-accent1); }
@@ -835,9 +847,6 @@ body.light-mode .hero-video-overlay {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Add dark shadow for contrast */
 }
 
-body.light-mode .hero-video-content {
-  color: var(--seventies-l-text);
-}
 
 .hero-video-content h1 {
   font-size: 2.5rem;
@@ -847,8 +856,11 @@ body.light-mode .hero-video-content {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Add dark shadow for contrast */
 }
 
-body.light-mode .hero-video-content h1 {
-  color: var(--seventies-l-accent1);
+/* Ensure hero text is always white in light mode */
+body.light-mode .hero-video-content h1,
+body.light-mode .hero-video-content p {
+  color: #ffffff !important; 
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* 2. Interactive Project Cards */
@@ -1379,14 +1391,17 @@ body.light-mode .project-overlay {
 }
 
 
-/* --- LIGHT MODE TEXT COLOR FIXES --- */
-body.light-mode .popup-content h3,
-body.light-mode .popup-content a {
-  color: var(--light-text-primary); /* Sets popup text to the correct dark color */
+/* --- LIGHT MODE GLASS PANEL TEXT FIX --- */
+body.light-mode .glass-panel,
+body.light-mode .glass-panel h1,
+body.light-mode .glass-panel h2,
+body.light-mode .glass-panel h3,
+body.light-mode .glass-panel p,
+body.light-mode .glass-panel li,
+body.light-mode .glass-panel span,
+body.light-mode .glass-panel a {
+  color: #ffffff; /* Force text to be white */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Add strong shadow for contrast */
 }
 
-body.light-mode .hero-video-content h1,
-body.light-mode .hero-video-content p {
-  color: #ffffff; /* Overrides to pure white for max contrast on video */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Adds a shadow to ensure readability */
-}
+
