@@ -1608,3 +1608,18 @@ body.light-mode .glass-panel a {
   overflow: hidden; /* Ensures the video corners don't poke out if rounded */
   padding: 60px 20px; /* Gives the section height and space for the content inside */
 }
+
+
+/* --- WEBSITES PAGE LAYOUT FIX --- */
+.websites-page .mission-section .glass-panel {
+  width: 90%; /* Ensures the panel has padding on mobile screens */
+  max-width: 900px; /* Sets a consistent maximum width for desktop */
+  margin: 0 auto; /* Centers the panel within the full-width video section */
+}
+
+/* Prevent text overflow on mobile by forcing long words to wrap */
+.websites-page .mission-section .glass-panel p,
+.websites-page .mission-section .glass-panel li {
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* Legacy browser fallback */
+}
