@@ -1409,4 +1409,104 @@ body.light-mode .glass-panel a {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Add strong shadow for contrast */
 }
 
+/* --- PPA SIGNUP FORM STYLES --- */
+.ppa-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: left;
+}
 
+.ppa-form-container h2 {
+  text-align: center;
+}
+
+.ppa-form-container p {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-text-primary);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  color: var(--dark-text-primary);
+  font-size: 1rem;
+}
+
+.form-field select {
+  appearance: none; /* Allows custom arrow */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2300ffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.75rem;
+}
+
+.terms-group {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.terms-group input[type="checkbox"] {
+  margin-right: 0.75rem;
+}
+.terms-group a {
+  color: var(--dark-accent-primary);
+  text-decoration: underline;
+}
+
+.form-status {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#submit-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: var(--dark-accent-primary);
+  color: var(--dark-bg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#submit-button:hover {
+  background: #00e0e0;
+  transform: scale(1.02);
+}
+
+#submit-button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
