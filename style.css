@@ -722,6 +722,10 @@ main { padding-top: 0 !important; }
   margin-bottom: 15px;
 }
 
+body.light-mode .popup-content h3 {
+  color: var(--dark-accent-primary) !important; /* Force the cyan color */
+  text-shadow: none !important; /* Remove any inherited shadows */
+}
 
 /* The key change: We use 'a.popup-btn' for higher specificity */
 a.popup-btn {
