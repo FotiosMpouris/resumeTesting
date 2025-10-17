@@ -828,33 +828,33 @@ a.popup-btn:hover {
 
 
 
-.popup-close-btn { 
-  position: absolute; 
-  top: 5px; 
-  right: 5px; 
-  background: rgba(0, 0, 0, 0.3); /* Subtle dark background */
-  border: 2px solid var(--seventies-d-accent1); /* Gold border */
-  color: var(--seventies-d-accent1); /* Gold color */
-  font-size: 1.8rem; 
-  cursor: pointer; 
-  transition: all var(--transition-speed);
+/* --- DEFINITIVE POPUP CLOSE BUTTON STYLE (UNIVERSAL) --- */
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: 1px solid var(--dark-accent-primary);
+  color: var(--dark-accent-primary);
+  font-size: 1.2rem; /* Adjusted for a cleaner look */
   font-weight: bold;
   line-height: 1;
-  padding: 2px 8px;
-  border-radius: 4px;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* A circle looks more modern */
+  cursor: pointer;
+  transition: all var(--transition-speed);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .popup-close-btn:hover {
-  background: var(--seventies-d-accent1); /* Gold background on hover */
-  color: var(--seventies-d-bg); /* Dark text on hover */
+  background: var(--dark-accent-primary);
+  color: var(--dark-bg);
   transform: scale(1.1);
 }
-
 
 
 
