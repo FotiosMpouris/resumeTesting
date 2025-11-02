@@ -1628,17 +1628,22 @@ body.light-mode .glass-panel a {
    SURGICAL STYLES - MULTIMEDIA PAGE ONLY
    =============================================== */
 
-/* Force the container to stack items vertically */
-.multimedia-page .media-container {
-  display: block; /* Override the 'flex' property */
-}
-
 /* Redefine the layout for each video item */
 .multimedia-page .media-item {
   width: 100%; /* Make item take full width */
-  max-width: 1200px; /* Constrain width on large screens */
+  max-width: 1200px; /* INCREASED for better desktop layout */
   margin: 0 auto 40px auto; /* Center the item and add space below */
   position: relative; /* This is the anchor for our new sound icon */
+}
+
+/* Force the parent container to stack items vertically */
+.multimedia-page .media-container {
+  display: block;
+}
+
+/* Remove the height restriction from the videos ONLY on this page */
+.multimedia-page .media-video {
+  max-height: none; /* This is the key fix */
 }
 
 /* --- SOUND ICON FOR MULTIMEDIA VIDEOS --- */
