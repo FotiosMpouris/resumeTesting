@@ -1631,7 +1631,7 @@ body.light-mode .glass-panel a {
 /* Redefine the layout for each video item */
 .multimedia-page .media-item {
   width: 100%; /* Make item take full width */
-  max-width: 1200px; /* INCREASED for better desktop layout */
+  max-width: 900px; /* INCREASED for better desktop layout */
   margin: 0 auto 40px auto; /* Center the item and add space below */
   position: relative; /* This is the anchor for our new sound icon */
 }
