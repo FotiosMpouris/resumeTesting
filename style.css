@@ -108,6 +108,12 @@ li::before {
   font-weight: bold;
 }
 
+/* Override for lists inside project cards to be left-aligned */
+.project-card ul {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%; /* Allow the list to fill its container */
+}
 /* --- UTILITY for high-contrast paragraph text --- */
 .high-contrast-text p {
   color: #ffffff; /* Force paragraph text to be white */
