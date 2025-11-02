@@ -31,15 +31,18 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Video Playback with Sound Toggle
-  const videos = document.querySelectorAll(".media-video");
-  videos.forEach(video => {
+const videos = document.querySelectorAll(".media-video");
+videos.forEach(video => {
+  // THIS IS THE CRITICAL FIX: Only apply this old logic if the video is NOT on the multimedia page
+  if (!video.closest('.multimedia-page')) {
     video.muted = true; // Start muted
     video.play(); // Auto-play muted
 
     video.addEventListener("click", function() {
       this.muted = !this.muted; // Toggle mute on click
     });
-  });
+  }
+});
 
   // Function to calculate header height
   const getHeaderHeight = () => {
