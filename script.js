@@ -347,4 +347,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ===============================================
+// NEW - Multimedia Page Lazy Load & Audio Control
+// ===============================================
+document.addEventListener("DOMContentLoaded", function() {
+  // This script will ONLY run if the body has the 'multimedia-page' class
+  if (document.body.classList.contains('multimedia-page')) {
+    const mediaVideos = document.querySelectorAll('.media-video');
+    let currentlyUnmutedVideo = null; // This variable will track which video has sound
 
+    // --- 1. Prepare each video ---
+    mediaVideos.forEach(video => {
+      // Remove the autoplay attribute that the browser might try to use
+      video.removeAttribute('autoplay');
+      
+      // Create a sound icon for each video
+      const icon = document.createElement('span');
+      icon.classList.add('sound-icon');
+      icon.innerHTML = '🔇'; // All videos start as muted
+      video.parentElement.appendChild(icon); // Add the icon to the parent container
+    });
+
+    // --- 2. Add Click-to-Toggle-Sound Logic ---
+    mediaVideos.forEach(video => {
+      video.addEventListener('click', function() {
+        const soundIcon = this.parentElement.querySelector('.sound-icon');
+
+        if (this.muted) {
+          // --- Unmuting Logic ---
+          // First, mute any other video that might be playing sound
+          if (currentlyUnmutedVideo && currentlyUnmutedVideo !== this) {
+            currentlyUnmutedVideo.muted = true;
+            const otherIcon = currentlyUnmutedVideo.parentElement.querySelector('.sound-icon');
+            if (otherIcon) otherIcon.innerHTML = '🔇';
+          }
+          
+          // Now, unmute THIS video
+          this.muted = false;
+          soundIcon.innerHTML = '🔊';
+          currentlyUnmutedVideo = this; // Set this video as the one with sound
+        } else {
+          // --- Muting Logic ---
+          // If the user clicks the video that already has sound, mute it
+          this.muted = true;
+          soundIcon.innerHTML = '🔇';
+          currentlyUnmutedVideo = null; // No video has sound now
+        }
+      });
+    });
+
+    // --- 3. Set up the Intersection Observer for Lazy Loading ---
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          // If the video is on screen, play it.
+          video.play().catch(error => console.log("Autoplay was prevented by the browser."));
+        } else {
+          // If the video is off screen, pause it.
+          video.pause();
+        }
+      });
+    }, { 
+      threshold: 0.5 // Play when 50% of the video is visible
+    });
+
+    // --- 4. Tell the observer to watch all the videos ---
+    mediaVideos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  }
+});
