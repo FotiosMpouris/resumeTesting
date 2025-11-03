@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode">  
+<body class="dark-mode ai-apps-page">  
   <header>
     <div class="logo-group">
       <img src="images/fotioslogo.png" alt="Fotios Logo" class="logo" />
@@ -51,207 +51,95 @@
 
   <main>
 
-  <!-- Main content wrapper for background video -->
-<div class="main-content-wrapper">
-  <video autoplay loop muted playsinline class="globe-video-bg">
-    <source src="videos/globe.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <div class="content-on-top">
- <!-- REPLACE THE FIRST PROJECT SECTION WITH THIS -->
-<section class="ai-apps-section aiapps-section fade-in" id="top">
-  <h2>AI-Powered Applications</h2>
-
-  <div class="project-card-link">
-  <div class="project-item project-card">
-    <div class="project-overlay"></div>
-
-    <div class="project-content">
-      <span class="new-app-label">
-        <span class="label-default">New Application</span>
-        <span class="label-hover">Featured Project</span>
-      </span>
-      <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
-      <div class="project-details">
-        <h3>FotiFoti Art Agent: Multi-Platform Content Automation System</h3>
-        <p>An autonomous AWS-powered agent that eliminates manual social media management. This production-grade system orchestrates artwork promotion across Instagram, Facebook, and web platforms—selecting content, generating AI captions with custom brand voice, and publishing on schedule without human intervention.</p>
-        <ul>
-          <li><strong>Serverless AWS architecture:</strong> EventBridge scheduling, Lambda execution, S3 storage, DynamoDB state management, Secrets Manager security</li>
-          <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o creates unique captions with role prompts through enforced creativity rules</li>
-          <li><strong>Cross-platform automation:</strong> Instagram Graph API (container creation + polling), Facebook Page API, GitHub repository updates</li>
-          <li><strong>Zero-touch artwork sync:</strong> Automatically discovers new files in S3, prevents duplicate posts via DynamoDB tracking</li>
-          <li><strong>Production-ready infrastructure:</strong> Retry logic, CloudWatch logging, secure token management, 60-second execution window</li>
-          <li><strong>Business impact:</strong> Currently posts every 3 days indefinitely—60+ posts/year with consistent brand voice, freeing creators to focus on production</li>
-        </ul>
-        <p class="tech-stack"><strong>Tech Stack:</strong> Python 3.12 • AWS Lambda • EventBridge • S3 • DynamoDB • Secrets Manager • OpenAI API • Meta Graph API • GitHub API</p>
-        
-        <!-- Social proof links -->
-        <div class="link-buttons-footer" style="display: flex; gap: 15px; margin-top: 15px;">
-          <a href="https://www.instagram.com/fotifoti.art/" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
-            View Instagram Posts →
-          </a>
-          <a href="https://www.facebook.com/fotifoti.art" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
-            View Facebook Page →
-          </a>
-          <a href="https://colorfotifoti.com" target="_blank" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">
-            View Website Gallery →
-          </a>
-        </div>
-      </div>
+<!-- FOTIFOTI ART AGENT -->
+<section class="mission-section fade-in">
+  <video src="videos/globe.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
+    <h3>FotiFoti Art Agent: Multi-Platform Content Automation System</h3>
+    <p>An autonomous AWS-powered agent that orchestrates artwork promotion across Instagram, Facebook, and web platforms without human intervention.</p>
+    <ul>
+      <li><strong>Serverless AWS architecture:</strong> EventBridge, Lambda, S3, DynamoDB</li>
+      <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o for unique captions with custom brand voice</li>
+      <li><strong>Cross-platform automation:</strong> Instagram Graph API, Facebook Page API, GitHub updates</li>
+      <li><strong>Zero-touch artwork sync:</strong> Automatically discovers new files and prevents duplicates</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank">View on Instagram →</a>
     </div>
   </div>
-</div>
 </section>
-<!-- You can apply the same .project-card structure to your other apps -->
 
-    
-   <!-- =================================================================== -->
-<!-- START: NEW PROJECT GRID - REPLACE YOUR OLD SECTIONS WITH THIS BLOCK -->
-<!-- =================================================================== -->
-
-<section class="project-grid-container fade-in">
-  <h2>Additional Projects</h2>
-  <div class="project-grid">
-<!-- Card: Hard-E (moved from top) -->
-<!-- Card: Hard-E -->
-<div class="project-item project-card">
-  <video loop muted playsinline class="project-video-bg">
-    <source src="images/aiapps.mp4" type="video/mp4">
-  </video>
-  <div class="project-overlay"></div>
-  <div class="project-content">
+<!-- HARD-E -->
+<section class="mission-section fade-in">
+  <video src="videos/aiapps.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
     <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
-    <div class="project-details">
-      <h3>Hard-E: Production Multi-Agent Sales Assistant</h3>
-      <ul>
-        <li>Hybrid orchestration architecture (OpenAI Agents SDK + manual streaming)</li>
-        <li>Stateful conversation management for complex multi-turn workflows</li>
-        <li>Dual-environment AWS deployment with Nginx, systemd, SSL automation</li>
-        <li>LLM-powered entity extraction handling speech-to-text artifacts</li>
-        <li>Real-time CRM integration across multiple knowledge base sources</li>
-      </ul>
-      <div class="link-buttons-footer">
-        <a href="https://harde.app" target="_blank">Visit Project →</a>
-        <a href="hard-e-technical.html">Technical Deep-Dive →</a>
-      </div>
+    <h3>Hard-E: Production Multi-Agent Sales Assistant</h3>
+    <ul>
+      <li>Hybrid orchestration architecture (OpenAI Agents SDK + manual streaming)</li>
+      <li>Stateful conversation management for complex multi-turn workflows</li>
+      <li>Dual-environment AWS deployment with Nginx, systemd, SSL automation</li>
+      <li>LLM-powered entity extraction handling speech-to-text artifacts</li>
+      <li>Real-time CRM integration across multiple knowledge base sources</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <a href="https://harde.app" target="_blank">Visit Project →</a>
     </div>
   </div>
-</div>
-    
-     <!-- Card 1: Oriana Summarizer -->   
-      
-    
-      <div class="project-item project-card">  
-      <video loop muted playsinline class="project-video-bg">
-          <source src="images/video1.mp4" type="video/mp4"> <!-- Placeholder Video 1 -->
-        </video>
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <img src="images/roadscoutlogo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-          <div class="project-details">
-            <h3>RoadScout: Podcast & YouTube Summarizer</h3>
-            <ul>
-              <li>Fetches transcripts automatically from any YouTube link</li>
-              <li>Generates persona-driven AI summaries using GPT-4.1</li>
-              <li>Creates a single, stitched MP3 audio file for offline listening</li>
-              <li>Sends free push notifications to your phone when tasks are complete</li>
-              <li>Incorporates personal ntfy subscription into workflow</li>
-            </ul>
-            <div class="link-buttons-footer">
-            <a href="https://github.com/FotiosMpouris/RoadScout-Podcast-Summarizer" target="_blank">Visit Project →</a>
-            <a href="https://roadscout-podcast-summarizer.streamlit.app/">Launch App →</a>
-            </div>            
-        </div>
-      </div>
-        </div>
-        
-    
-    <!-- Card 1: Oriana Summarizer -->   
-      <div class="project-item project-card">
-        <video loop muted playsinline class="project-video-bg">
-          <source src="images/video1.mp4" type="video/mp4"> <!-- Placeholder Video 1 -->
-        </video>
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <img src="images/oriana-logo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-          <div class="project-details">
-            <h3>Oriana: Article Summarizer & Reader</h3>
-            <ul>
-              <li>AI-powered summarization with ElevenLabs TTS</li>
-              <li>Supports URLs, text pasting, and multi-language</li>
-              <li>Offers MP3 downloads for offline listening</li>
-              <li>Creates news or other scripts from single or multiple articles</li>
-              <li>Synthesizes multiple articles into cohesive narratives</li>
-              <li>Investigative journalism but with an ai assistant</li>
-              <li>Truthful and professional writing for demanding schedules</li>
-            </ul>
-            <div class="link-buttons-footer">
-            <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank">Visit Project →</a>            
-          </div>
-        </div>
-      </div>
-        </div>
-        
-   
-
-    <!-- Card 2: Resume Tailor -->
-    <a href="https://ai-resume-tailor2.streamlit.app/" target="_blank" class="project-card-link">
-      <div class="project-item project-card">
-        <video loop muted playsinline class="project-video-bg">
-          <source src="images/video2.mp4" type="video/mp4"> <!-- Placeholder Video 2 -->
-        </video>
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <img src="images/resume-tailor.png" alt="Resume Tailor Logo" class="project-logo" loading="lazy" />
-          <div class="project-details">
-            <h3>Resume Tailor</h3>
-            <ul>
-              <li>Version 1: Resume analysis and PDF output</li>
-              <li>Version 2: Enhanced AI customization and UI</li>
-            </ul>
-            <div class="link-buttons-footer">Launch V2 App →</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <!-- Card 3: Oriana Investigative Assistant -->
-    <a href="https://oriana.streamlit.app/" target="_blank" class="project-card-link">
-      <div class="project-item project-card">
-        <video loop muted playsinline class="project-video-bg">
-          <source src="images/video1.mp4" type="video/mp4"> <!-- You can reuse or use a new video -->
-        </video>
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <img src="images/oriana.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-          <div class="project-details">
-            <h3>Oriana: AI Investigative Assistant</h3>
-            <ul>
-              <li>Sophisticated AI journalism tool</li>
-              <li>Advanced source management system</li>
-              <li>Automated transcript generation</li>
-            </ul>
-            <div class="link-buttons-footer">Launch App →</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-  </div> <!-- End .project-grid -->
 </section>
 
-<!-- Final Call to Action Section -->
-<section class="glass-panel fade-in final-cta-section">
-  <h2>Let's Build Together</h2>
-  <p>Interested in AI solutions? Let's collaborate—contact me to discuss your project!</p>
-  <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">Get in Touch</a>
-</section>
-</div>
+<!-- ORIANA SUMMARIZER -->
+<section class="mission-section fade-in">
+  <video src="videos/video1.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <img src="images/oriana-logo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
+    <h3>Oriana: Article Summarizer & Reader</h3>
+    <ul>
+      <li>AI-powered summarization with ElevenLabs Text-to-Speech</li>
+      <li>Supports URLs, text pasting, and multi-language</li>
+      <li>Offers MP3 downloads for offline listening</li>
+      <li>Synthesizes multiple articles into cohesive narratives</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank">Visit Project →</a>
+    </div>
   </div>
-<!-- =================================================================== -->
-<!-- END: NEW PROJECT GRID -->
-<!-- =================================================================== -->
+</section>
+
+<!-- RESUME TAILOR -->
+<section class="mission-section fade-in">
+  <video src="videos/video2.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <img src="images/resume-tailor.png" alt="Resume Tailor Logo" class="project-logo" loading="lazy" />
+    <h3>Resume Tailor</h3>
+    <ul>
+      <li>Version 1: Resume analysis and PDF output</li>
+      <li>Version 2: Enhanced AI customization and UI</li>
+      <li>Streamlit-powered application for rapid deployment</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <a href="https://ai-resume-tailor2.streamlit.app/" target="_blank">Launch V2 App →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ORIANA INVESTIGATIVE ASSISTANT -->
+<section class="mission-section fade-in">
+  <video src="videos/showcase2.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <img src="images/oriana.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
+    <h3>Oriana: AI Investigative Assistant</h3>
+    <ul>
+      <li>Sophisticated AI journalism tool</li>
+      <li>Advanced source management system</li>
+      <li>Automated transcript generation</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <a href="https://oriana.streamlit.app/" target="_blank">Launch App →</a>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer>
