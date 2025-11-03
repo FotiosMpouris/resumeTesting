@@ -1670,3 +1670,34 @@ body.light-mode .glass-panel a {
 .multimedia-page .media-item:hover .sound-icon {
   opacity: 1;
 }
+
+
+/* ===============================================
+   SURGICAL STYLES - AI APPS PAGE ONLY
+   =============================================== */
+
+/* Style the project logos within the new layout */
+.ai-apps-page .project-logo {
+  max-width: 150px;
+  margin: 0 auto 20px auto; /* Center the logo */
+  display: block;
+}
+
+/* Style the footer links container */
+.ai-apps-page .link-buttons-footer {
+  margin-top: 30px; /* Add space above the links */
+  text-align: center;
+}
+
+/* Style the links themselves */
+.ai-apps-page .link-buttons-footer a {
+  color: var(--dark-accent-primary);
+  font-weight: bold;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ai-apps-page .link-buttons-footer a:hover {
+  color: #ffffff;
+}
