@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Hamburger Menu
+document.addEventListener("DOMContentLoaded", function () {
+
+  // ============================================================
+  // 1. HAMBURGER MENU
+  // ============================================================
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   const overlayBg = document.createElement("div");
@@ -30,69 +33,61 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.remove("no-scroll");
   });
 
-  // Video Playback with Sound Toggle
-const videos = document.querySelectorAll(".media-video");
-videos.forEach(video => {
-  // THIS IS THE CRITICAL FIX: Only apply this old logic if the video is NOT on the multimedia page
-  if (!video.closest('.multimedia-page')) {
-    video.muted = true; // Start muted
-    video.play(); // Auto-play muted
 
-    video.addEventListener("click", function() {
-      this.muted = !this.muted; // Toggle mute on click
-    });
-  }
-});
+  // ============================================================
+  // 2. MEDIA VIDEO SOUND TOGGLE (non-multimedia pages)
+  // ============================================================
+  const videos = document.querySelectorAll(".media-video");
+  videos.forEach(video => {
+    if (!video.closest(".multimedia-page")) {
+      video.muted = true;
+      video.play();
+      video.addEventListener("click", function () {
+        this.muted = !this.muted;
+      });
+    }
+  });
 
-  // Function to calculate header height
+
+  // ============================================================
+  // 3. SMOOTH SCROLL & ANCHOR HANDLING
+  // ============================================================
   const getHeaderHeight = () => {
-    const header = document.querySelector('header');
-    const topBanner = document.querySelector('.top-banner');
-    const headerHeight = (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0);
-    return headerHeight || 0; // Fallback to 0 if elements are not found
+    const header = document.querySelector("header");
+    const topBanner = document.querySelector(".top-banner");
+    return (header ? header.offsetHeight : 0) + (topBanner ? topBanner.offsetHeight : 0);
   };
 
-  // Function to handle scrolling to a target element
   const scrollToTarget = (targetId, delay = 0) => {
     setTimeout(() => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const headerHeight = getHeaderHeight();
         let topPosition;
-
-        // Special case for volunteerSection and contributeSection to align banner at the top
-        if (targetId === 'volunteerSection' || targetId === 'contributeSection') {
-          // Ensure we're targeting the banner itself
-          const banner = targetElement.querySelector(targetId === 'volunteerSection' ? '.volunteer-banner' : '.contribute-banner');
-          const elementToScroll = banner || targetElement; // Fallback to targetElement if banner not found
-          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5; // Small buffer
+        if (targetId === "volunteerSection" || targetId === "contributeSection") {
+          const banner = targetElement.querySelector(
+            targetId === "volunteerSection" ? ".volunteer-banner" : ".contribute-banner"
+          );
+          const elementToScroll = banner || targetElement;
+          topPosition = elementToScroll.getBoundingClientRect().top + window.pageYOffset - headerHeight - 5;
         } else {
-          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10; // Default offset
+          topPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
         }
-
-        window.scrollTo({
-          top: topPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: topPosition, behavior: "smooth" });
       }
     }, delay);
   };
 
-  // Smooth Scroll for Anchor Links
   document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const href = this.getAttribute('href');
-      const [page, targetId] = href.split('#');
-
+      const href = this.getAttribute("href");
+      const [page, targetId] = href.split("#");
       if (page && window.location.pathname !== `/${page}`) {
-        // Store the target ID in sessionStorage to handle after page load
-        sessionStorage.setItem('scrollToTarget', targetId);
+        sessionStorage.setItem("scrollToTarget", targetId);
         window.location.href = href;
       } else if (targetId) {
         scrollToTarget(targetId);
-
-        // Close the hamburger menu if open
         if (hamburger.classList.contains("active")) {
           hamburger.classList.remove("active");
           overlayBg.classList.remove("open");
@@ -103,20 +98,19 @@ videos.forEach(video => {
     });
   });
 
-  // Handle scrolling on page load if there's a hash in the URL
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    scrollToTarget(hash, 100); // Small delay to ensure DOM is fully rendered
-  }
+  const hash = window.location.hash.replace("#", "");
+  if (hash) scrollToTarget(hash, 100);
 
-  // Handle scrolling after page load if a target was stored in sessionStorage
-  const storedTarget = sessionStorage.getItem('scrollToTarget');
+  const storedTarget = sessionStorage.getItem("scrollToTarget");
   if (storedTarget) {
-    scrollToTarget(storedTarget, 100); // Small delay to ensure DOM is fully rendered
-    sessionStorage.removeItem('scrollToTarget'); // Clear the stored target
+    scrollToTarget(storedTarget, 100);
+    sessionStorage.removeItem("scrollToTarget");
   }
 
-  // Fade-In Animation on Scroll
+
+  // ============================================================
+  // 4. FADE-IN ANIMATION ON SCROLL
+  // ============================================================
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -126,93 +120,56 @@ videos.forEach(video => {
       }
     });
   }, { threshold: 0.1 });
-
   fadeElements.forEach(el => observer.observe(el));
 
-  // Dark Mode Toggle with Sun Button (Toggles between dark-mode and light-mode)
+
+  // ============================================================
+  // 5. DARK MODE TOGGLE
+  // ============================================================
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   if (darkModeToggle) {
+    const applyMode = (isDark) => {
+      document.body.classList.toggle("dark-mode", isDark);
+      document.body.classList.toggle("light-mode", !isDark);
+      localStorage.setItem("darkMode", isDark ? "true" : "false");
+    };
+
     darkModeToggle.addEventListener("click", () => {
-      const isDarkMode = document.body.classList.contains("dark-mode");
-      if (isDarkMode) {
-        document.body.classList.remove("dark-mode");
-        document.body.classList.add("light-mode");
-        localStorage.setItem("darkMode", "false");
-      } else {
-        document.body.classList.remove("light-mode");
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("darkMode", "true");
-      }
+      applyMode(!document.body.classList.contains("dark-mode"));
     });
 
-    // Initialize based on localStorage or default to dark mode
     const savedMode = localStorage.getItem("darkMode");
-    if (savedMode === "false") {
-      document.body.classList.remove("dark-mode");
-      document.body.classList.add("light-mode");
-    } else {
-      document.body.classList.add("dark-mode");
-      document.body.classList.remove("light-mode");
-    }
+    applyMode(savedMode !== "false");
   }
-});
 
-
-// Add mobile dark mode toggle
-document.addEventListener("DOMContentLoaded", function() {
-  // Create mobile dark mode button
-  const mobileToggle = document.createElement('button');
-  mobileToggle.id = 'mobile-dark-mode-toggle';
-  mobileToggle.innerHTML = '☀️';
-  mobileToggle.style.position = 'fixed';
-  mobileToggle.style.bottom = '20px';
-  mobileToggle.style.right = '20px';
-  mobileToggle.style.zIndex = '1500';
-  mobileToggle.style.width = '40px';
-  mobileToggle.style.height = '40px';
-  mobileToggle.style.borderRadius = '50%';
-  mobileToggle.style.background = '#F5E8C7';
-  mobileToggle.style.color = '#2F4F4F';
-  mobileToggle.style.display = 'none';
-  mobileToggle.style.alignItems = 'center';
-  mobileToggle.style.justifyContent = 'center';
-  mobileToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-  mobileToggle.style.border = 'none';
-  document.body.appendChild(mobileToggle);
-  
-  // Show button only on mobile
-  if (window.innerWidth <= 768) {
-    mobileToggle.style.display = 'flex';
-  }
-  
-  // Add click handler
-  mobileToggle.addEventListener('click', function() {
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    if (isDarkMode) {
-      document.body.classList.remove('dark-mode');
-      document.body.classList.add('light-mode');
-      localStorage.setItem('darkMode', 'false');
-    } else {
-      document.body.classList.remove('light-mode');
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('darkMode', 'true');
-    }
+  // Mobile dark mode toggle (fixed floating button on small screens)
+  const mobileToggle = document.createElement("button");
+  mobileToggle.id = "mobile-dark-mode-toggle";
+  mobileToggle.innerHTML = "☀️";
+  Object.assign(mobileToggle.style, {
+    position: "fixed", bottom: "20px", right: "20px", zIndex: "1500",
+    width: "40px", height: "40px", borderRadius: "50%",
+    background: "#F5E8C7", color: "#2F4F4F", display: "none",
+    alignItems: "center", justifyContent: "center",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.2)", border: "none"
   });
-});
+  document.body.appendChild(mobileToggle);
+
+  if (window.innerWidth <= 768) mobileToggle.style.display = "flex";
+
+  mobileToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.contains("dark-mode");
+    document.body.classList.toggle("dark-mode", !isDark);
+    document.body.classList.toggle("light-mode", isDark);
+    localStorage.setItem("darkMode", isDark ? "false" : "true");
+  });
 
 
-// Popup for "What's Fotios Working On Right Now?"
-// Popup for "What's Fotios Working On Right Now?"
-document.addEventListener("DOMContentLoaded", function() {
-  // Only show the popup on the homepage (index.html)
-  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    // Check if the popup has already been dismissed in this session
-    const popupDismissed = sessionStorage.getItem('popupDismissed');
-    if (popupDismissed) {
-      return; // Don't show the popup if it was dismissed
-    }
-
-    // Create the popup element
+  // ============================================================
+  // 6. HOMEPAGE POPUP ("What's Fotios Working On?")
+  // ============================================================
+  const isHomePage = window.location.pathname === "/" || window.location.pathname.endsWith("index.html");
+  if (isHomePage && !sessionStorage.getItem("popupDismissed")) {
     const popup = document.createElement("div");
     popup.classList.add("fotios-popup");
     popup.innerHTML = `
@@ -224,200 +181,147 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     document.body.appendChild(popup);
 
-    // Show the popup after 10 seconds
-    setTimeout(() => {
-      popup.classList.add("visible");
-    }, 10000); // 10 seconds delay
+    setTimeout(() => popup.classList.add("visible"), 10000);
 
-    // Close the popup when the button is clicked
-    const popupBtn = popup.querySelector(".popup-btn");
-    popupBtn.addEventListener("click", () => {
+    const dismissPopup = () => {
       popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
-    });
-
-    // Close the popup when the "X" button is clicked
-    const closeBtn = popup.querySelector(".popup-close-btn");
-    closeBtn.addEventListener("click", () => {
-      popup.classList.remove("visible");
-      sessionStorage.setItem('popupDismissed', 'true'); // Mark as dismissed
-    });
+      sessionStorage.setItem("popupDismissed", "true");
+    };
+    popup.querySelector(".popup-btn").addEventListener("click", dismissPopup);
+    popup.querySelector(".popup-close-btn").addEventListener("click", dismissPopup);
   }
-});
 
 
-// ===============================================
-// NEW - AI Apps Page Interactive Elements
-// ===============================================
-document.addEventListener("DOMContentLoaded", function() {
-
-  // --- Interactive Project Cards Video Playback ---
-  const projectCards = document.querySelectorAll(".project-card");
-
-  projectCards.forEach(card => {
+  // ============================================================
+  // 7. AI APPS PAGE — PROJECT CARD VIDEO HOVER
+  // ============================================================
+  document.querySelectorAll(".project-card").forEach(card => {
     const video = card.querySelector(".project-video-bg");
     if (video) {
       card.addEventListener("mouseenter", () => {
-        // The .play() method returns a Promise. We should handle it.
-        video.play().catch(error => {
-          // This catch block prevents console errors on browsers that
-          // block autoplay, even though it's muted.
-          console.log("Video autoplay prevented: ", error);
-        });
+        video.play().catch(err => console.log("Video autoplay prevented:", err));
       });
-
       card.addEventListener("mouseleave", () => {
         video.pause();
-        video.currentTime = 0; // Optional: Reset video to the start
+        video.currentTime = 0;
       });
     }
   });
 
 
-  // --- Typewriter Effect for Hero Section ---
-  const typewriterElement = document.getElementById('hero-typewriter');
+  // ============================================================
+  // 8. TYPEWRITER EFFECT (hero headings)
+  // ============================================================
+  const typewriterElement = document.getElementById("hero-typewriter");
   if (typewriterElement) {
     const text = typewriterElement.innerHTML;
-    typewriterElement.innerHTML = '';
+    typewriterElement.innerHTML = "";
     let i = 0;
-    function typeWriter() {
+    const typeWriter = () => {
       if (i < text.length) {
-        typewriterElement.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80); // Adjust typing speed here (in ms)
+        typewriterElement.innerHTML += text.charAt(i++);
+        setTimeout(typeWriter, 80);
       }
-    }
-    // Start typing after a short delay
+    };
     setTimeout(typeWriter, 500);
   }
 
-});
 
-
-// --- PPA Signup Form Logic ---
-document.addEventListener('DOMContentLoaded', () => {
-  const ppaForm = document.getElementById('ppa-signup-form');
-
+  // ============================================================
+  // 9. PPA SIGNUP FORM
+  // ============================================================
+  const ppaForm = document.getElementById("ppa-signup-form");
   if (ppaForm) {
-    const statusMessage = document.getElementById('form-status-message');
-    const submitButton = document.getElementById('submit-button');
+    const statusMessage = document.getElementById("form-status-message");
+    const submitButton = document.getElementById("submit-button");
 
-    ppaForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Prevent the default form submission
-      
-      // Disable button and show submitting message
+    ppaForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
       submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-      statusMessage.textContent = '';
+      submitButton.textContent = "Submitting...";
+      statusMessage.textContent = "";
 
       const formData = new FormData(ppaForm);
       const data = {
-        firstName: formData.get('firstName'),
-        email: formData.get('email'),
-        zipCode: formData.get('zipCode'),
+        firstName: formData.get("firstName"),
+        email: formData.get("email"),
+        zipCode: formData.get("zipCode"),
         involvement: {
-          isUser: formData.has('isUser'),
-          isPartner: formData.has('isPartner'),
-          isVolunteer: formData.has('isVolunteer'),
+          isUser: formData.has("isUser"),
+          isPartner: formData.has("isPartner"),
+          isVolunteer: formData.has("isVolunteer"),
         },
-        howHeard: formData.get('howHeard'), // Read value from the new dropdown
+        howHeard: formData.get("howHeard"),
       };
-      
+
       try {
-        const response = await fetch('https://e9d086nusl.execute-api.us-east-2.amazonaws.com/prod/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("https://e9d086nusl.execute-api.us-east-2.amazonaws.com/prod/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
-
         if (!response.ok) {
-          // If the server response is not OK, throw an error to be caught below
           const errorResult = await response.json();
-          throw new Error(errorResult.message || 'An API error occurred.');
+          throw new Error(errorResult.message || "An API error occurred.");
         }
-
-        // If submission is successful, redirect to the share page
-        window.location.href = 'https://poorpeople.app/share';
-
+        window.location.href = "https://poorpeople.app/share";
       } catch (error) {
-        // If there's an error, display it to the user and re-enable the button
         statusMessage.textContent = `Error: ${error.message}`;
-        statusMessage.style.color = 'red';
+        statusMessage.style.color = "red";
         submitButton.disabled = false;
-        submitButton.textContent = 'Secure My Spot';
+        submitButton.textContent = "Secure My Spot";
       }
     });
   }
-});
 
-// ===============================================
-// NEW - Multimedia Page Lazy Load & Audio Control
-// ===============================================
-document.addEventListener("DOMContentLoaded", function() {
-  // This script will ONLY run if the body has the 'multimedia-page' class
-  if (document.body.classList.contains('multimedia-page')) {
-    const mediaVideos = document.querySelectorAll('.media-video');
-    let currentlyUnmutedVideo = null; // This variable will track which video has sound
 
-    // --- 1. Prepare each video ---
+  // ============================================================
+  // 10. MULTIMEDIA PAGE — LAZY LOAD & AUDIO CONTROL
+  // ============================================================
+  if (document.body.classList.contains("multimedia-page")) {
+    const mediaVideos = document.querySelectorAll(".media-video");
+    let currentlyUnmutedVideo = null;
+
     mediaVideos.forEach(video => {
-      // Remove the autoplay attribute that the browser might try to use
-      video.removeAttribute('autoplay');
-      
-      // Create a sound icon for each video
-      const icon = document.createElement('span');
-      icon.classList.add('sound-icon');
-      icon.innerHTML = '🔇'; // All videos start as muted
-      video.parentElement.appendChild(icon); // Add the icon to the parent container
+      video.removeAttribute("autoplay");
+      const icon = document.createElement("span");
+      icon.classList.add("sound-icon");
+      icon.innerHTML = "🔇";
+      video.parentElement.appendChild(icon);
     });
 
-    // --- 2. Add Click-to-Toggle-Sound Logic ---
     mediaVideos.forEach(video => {
-      video.addEventListener('click', function() {
-        const soundIcon = this.parentElement.querySelector('.sound-icon');
-
+      video.addEventListener("click", function () {
+        const soundIcon = this.parentElement.querySelector(".sound-icon");
         if (this.muted) {
-          // --- Unmuting Logic ---
-          // First, mute any other video that might be playing sound
           if (currentlyUnmutedVideo && currentlyUnmutedVideo !== this) {
             currentlyUnmutedVideo.muted = true;
-            const otherIcon = currentlyUnmutedVideo.parentElement.querySelector('.sound-icon');
-            if (otherIcon) otherIcon.innerHTML = '🔇';
+            const otherIcon = currentlyUnmutedVideo.parentElement.querySelector(".sound-icon");
+            if (otherIcon) otherIcon.innerHTML = "🔇";
           }
-          
-          // Now, unmute THIS video
           this.muted = false;
-          soundIcon.innerHTML = '🔊';
-          currentlyUnmutedVideo = this; // Set this video as the one with sound
+          soundIcon.innerHTML = "🔊";
+          currentlyUnmutedVideo = this;
         } else {
-          // --- Muting Logic ---
-          // If the user clicks the video that already has sound, mute it
           this.muted = true;
-          soundIcon.innerHTML = '🔇';
-          currentlyUnmutedVideo = null; // No video has sound now
+          soundIcon.innerHTML = "🔇";
+          currentlyUnmutedVideo = null;
         }
       });
     });
 
-    // --- 3. Set up the Intersection Observer for Lazy Loading ---
-    const videoObserver = new IntersectionObserver((entries, observer) => {
+    const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const video = entry.target;
         if (entry.isIntersecting) {
-          // If the video is on screen, play it.
-          video.play().catch(error => console.log("Autoplay was prevented by the browser."));
+          video.play().catch(() => {});
         } else {
-          // If the video is off screen, pause it.
           video.pause();
         }
       });
-    }, { 
-      threshold: 0.5 // Play when 50% of the video is visible
-    });
+    }, { threshold: 0.5 });
 
-    // --- 4. Tell the observer to watch all the videos ---
-    mediaVideos.forEach(video => {
-      videoObserver.observe(video);
-    });
+    mediaVideos.forEach(video => videoObserver.observe(video));
   }
+
 });

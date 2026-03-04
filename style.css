@@ -26,6 +26,21 @@
   --font-heading: 'Orbitron', sans-serif;
   --font-body: 'Roboto', sans-serif;
   --transition-speed: 0.3s;
+
+  /* --- Legacy variable aliases (mapped to modern palette above) --- */
+  --seventies-d-bg: var(--dark-bg);
+  --seventies-d-text: var(--dark-text-primary);
+  --seventies-d-accent1: var(--dark-accent-primary);
+  --seventies-d-accent2: var(--dark-accent-secondary);
+  --seventies-d-highlight: var(--dark-accent-primary);
+  --seventies-d-header: var(--dark-border);
+  --seventies-d-section: var(--dark-surface);
+  --seventies-l-bg: var(--light-bg);
+  --seventies-l-text: var(--light-text-primary);
+  --seventies-l-section: var(--light-bg);
+  --seventies-l-accent1: var(--light-accent-primary);
+  --seventies-l-accent2: var(--light-accent-secondary);
+  --seventies-l-border: var(--light-border);
 }
 
 /* 1. Reset & Base Styles */
@@ -394,7 +409,7 @@ body.light-mode .mission-content {
 }
 main .translucent-blue:first-child { padding-top: 90px; }
 
-.build-banner { background-color: var(--black); color: var(--seventies-d-accent1); text-align: center; padding: 10px; font-weight: bold; margin-top: 106px; width: 100%; }
+.build-banner { background-color: #000000; color: var(--seventies-d-accent1); text-align: center; padding: 10px; font-weight: bold; margin-top: 106px; width: 100%; }
 
 
 /* --- MODIFIER for more transparency --- */
@@ -428,29 +443,7 @@ main .translucent-blue:first-child { padding-top: 90px; }
     transform: scale(1.1);
 }
 
-/* 4. Hero Section */
-.home-banner-container { position: relative; margin-top: 120px; overflow: hidden; height: 400px; }
-.banner-desktop { width: 100%; height: 100%; object-fit: cover; }
-.banner-mobile { display: block; width: 100%; height: auto; }
-.home-banner-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; text-align: center; color: var(--seventies-d-text); padding-bottom: 20px; }
-body.light-mode .home-banner-overlay { color: var(--seventies-l-text); }
-.overlay-content {
-  background: rgba(0, 18, 25, 0.9); /* var(--seventies-d-bg) with opacity */
-  padding: 20px;
-  border-radius: 8px;
-  border: 2px solid var(--seventies-d-accent1);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  animation: slideIn 0.5s ease-out;
-}
-body.light-mode .overlay-content { 
-  background: rgba(253, 248, 235, 0.9); /* var(--seventies-l-section) with opacity */
-  border-color: var(--seventies-l-border); 
-}
-@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.home-banner-overlay h1 { font-size: 2rem; margin-bottom: 15px; color: var(--seventies-d-accent1); }
-.founder-image { max-width: 150px; margin: 15px auto; border-radius: 50%; border: 2px solid var(--seventies-d-accent1); transition: transform var(--transition-speed); }
-body.light-mode .founder-image { border-color: var(--seventies-l-border); }
-.founder-image:hover { transform: scale(1.05); }
+/* 4. Hero Section - handled by .home-banner-container cinematic styles above */
 
 .hero-buttons-group { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
 .hero-buttons-group a {
@@ -729,8 +722,6 @@ body.light-mode .about-img { border-color: var(--seventies-l-border); }
   .hamburger { display: none; }
   header { padding: 12px 30px; }
   .container { padding: 30px; }
-  .home-banner-container { margin-top: 110px; height: 500px; }
-  .banner-mobile { display: none; }
   .home-banner-overlay { width: 70%; }
   .hero-buttons-group { flex-direction: row; justify-content: center; }
   .content-with-image { flex-direction: row; }
@@ -752,8 +743,6 @@ body.light-mode .about-img { border-color: var(--seventies-l-border); }
 /* 11. Mobile-Specific Styles */
 @media (max-width: 768px) {
   .media-video { max-height: 200px; }
-  .home-banner-container { margin-top: 120px; height: 450px; }
-  .home-banner-overlay { top: 50%; transform: translate(-50%, -50%); }
   .about-img { max-width: 250px; margin: 0 auto; display: block; }
   #dark-mode-toggle { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex !important; width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
   .mission-section .mission-content { padding-bottom: 30px; }
