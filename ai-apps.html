@@ -52,16 +52,31 @@
   <video src="videos/aiapps04.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
     <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
-    <h3>FotiFoti Art Agent: Multi-Platform Content Automation System</h3>
-    <p>An autonomous AWS-powered agent that orchestrates artwork promotion across Instagram, Facebook, and web platforms without human intervention.</p>
+    <h3>FotiFoti Automated Art Agent</h3>
+    <p>A fully autonomous AI agent that runs an entire art business on autopilot — selecting original line art, colorizing it with AI, writing philosophical captions through a custom persona, and publishing carousel posts to Instagram, Facebook, and a live website. Zero human intervention required.</p>
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">18-Step Automated Pipeline</h4>
     <ul>
-      <li><strong>Serverless AWS architecture:</strong> EventBridge, Lambda, S3, DynamoDB</li>
-      <li><strong>AI-powered content generation:</strong> OpenAI GPT-4o for unique captions with custom brand voice</li>
-      <li><strong>Cross-platform automation:</strong> Instagram Graph API, Facebook Page API, GitHub updates</li>
-      <li><strong>Zero-touch artwork sync:</strong> Automatically discovers new files and prevents duplicates</li>
+      <li><strong>Selects & tracks artwork</strong> — DynamoDB prevents duplicate posts across the entire library</li>
+      <li><strong>AI colorization</strong> — GPT Image 1.5 transforms line art into 6 distinct styles: Picasso Cubist, Studio Ghibli Watercolor, Retro 70s Psychedelic, Kandinsky, George Condo, and Stuart Davis</li>
+      <li><strong>Custom AI persona</strong> — GPT-4o generates captions through "Artemis," a Jim Morrison-inspired character who writes philosophical, psychedelic commentary unique to each piece</li>
+      <li><strong>Multi-platform publishing</strong> — Instagram carousel + Facebook carousel + live website gallery update — all in a single Lambda execution</li>
+      <li><strong>Fully serverless</strong> — AWS Lambda, S3, DynamoDB, and Secrets Manager; no servers to manage</li>
+    </ul>
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Dual System Design</h4>
+    <ul>
+      <li><strong>Automated scheduler</strong> — runs on a set cadence, tracks what's been posted, updates the website gallery automatically via GitHub API</li>
+      <li><strong>Manual colorizer</strong> — lets me experiment with any of the 6 styles on any image without affecting the tracking database — built for testing new looks before adding them to the automated rotation</li>
+    </ul>
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Tech Stack</h4>
+    <ul>
+      <li>AWS Lambda (Python 3.12) · S3 · DynamoDB · Secrets Manager</li>
+      <li>OpenAI GPT-4o (captions) · GPT Image 1.5 (colorization)</li>
+      <li>Instagram Graph API · Facebook Graph API · GitHub API</li>
     </ul>
     <div class="link-buttons-footer">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank">View on Instagram →</a>
+      &nbsp;&nbsp;
+      <a href="https://colorfotifoti.com" target="_blank">Visit colorfotifoti.com →</a>
     </div>
   </div>
 </section>
@@ -71,16 +86,81 @@
   <video src="videos/aiapps02.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
     <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
-    <h3>Hard-E: Production Multi-Agent Sales Assistant</h3>
+    <h3>Hard-E v3.0 — Conversational AI Sales Agent</h3>
+    <p>A voice-first, multi-tenant AI platform built for the contracting industry. Hard-E functions as an intelligent sales orchestrator — managing customer relationships, navigating CRM data in real-time, and holding lifelike conversations with a configurable personality and "soul." Not a chatbot. An AI teammate.</p>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Architecture: Four Core Layers</h4>
     <ul>
-      <li>Hybrid orchestration architecture (OpenAI Agents SDK + manual streaming)</li>
-      <li>Stateful conversation management for complex multi-turn workflows</li>
-      <li>Dual-environment AWS deployment with Nginx, systemd, SSL automation</li>
-      <li>LLM-powered entity extraction handling speech-to-text artifacts</li>
-      <li>Real-time CRM integration across multiple knowledge base sources</li>
+      <li><strong>The Brain</strong> — Claude Sonnet orchestrates intent classification, tool selection, and a dynamic "Soul Document" that gives each tenant their own AI personality, tone, and company-specific opinions</li>
+      <li><strong>The Voice</strong> — Cartesia Sonic 3 delivers sub-100ms time-to-first-audio with sentence-level streaming; audio plays while the AI is still thinking. OpenAI TTS runs as a live fallback</li>
+      <li><strong>The Memory</strong> — 3-tier system: session memory (24hr TTL), conversation summaries for long-term relationship context, and a Redis-backed knowledge tier covering company facts, learned patterns, and user preferences</li>
+      <li><strong>Multi-Tenant Framework</strong> — "Tenant-aware from day zero." Each contracting company gets isolated data, memory, and personality. A guided 5-step onboarding questionnaire activates their instance</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Performance Benchmarks</h4>
+    <ul>
+      <li><strong>~40–90ms</strong> TTS latency (Cartesia Sonic 3)</li>
+      <li><strong>~3–4 seconds</strong> CRM lookup using Compound Tools (parallel asyncio execution cuts latency ~50% vs sequential calls)</li>
+      <li><strong>~1.6 seconds</strong> simple question response time</li>
+      <li><strong>Audio-reactive UI</strong> — 56-bar frequency visualizer using Web Audio API AnalyserNode responds to the AI's voice in real-time</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Safety & Control</h4>
+    <ul>
+      <li><strong>Green Tier</strong> — internal reads (CRM lookups, memory checks) execute freely</li>
+      <li><strong>Yellow / Red Tier</strong> — write actions (creating customers, updating job stages) require confirmation or explicit readback before execution</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">On the Roadmap</h4>
+    <ul>
+      <li>WebRTC/WebSocket full streaming pipeline targeting sub-1-second end-to-end latency</li>
+      <li>Hover integration — 3D job site measurement as a native plugin</li>
+      <li>Dedicated STT microphone input with intelligent silence detection</li>
+    </ul>
+
+    <div class="link-buttons-footer">
+      <a href="https://harde.app" target="_blank">Visit Hard-E →</a>
+      &nbsp;&nbsp;
+      <a href="hard-e-technical.html" target="_blank">Deep Dive: Technical Architecture →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PPA MOBILIZATION AGENT -->
+<section class="mission-section fade-in">
+  <video src="videos/aiapps03.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <img src="images/ppalogo.png" alt="Poor People App Logo" class="project-logo" loading="lazy" />
+    <h3>PPA Mobilization Agent — AI-Driven Campaign Engine</h3>
+    <p>The first live operational agent in the Poor People App's autonomous AI workforce. Powered by GPT-4o with a tightly defined writer's persona — <em>George Orwell's clarity, George Washington's resolve, Odysseus' strategic mind</em> — it generates tactical content grounded in a live knowledge base, then deploys it directly to Telegram and Nostr with one click.</p>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Five Content Formats</h4>
+    <ul>
+      <li><strong>Text Posts</strong> — Social copy synthesized from research documents; mandatory knowledge base grounding</li>
+      <li><strong>Sora Scripts</strong> — Production-ready video assets: 3 cinematic visual prompts + 20–40 second narration + auto-generated TTS audio (MP3 playable directly in admin panel)</li>
+      <li><strong>GIF Prompts</strong> — Crisis dashboard visual style for animated infographics, data-sourced with citations</li>
+      <li><strong>Direct Messages</strong> — 50–75 word cold outreach; calm, peer-to-peer, zero hype language</li>
+      <li><strong>Email Outreach</strong> — 60–80 word structured emails; bans "revolution," "game-changer," and pitch language by rule</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Self-Improving Memory Architecture</h4>
+    <ul>
+      <li><strong>Short-term memory (S3)</strong> — Tracks last 5 generations to prevent topic repetition</li>
+      <li><strong>Long-term learning (DynamoDB)</strong> — After every generation the agent scores its own knowledge base usage (0–10) and specificity (0–10), stores the full record, and injects past performance into the next session's system prompt</li>
+      <li><strong>User feedback loop</strong> — Feedback saved to DynamoDB; exemplary outputs flagged for future fine-tuning</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Tech Stack</h4>
+    <ul>
+      <li>AWS Lambda (Python) · DynamoDB · S3 · SES</li>
+      <li>OpenAI GPT-4o · OpenAI TTS-1-HD</li>
+      <li>Telegram Bot API · Nostr Protocol (3 relays)</li>
+      <li>Next.js 15 · TypeScript · React 18 · Docker · Nginx</li>
     </ul>
     <div class="link-buttons-footer">
-      <a href="https://harde.app" target="_blank">Visit Project →</a>
+      <a href="pythos.html" target="_blank">Learn More About PPA →</a>
+      &nbsp;&nbsp;
+      <a href="https://poorpeople.app" target="_blank">Visit poorpeople.app →</a>
     </div>
   </div>
 </section>
@@ -152,6 +232,27 @@
     </ul>
     <div class="link-buttons-footer">
       <a href="https://oriana.streamlit.app/" target="_blank">Launch App →</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE GREEK CLAWD — COMING SOON -->
+<section class="mission-section fade-in">
+  <video src="videos/aiapps01.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <h3>TheGreekClawd — My First Digital Employee</h3>
+    <p style="font-style:italic; opacity:0.8; font-size:0.9rem;">In Development — Built on OpenClaw (Open Source)</p>
+    <p>
+      TheGreekClawd is an autonomous AI agent being built to function as a full digital employee — capable of executing real development work, coordinating tasks through Telegram, and controlling coding agents via Claude Code. Based on the open-source OpenClaw framework, this project pushes into the frontier of agentic AI: not just an assistant that answers questions, but an agent that ships code, manages workflows, and operates independently between check-ins.
+    </p>
+    <ul>
+      <li>Telegram-native communication interface — already operational</li>
+      <li>Claude Code integration for autonomous coding agent control</li>
+      <li>Built on OpenClaw open-source agentic framework</li>
+      <li>Designed to take on real development tasks end-to-end</li>
+    </ul>
+    <div class="link-buttons-footer">
+      <span style="color: var(--dark-accent-secondary); font-family: var(--font-heading); font-size:0.9rem;">🔧 ACTIVE BUILD — Updates Coming</span>
     </div>
   </div>
 </section>
