@@ -1232,6 +1232,90 @@ body.light-mode .project-overlay {
 }
 
 
+/* --- HOMEPAGE SERVICES GRID --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.service-card {
+  background: rgba(0, 255, 255, 0.04);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 22px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(0, 255, 255, 0.4);
+  background: rgba(0, 255, 255, 0.08);
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  color: var(--dark-accent-primary);
+  margin-bottom: 0.6rem;
+  text-shadow: none;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  color: var(--dark-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* --- HOMEPAGE ACTIVE PROJECTS GRID --- */
+.projects-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.project-showcase-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 24px;
+  margin-bottom: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-showcase-card h3 {
+  font-size: 1.1rem;
+  color: var(--dark-accent-primary);
+  margin-bottom: 0.5rem;
+  text-shadow: none;
+}
+
+.project-showcase-card p {
+  font-size: 0.88rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-text-secondary);
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  color: var(--dark-accent-secondary);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .projects-showcase-grid { grid-template-columns: 1fr; }
+}
+
 /* Bitcoin Section Styling */
 .bitcoin-content {
   max-width: 900px;
