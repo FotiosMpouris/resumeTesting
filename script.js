@@ -124,45 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // ============================================================
-  // 5. DARK MODE TOGGLE
+  // 5. DARK MODE — ALWAYS ON
   // ============================================================
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  if (darkModeToggle) {
-    const applyMode = (isDark) => {
-      document.body.classList.toggle("dark-mode", isDark);
-      document.body.classList.toggle("light-mode", !isDark);
-      localStorage.setItem("darkMode", isDark ? "true" : "false");
-    };
-
-    darkModeToggle.addEventListener("click", () => {
-      applyMode(!document.body.classList.contains("dark-mode"));
-    });
-
-    const savedMode = localStorage.getItem("darkMode");
-    applyMode(savedMode !== "false");
-  }
-
-  // Mobile dark mode toggle (fixed floating button on small screens)
-  const mobileToggle = document.createElement("button");
-  mobileToggle.id = "mobile-dark-mode-toggle";
-  mobileToggle.innerHTML = "☀️";
-  Object.assign(mobileToggle.style, {
-    position: "fixed", bottom: "20px", right: "20px", zIndex: "1500",
-    width: "40px", height: "40px", borderRadius: "50%",
-    background: "#F5E8C7", color: "#2F4F4F", display: "none",
-    alignItems: "center", justifyContent: "center",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.2)", border: "none"
-  });
-  document.body.appendChild(mobileToggle);
-
-  if (window.innerWidth <= 768) mobileToggle.style.display = "flex";
-
-  mobileToggle.addEventListener("click", () => {
-    const isDark = document.body.classList.contains("dark-mode");
-    document.body.classList.toggle("dark-mode", !isDark);
-    document.body.classList.toggle("light-mode", isDark);
-    localStorage.setItem("darkMode", isDark ? "false" : "true");
-  });
+  // Light mode has been removed. Clear any stale localStorage value
+  // that could have been set by the old toggle, then lock to dark mode.
+  localStorage.removeItem("darkMode");
+  document.body.classList.add("dark-mode");
+  document.body.classList.remove("light-mode");
 
 
   // ============================================================

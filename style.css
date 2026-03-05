@@ -50,15 +50,20 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: var(--font-body);
-  font-weight: 300; /* Use the lighter weight of Roboto for a sleeker feel */
-  line-height: 1.7; /* Increased for better readability */
-  background: var(--dark-bg);
-  color: var(--dark-text-primary);
+html {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;  
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  background: var(--dark-bg);
+  color: var(--dark-text-primary);
+  overflow-x: clip; /* 'clip' prevents the iOS Safari extra-scroll-space bug that 'hidden' causes */
+  transition: background 0.3s, color 0.3s;
+  min-height: 100%;
 }
 
 /* Utility class for standard pages with no full-screen hero */
