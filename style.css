@@ -325,14 +325,15 @@ main { padding: 40px 15px 0; }
 
 /* --- CINEMATIC HERO SECTION --- */
 .home-banner-container {
-  height: 100vh; /* Make the hero section take the full viewport height */
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--dark-text-primary);
-  margin-top: 0; /* Remove the old margin */
+  margin-top: 0;
+  padding-top: 80px; /* Offset the fixed header so content centers in visible area */
 }
 
 .hero-video-bg {
