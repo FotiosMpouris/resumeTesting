@@ -17,7 +17,7 @@ This portfolio serves as a central hub to explore my professional journey, proje
 - **About (`about.html`)**: My story, skills, and professional experience as a technical artist.  
   ![Fotios Profile](images/fotios.png)
 - **AI Apps (`ai-apps.html`)**: Showcasing my AI-powered projects like *Siding Assistant* and *Oriana*.
-- **Websites (`websites.html`)**: A gallery of web designs, from *ColorFotiFoti* to *TheMagaMatrix*.
+- **Websites (`websites.html`)**: A gallery of web designs, from *ColorFotiFoti* to *The Grillin Greek*.
 - **Multimedia (`multimedia.html`)**: Motion graphics and branding samples.
 - **Unity Projects (`unity-projects.html`)**: Game development prototypes built in Unity.
 - **Pythos (`pythos.html`)**: My flagship initiative—a tokenized revolution for financial empowerment.  
