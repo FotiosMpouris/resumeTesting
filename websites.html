@@ -45,7 +45,108 @@
 </section>
 
   
-  <main>    
+  <main>
+
+    <!-- HARD-E -->
+    <section class="mission-section fade-in">
+      <video src="videos/flippedaiapps.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <h2>Hard-E v3.0</h2>
+          <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="website-logo" loading="lazy" />
+          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Production Deployment — Voice-First AI Sales Agent for Contracting</p>
+          <p>A voice-first, multi-tenant AI platform built for the contracting industry. Hard-E is an intelligent sales orchestrator — managing customer relationships, navigating CRM data in real time, and holding lifelike conversations with a configurable personality. Not a chatbot. An AI teammate.</p>
+          <h3>Highlights</h3>
+          <ul>
+            <li>Sub-100ms time-to-first-audio with sentence-level streaming (Cartesia Sonic 3)</li>
+            <li>Multi-tenant from day zero — each company gets isolated data, memory, and personality</li>
+            <li>Three-tier memory: session, long-term summaries, and Redis-backed knowledge tier</li>
+            <li>Audio-reactive 56-bar frequency visualizer responding to AI voice in real time</li>
+            <li>Safety tiers — green (read), yellow/red (write actions require confirmation)</li>
+            <li>5-step onboarding questionnaire activates each tenant instance</li>
+          </ul>
+          <h3>Tech Stack</h3>
+          <ul>
+            <li>Claude Sonnet (orchestration brain) · Cartesia Sonic 3 (voice) · OpenAI TTS (fallback)</li>
+            <li>Next.js · TypeScript · Redis (memory) · Web Audio API · WebRTC (roadmap)</li>
+            <li>AWS · Docker · Nginx · production SSL</li>
+          </ul>
+          <a href="https://harde.app" target="_blank" class="cta-btn website-btn">Visit Hard-E</a>
+          &nbsp;
+          <a href="hard-e-technical.html" target="_blank" class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-primary); color:var(--dark-accent-primary);">Technical Deep Dive</a>
+      </div>
+    </section>
+
+    <!-- OPENCARE -->
+    <section class="mission-section fade-in">
+      <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <h2>OpenCare</h2>
+          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Production · Live Daily · Free · The MVP for the Poor People App</p>
+          <p>A care coordination platform I built because I needed it. As the primary caregiver for my parents,
+             I was managing doctor appointments, insurance renewals, home repairs, and grocery runs across siblings
+             in different states — through group texts and memory. OpenCare replaced that chaos with organized care
+             circles, assignable tasks, automated reminders, and email summaries that keep everyone informed
+             without forcing anyone to download an app.</p>
+          <p><strong>It's live. It's free. It's being used right now to coordinate care for real people.</strong>
+             OpenCare is the first operational MVP under the Poor People App umbrella — proof that the larger PPA
+             vision is already shipping working software.</p>
+          <h3>Live Features</h3>
+          <ul>
+            <li><strong>Care Circles</strong> — private workspaces for family, community groups, or care teams</li>
+            <li><strong>Task Management</strong> — full lifecycle: medical, insurance, household, financial, legal, transportation, personal care, social</li>
+            <li><strong>Recurring Tasks</strong> — daily, weekly, monthly, quarterly, yearly, or custom intervals (every 5 years for document renewals)</li>
+            <li><strong>Offline Contacts</strong> — assign tasks to people who don't use the app; they get email notifications</li>
+            <li><strong>Daily Telegram &amp; Email Digests</strong> — automated morning summary of all tasks due today</li>
+            <li><strong>Sentinel Identity Verification</strong> — government ID + selfie via Persona (same tech banks use)</li>
+            <li><strong>AI Agent REST API</strong> — full programmatic control with API key auth, currently driven by TheGreekClawd</li>
+            <li><strong>Google Calendar Integration</strong> — one tap to add any task to your calendar</li>
+            <li><strong>Progressive Web App</strong> — installable from any browser, no App Store required</li>
+          </ul>
+          <h3>Tech Stack</h3>
+          <ul>
+            <li>Next.js 14 · TypeScript · Tailwind CSS · React</li>
+            <li>Clerk Auth (enterprise SSO) · Supabase / PostgreSQL with Row Level Security</li>
+            <li>Persona (government ID verification) · Resend (transactional email) · Telegram Bot API</li>
+            <li>AWS EC2 · Docker · Nginx · Let's Encrypt SSL</li>
+            <li>Custom REST API with Bearer token auth, multi-tenant scoping, safety guardrails</li>
+          </ul>
+          <a href="https://opencare.poorpeople.app" target="_blank" class="cta-btn website-btn">Try OpenCare</a>
+          &nbsp;
+          <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-primary); color:var(--dark-accent-primary);">Read the White Paper</a>
+      </div>
+    </section>
+
+    <!-- THE GREEK CLAWD -->
+    <section class="mission-section fade-in">
+      <video src="videos/matrix.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <h2>TheGreekClawd</h2>
+          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Active Build · Personal Digital Employee · Not Publicly Accessible</p>
+          <p>An autonomous AI agent built as a full digital employee — not an assistant that answers questions, but
+             an operator that ships code, manages workflows, and runs independently between sessions. Built on the
+             open-source <strong>OpenClaw framework</strong>, communicating through Telegram, controlling Claude Code
+             to execute development work end-to-end. Currently integrated with the OpenCare REST API to manage care
+             tasks via natural language commands.</p>
+          <p>This entry exists on the website not because you can visit it — you can't, it's personal infrastructure —
+             but to mark where this practice currently sits on the agentic curve. <strong>Digital employees are no
+             longer a concept. They are a current operational reality.</strong></p>
+          <h3>What It Does Today</h3>
+          <ul>
+            <li>Telegram-native interface — already operational, coordinating in real time</li>
+            <li>Claude Code integration — autonomous coding agent control and execution</li>
+            <li>OpenCare API integration — creates, updates, and monitors care tasks via natural language</li>
+            <li>Built on open-source OpenClaw agentic framework</li>
+            <li>End-to-end task execution — receives a goal, ships the result</li>
+          </ul>
+          <h3>Why It's Listed Here</h3>
+          <p>Building digital employees on top of open-source agentic frameworks is the frontier work happening right
+             now. This is a working showcase of where development is headed — autonomous agents that don't just
+             generate code, but operate as colleagues.</p>
+          <span class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-secondary); color:var(--dark-accent-secondary); cursor:default;">⚡ Active Build — Personal Infrastructure</span>
+      </div>
+    </section>
+
+    <!-- POOR PEOPLE APP -->
     <section class="mission-section fade-in">
   <video src="videos/inflation.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
@@ -121,7 +222,7 @@
             <li>Translucent UI elements enhancing the layered reality theme</li>
             <li>Engaging "Training Simulation" mini-game (desktop)</li>
           </ul>          
-          <a href="https://theasteriproject.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
+          <a href="https://asteri.fotiosmpouris.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
       </div>
     </section>
 
