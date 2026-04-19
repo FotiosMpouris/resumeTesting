@@ -816,8 +816,22 @@ body.light-mode .about-img { border-color: var(--seventies-l-border); }
   .about-img { max-width: 250px; margin: 0 auto; display: block; }
   .mission-section .mission-content { padding-bottom: 30px; }
   .mission-section { min-height: auto; padding: 50px 20px; }
-  .mission-section a { display: block; margin-top: 10px; word-break: break-all; }
+  /* Original rule was too aggressive — `word-break: break-all` cascaded
+     into anchor-wrapped cards and buttons and chopped real words like
+     "Multi-Tenant" and "Technical Deep Dive" mid-letter. Scope to plain
+     inline text links and use the safer overflow-wrap. */
+  .mission-section a.inline-link,
+  .mission-section a[href^="http"]:not([class]) {
+    overflow-wrap: anywhere;
+  }
   .progress-bar { margin-top: 20px; }
+
+  /* Mission sections that contain only a background video (no glass-panel
+     content) — e.g. Unity Projects showcase — collapse to 100px on mobile
+     and look squashed. Give them a real height so the video shows. */
+  .mission-section:not(:has(.glass-panel)) {
+    min-height: 60vh;
+  }
 }
 
 /* Spacing Fixes */
