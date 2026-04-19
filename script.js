@@ -249,74 +249,106 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // ============================================================
-  // 12. NEO EASTER EGG — type "neo" anywhere → 4s matrix takeover
+  // 12. AMBIENT MATRIX FRACTURES
+  //    Every ~60-180s, a thin angled slice of the screen briefly
+  //    shows matrix rain bleeding through, then heals. No interaction
+  //    needed — a quiet glimpse "behind the construct." Pauses when
+  //    the tab is hidden. Honors prefers-reduced-motion.
   // ============================================================
-  let neoBuf = "";
-  const NEO_KEY = "neo";
-  document.addEventListener("keydown", (e) => {
-    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.isContentEditable)) return;
-    const k = (e.key || "").toLowerCase();
-    if (!/^[a-z]$/.test(k)) { neoBuf = ""; return; }
-    neoBuf = (neoBuf + k).slice(-NEO_KEY.length);
-    if (neoBuf === NEO_KEY) {
-      neoBuf = "";
-      triggerMatrixTakeover(4000);
-    }
-  });
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    const FRACTURE_MIN_MS = 60 * 1000;
+    const FRACTURE_MAX_MS = 180 * 1000;
+    const FIRST_DELAY_MIN = 25 * 1000;
+    const FIRST_DELAY_MAX = 75 * 1000;
 
-  function triggerMatrixTakeover(durationMs) {
-    if (document.getElementById("neo-overlay")) return;
+    const scheduleFracture = (minMs, maxMs) => {
+      const wait = minMs + Math.random() * (maxMs - minMs);
+      setTimeout(() => {
+        if (!document.hidden) triggerMatrixFracture();
+        scheduleFracture(FRACTURE_MIN_MS, FRACTURE_MAX_MS);
+      }, wait);
+    };
+    scheduleFracture(FIRST_DELAY_MIN, FIRST_DELAY_MAX);
+  }
+
+  function triggerMatrixFracture() {
+    if (document.getElementById("matrix-fracture")) return;
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    // Generate a thin diagonal band as a clip-path polygon.
+    // Pick a random angle (-25° to +25° from vertical) and horizontal offset.
+    const angleDeg = (Math.random() * 50) - 25;
+    const angleRad = (angleDeg * Math.PI) / 180;
+    const bandWidth = 70 + Math.random() * 90; // 70-160px wide
+    const centerX = w * (0.15 + Math.random() * 0.7);
+    const dx = Math.tan(angleRad) * h; // horizontal drift across the screen height
+    const half = bandWidth / 2;
+    const x1 = centerX - half;
+    const x2 = centerX + half;
+    const x3 = centerX + half + dx;
+    const x4 = centerX - half + dx;
+
     const overlay = document.createElement("div");
-    overlay.id = "neo-overlay";
+    overlay.id = "matrix-fracture";
     Object.assign(overlay.style, {
-      position: "fixed", inset: "0", zIndex: "999999",
-      background: "#000", opacity: "0", transition: "opacity 0.25s ease",
-      pointerEvents: "none"
+      position: "fixed",
+      inset: "0",
+      zIndex: "9998",
+      pointerEvents: "none",
+      opacity: "0",
+      transition: "opacity 280ms ease-out",
+      mixBlendMode: "screen",
+      clipPath: `polygon(${x1}px 0, ${x2}px 0, ${x3}px ${h}px, ${x4}px ${h}px)`,
+      WebkitClipPath: `polygon(${x1}px 0, ${x2}px 0, ${x3}px ${h}px, ${x4}px ${h}px)`
     });
+
     const canvas = document.createElement("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    Object.assign(canvas.style, { width: "100%", height: "100%", display: "block" });
+    canvas.width = w;
+    canvas.height = h;
+    Object.assign(canvas.style, { display: "block", width: "100%", height: "100%" });
     overlay.appendChild(canvas);
-    const tag = document.createElement("div");
-    tag.textContent = "// wake up.";
-    Object.assign(tag.style, {
-      position: "absolute", bottom: "30px", left: "50%", transform: "translateX(-50%)",
-      color: "#00ff41", fontFamily: "monospace", fontSize: "14px",
-      letterSpacing: "0.2em", textShadow: "0 0 10px #00ff41", opacity: "0.85"
-    });
-    overlay.appendChild(tag);
     document.body.appendChild(overlay);
-    requestAnimationFrame(() => { overlay.style.opacity = "1"; });
 
     const ctx = canvas.getContext("2d");
     const fontSize = 16;
-    const cols = Math.floor(canvas.width / fontSize);
-    const drops = new Array(cols).fill(0).map(() => Math.random() * canvas.height / fontSize);
-    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF";
+    const cols = Math.floor(w / fontSize);
+    const drops = new Array(cols).fill(0).map(() => Math.random() * h / fontSize);
+    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>/";
+
+    // Faint black floor so old characters fade rather than streak.
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, w, h);
+
     let raf;
     const draw = () => {
-      ctx.fillStyle = "rgba(0,0,0,0.08)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00ff41";
+      ctx.fillStyle = "rgba(0,0,0,0.10)";
+      ctx.fillRect(0, 0, w, h);
       ctx.font = `${fontSize}px monospace`;
       for (let i = 0; i < drops.length; i++) {
         const ch = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        const y = drops[i] * fontSize;
+        ctx.fillStyle = (Math.random() > 0.96) ? "#ffffff" : "#00ff41";
+        ctx.fillText(ch, i * fontSize, y);
+        if (y > h && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
       raf = requestAnimationFrame(draw);
     };
     draw();
 
+    requestAnimationFrame(() => { overlay.style.opacity = "0.9"; });
+
+    const HOLD = 900 + Math.random() * 700; // 0.9-1.6s visible
     setTimeout(() => {
       overlay.style.opacity = "0";
       setTimeout(() => {
         cancelAnimationFrame(raf);
         overlay.remove();
-      }, 280);
-    }, durationMs);
+      }, 320);
+    }, HOLD);
   }
 
 
