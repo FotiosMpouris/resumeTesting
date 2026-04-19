@@ -179,19 +179,144 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ============================================================
   // 8. TYPEWRITER EFFECT (hero headings)
+  //    Supports data-rotate='["Title 1","Title 2"]' for cycling.
+  //    Falls back to single-pass typing of innerHTML for plain h1s.
+  //    Always renders a blinking caret beside the text.
   // ============================================================
   const typewriterElement = document.getElementById("hero-typewriter");
   if (typewriterElement) {
-    const text = typewriterElement.innerHTML;
-    typewriterElement.innerHTML = "";
-    let i = 0;
-    const typeWriter = () => {
-      if (i < text.length) {
-        typewriterElement.innerHTML += text.charAt(i++);
-        setTimeout(typeWriter, 80);
+    const rotateAttr = typewriterElement.getAttribute("data-rotate");
+    const fallback = typewriterElement.textContent.trim();
+    let phrases = [];
+    try {
+      phrases = rotateAttr ? JSON.parse(rotateAttr) : [fallback];
+    } catch (e) {
+      phrases = [fallback];
+    }
+    if (!phrases.length) phrases = [fallback];
+
+    typewriterElement.innerHTML = '<span class="tw-text"></span><span class="tw-caret" aria-hidden="true">▌</span>';
+    const textSpan = typewriterElement.querySelector(".tw-text");
+
+    const isRotating = phrases.length > 1;
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        charIdx++;
+        textSpan.textContent = current.slice(0, charIdx);
+        if (charIdx >= current.length) {
+          if (!isRotating) return;
+          deleting = true;
+          setTimeout(tick, 2200);
+          return;
+        }
+        setTimeout(tick, 70 + Math.random() * 40);
+      } else {
+        charIdx--;
+        textSpan.textContent = current.slice(0, charIdx);
+        if (charIdx <= 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(tick, 350);
+          return;
+        }
+        setTimeout(tick, 35);
       }
     };
-    setTimeout(typeWriter, 500);
+    setTimeout(tick, 500);
+  }
+
+
+  // ============================================================
+  // 11. FOOTER MONOSPACE STATUS LINE (matrix tier)
+  // ============================================================
+  const footerStatus = document.getElementById("footer-status");
+  if (footerStatus) {
+    const pad = (n) => String(n).padStart(2, "0");
+    const render = () => {
+      const d = new Date();
+      const utc = `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}Z`;
+      const node = (typeof navigator !== "undefined" && navigator.userAgent) ? "node-fm-01" : "node-fm-01";
+      footerStatus.textContent = `> sys.online · ${node} · uplink: stable · ${utc}`;
+    };
+    render();
+    setInterval(render, 1000);
+  }
+
+
+  // ============================================================
+  // 12. NEO EASTER EGG — type "neo" anywhere → 4s matrix takeover
+  // ============================================================
+  let neoBuf = "";
+  const NEO_KEY = "neo";
+  document.addEventListener("keydown", (e) => {
+    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.isContentEditable)) return;
+    const k = (e.key || "").toLowerCase();
+    if (!/^[a-z]$/.test(k)) { neoBuf = ""; return; }
+    neoBuf = (neoBuf + k).slice(-NEO_KEY.length);
+    if (neoBuf === NEO_KEY) {
+      neoBuf = "";
+      triggerMatrixTakeover(4000);
+    }
+  });
+
+  function triggerMatrixTakeover(durationMs) {
+    if (document.getElementById("neo-overlay")) return;
+    const overlay = document.createElement("div");
+    overlay.id = "neo-overlay";
+    Object.assign(overlay.style, {
+      position: "fixed", inset: "0", zIndex: "999999",
+      background: "#000", opacity: "0", transition: "opacity 0.25s ease",
+      pointerEvents: "none"
+    });
+    const canvas = document.createElement("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    Object.assign(canvas.style, { width: "100%", height: "100%", display: "block" });
+    overlay.appendChild(canvas);
+    const tag = document.createElement("div");
+    tag.textContent = "// wake up.";
+    Object.assign(tag.style, {
+      position: "absolute", bottom: "30px", left: "50%", transform: "translateX(-50%)",
+      color: "#00ff41", fontFamily: "monospace", fontSize: "14px",
+      letterSpacing: "0.2em", textShadow: "0 0 10px #00ff41", opacity: "0.85"
+    });
+    overlay.appendChild(tag);
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => { overlay.style.opacity = "1"; });
+
+    const ctx = canvas.getContext("2d");
+    const fontSize = 16;
+    const cols = Math.floor(canvas.width / fontSize);
+    const drops = new Array(cols).fill(0).map(() => Math.random() * canvas.height / fontSize);
+    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF";
+    let raf;
+    const draw = () => {
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ff41";
+      ctx.font = `${fontSize}px monospace`;
+      for (let i = 0; i < drops.length; i++) {
+        const ch = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    setTimeout(() => {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        cancelAnimationFrame(raf);
+        overlay.remove();
+      }, 280);
+    }, durationMs);
   }
 
 

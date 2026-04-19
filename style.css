@@ -1812,3 +1812,160 @@ body.light-mode .glass-panel a {
 .ai-apps-page .link-buttons-footer a:hover {
   color: #ffffff;
 }
+
+
+/* ==========================================================================
+   MATRIX TIER POLISH (Feb 2026)
+   Subtle green-glow accents, monospace footer, blinking caret, dividers,
+   hover tells. Layered on top of cyan/gold palette without replacing it.
+   ========================================================================== */
+
+:root {
+  --matrix-green: #00ff41;
+  --matrix-green-dim: rgba(0, 255, 65, 0.55);
+  --matrix-green-glow: rgba(0, 255, 65, 0.18);
+}
+
+/* --- Typewriter caret --- */
+#hero-typewriter .tw-text { white-space: pre; }
+#hero-typewriter .tw-caret {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green-dim);
+  animation: tw-blink 1s steps(2, end) infinite;
+  font-weight: 400;
+}
+@keyframes tw-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+/* --- Project tag chip (used on websites + ai-apps) --- */
+.project-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-family: var(--font-heading);
+  color: var(--matrix-green);
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  margin: 8px 0 12px;
+  border: 1px solid rgba(0, 255, 65, 0.35);
+  border-radius: 4px;
+  background: rgba(0, 255, 65, 0.06);
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.4);
+}
+
+/* --- Project / showcase / service / earlier-build card hover glow --- */
+.project-showcase-card,
+.social-link-card,
+.service-card,
+.earlier-build-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid transparent;
+}
+.project-showcase-card:hover,
+.social-link-card:hover,
+.service-card:hover,
+.earlier-build-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 255, 65, 0.45);
+  box-shadow: 0 0 24px rgba(0, 255, 65, 0.18), 0 0 60px rgba(0, 255, 65, 0.08) inset;
+}
+
+/* --- Earlier Builds grid (AI Apps page) --- */
+.earlier-builds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 1rem;
+  text-align: left;
+}
+.earlier-build-card {
+  background: rgba(20, 20, 40, 0.45);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.earlier-build-card img {
+  max-width: 60px;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+.earlier-build-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  margin: 0;
+  color: var(--dark-accent-primary);
+}
+.earlier-build-card p {
+  font-size: 0.86rem;
+  margin: 0;
+  color: var(--dark-text-secondary);
+  line-height: 1.5;
+}
+.earlier-build-card a {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--matrix-green);
+  text-decoration: none;
+  margin-top: 4px;
+}
+.earlier-build-card a:hover { color: #fff; text-shadow: 0 0 6px var(--matrix-green); }
+@media (max-width: 720px) {
+  .earlier-builds-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Website CTA row (websites.html) --- */
+.website-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  justify-content: center;
+}
+.cta-btn.website-btn.ghost {
+  background: transparent;
+  border: 1px solid var(--dark-accent-primary);
+  color: var(--dark-accent-primary);
+}
+.cta-btn.website-btn.ghost:hover {
+  background: rgba(0, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* --- Footer monospace status line --- */
+.footer-status {
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--matrix-green);
+  text-shadow: 0 0 6px var(--matrix-green-glow);
+  opacity: 0.75;
+  margin: 0 auto 10px;
+  padding: 4px 10px;
+  display: inline-block;
+  border: 1px dashed rgba(0, 255, 65, 0.25);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* --- Section micro-divider (optional via .matrix-divider class) --- */
+.matrix-divider {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  opacity: 0.45;
+  letter-spacing: 0.6em;
+  font-size: 0.85rem;
+  margin: 30px 0;
+  text-shadow: 0 0 6px var(--matrix-green-glow);
+}
+.matrix-divider::before { content: "・ ◦ ・"; }
+
+/* --- Reduce motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+  #hero-typewriter .tw-caret { animation: none; }
+}
+
+
+
