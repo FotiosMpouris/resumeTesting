@@ -250,59 +250,99 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ============================================================
   // 12. AMBIENT MATRIX FRACTURES
-  //    Every ~60-180s, a thin angled slice of the screen briefly
-  //    shows matrix rain bleeding through, then heals. No interaction
-  //    needed — a quiet glimpse "behind the construct." Pauses when
-  //    the tab is hidden. Honors prefers-reduced-motion.
+  //    The construct flickers. Random thin slices of matrix rain
+  //    bleed through the page at irregular intervals, in random
+  //    locations, with three variants (calm linger, hard flash,
+  //    stutter sequence). Sometimes two arrive within a few seconds
+  //    of each other ("aftershock") — the goal is "reality glitching"
+  //    rather than a tidy schedule. Pauses when the tab is hidden,
+  //    honors prefers-reduced-motion.
   // ============================================================
   const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
-    const FRACTURE_MIN_MS = 60 * 1000;
-    const FRACTURE_MAX_MS = 180 * 1000;
-    const FIRST_DELAY_MIN = 25 * 1000;
-    const FIRST_DELAY_MAX = 75 * 1000;
+    let fractureCounter = 0;
 
     const scheduleFracture = (minMs, maxMs) => {
       const wait = minMs + Math.random() * (maxMs - minMs);
       setTimeout(() => {
-        if (!document.hidden) triggerMatrixFracture();
-        scheduleFracture(FRACTURE_MIN_MS, FRACTURE_MAX_MS);
+        if (document.hidden) {
+          // Tab hidden — try again sooner once it might be visible
+          scheduleFracture(20 * 1000, 60 * 1000);
+          return;
+        }
+        runFractureSequence();
+
+        // ~22% chance of an "aftershock" — second fracture 3-9s later
+        if (Math.random() < 0.22) {
+          setTimeout(() => {
+            if (!document.hidden) runFractureSequence();
+          }, 3000 + Math.random() * 6000);
+        }
+
+        scheduleFracture(30 * 1000, 90 * 1000);
       }, wait);
     };
-    scheduleFracture(FIRST_DELAY_MIN, FIRST_DELAY_MAX);
+
+    // First one comes earlier — 15-45s after page load
+    scheduleFracture(15 * 1000, 45 * 1000);
+
+    function runFractureSequence() {
+      fractureCounter++;
+      const r = Math.random();
+      if (r < 0.18) {
+        // STUTTER — two or three rapid micro-flashes from the same band
+        const flashes = Math.random() < 0.5 ? 2 : 3;
+        const seed = makeFractureGeometry();
+        let i = 0;
+        const fire = () => {
+          spawnFracture({ ...seed, hold: 90 + Math.random() * 130, peakOpacity: 0.95, fadeOut: 60 });
+          i++;
+          if (i < flashes) setTimeout(fire, 70 + Math.random() * 110);
+        };
+        fire();
+      } else if (r < 0.42) {
+        // HARD FLASH — short, sharp, high opacity
+        spawnFracture({ ...makeFractureGeometry(), hold: 220 + Math.random() * 220, peakOpacity: 1.0, fadeIn: 40, fadeOut: 90 });
+      } else {
+        // LINGER — calm, longer hold (1.4–3.2s), the default vibe
+        spawnFracture({ ...makeFractureGeometry(), hold: 1400 + Math.random() * 1800, peakOpacity: 0.85 + Math.random() * 0.1, fadeIn: 280, fadeOut: 380 });
+      }
+    }
   }
 
-  function triggerMatrixFracture() {
-    if (document.getElementById("matrix-fracture")) return;
-
+  function makeFractureGeometry() {
     const w = window.innerWidth;
     const h = window.innerHeight;
 
-    // Generate a thin diagonal band as a clip-path polygon.
-    // Pick a random angle (-25° to +25° from vertical) and horizontal offset.
-    const angleDeg = (Math.random() * 50) - 25;
+    // Wider angle range (-45° to +45°) and full-width random placement
+    const angleDeg = (Math.random() * 90) - 45;
     const angleRad = (angleDeg * Math.PI) / 180;
-    const bandWidth = 70 + Math.random() * 90; // 70-160px wide
-    const centerX = w * (0.15 + Math.random() * 0.7);
-    const dx = Math.tan(angleRad) * h; // horizontal drift across the screen height
+    const bandWidth = 50 + Math.random() * 180; // 50-230px wide — more variety
+    const centerX = w * (0.05 + Math.random() * 0.9); // anywhere across the page
+    const dx = Math.tan(angleRad) * h;
     const half = bandWidth / 2;
-    const x1 = centerX - half;
-    const x2 = centerX + half;
-    const x3 = centerX + half + dx;
-    const x4 = centerX - half + dx;
+
+    return {
+      w, h,
+      polygon: `polygon(${centerX - half}px 0, ${centerX + half}px 0, ${centerX + half + dx}px ${h}px, ${centerX - half + dx}px ${h}px)`
+    };
+  }
+
+  function spawnFracture(opts) {
+    const { w, h, polygon, hold, peakOpacity = 0.9, fadeIn = 220, fadeOut = 280 } = opts;
 
     const overlay = document.createElement("div");
-    overlay.id = "matrix-fracture";
+    overlay.className = "matrix-fracture";
     Object.assign(overlay.style, {
       position: "fixed",
       inset: "0",
       zIndex: "9998",
       pointerEvents: "none",
       opacity: "0",
-      transition: "opacity 280ms ease-out",
+      transition: `opacity ${fadeIn}ms ease-out`,
       mixBlendMode: "screen",
-      clipPath: `polygon(${x1}px 0, ${x2}px 0, ${x3}px ${h}px, ${x4}px ${h}px)`,
-      WebkitClipPath: `polygon(${x1}px 0, ${x2}px 0, ${x3}px ${h}px, ${x4}px ${h}px)`
+      clipPath: polygon,
+      WebkitClipPath: polygon
     });
 
     const canvas = document.createElement("canvas");
@@ -318,7 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const drops = new Array(cols).fill(0).map(() => Math.random() * h / fontSize);
     const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>/";
 
-    // Faint black floor so old characters fade rather than streak.
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, w, h);
 
@@ -339,16 +378,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     draw();
 
-    requestAnimationFrame(() => { overlay.style.opacity = "0.9"; });
+    requestAnimationFrame(() => { overlay.style.opacity = String(peakOpacity); });
 
-    const HOLD = 900 + Math.random() * 700; // 0.9-1.6s visible
     setTimeout(() => {
+      overlay.style.transition = `opacity ${fadeOut}ms ease-in`;
       overlay.style.opacity = "0";
       setTimeout(() => {
         cancelAnimationFrame(raf);
         overlay.remove();
-      }, 320);
-    }, HOLD);
+      }, fadeOut + 40);
+    }, hold);
   }
 
 
