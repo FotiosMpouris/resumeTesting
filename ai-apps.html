@@ -81,6 +81,55 @@
   </div>
 </section>
 
+<!-- OPENCARE -->
+<section class="mission-section fade-in">
+  <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+  <div class="glass-panel is-translucent">
+    <h3>OpenCare — Care Coordination Platform with AI Agent API</h3>
+    <p style="font-style:italic; opacity:0.85; font-size:0.95rem;">Production · Live Daily · Free · The MVP for the Poor People App</p>
+    <p>A live care coordination platform I built because I needed it — coordinating elder care for my parents across siblings, caseworkers, and community helpers. OpenCare replaced sticky notes and group texts with organized Care Circles, assignable tasks, automated reminders, and email summaries that keep everyone in the loop without requiring them to install an app. It's also a working proof of AI agent integration: my own digital employee, TheGreekClawd, manages care tasks in this system through natural language commands via the public REST API.</p>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">AI Agent REST API — The Differentiator</h4>
+    <ul>
+      <li><strong>Full programmatic surface</strong> — list circles, CRUD tasks, manage contacts, get summaries, trigger email shares</li>
+      <li><strong>API key authentication</strong> with SHA-256 hashing, per-user scoping, and key management from the profile page</li>
+      <li><strong>Safety guardrails</strong> baked into the spec — no delete endpoints, explicit confirmation required for cancellations, all data scoped to the authenticated user</li>
+      <li><strong>Multi-tenant by design</strong> — any user can generate API keys and connect their own AI agent</li>
+      <li><strong>Live integration</strong> — TheGreekClawd uses this API to create, assign, and monitor real care tasks in production</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Core Features (All Live)</h4>
+    <ul>
+      <li><strong>Care Circles</strong> — private workspaces with coordinator controls and identity verification gates for sensitive circles</li>
+      <li><strong>Task lifecycle</strong> — 8 categories, 4 priority levels, recurrences from daily to every 5 years</li>
+      <li><strong>Offline contacts</strong> — assign tasks to people who don't have the app; they get email notifications with full details</li>
+      <li><strong>Daily Telegram &amp; email digests</strong> — automated morning summary of all tasks due today</li>
+      <li><strong>Sentinel Identity Verification</strong> — government ID + selfie via Persona (the same platform used by banks and fintech)</li>
+      <li><strong>Google Calendar integration</strong> — one tap to add any task to your calendar</li>
+      <li><strong>Progressive Web App</strong> — installable from any browser, no App Store, full offline shell</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Stack</h4>
+    <ul>
+      <li>Next.js 14 · TypeScript · Tailwind CSS · React</li>
+      <li>Clerk (enterprise auth, used by Notion and Stripe) · Supabase / PostgreSQL with Row Level Security</li>
+      <li>Persona (government ID verification) · Resend (transactional email) · Telegram Bot API</li>
+      <li>AWS EC2 · Docker · Nginx · Let's Encrypt SSL · Custom REST API with Bearer token auth</li>
+    </ul>
+
+    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Why It's Here (Not Just on Websites)</h4>
+    <p>OpenCare belongs on the AI Apps page because the platform is designed AI-native from the inside out — the REST API isn't an afterthought, it's a first-class surface for autonomous agents. The next layer is a Nostr-based community where helpers and caregivers discover each other through decentralized identity. This is what AI-integrated infrastructure looks like when it's built to serve real families instead of demoing on stage.</p>
+
+    <div class="link-buttons-footer">
+      <a href="https://opencare.poorpeople.app" target="_blank">Try OpenCare →</a>
+      &nbsp;&nbsp;
+      <a href="https://opencare.poorpeople.app/white-paper" target="_blank">Read the White Paper →</a>
+      &nbsp;&nbsp;
+      <a href="https://opencare.poorpeople.app/how-it-works" target="_blank">How It Works →</a>
+    </div>
+  </div>
+</section>
+
 <!-- HARD-E -->
 <section class="mission-section fade-in">
   <video src="videos/aiapps02.mp4" autoplay muted loop playsinline class="mission-bg"></video>
