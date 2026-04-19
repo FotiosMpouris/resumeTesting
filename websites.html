@@ -39,7 +39,7 @@
 </video>
   <div class="hero-video-overlay"></div>
   <div class="hero-video-content">    
-    <h1 id="hero-typewriter">Website Design</h1> 
+    <h1 id="hero-typewriter" data-rotate='["Sites that ship.","Domains I run.","Live in production."]'>Sites that ship.</h1> 
     <p>Designing Customizable Solutions</p>
   </div>
 </section>
@@ -51,28 +51,15 @@
     <section class="mission-section fade-in">
       <video src="videos/flippedaiapps.mp4" autoplay muted loop playsinline class="mission-bg"></video>
       <div class="glass-panel is-translucent">
-          <h2>Hard-E v3.0</h2>
           <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="website-logo" loading="lazy" />
-          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Production Deployment — Voice-First AI Sales Agent for Contracting</p>
-          <p>A voice-first, multi-tenant AI platform built for the contracting industry. Hard-E is an intelligent sales orchestrator — managing customer relationships, navigating CRM data in real time, and holding lifelike conversations with a configurable personality. Not a chatbot. An AI teammate.</p>
-          <h3>Highlights</h3>
-          <ul>
-            <li>Sub-100ms time-to-first-audio with sentence-level streaming (Cartesia Sonic 3)</li>
-            <li>Multi-tenant from day zero — each company gets isolated data, memory, and personality</li>
-            <li>Three-tier memory: session, long-term summaries, and Redis-backed knowledge tier</li>
-            <li>Audio-reactive 56-bar frequency visualizer responding to AI voice in real time</li>
-            <li>Safety tiers — green (read), yellow/red (write actions require confirmation)</li>
-            <li>5-step onboarding questionnaire activates each tenant instance</li>
-          </ul>
-          <h3>Tech Stack</h3>
-          <ul>
-            <li>Claude Sonnet (orchestration brain) · Cartesia Sonic 3 (voice) · OpenAI TTS (fallback)</li>
-            <li>Next.js · TypeScript · Redis (memory) · Web Audio API · WebRTC (roadmap)</li>
-            <li>AWS · Docker · Nginx · production SSL</li>
-          </ul>
-          <a href="https://harde.app" target="_blank" class="cta-btn website-btn">Visit Hard-E</a>
-          &nbsp;
-          <a href="hard-e-technical.html" target="_blank" class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-primary); color:var(--dark-accent-primary);">Technical Deep Dive</a>
+          <h2>Hard-E v3.0</h2>
+          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Production · Voice-First AI Sales Agent for Contracting</p>
+          <p>A multi-tenant AI platform for the contracting industry. Sales orchestrator with sub-100ms voice, 3-tier memory, and configurable per-tenant personality. Not a chatbot — an AI teammate.</p>
+          <span class="project-tag">Claude Sonnet · Cartesia Sonic 3 · Redis · Multi-Tenant · AWS</span>
+          <div class="website-cta-row">
+            <a href="https://harde.app" target="_blank" class="cta-btn website-btn">Visit Hard-E</a>
+            <a href="hard-e-technical.html" target="_blank" class="cta-btn website-btn ghost">Technical Deep Dive</a>
+          </div>
       </div>
     </section>
 
@@ -80,39 +67,15 @@
     <section class="mission-section fade-in">
       <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg"></video>
       <div class="glass-panel is-translucent">
+          <img src="images/opencarelogo.png" alt="OpenCare Logo" class="website-logo" loading="lazy" style="border-radius:18px;" />
           <h2>OpenCare</h2>
           <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Production · Live Daily · Free · The MVP for the Poor People App</p>
-          <p>A care coordination platform I built because I needed it. As the primary caregiver for my parents,
-             I was managing doctor appointments, insurance renewals, home repairs, and grocery runs across siblings
-             in different states — through group texts and memory. OpenCare replaced that chaos with organized care
-             circles, assignable tasks, automated reminders, and email summaries that keep everyone informed
-             without forcing anyone to download an app.</p>
-          <p><strong>It's live. It's free. It's being used right now to coordinate care for real people.</strong>
-             OpenCare is the first operational MVP under the Poor People App umbrella — proof that the larger PPA
-             vision is already shipping working software.</p>
-          <h3>Live Features</h3>
-          <ul>
-            <li><strong>Care Circles</strong> — private workspaces for family, community groups, or care teams</li>
-            <li><strong>Task Management</strong> — full lifecycle: medical, insurance, household, financial, legal, transportation, personal care, social</li>
-            <li><strong>Recurring Tasks</strong> — daily, weekly, monthly, quarterly, yearly, or custom intervals (every 5 years for document renewals)</li>
-            <li><strong>Offline Contacts</strong> — assign tasks to people who don't use the app; they get email notifications</li>
-            <li><strong>Daily Telegram &amp; Email Digests</strong> — automated morning summary of all tasks due today</li>
-            <li><strong>Sentinel Identity Verification</strong> — government ID + selfie via Persona (same tech banks use)</li>
-            <li><strong>AI Agent REST API</strong> — full programmatic control with API key auth, currently driven by TheGreekClawd</li>
-            <li><strong>Google Calendar Integration</strong> — one tap to add any task to your calendar</li>
-            <li><strong>Progressive Web App</strong> — installable from any browser, no App Store required</li>
-          </ul>
-          <h3>Tech Stack</h3>
-          <ul>
-            <li>Next.js 14 · TypeScript · Tailwind CSS · React</li>
-            <li>Clerk Auth (enterprise SSO) · Supabase / PostgreSQL with Row Level Security</li>
-            <li>Persona (government ID verification) · Resend (transactional email) · Telegram Bot API</li>
-            <li>AWS EC2 · Docker · Nginx · Let's Encrypt SSL</li>
-            <li>Custom REST API with Bearer token auth, multi-tenant scoping, safety guardrails</li>
-          </ul>
-          <a href="https://opencare.poorpeople.app" target="_blank" class="cta-btn website-btn">Try OpenCare</a>
-          &nbsp;
-          <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-primary); color:var(--dark-accent-primary);">Read the White Paper</a>
+          <p>A care coordination platform built because I needed it — coordinating elder care for my parents across siblings, caseworkers, and community helpers. Care Circles, recurring tasks, daily Telegram &amp; email digests, government ID verification, and a public REST API that AI agents drive in production.</p>
+          <span class="project-tag">Next.js · Supabase · Clerk · Persona · Telegram · AWS</span>
+          <div class="website-cta-row">
+            <a href="https://opencare.poorpeople.app" target="_blank" class="cta-btn website-btn">Try OpenCare</a>
+            <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="cta-btn website-btn ghost">White Paper</a>
+          </div>
       </div>
     </section>
 
@@ -122,172 +85,96 @@
       <div class="glass-panel is-translucent">
           <h2>TheGreekClawd</h2>
           <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Active Build · Personal Digital Employee · Not Publicly Accessible</p>
-          <p>An autonomous AI agent built as a full digital employee — not an assistant that answers questions, but
-             an operator that ships code, manages workflows, and runs independently between sessions. Built on the
-             open-source <strong>OpenClaw framework</strong>, communicating through Telegram, controlling Claude Code
-             to execute development work end-to-end. Currently integrated with the OpenCare REST API to manage care
-             tasks via natural language commands.</p>
-          <p>This entry exists on the website not because you can visit it — you can't, it's personal infrastructure —
-             but to mark where this practice currently sits on the agentic curve. <strong>Digital employees are no
-             longer a concept. They are a current operational reality.</strong></p>
-          <h3>What It Does Today</h3>
-          <ul>
-            <li>Telegram-native interface — already operational, coordinating in real time</li>
-            <li>Claude Code integration — autonomous coding agent control and execution</li>
-            <li>OpenCare API integration — creates, updates, and monitors care tasks via natural language</li>
-            <li>Built on open-source OpenClaw agentic framework</li>
-            <li>End-to-end task execution — receives a goal, ships the result</li>
-          </ul>
-          <h3>Why It's Listed Here</h3>
-          <p>Building digital employees on top of open-source agentic frameworks is the frontier work happening right
-             now. This is a working showcase of where development is headed — autonomous agents that don't just
-             generate code, but operate as colleagues.</p>
-          <span class="cta-btn website-btn" style="background:transparent; border:1px solid var(--dark-accent-secondary); color:var(--dark-accent-secondary); cursor:default;">⚡ Active Build — Personal Infrastructure</span>
+          <p>An autonomous agent built on the open-source <strong>OpenClaw framework</strong> — coordinating through Telegram, controlling Claude Code to execute development work end-to-end, and driving the OpenCare REST API to manage care tasks via natural language. Listed here to mark where this practice currently sits on the agentic curve. <strong>Digital employees are no longer a concept. They are operational reality.</strong></p>
+          <span class="project-tag">OpenClaw · Claude Code · Telegram · Agentic</span>
+          <div class="website-cta-row">
+            <span class="cta-btn website-btn ghost" style="cursor:default; border-color:var(--dark-accent-secondary); color:var(--dark-accent-secondary);">⚡ Active Build — Personal Infrastructure</span>
+          </div>
       </div>
     </section>
 
     <!-- POOR PEOPLE APP -->
     <section class="mission-section fade-in">
-  <video src="videos/inflation.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-      <h2>Poor People App</h2>
-         <img src="images/ppalogo.png" alt="PPA Logo" class="website-logo" loading="lazy" />          
-          <h3>Features (In Development)</h3>
-          <ul>
-            <li>PoorPeople.app is a platform in development</li>
-            <li>Replacing inefficient bureaucracy with transparent technology</li>
-            <li>Project explores AI-powered navigation & organizing tools</li>
-            <li>blockchain-based infrastructure to serve people</li>
-            <li>AI-assisted navigation of benefits and services</li>
-            <li>Community-driven support network</li>
-            <li>Blockchain infrastructure for transparency and efficiency</li>
-            </ul>
-          <a href="https://poorpeople.app" target="_blank" class="cta-btn website-btn">Visit Website</a>
-         </div>
+      <video src="videos/inflation.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <img src="images/ppalogo.png" alt="PPA Logo" class="website-logo" loading="lazy" />
+          <h2>Poor People App</h2>
+          <p>Economic infrastructure for working-class Americans. Multi-agent platform replacing bureaucratic overhead with transparent AI, Nostr-based identity, and a Bitcoin treasury. <strong>OpenCare is the live MVP shipping today.</strong></p>
+          <span class="project-tag">Next.js 15 · AI Agents · Nostr · Bitcoin · AWS</span>
+          <div class="website-cta-row">
+            <a href="https://poorpeople.app" target="_blank" class="cta-btn website-btn">Visit Website</a>
+            <a href="pythos.html" class="cta-btn website-btn ghost">Read the Vision</a>
+          </div>
+      </div>
     </section>
 
+    <!-- COLOR FOTI FOTI -->
     <section class="mission-section fade-in">
-  <video src="videos/fotifoti.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-      <h2>Color Foti Foti</h2>      
-          <img src="images/fotifotilogo.png" alt="ColorFotiFoti Logo" class="website-logo" loading="lazy" />         
-          <h3>Features</h3>
-          <ul>
-            <li>artist website showcasing downloadable drawings</li>
-            <li>Free screensaversl</li>
-            <li>Explore, download, and support original artwork</li>
-            <li>Dynamic gallery of downloadable drawings</li>
-            <li>Multiple donation options: Bitcoin & PayPal</li>
-            <li>Responsive grid layout</li>
-            <li>Free screensavers for mobile & desktop</li>
-          </ul>
-          <a href="https://colorfotifoti.com" target="_blank" class="cta-btn website-btn">Visit Website</a>          
+      <video src="videos/fotifoti.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <img src="images/fotifotilogo.png" alt="ColorFotiFoti Logo" class="website-logo" loading="lazy" />
+          <h2>Color Foti Foti</h2>
+          <p>Artist site showcasing downloadable drawings, free screensavers, and original artwork. Dynamic gallery auto-updated by the FotiFoti AI agent. Bitcoin and PayPal donation options.</p>
+          <span class="project-tag">Vanilla JS · GitHub Pages · AI-updated gallery</span>
+          <div class="website-cta-row">
+            <a href="https://colorfotifoti.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
+          </div>
       </div>
     </section>
 
-     <section class="mission-section fade-in">
-  <video src="videos/theabstractamerican.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-      <h2>The Abstract American</h2>      
-          <img src="images/theabstractamericanlogo.png" alt="TheAbstractAmerican Logo" class="website-logo" loading="lazy" />          
-          <h3>Features</h3>
-          <ul>
-            <li>Artist website showcasing original abstract paintings</li>
-            <li>Smooth, dynamic full-page scrolling gallery</li>
-            <li>About, Gallery, and Connect sections</li>
-            <li>FotiFoti Art Agent automatically publishes new artwork to this gallery via the GitHub API</li>
-            <li>Fully responsive — mobile, tablet, and desktop</li>
-          </ul>
-          <h3>Tech Stack</h3>
-          <ul>
-            <li>HTML5 / CSS3 / Vanilla JavaScript</li>
-            <li>GitHub Pages hosting</li>
-            <li>Auto-updated by AWS Lambda via GitHub API (FotiFoti agent integration)</li>
-          </ul>
-          <a href="https://theabstractamerican.com" target="_blank" class="cta-btn website-btn">Visit Website</a>           
+    <!-- THE ABSTRACT AMERICAN -->
+    <section class="mission-section fade-in">
+      <video src="videos/theabstractamerican.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <img src="images/theabstractamericanlogo.png" alt="TheAbstractAmerican Logo" class="website-logo" loading="lazy" />
+          <h2>The Abstract American</h2>
+          <p>Artist site for original abstract paintings. Smooth full-page scrolling gallery with About, Gallery, and Connect sections. FotiFoti AI agent publishes new artwork here automatically via the GitHub API.</p>
+          <span class="project-tag">Vanilla JS · GitHub Pages · AWS Lambda · GitHub API</span>
+          <div class="website-cta-row">
+            <a href="https://theabstractamerican.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
+          </div>
       </div>
     </section>
 
-        <section class="mission-section fade-in">
-  <video src="videos/asteri1.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-      <h2>The Asteri Project</h2>      
-          <img src="images/asteri-project-logo.png" alt="The Asteri Project Logo" class="website-logo" loading="lazy" />          
-          <h3>Features</h3>
-          <ul>
-            <li>Under Construction</li>
-            <li>Immersive web experience introducing The Asteri Project</li>
-            <li>sci-fi narrative exploring nested simulations</li>
-            <li>Interactive particle and energy wave effects on click</li>
-            <li>Translucent UI elements enhancing the layered reality theme</li>
-            <li>Engaging "Training Simulation" mini-game (desktop)</li>
-          </ul>          
-          <a href="https://asteri.fotiosmpouris.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
+    <!-- THE ASTERI PROJECT -->
+    <section class="mission-section fade-in">
+      <video src="videos/asteri1.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <img src="images/asteri-project-logo.png" alt="The Asteri Project Logo" class="website-logo" loading="lazy" />
+          <h2>The Asteri Project</h2>
+          <p>Immersive web experience introducing a sci-fi narrative about nested simulations. Interactive particle and energy wave effects, translucent layered UI, and a desktop "Training Simulation" mini-game.</p>
+          <span class="project-tag">Vanilla JS · Canvas · Interactive · GitHub Pages</span>
+          <div class="website-cta-row">
+            <a href="https://asteri.fotiosmpouris.com" target="_blank" class="cta-btn website-btn">Visit Website</a>
+          </div>
       </div>
     </section>
 
-     <section class="mission-section fade-in">
-  <video src="videos/arl.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-      <h2>The Grillin Greek</h2>
-          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Personal Project — Nostalgia &amp; Brand Marketing Site</p>
-          <p>A mystery-comeback marketing site for a beloved Greek restaurant in Natick, MA.
-             Built on a repurposed civic site infrastructure with a full brand overhaul —
-             new identity, copy, palette, and product marketing strategy.
-             Part portfolio showcase, part guerrilla marketing campaign.</p>
-          <h3>Features</h3>
-          <ul>
-            <li>Mystery comeback narrative — "Something's cooking again."</li>
-            <li>6-page site: Home, Our Story, The Food, The Menus, Press &amp; Reviews, Stay in the Loop</li>
-            <li>Full brand identity: warm charcoal/gold palette, Playfair Display serif typography</li>
-            <li>Product teaser pages — Humtziki Sauce, Mom's Greek Dressing, Tzatziki, Grilled Salads</li>
-            <li>AWS API Gateway + Lambda backend for interest capture and contact forms</li>
-            <li>Menu archive gallery — placeholder structure for historical menu image uploads</li>
-            <li>Interest signup form with product preference tracking</li>
-            <li>Scroll-triggered fade animations, sticky header, mobile-first responsive layout</li>
-            <li>Repurposed existing infrastructure — zero new backend cost</li>
-          </ul>
-          <h3>Tech Stack</h3>
-          <ul>
-            <li>HTML5 / CSS3 / Vanilla JavaScript (no frameworks)</li>
-            <li>AWS API Gateway &amp; Lambda (serverless form handling, existing backend)</li>
-            <li>GitHub Pages hosting with custom domain (thegrillingreek.com)</li>
-            <li>Google Fonts — Playfair Display + Open Sans + Montserrat</li>
-          </ul>
-          <a href="https://thegrillingreek.com" target="_blank" class="cta-btn website-btn">View Site</a>
+    <!-- THE GRILLIN GREEK -->
+    <section class="mission-section fade-in">
+      <video src="videos/arl.mp4" autoplay muted loop playsinline class="mission-bg"></video>
+      <div class="glass-panel is-translucent">
+          <h2>The Grillin Greek</h2>
+          <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Personal Project — Nostalgia &amp; Brand Marketing</p>
+          <p>A mystery-comeback marketing site for a beloved Greek restaurant in Natick, MA. Repurposed an existing civic site's infrastructure with a full brand overhaul — new identity, palette, copy, and product teaser pages for Humtziki Sauce, Mom's Greek Dressing, and the famous Tzatziki. Zero new backend cost.</p>
+          <span class="project-tag">Vanilla JS · AWS API Gateway · Lambda · Custom Domain</span>
+          <div class="website-cta-row">
+            <a href="https://thegrillingreek.com" target="_blank" class="cta-btn website-btn">View Site</a>
+          </div>
       </div>
     </section>
 
+    <!-- MATRIX RAIN STUDIO -->
     <section class="mission-section fade-in">
       <div class="mission-bg" style="background:#000;background-image:radial-gradient(ellipse at center, rgba(0,255,65,0.18) 0%, rgba(0,0,0,0.95) 70%), repeating-linear-gradient(0deg, rgba(0,255,65,0.08) 0px, rgba(0,255,65,0.08) 1px, transparent 1px, transparent 18px);"></div>
       <div class="glass-panel is-translucent">
           <h2>Matrix Rain Studio</h2>
           <p style="font-style: italic; font-size: 0.9rem; opacity: 0.8;">Standalone Art Piece — Interactive Generative Visual</p>
-          <p>An interactive Matrix Rain art generator. Not a passive screensaver — a personalization studio
-             where users can type their own text into the rain, switch between Katakana, Code, Greek, Binary
-             and Hex character sets, customize colors, speed, density, glow, and trail length, then download
-             their composition as a wallpaper or share it via URL.</p>
-          <h3>Features</h3>
-          <ul>
-            <li>Type any text and watch your own words rain down</li>
-            <li>6 character sets — Katakana, Code, Greek, Binary, Hex, Custom</li>
-            <li>7 color presets plus full custom color picker</li>
-            <li>Real-time controls — speed, density, glow, trail length</li>
-            <li>Bright lead character &amp; random bold drop options</li>
-            <li>Download canvas as PNG wallpaper</li>
-            <li>Share creations via URL-encoded settings</li>
-            <li>Fullscreen mode + keyboard shortcuts (S, F, D, R, Esc)</li>
-            <li>Mobile-responsive with slide-up control sheet</li>
-            <li>HiDPI-aware, zero dependencies, ~25 KB total</li>
-          </ul>
-          <h3>Tech Stack</h3>
-          <ul>
-            <li>HTML5 Canvas + Vanilla JavaScript (no frameworks, no backend)</li>
-            <li>requestAnimationFrame render loop with device-pixel-ratio scaling</li>
-            <li>URLSearchParams for shareable state encoding</li>
-            <li>GitHub Pages hosting with custom subdomain (matrix.fotiosmpouris.com)</li>
-          </ul>
-          <a href="https://matrix.fotiosmpouris.com" target="_blank" class="cta-btn website-btn">Open the Studio</a>
+          <p>An interactive Matrix Rain art generator. Type your own text, switch character sets (Katakana, Code, Greek, Binary, Hex, Custom), customize color/speed/density/glow, then download as a wallpaper or share via URL. Pure HTML5 Canvas, ~25 KB total.</p>
+          <span class="project-tag">Canvas · Vanilla JS · Zero Dependencies · Custom Subdomain</span>
+          <div class="website-cta-row">
+            <a href="https://matrix.fotiosmpouris.com" target="_blank" class="cta-btn website-btn">Open the Studio</a>
+          </div>
       </div>
     </section>
   </main>
@@ -303,6 +190,7 @@
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
       <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
     </div>
+    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
     <p>© 2026 Fotios Mpouris. All rights reserved.</p>
   </footer>
 

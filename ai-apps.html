@@ -40,7 +40,7 @@
   </video>
   <div class="hero-video-overlay"></div>
   <div class="hero-video-content">
-    <h1 id="hero-typewriter">Initializing AI Showcase...</h1>
+    <h1 id="hero-typewriter" data-rotate='["Initializing AI showcase...","Loading agent registry...","Status: production-ready."]'>Initializing AI showcase...</h1>
     <p>Explore cutting-edge applications powered by intelligent agents.</p>
   </div>
 </section>
@@ -53,30 +53,18 @@
   <div class="glass-panel is-translucent">
     <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent Logo" class="project-logo" loading="lazy" />
     <h3>FotiFoti Automated Art Agent</h3>
-    <p>A fully autonomous AI agent that runs an entire art business on autopilot — selecting original line art, colorizing it with AI, writing philosophical captions through a custom persona, and publishing carousel posts to Instagram, Facebook, and a live website. Zero human intervention required.</p>
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">18-Step Automated Pipeline</h4>
+    <p>An autonomous AI agent that runs an entire art business on autopilot — selecting original line art, colorizing it across 6 distinct styles, writing captions through a Jim Morrison-inspired persona, and publishing carousel posts to Instagram, Facebook, and a live website. Zero human intervention.</p>
     <ul>
-      <li><strong>Selects & tracks artwork</strong> — DynamoDB prevents duplicate posts across the entire library</li>
-      <li><strong>AI colorization</strong> — GPT Image 1.5 transforms line art into 6 distinct styles: Picasso Cubist, Studio Ghibli Watercolor, Retro 70s Psychedelic, Kandinsky, George Condo, and Stuart Davis</li>
-      <li><strong>Custom AI persona</strong> — GPT-4o generates captions through "Artemis," a Jim Morrison-inspired character who writes philosophical, psychedelic commentary unique to each piece</li>
-      <li><strong>Multi-platform publishing</strong> — Instagram carousel + Facebook carousel + live website gallery update — all in a single Lambda execution</li>
-      <li><strong>Fully serverless</strong> — AWS Lambda, S3, DynamoDB, and Secrets Manager; no servers to manage</li>
+      <li><strong>6 AI colorization styles</strong> — Picasso Cubist, Studio Ghibli, Retro 70s, Kandinsky, George Condo, Stuart Davis (GPT Image 1.5)</li>
+      <li><strong>Multi-platform publish</strong> — Instagram + Facebook carousels + live website gallery update in one Lambda execution</li>
+      <li><strong>DynamoDB tracking</strong> prevents duplicate posts across the entire library</li>
+      <li><strong>Fully serverless</strong> — Lambda · S3 · DynamoDB · Secrets Manager · GitHub API</li>
     </ul>
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Dual System Design</h4>
-    <ul>
-      <li><strong>Automated scheduler</strong> — runs on a set cadence, tracks what's been posted, updates the website gallery automatically via GitHub API</li>
-      <li><strong>Manual colorizer</strong> — lets me experiment with any of the 6 styles on any image without affecting the tracking database — built for testing new looks before adding them to the automated rotation</li>
-    </ul>
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Tech Stack</h4>
-    <ul>
-      <li>AWS Lambda (Python 3.12) · S3 · DynamoDB · Secrets Manager</li>
-      <li>OpenAI GPT-4o (captions) · GPT Image 1.5 (colorization)</li>
-      <li>Instagram Graph API · Facebook Graph API · GitHub API</li>
-    </ul>
+    <span class="project-tag">AWS Lambda · GPT-4o · GPT Image · Multi-Platform</span>
     <div class="link-buttons-footer">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank">View on Instagram →</a>
       &nbsp;&nbsp;
-      <a href="https://colorfotifoti.com" target="_blank">Visit colorfotifoti.com →</a>
+      <a href="https://colorfotifoti.com" target="_blank">colorfotifoti.com →</a>
     </div>
   </div>
 </section>
@@ -85,45 +73,21 @@
 <section class="mission-section fade-in">
   <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
-    <h3>OpenCare — Care Coordination Platform with AI Agent API</h3>
+    <img src="images/opencarelogo.png" alt="OpenCare Logo" class="project-logo" loading="lazy" style="border-radius:18px;" />
+    <h3>OpenCare — Care Coordination with an AI Agent API</h3>
     <p style="font-style:italic; opacity:0.85; font-size:0.95rem;">Production · Live Daily · Free · The MVP for the Poor People App</p>
-    <p>A live care coordination platform I built because I needed it — coordinating elder care for my parents across siblings, caseworkers, and community helpers. OpenCare replaced sticky notes and group texts with organized Care Circles, assignable tasks, automated reminders, and email summaries that keep everyone in the loop without requiring them to install an app. It's also a working proof of AI agent integration: my own digital employee, TheGreekClawd, manages care tasks in this system through natural language commands via the public REST API.</p>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">AI Agent REST API — The Differentiator</h4>
+    <p>A live care coordination platform built because I needed it — coordinating elder care for my parents across siblings, caseworkers, and community helpers. The differentiator on this page: the platform exposes a full <strong>REST API for AI agents</strong>. TheGreekClawd already uses it to create, assign, and monitor real care tasks via natural language. Multi-tenant by design — any user can generate API keys and connect their own agent.</p>
     <ul>
-      <li><strong>Full programmatic surface</strong> — list circles, CRUD tasks, manage contacts, get summaries, trigger email shares</li>
-      <li><strong>API key authentication</strong> with SHA-256 hashing, per-user scoping, and key management from the profile page</li>
-      <li><strong>Safety guardrails</strong> baked into the spec — no delete endpoints, explicit confirmation required for cancellations, all data scoped to the authenticated user</li>
-      <li><strong>Multi-tenant by design</strong> — any user can generate API keys and connect their own AI agent</li>
-      <li><strong>Live integration</strong> — TheGreekClawd uses this API to create, assign, and monitor real care tasks in production</li>
+      <li><strong>AI Agent API</strong> — Bearer auth, SHA-256 key hashing, per-user scoping, safety guardrails (no delete endpoints, explicit confirmation for cancellations)</li>
+      <li><strong>Care Circles &amp; Offline Contacts</strong> — assign tasks to people who don't have the app; they get email notifications with full details</li>
+      <li><strong>Sentinel ID Verification</strong> — government ID + selfie via Persona (same platform used by banks)</li>
+      <li><strong>Daily Telegram &amp; email digests</strong> — automated morning summaries; PWA installable from any browser</li>
     </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Core Features (All Live)</h4>
-    <ul>
-      <li><strong>Care Circles</strong> — private workspaces with coordinator controls and identity verification gates for sensitive circles</li>
-      <li><strong>Task lifecycle</strong> — 8 categories, 4 priority levels, recurrences from daily to every 5 years</li>
-      <li><strong>Offline contacts</strong> — assign tasks to people who don't have the app; they get email notifications with full details</li>
-      <li><strong>Daily Telegram &amp; email digests</strong> — automated morning summary of all tasks due today</li>
-      <li><strong>Sentinel Identity Verification</strong> — government ID + selfie via Persona (the same platform used by banks and fintech)</li>
-      <li><strong>Google Calendar integration</strong> — one tap to add any task to your calendar</li>
-      <li><strong>Progressive Web App</strong> — installable from any browser, no App Store, full offline shell</li>
-    </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Stack</h4>
-    <ul>
-      <li>Next.js 14 · TypeScript · Tailwind CSS · React</li>
-      <li>Clerk (enterprise auth, used by Notion and Stripe) · Supabase / PostgreSQL with Row Level Security</li>
-      <li>Persona (government ID verification) · Resend (transactional email) · Telegram Bot API</li>
-      <li>AWS EC2 · Docker · Nginx · Let's Encrypt SSL · Custom REST API with Bearer token auth</li>
-    </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Why It's Here (Not Just on Websites)</h4>
-    <p>OpenCare belongs on the AI Apps page because the platform is designed AI-native from the inside out — the REST API isn't an afterthought, it's a first-class surface for autonomous agents. The next layer is a Nostr-based community where helpers and caregivers discover each other through decentralized identity. This is what AI-integrated infrastructure looks like when it's built to serve real families instead of demoing on stage.</p>
-
+    <span class="project-tag">Next.js · Supabase · Clerk · Persona · Telegram · AWS · REST API</span>
     <div class="link-buttons-footer">
       <a href="https://opencare.poorpeople.app" target="_blank">Try OpenCare →</a>
       &nbsp;&nbsp;
-      <a href="https://opencare.poorpeople.app/white-paper" target="_blank">Read the White Paper →</a>
+      <a href="https://opencare.poorpeople.app/white-paper" target="_blank">White Paper →</a>
       &nbsp;&nbsp;
       <a href="https://opencare.poorpeople.app/how-it-works" target="_blank">How It Works →</a>
     </div>
@@ -136,41 +100,18 @@
   <div class="glass-panel is-translucent">
     <img src="images/hard-e-logo.png" alt="Hard-E Logo" class="project-logo" loading="lazy" />
     <h3>Hard-E v3.0 — Conversational AI Sales Agent</h3>
-    <p>A voice-first, multi-tenant AI platform built for the contracting industry. Hard-E functions as an intelligent sales orchestrator — managing customer relationships, navigating CRM data in real-time, and holding lifelike conversations with a configurable personality and "soul." Not a chatbot. An AI teammate.</p>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Architecture: Four Core Layers</h4>
+    <p>A voice-first, multi-tenant AI platform for the contracting industry. Not a chatbot — an AI teammate that manages customer relationships, navigates CRM data in real time, and holds lifelike conversations with a configurable personality. Sub-100ms audio. Tenant-isolated from day zero.</p>
     <ul>
-      <li><strong>The Brain</strong> — Claude Sonnet orchestrates intent classification, tool selection, and a dynamic "Soul Document" that gives each tenant their own AI personality, tone, and company-specific opinions</li>
-      <li><strong>The Voice</strong> — Cartesia Sonic 3 delivers sub-100ms time-to-first-audio with sentence-level streaming; audio plays while the AI is still thinking. OpenAI TTS runs as a live fallback</li>
-      <li><strong>The Memory</strong> — 3-tier system: session memory (24hr TTL), conversation summaries for long-term relationship context, and a Redis-backed knowledge tier covering company facts, learned patterns, and user preferences</li>
-      <li><strong>Multi-Tenant Framework</strong> — "Tenant-aware from day zero." Each contracting company gets isolated data, memory, and personality. A guided 5-step onboarding questionnaire activates their instance</li>
+      <li><strong>Sub-100ms TTS</strong> — Cartesia Sonic 3 with sentence-level streaming; audio plays while the AI is still thinking. OpenAI TTS fallback.</li>
+      <li><strong>3-tier memory</strong> — session (24hr TTL), long-term conversation summaries, Redis-backed knowledge tier for company facts and learned patterns</li>
+      <li><strong>Safety tiers</strong> — green (reads execute freely), yellow/red (writes require confirmation or explicit readback)</li>
+      <li><strong>Audio-reactive UI</strong> — 56-bar frequency visualizer (Web Audio API) reacts to AI voice in real time</li>
     </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Performance Benchmarks</h4>
-    <ul>
-      <li><strong>~40–90ms</strong> TTS latency (Cartesia Sonic 3)</li>
-      <li><strong>~3–4 seconds</strong> CRM lookup using Compound Tools (parallel asyncio execution cuts latency ~50% vs sequential calls)</li>
-      <li><strong>~1.6 seconds</strong> simple question response time</li>
-      <li><strong>Audio-reactive UI</strong> — 56-bar frequency visualizer using Web Audio API AnalyserNode responds to the AI's voice in real-time</li>
-    </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Safety & Control</h4>
-    <ul>
-      <li><strong>Green Tier</strong> — internal reads (CRM lookups, memory checks) execute freely</li>
-      <li><strong>Yellow / Red Tier</strong> — write actions (creating customers, updating job stages) require confirmation or explicit readback before execution</li>
-    </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">On the Roadmap</h4>
-    <ul>
-      <li>WebRTC/WebSocket full streaming pipeline targeting sub-1-second end-to-end latency</li>
-      <li>Hover integration — 3D job site measurement as a native plugin</li>
-      <li>Dedicated STT microphone input with intelligent silence detection</li>
-    </ul>
-
+    <span class="project-tag">Claude Sonnet · Cartesia Sonic 3 · Redis · Multi-Tenant · AWS</span>
     <div class="link-buttons-footer">
       <a href="https://harde.app" target="_blank">Visit Hard-E →</a>
       &nbsp;&nbsp;
-      <a href="hard-e-technical.html" target="_blank">Deep Dive: Technical Architecture →</a>
+      <a href="hard-e-technical.html" target="_blank">Technical Deep Dive →</a>
     </div>
   </div>
 </section>
@@ -180,36 +121,19 @@
   <video src="videos/aiapps03.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
     <img src="images/ppalogo.png" alt="Poor People App Logo" class="project-logo" loading="lazy" />
-    <h3>PPA Mobilization Agent — AI-Driven Campaign Engine</h3>
-    <p>The first live operational agent in the Poor People App's autonomous AI workforce. Powered by GPT-4o with a tightly defined writer's persona — <em>George Orwell's clarity, George Washington's resolve, Odysseus' strategic mind</em> — it generates tactical content grounded in a live knowledge base, then deploys it directly to Telegram and Nostr with one click.</p>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Five Content Formats</h4>
+    <h3>PPA Mobilization Agent — AI Campaign Engine</h3>
+    <p>The first live operational agent in the Poor People App's AI workforce. GPT-4o with a tightly defined writer's persona — <em>Orwell's clarity, Washington's resolve, Odysseus' strategy</em> — generating content grounded in a live knowledge base, deployed to Telegram and Nostr with one click. Self-scoring after every generation; learning memory injects past performance into future sessions.</p>
     <ul>
-      <li><strong>Text Posts</strong> — Social copy synthesized from research documents; mandatory knowledge base grounding</li>
-      <li><strong>Sora Scripts</strong> — Production-ready video assets: 3 cinematic visual prompts + 20–40 second narration + auto-generated TTS audio (MP3 playable directly in admin panel)</li>
-      <li><strong>GIF Prompts</strong> — Crisis dashboard visual style for animated infographics, data-sourced with citations</li>
-      <li><strong>Direct Messages</strong> — 50–75 word cold outreach; calm, peer-to-peer, zero hype language</li>
-      <li><strong>Email Outreach</strong> — 60–80 word structured emails; bans "revolution," "game-changer," and pitch language by rule</li>
+      <li><strong>5 content formats</strong> — text posts, Sora video scripts (with TTS audio), GIF prompts, DMs, email outreach</li>
+      <li><strong>Self-improving</strong> — agent scores its own knowledge base usage (0–10) and specificity, stores results in DynamoDB</li>
+      <li><strong>One-click broadcast</strong> — Telegram bot + 3 Nostr relays; user feedback loop flags exemplary outputs</li>
+      <li><strong>Banned-language rules</strong> — emails reject "revolution," "game-changer," and pitch language by spec</li>
     </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Self-Improving Memory Architecture</h4>
-    <ul>
-      <li><strong>Short-term memory (S3)</strong> — Tracks last 5 generations to prevent topic repetition</li>
-      <li><strong>Long-term learning (DynamoDB)</strong> — After every generation the agent scores its own knowledge base usage (0–10) and specificity (0–10), stores the full record, and injects past performance into the next session's system prompt</li>
-      <li><strong>User feedback loop</strong> — Feedback saved to DynamoDB; exemplary outputs flagged for future fine-tuning</li>
-    </ul>
-
-    <h4 style="color: var(--dark-accent-primary); margin: 1rem 0 0.5rem; font-family: var(--font-heading); font-size: 1rem;">Tech Stack</h4>
-    <ul>
-      <li>AWS Lambda (Python) · DynamoDB · S3 · SES</li>
-      <li>OpenAI GPT-4o · OpenAI TTS-1-HD</li>
-      <li>Telegram Bot API · Nostr Protocol (3 relays)</li>
-      <li>Next.js 15 · TypeScript · React 18 · Docker · Nginx</li>
-    </ul>
+    <span class="project-tag">GPT-4o · Lambda · DynamoDB · Telegram · Nostr · Next.js 15</span>
     <div class="link-buttons-footer">
       <a href="pythos.html" target="_blank">Learn More About PPA →</a>
       &nbsp;&nbsp;
-      <a href="https://poorpeople.app" target="_blank">Visit poorpeople.app →</a>
+      <a href="https://poorpeople.app" target="_blank">poorpeople.app →</a>
     </div>
   </div>
 </section>
@@ -235,70 +159,34 @@
   </div>
 </section>
 
-<!-- EARLIER BUILDS DIVIDER -->
-<section class="glass-panel fade-in" style="text-align:center; padding: 30px; margin: 20px auto; max-width:900px;">
-  <h2 style="font-size:1.3rem; opacity:0.7; letter-spacing:0.15em;">— EARLIER BUILDS —</h2>
-  <p style="opacity:0.6; font-size:0.9rem; margin-bottom:0;">Personal tools I still use and iterate on. Each one taught me something that ended up in the bigger projects above.</p>
-</section>
-
-<!-- ROADSCOUT -->
+<!-- EARLIER BUILDS GRID -->
 <section class="mission-section fade-in">
-  <video src="videos/aiapps06.mp4" autoplay muted loop playsinline class="mission-bg"></video>
   <div class="glass-panel is-translucent">
-    <img src="images/oriana-logo.png" alt="RoadScout Logo" class="project-logo" loading="lazy" />
-    <h3>RoadScout: Podcast & YouTube Summarizer</h3>
-    <ul>
-      <li>Fetches transcripts automatically from any YouTube link</li>
-      <li>Generates persona-driven AI summaries using GPT-4.1</li>
-      <li>Stitches narration into a single MP3 for offline listening</li>
-      <li>Push notifications via ntfy when tasks complete</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ORIANA ARTICLE SUMMARIZER -->
-<section class="mission-section fade-in">
-  <video src="videos/aiapps03.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-    <img src="images/oriana-logo.png" alt="Oriana Logo" class="project-logo" loading="lazy" />
-    <h3>Oriana: Article Summarizer & Reader</h3>
-    <ul>
-      <li>AI summarization with ElevenLabs Text-to-Speech</li>
-      <li>Supports URLs, pasted text, and multi-language</li>
-      <li>MP3 downloads for offline listening</li>
-      <li>Synthesizes multiple articles into cohesive narratives</li>
-    </ul>
-    <div class="link-buttons-footer">
-      <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank">View on GitHub →</a>
+    <h2 style="font-size:1.3rem; opacity:0.85; letter-spacing:0.15em; text-align:center;">— EARLIER BUILDS —</h2>
+    <p style="opacity:0.7; font-size:0.9rem; text-align:center; margin-bottom:1.5rem;">Personal tools I still use. Each one taught me something that landed in the bigger projects above.</p>
+    <div class="earlier-builds-grid">
+      <div class="earlier-build-card">
+        <img src="images/oriana-logo.png" alt="RoadScout" loading="lazy" />
+        <h4>RoadScout</h4>
+        <p>Podcast &amp; YouTube summarizer. Transcripts → persona-driven GPT summaries → single MP3 for offline listening. ntfy push when done.</p>
+      </div>
+      <div class="earlier-build-card">
+        <img src="images/oriana-logo.png" alt="Oriana Audible" loading="lazy" />
+        <h4>Oriana Audible</h4>
+        <p>Article summarizer with ElevenLabs TTS. URLs, pasted text, multi-language. Synthesizes multiple articles into cohesive MP3 narratives.</p>
+        <a href="https://github.com/FotiosMpouris/Oriana-Audible" target="_blank">GitHub →</a>
+      </div>
+      <div class="earlier-build-card">
+        <img src="images/resume-tailor.png" alt="Resume Tailor" loading="lazy" />
+        <h4>Resume Tailor</h4>
+        <p>AI-powered resume analysis and PDF output. Streamlit-powered for rapid iteration. V2 added enhanced customization and improved UI.</p>
+      </div>
+      <div class="earlier-build-card">
+        <img src="images/oriana.png" alt="Oriana Investigative" loading="lazy" />
+        <h4>Oriana Investigative</h4>
+        <p>AI journalism &amp; research tool. Advanced source management, automated transcript generation. The early ancestor of the agent work.</p>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- RESUME TAILOR -->
-<section class="mission-section fade-in">
-  <video src="videos/aiapps01.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-    <img src="images/resume-tailor.png" alt="Resume Tailor Logo" class="project-logo" loading="lazy" />
-    <h3>Resume Tailor</h3>
-    <ul>
-      <li>AI-powered resume analysis and PDF output</li>
-      <li>V2: Enhanced AI customization and improved UI</li>
-      <li>Streamlit-powered for rapid iteration and deployment</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ORIANA INVESTIGATIVE -->
-<section class="mission-section fade-in">
-  <video src="videos/aiapps05.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <div class="glass-panel is-translucent">
-    <img src="images/oriana.png" alt="Oriana Investigative Logo" class="project-logo" loading="lazy" />
-    <h3>Oriana: AI Investigative Assistant</h3>
-    <ul>
-      <li>AI journalism and research tool</li>
-      <li>Advanced source management system</li>
-      <li>Automated transcript generation</li>
-    </ul>
   </div>
 </section>
   </main>
@@ -314,6 +202,7 @@
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
       <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
     </div>
+    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
     <p>© 2026 Fotios Mpouris. All rights reserved.</p>
   </footer>
 
