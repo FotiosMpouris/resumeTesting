@@ -643,6 +643,27 @@ body.light-mode .progress-bar span { color: var(--seventies-l-section); }
 }
 
 .mission-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+/* --- CALM MATRIX BASE ---
+   Used in place of video backgrounds for sections where cinematic motion
+   is too much. Solid dark floor + faint green scan lines + vertical column
+   grid that echoes the matrix rain structure without animating. Zero JS. */
+.mission-bg.matrix-bg {
+  background-color: #070a12;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(0,255,65,0.06) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,255,65,0.05) 0%, rgba(0,0,0,0) 55%),
+    repeating-linear-gradient(0deg, rgba(0,255,65,0.028) 0px, rgba(0,255,65,0.028) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(0,255,65,0.022) 0px, rgba(0,255,65,0.022) 1px, transparent 1px, transparent 26px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+}
+.mission-bg.matrix-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
 .mission-content {
   position: relative;
   text-align: center;
@@ -1942,9 +1963,9 @@ body.light-mode .glass-panel a {
 
 /* --- Typewriter caret --- */
 #hero-typewriter {
-  /* Reserve enough vertical space for two-line wrapping so rotating
-     phrases of different lengths don't push the layout up and down. */
-  min-height: 2.6em;
+  /* Reserve enough vertical space for the longest phrase wrapping so
+     rotating phrases of different lengths don't push the layout up and down. */
+  min-height: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1967,7 +1988,7 @@ body.light-mode .glass-panel a {
 }
 @keyframes tw-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 @media (max-width: 720px) {
-  #hero-typewriter { min-height: 3.2em; font-size: 1.7rem; }
+  #hero-typewriter { min-height: 4.6em; font-size: 1.55rem; }
 }
 
 /* --- Project tag chip (used on websites + ai-apps) --- */

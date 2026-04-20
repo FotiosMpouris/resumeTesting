@@ -295,17 +295,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const seed = makeFractureGeometry();
         let i = 0;
         const fire = () => {
-          spawnFracture({ ...seed, hold: 90 + Math.random() * 130, peakOpacity: 0.95, fadeOut: 60 });
+          spawnFracture({ ...seed, hold: 50 + Math.random() * 80, peakOpacity: 0.55, fadeOut: 60, rainSpeed: 0.35 });
           i++;
           if (i < flashes) setTimeout(fire, 70 + Math.random() * 110);
         };
         fire();
       } else if (r < 0.42) {
-        // HARD FLASH — short, sharp, high opacity
-        spawnFracture({ ...makeFractureGeometry(), hold: 220 + Math.random() * 220, peakOpacity: 1.0, fadeIn: 40, fadeOut: 90 });
+        // HARD FLASH — short, sharp-ish blip
+        spawnFracture({ ...makeFractureGeometry(), hold: 140 + Math.random() * 140, peakOpacity: 0.62, fadeIn: 40, fadeOut: 90, rainSpeed: 0.4 });
       } else {
-        // LINGER — calm, longer hold (1.4–3.2s), the default vibe
-        spawnFracture({ ...makeFractureGeometry(), hold: 1400 + Math.random() * 1800, peakOpacity: 0.85 + Math.random() * 0.1, fadeIn: 280, fadeOut: 380 });
+        // LINGER — calm, the default vibe. "Did I see that?"
+        spawnFracture({ ...makeFractureGeometry(), hold: 650 + Math.random() * 800, peakOpacity: 0.48 + Math.random() * 0.08, fadeIn: 280, fadeOut: 380, rainSpeed: 0.32 });
       }
     }
   }
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function spawnFracture(opts) {
-    const { w, h, polygon, hold, peakOpacity = 0.9, fadeIn = 220, fadeOut = 280 } = opts;
+    const { w, h, polygon, hold, peakOpacity = 0.9, fadeIn = 220, fadeOut = 280, rainSpeed = 1.0 } = opts;
 
     const overlay = document.createElement("div");
     overlay.className = "matrix-fracture";
@@ -363,16 +363,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let raf;
     const draw = () => {
-      ctx.fillStyle = "rgba(0,0,0,0.10)";
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
       ctx.fillRect(0, 0, w, h);
       ctx.font = `${fontSize}px monospace`;
       for (let i = 0; i < drops.length; i++) {
         const ch = chars[Math.floor(Math.random() * chars.length)];
         const y = drops[i] * fontSize;
-        ctx.fillStyle = (Math.random() > 0.96) ? "#ffffff" : "#00ff41";
+        ctx.fillStyle = (Math.random() > 0.97) ? "#ffffff" : "#00ff41";
         ctx.fillText(ch, i * fontSize, y);
         if (y > h && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
+        // rainSpeed scales fall rate — fractional values slow it down
+        drops[i] += rainSpeed;
       }
       raf = requestAnimationFrame(draw);
     };
