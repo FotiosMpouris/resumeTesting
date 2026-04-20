@@ -1863,10 +1863,19 @@ body.light-mode .glass-panel a {
 
 
 /* --- WEBSITES PAGE LAYOUT FIX --- */
+/* On desktop, narrow the project cards so the video / matrix-base background
+   breathes around them on both sides — matches the visual rhythm of the
+   the-stack page. Mobile stays at full width because there's no room for
+   ambient peek-through on a phone. */
 .websites-page .mission-section .glass-panel {
-  width: 90%; /* Ensures the panel has padding on mobile screens */
-  max-width: 900px; /* Sets a consistent maximum width for desktop */
-  margin: 0 auto; /* Centers the panel within the full-width video section */
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .websites-page .mission-section .glass-panel {
+    max-width: none;
+  }
 }
 
 /* Prevent text overflow on mobile by forcing long words to wrap */
