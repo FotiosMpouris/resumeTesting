@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".section, .feature, .contact-section-clean").forEach(el => {
+  document.querySelectorAll(".section, .feature, .contact-section-clean, .mission-section.fade-in, .video-showcase.fade-in").forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(20px)";
     el.style.transition = "opacity 0.5s ease, transform 0.5s ease";

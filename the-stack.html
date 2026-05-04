@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
   <header>
@@ -35,8 +35,8 @@
     </video>
     <div class="hero-video-overlay"></div>
     <div class="hero-video-content">
-      <h1 id="hero-typewriter" data-rotate='["The Stack.","What I run on.","What I am becoming."]'>The Stack.</h1>
-      <p>What I run on. What I've built. What I'm becoming.</p>
+      <h1 id="hero-typewriter" data-rotate='["The Stack.","What I work with.","Still learning."]'>The Stack.</h1>
+      <p>Tools, systems, and the honest version.</p>
     </div>
   </section>
 
@@ -45,82 +45,63 @@
     <!-- WHO I AM -->
     <section class="mission-section about-section fade-in" id="aboutSection">
       <div class="glass-panel">
-        <h2>Who I Am</h2>
+        <h2>Background</h2>
         <div class="about-text">
           <p>
-            I'm a developer who got here from everywhere — art, animation, game design, client relations, and eventually the deep end of AI. I didn't take the straight path, and I think that's exactly why I can build things that other developers can't. I know what it looks like from the user's side, the client's side, and the machine's side — all at once.
+            I came into tech from the side door — years of running a restaurant, client work, creative projects, and eventually teaching myself to build. Art school, animation, game dev in Unity, then Python, then AI hit and everything accelerated.
           </p>
           <p>
-            Right now I'm part of the next generation of builders who don't just write code — we orchestrate agents. Every day I'm working inside multi-agent development environments, shipping production systems, and pushing into territory that didn't exist two years ago. Hard-E runs in production. The PPA Mobilization Agent broadcasts live. FotiFoti posts to Instagram while I sleep. TheGreekClawd is learning to work for me.
+            Most of what I know, I learned by building things that needed to work. Hard-E started as a favor for a friend's business. OpenCare started because my family needed it. The Grillin Greek is ten years of feeding people. These aren't portfolio pieces — they're things I use or things that serve real people.
           </p>
           <p>
-            If you're a business that needs AI integrated the right way — not a chatbot bolted on the side, but real agentic infrastructure built into how you operate — I know how to build that. I've already done it.
+            I'm comfortable in the deep end of AI agent architecture, but I'm also still learning every day. The stack below is what I'm working in right now. It changes fast.
           </p>
-          <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn" style="margin-top:1rem;">Let's Talk →</a>
+          <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn" style="margin-top:1rem;">Get in Touch →</a>
         </div>
       </div>
     </section>
 
-    <!-- TECHNICAL LAYER -->
+    <!-- CURRENT SYSTEMS -->
     <section class="mission-section fade-in">
-      <video src="videos/about1.mp4" autoplay muted loop playsinline class="mission-bg"></video>
       <div class="glass-panel is-translucent">
-        <h3>Technical Layer — Current Stack</h3>
-        <p>Massachusetts &nbsp;|&nbsp; March 2025 – Present</p>
+        <h3>What I'm Building Right Now</h3>
         <ul>
-          <li><strong>Hard-E v3.0</strong> — multi-tenant voice-first AI sales agent on Claude Sonnet, Cartesia Sonic 3, AWS EC2. 3-tier memory (session, summaries, Redis knowledge). Compound Tools cut CRM lookup latency ~50%.</li>
-          <li><strong>FotiFoti Art Agent</strong> — serverless AWS pipeline (Lambda, S3, DynamoDB) auto-publishing AI-colorized art to Instagram, Facebook, and a live website.</li>
-          <li><strong>PPA Mobilization Agent</strong> — GPT-4o engine with self-scoring DynamoDB learning memory, one-click broadcast to Telegram and Nostr.</li>
-          <li><strong>OpenCare</strong> — production care coordination platform with full AI Agent REST API. Live, free, used daily.</li>
-          <li><strong>TheGreekClawd</strong> — autonomous digital employee on OpenClaw, controlling Claude Code via Telegram to execute development work end-to-end.</li>
-          <li><strong>Infrastructure</strong> — dual-environment AWS deploys, systemd services, Nginx reverse proxy, SSL automation, zero-downtime updates.</li>
+          <li><strong>Hard-E v3.0</strong> — Voice-first AI sales agent. Claude Sonnet, Cartesia Sonic, AWS EC2. Multi-tenant, 3-tier memory, sub-100ms audio. Built for a real contracting business.</li>
+          <li><strong>OpenCare</strong> — Care coordination platform. Next.js, Supabase, Clerk, full REST API. Live, free, used daily to coordinate elder care in my own family.</li>
+          <li><strong>All Angles Exterior</strong> — AI-enriched lead pipeline for exterior remodeling. GPT-4o vision for house photo analysis, Perplexity for property research, DynamoDB, SES. I'm the technical lead.</li>
+          <li><strong>TheGreekClawd</strong> — Autonomous dev agent on OpenClaw. Controls Claude Code via Telegram to execute tasks between check-ins. Still experimental.</li>
+          <li><strong>FotiFoti Art Agent</strong> — Serverless pipeline on AWS Lambda. Picks art, colorizes it, writes captions, posts to Instagram and Facebook autonomously.</li>
+          <li><strong>PPA Mobilization Agent</strong> — GPT-4o content engine with self-scoring memory. Broadcasts to Telegram and Nostr.</li>
         </ul>
       </div>
     </section>
 
-    <!-- CIVIC/PLATFORM LAYER -->
+    <!-- INFRASTRUCTURE -->
     <section class="mission-section fade-in">
-      <video src="videos/pythos.mp4" autoplay muted loop playsinline class="mission-bg"></video>
       <div class="glass-panel is-translucent">
-        <h3>Platform Layer — Poor People App</h3>
-        <p>Civic Technology &nbsp;|&nbsp; Massachusetts &nbsp;|&nbsp; 2024 – Present &nbsp;|&nbsp; Volunteer / Pro Bono</p>
+        <h3>Infrastructure & Tools</h3>
         <ul>
-          <li>Architecting a multi-agent platform replacing bureaucratic overhead with transparent AI infrastructure for working-class Americans</li>
-          <li>Next.js 15 full-stack on AWS EC2 with Docker, Nginx, Let's Encrypt SSL; AWS Lambda backend with DynamoDB and SES</li>
-          <li>Integrated <strong>Nostr protocol</strong> for decentralized identity — platform survives even if the company doesn't</li>
-          <li>Self-assessment learning pipeline — agent scores its own output, injects past performance into future sessions</li>
-          <li>Full security stack: ClamAV, AIDE file integrity, daily reports, CVE-patched Next.js after active RCE exploit incident</li>
+          <li><strong>Languages</strong> — Python, JavaScript/TypeScript, C#</li>
+          <li><strong>Frameworks</strong> — Next.js, React, Tailwind, Unity</li>
+          <li><strong>AI/LLM</strong> — Claude (Sonnet, Code), GPT-4o, GPT Vision, Perplexity, Cartesia voice synthesis</li>
+          <li><strong>AWS</strong> — EC2, Lambda, S3, DynamoDB, SES, CloudWatch</li>
+          <li><strong>DevOps</strong> — Docker, Nginx, PM2, systemd, Let's Encrypt SSL, zero-downtime deploys</li>
+          <li><strong>Databases</strong> — Supabase (PostgreSQL + RLS), DynamoDB, Redis</li>
+          <li><strong>Auth & Identity</strong> — Clerk, Persona (gov ID verification), Nostr protocol</li>
+          <li><strong>Creative</strong> — Adobe Creative Suite, After Effects, Premiere, motion graphics, brand identity</li>
         </ul>
       </div>
     </section>
 
-    <!-- CONTRACTOR LAYER -->
+    <!-- APPROACH -->
     <section class="mission-section fade-in">
-      <video src="videos/globe.mp4" autoplay muted loop playsinline class="mission-bg"></video>
       <div class="glass-panel is-translucent">
-        <h3>Client Layer — Patriot Contracting / Hard-E</h3>
-        <p>Technical Development &nbsp;|&nbsp; Massachusetts &nbsp;|&nbsp; 2024 – 2025 &nbsp;|&nbsp; Pro Bono</p>
+        <h3>How I Work</h3>
         <ul>
-          <li>AI-powered sales training assistant integrating a 300+ video archive into structured JSON training data</li>
-          <li>Automated video processing system using Microsoft Playwright and Python</li>
-          <li>LLM entity extraction pipeline — 95%+ accuracy for natural-language customer creation via voice</li>
-          <li>Seven specialized AI agents: routing, CRM, knowledge retrieval, web search, transcript analysis, stateful workflow</li>
-          <li>Full development lifecycle from conception through production deployment</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CREATIVE LAYER -->
-    <section class="mission-section fade-in">
-      <video src="videos/craft.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-      <div class="glass-panel is-translucent">
-        <h3>Creative Layer — 4+ Years</h3>
-        <p>Multimedia &amp; Game Development &nbsp;|&nbsp; Ongoing</p>
-        <ul>
-          <li>4+ years Unity / C# — 2D/3D games, interactive simulations, immersive experiences</li>
-          <li>Advanced Python — web scrapers to multi-agent orchestration systems</li>
-          <li>Adobe Creative Suite — motion graphics, brand identity, promotional video, After Effects</li>
-          <li>Built and maintain: harde.app · opencare.poorpeople.app · colorfotifoti.com · theabstractamerican.com · asteri.fotiosmpouris.com · thegrillingreek.com · matrix.fotiosmpouris.com</li>
+          <li><strong>Build-first</strong> — I prototype early and ship often. Most of these systems went from idea to production in weeks, not months.</li>
+          <li><strong>AI-native</strong> — I develop inside multi-agent environments daily. Cursor, Claude Code, and autonomous agents are part of the workflow, not afterthoughts.</li>
+          <li><strong>Full lifecycle</strong> — From database schema to deployment pipeline to brand identity. I don't hand off — I own the whole thing.</li>
+          <li><strong>Real users</strong> — Everything I build is either used by paying clients, my own family, or an active community. No demos, no mockups.</li>
         </ul>
       </div>
     </section>
@@ -130,8 +111,9 @@
   <footer>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="ai-apps.html">AI Apps</a>
-      <a href="ppa.html">PPA</a>
+      <a href="the-work.html">The Work</a>
+      <a href="opencare.html">OpenCare</a>
+      <a href="https://theabstractamerican.com" target="_blank">Art</a>
     </div>
     <div class="footer-logos">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
