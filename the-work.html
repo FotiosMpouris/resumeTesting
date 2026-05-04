@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Work — Fotios Mpouris</title>
-  <meta name="description" content="AI agents, production web apps, brand builds, creative technology — the full portfolio." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="AI agents, production web apps, brand builds — the full portfolio." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-with-standard-header dark-mode ai-apps-page">
+<body>
   <header>
     <div class="logo-group">
       <img src="images/fotioslogo1.png" alt="Fotios Logo" class="logo" />
@@ -26,124 +26,119 @@
       <a href="https://theabstractamerican.com" id="shop-btn">Art</a>
       <a href="index.html#lets-talk" id="contribute-btn">Let's Talk</a>
     </div>
-    <div class="hamburger"><div></div><div></div><div></div></div>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><div></div><div></div><div></div></div>
   </header>
 
-  <!-- AI APPS & AGENTS -->
-  <section class="mission-section fade-in">
-    <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
-    <div class="glass-panel is-translucent">
-      <h2>AI Apps &amp; Agents</h2>
-      <p style="max-width:700px; margin: 0 auto 2rem auto;">Production systems. Not demos.</p>
-      <div class="projects-showcase-grid">
-
-        <a href="opencare.html" class="project-showcase-card glass-panel">
-          <img src="images/opencarelogo.png" alt="OpenCare" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block; border-radius:18px;" />
+  <!-- AI APPS -->
+  <div class="section" style="border-bottom:1px solid var(--border); padding-top:100px;">
+    <div class="section-inner">
+      <span class="section-label">AI Apps &amp; Agents</span>
+      <h2>Production Systems</h2>
+      <p class="desc">Not demos. These are live, deployed, and serving real users.</p>
+      <div class="project-grid">
+        <a href="opencare.html" class="project-card">
+          <img src="images/opencarelogo.png" alt="OpenCare" class="card-logo" />
           <h3>OpenCare</h3>
-          <p>Care coordination for families. Live, free, used daily. The MVP for the Poor People App.</p>
-          <span class="project-tag">Next.js · Supabase · Clerk · AWS</span>
+          <div class="card-status">Live &middot; Free</div>
+          <p>Care coordination for families. The MVP for the Poor People App.</p>
+          <div class="card-tech">Next.js &middot; Supabase &middot; Clerk &middot; AWS</div>
         </a>
-
-        <a href="https://harde.app" target="_blank" class="project-showcase-card glass-panel">
-          <img src="images/hard-e-logo.png" alt="Hard-E" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block;" />
+        <a href="https://harde.app" target="_blank" class="project-card">
+          <img src="images/hard-e-logo.png" alt="Hard-E" class="card-logo" />
           <h3>Hard-E v3.0</h3>
-          <p>Voice-first AI sales agent. Multi-tenant. Sub-100ms audio. Production deployed.</p>
-          <span class="project-tag">AI Agent · Voice · Claude · Cartesia</span>
+          <div class="card-status">Live &middot; Production</div>
+          <p>Voice-first AI sales agent. Multi-tenant. Sub-100ms audio.</p>
+          <div class="card-tech">AI Agent &middot; Voice &middot; Claude &middot; Cartesia</div>
         </a>
-
-        <a href="https://aaexterior.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://aaexterior.com" target="_blank" class="project-card">
           <h3>All Angles Exterior</h3>
-          <p>AI-enriched lead pipeline. GPT-4o vision on house photos, Perplexity research, custom CRM coming.</p>
-          <span class="project-tag">Next.js · GPT-4o Vision · AWS · DynamoDB</span>
+          <div class="card-status">Technical Lead</div>
+          <p>AI-enriched lead pipeline. GPT-4o vision, Perplexity research, custom CRM coming.</p>
+          <div class="card-tech">Next.js &middot; GPT-4o Vision &middot; AWS</div>
         </a>
-
-        <div class="project-showcase-card glass-panel">
+        <div class="project-card">
           <h3>TheGreekClawd</h3>
-          <p>Autonomous digital employee. OpenClaw framework, Telegram interface, Claude Code execution.</p>
-          <span class="project-tag">OpenClaw · Claude Code · Telegram</span>
+          <div class="card-status">Active Build</div>
+          <p>Autonomous digital employee. OpenClaw framework, Claude Code execution.</p>
+          <div class="card-tech">OpenClaw &middot; Claude Code &middot; Telegram</div>
         </div>
-
-        <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="project-showcase-card glass-panel">
-          <img src="images/fotifotilogo1.png" alt="FotiFoti" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block;" />
+        <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="project-card">
+          <img src="images/fotifotilogo1.png" alt="FotiFoti" class="card-logo" />
           <h3>FotiFoti Art Agent</h3>
-          <p>Fully autonomous content pipeline. AI colorization, captions, multi-platform posting. Zero human touch.</p>
-          <span class="project-tag">AWS Lambda · GPT Image · Automation</span>
+          <div class="card-status">Autonomous</div>
+          <p>Fully autonomous content pipeline. AI colorization, captions, multi-platform posting.</p>
+          <div class="card-tech">AWS Lambda &middot; GPT Image</div>
         </a>
-
-        <a href="opencare.html" class="project-showcase-card glass-panel">
-          <img src="images/ppalogo.png" alt="PPA" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block;" />
+        <a href="opencare.html" class="project-card">
+          <img src="images/ppalogo.png" alt="PPA" class="card-logo" />
           <h3>Poor People App</h3>
-          <p>Economic infrastructure for working-class Americans. Multi-agent, Nostr identity, Bitcoin treasury.</p>
-          <span class="project-tag">Multi-Agent · Next.js · Nostr · Bitcoin</span>
+          <div class="card-status">Platform</div>
+          <p>Economic infrastructure for working-class Americans. Nostr identity, Bitcoin treasury.</p>
+          <div class="card-tech">Multi-Agent &middot; Next.js &middot; Nostr</div>
         </a>
-
       </div>
-      <p style="text-align:center; margin-top:1.5rem;"><a href="ai-apps.html" style="color:var(--dark-accent-primary); font-size:0.9rem;">View full AI Apps archive →</a></p>
     </div>
-  </section>
+  </div>
 
-  <!-- WEBSITES & BRANDS -->
-  <section class="mission-section fade-in">
-    <div class="mission-bg matrix-bg" aria-hidden="true"></div>
-    <div class="glass-panel is-translucent">
-      <h2>Websites &amp; Brands</h2>
-      <p style="max-width:700px; margin: 0 auto 2rem auto;">Designed, built, and deployed — each one a working product.</p>
-      <div class="projects-showcase-grid">
-
-        <a href="https://thegrillingreek.com" target="_blank" class="project-showcase-card glass-panel">
+  <!-- WEBSITES -->
+  <div class="section" style="border-bottom:1px solid var(--border);">
+    <div class="section-inner">
+      <span class="section-label">Websites &amp; Brands</span>
+      <h2>Designed, Built, Deployed</h2>
+      <div class="project-grid">
+        <a href="https://thegrillingreek.com" target="_blank" class="project-card">
           <h3>The Grillin Greek</h3>
-          <p>Restaurant brand rebuild. Featured in The Boston Globe. Mystery, intrigue, and 56 five-star Yelp reviews.</p>
-          <span class="project-tag">Brand · Marketing · GitHub Pages</span>
+          <div class="card-status">Owner</div>
+          <p>Restaurant brand rebuild. Boston Globe feature. 56 Yelp reviews.</p>
+          <div class="card-tech">Brand &middot; Marketing &middot; GitHub Pages</div>
         </a>
-
-        <a href="https://harde.app" target="_blank" class="project-showcase-card glass-panel">
-          <h3>Hard-E Marketing Site</h3>
-          <p>Product landing page for the AI sales agent. Clean, conversion-focused, mobile-first.</p>
-          <span class="project-tag">Next.js · Vercel</span>
+        <a href="https://harde.app" target="_blank" class="project-card">
+          <h3>Hard-E Marketing</h3>
+          <div class="card-status">Live</div>
+          <p>Product site for the AI sales agent. Clean, conversion-focused.</p>
+          <div class="card-tech">Next.js &middot; Vercel</div>
         </a>
-
-        <a href="https://poorpeople.app" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://poorpeople.app" target="_blank" class="project-card">
           <h3>poorpeople.app</h3>
-          <p>Movement site for the PPA. Content, mission, and call to action for economic reform.</p>
-          <span class="project-tag">Vercel · Next.js</span>
+          <div class="card-status">Live</div>
+          <p>Movement site for the PPA. Mission, content, call to action.</p>
+          <div class="card-tech">Next.js &middot; Vercel</div>
         </a>
-
-        <a href="https://aaexterior.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://aaexterior.com" target="_blank" class="project-card">
           <h3>All Angles Exterior</h3>
-          <p>AI-powered contractor site. Rotating hero videos, intelligent lead capture, GPT-4o photo analysis.</p>
-          <span class="project-tag">Next.js · Tailwind · AWS EC2</span>
+          <div class="card-status">Technical Lead</div>
+          <p>AI-powered contractor site. Intelligent lead capture.</p>
+          <div class="card-tech">Next.js &middot; Tailwind &middot; AWS EC2</div>
         </a>
-
-        <a href="https://matrix.fotiosmpouris.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://matrix.fotiosmpouris.com" target="_blank" class="project-card">
           <h3>Matrix Rain</h3>
-          <p>Interactive matrix rain visualization. Pure aesthetic. Responsive, immersive, completely useless in the best way.</p>
-          <span class="project-tag">Canvas · JavaScript · GitHub Pages</span>
+          <div class="card-status">Live</div>
+          <p>Interactive matrix rain visualization. Pure aesthetic.</p>
+          <div class="card-tech">Canvas &middot; JavaScript</div>
         </a>
-
-        <a href="https://theabstractamerican.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://theabstractamerican.com" target="_blank" class="project-card">
           <h3>The Abstract American</h3>
-          <p>Art portfolio and e-commerce. Original works, prints, and the creative side of the operation.</p>
-          <span class="project-tag">E-Commerce · Brand</span>
+          <div class="card-status">Active</div>
+          <p>Art portfolio. Original works and the creative side of the operation.</p>
+          <div class="card-tech">Gallery &middot; Brand</div>
         </a>
-
-      </div>
-      <p style="text-align:center; margin-top:1.5rem;"><a href="websites.html" style="color:var(--dark-accent-primary); font-size:0.9rem;">View full websites archive →</a></p>
-    </div>
-  </section>
-
-  <!-- CREATIVE & MULTIMEDIA -->
-  <section class="mission-section fade-in">
-    <video src="videos/craft.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
-    <div class="glass-panel is-translucent">
-      <h2>Creative &amp; Multimedia</h2>
-      <p style="max-width:700px; margin: 0 auto 2rem auto;">Motion graphics, Unity projects, video production — the other side of the build.</p>
-      <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
-        <a href="multimedia.html" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">Multimedia</a>
-        <a href="unity-projects.html" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">Unity Projects</a>
-        <a href="https://theabstractamerican.com" target="_blank" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">Art</a>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- CREATIVE -->
+  <div class="section" style="border-bottom:1px solid var(--border);">
+    <div class="section-inner" style="text-align:center;">
+      <span class="section-label">Creative &amp; Multimedia</span>
+      <h2>The Other Side</h2>
+      <p class="desc" style="margin:0 auto 28px;">Motion graphics, Unity projects, video production.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="multimedia.html" class="btn btn-outline">Multimedia</a>
+        <a href="unity-projects.html" class="btn btn-outline">Unity Projects</a>
+        <a href="https://theabstractamerican.com" target="_blank" class="btn btn-outline">Art</a>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-links">
@@ -153,11 +148,10 @@
       <a href="https://theabstractamerican.com" target="_blank">Art</a>
     </div>
     <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
-      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
-      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
     </div>
-    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
     <p>&copy; 2026 Fotios Mpouris. All rights reserved.</p>
   </footer>
 

@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fotios Mpouris — Builder, Operator, AI Architect</title>
-  <meta name="description" content="Fotios Mpouris builds and operates AI-native products. Currently leading OpenCare, Hard-E, All Angles Exterior, and The Grillin Greek." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Building AI-native products. Leading OpenCare, Hard-E, All Angles Exterior, and The Grillin Greek." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dark-mode">
   <header>
@@ -24,212 +24,204 @@
     </nav>
     <div class="header-buttons">
       <a href="https://theabstractamerican.com" id="shop-btn">Art</a>
-      <a href="#lets-talk" id="contribute-btn" title="Let's talk">Let's Talk</a>
+      <a href="#lets-talk" id="contribute-btn">Let's Talk</a>
     </div>
-    <div class="hamburger"><div></div><div></div><div></div></div>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><div></div><div></div><div></div></div>
   </header>
 
   <!-- HERO -->
   <div class="home-banner-container">
-    <video src="videos/fotioshome2.mp4" autoplay muted loop playsinline class="hero-video-bg"></video>
-    <div class="hero-video-overlay"></div>
     <div class="hero-content-wrapper">
-      <div class="glass-panel">
-        <img src="images/fotios7.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
-        <h1 id="hero-typewriter" data-rotate='["Greek human in the loop.","Building Skynet, one Terminator at a time.","Mythos is a Greek name.","Agents do the work. I take the credit.","Half the stack is autonomous. The other half is stubborn."]'>Greek human in the loop.</h1>
-        <p class="hero-subtitle">I build things, lead teams, and let the agents handle the rest.</p>
-        <div class="hero-buttons-group">
-          <a href="#currently-building" class="hero-collaborate-btn">Currently Building</a>
-          <a href="opencare.html" class="hero-collaborate-btn">OpenCare</a>
-          <a href="#lets-talk" class="hero-collaborate-btn">Let's Talk</a>
-        </div>
+      <img src="images/fotios7.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
+      <h1 id="hero-typewriter" data-rotate='["Building Skynet, one Terminator at a time.","Mythos is a Greek name.","Agents do the work. I take the credit.","Half the stack is autonomous. The other half is stubborn.","Keeping humans in the loop."]'>Building Skynet, one Terminator at a time.</h1>
+      <p class="hero-subtitle">AI architect, operator, and the human half of several agentic systems.</p>
+      <div class="hero-buttons-group">
+        <a href="#currently-building" class="hero-collaborate-btn">Currently Building</a>
+        <a href="opencare.html" class="hero-collaborate-btn">OpenCare</a>
+        <a href="#lets-talk" class="hero-collaborate-btn">Let's Talk</a>
       </div>
     </div>
   </div>
 
   <!-- CURRENTLY BUILDING -->
-  <section class="mission-section fade-in" id="currently-building">
-    <video src="videos/journey.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
-    <div class="glass-panel is-translucent">
+  <div class="section" id="currently-building" style="border-bottom: 1px solid var(--border);">
+    <div class="section-inner">
+      <span class="section-label">Active Operations</span>
       <h2>Currently Building</h2>
-      <p style="max-width:700px; margin: 0 auto 2rem auto;">Not a portfolio. These are live operations I'm leading right now.</p>
-      <div class="projects-showcase-grid">
+      <p class="desc">Not a portfolio. These are live systems I'm leading right now.</p>
 
-        <a href="opencare.html" class="project-showcase-card glass-panel">
-          <img src="images/opencarelogo.png" alt="OpenCare" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block; border-radius:18px;" />
+      <div class="project-grid">
+        <a href="opencare.html" class="project-card">
+          <img src="images/opencarelogo.png" alt="OpenCare" class="card-logo" />
           <h3>OpenCare</h3>
-          <p style="font-style:italic; opacity:0.75; font-size:0.85rem; margin-bottom:8px;">Live &middot; Free &middot; Used Daily</p>
-          <p>Care coordination for the people you love. Built because I needed it — coordinating elder care for my parents across siblings, caseworkers, and community helpers. The live MVP for the Poor People App.</p>
-          <span class="project-tag">Next.js &middot; Supabase &middot; Clerk &middot; AWS &middot; AI Agent API</span>
+          <div class="card-status">Live &middot; Free &middot; Used Daily</div>
+          <p>Care coordination for families. Built because I needed it — organizing elder care across siblings, caseworkers, and community helpers. The live MVP for the Poor People App.</p>
+          <div class="card-tech">Next.js &middot; Supabase &middot; Clerk &middot; AWS &middot; AI Agent API</div>
         </a>
 
-        <a href="https://harde.app" target="_blank" class="project-showcase-card glass-panel">
-          <img src="images/hard-e-logo.png" alt="Hard-E" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block;" />
+        <a href="https://harde.app" target="_blank" class="project-card">
+          <img src="images/hard-e-logo.png" alt="Hard-E" class="card-logo" />
           <h3>Hard-E v3.0</h3>
-          <p style="font-style:italic; opacity:0.75; font-size:0.85rem; margin-bottom:8px;">Live &middot; Production Deployed</p>
-          <p>Voice-first, multi-tenant AI sales agent for contracting businesses. Claude Sonnet brain. Cartesia Sonic voice. Sub-100ms audio. 3-tier memory.</p>
-          <span class="project-tag">AI Agent &middot; Voice &middot; Multi-Tenant &middot; AWS</span>
+          <div class="card-status">Live &middot; Production</div>
+          <p>Voice-first AI sales agent for contracting businesses. Claude Sonnet brain. Cartesia Sonic voice. Sub-100ms audio. 3-tier memory. Multi-tenant.</p>
+          <div class="card-tech">AI Agent &middot; Voice &middot; Multi-Tenant &middot; AWS</div>
         </a>
 
-        <a href="https://aaexterior.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://aaexterior.com" target="_blank" class="project-card">
           <h3>All Angles Exterior</h3>
-          <p style="font-style:italic; opacity:0.75; font-size:0.85rem; margin-bottom:8px;">Technical Lead &middot; Active Build</p>
-          <p>AI-enriched lead pipeline for a 30-year exterior remodeling company. GPT-4o vision analysis on uploaded house photos, Perplexity property research, SES notifications, DynamoDB — with a custom CRM and agent framework on deck.</p>
-          <span class="project-tag">Next.js &middot; GPT-4o Vision &middot; AWS &middot; DynamoDB &middot; S3</span>
+          <div class="card-status">Technical Lead &middot; Active</div>
+          <p>AI-enriched lead pipeline for a 30-year exterior remodeling company. GPT-4o vision on uploaded house photos, Perplexity research, SES, DynamoDB. Custom CRM and agent framework on deck.</p>
+          <div class="card-tech">Next.js &middot; GPT-4o Vision &middot; AWS &middot; DynamoDB &middot; S3</div>
         </a>
 
-        <a href="https://thegrillingreek.com" target="_blank" class="project-showcase-card glass-panel">
+        <a href="https://thegrillingreek.com" target="_blank" class="project-card">
           <h3>The Grillin Greek</h3>
-          <p style="font-style:italic; opacity:0.75; font-size:0.85rem; margin-bottom:8px;">Owner &middot; Brand Rebuild</p>
-          <p>10 years of scratch-made Greek food. Featured in The Boston Globe. 56 five-star Yelp reviews. Now rebuilding the brand with OpenCare integration and a vision for community-driven food delivery for seniors.</p>
-          <span class="project-tag">Brand &middot; Operations &middot; OpenCare &middot; Marketing</span>
+          <div class="card-status">Owner &middot; Brand Rebuild</div>
+          <p>10 years of scratch-made Greek food. Boston Globe feature. 56 Yelp reviews. Rebuilding the brand with OpenCare integration and a vision for community food delivery.</p>
+          <div class="card-tech">Brand &middot; Operations &middot; OpenCare</div>
         </a>
 
-        <div class="project-showcase-card glass-panel">
+        <div class="project-card">
           <h3>TheGreekClawd</h3>
-          <p style="font-style:italic; opacity:0.7; font-size:0.85rem; margin-bottom:8px;">Active Build</p>
-          <p>My first digital employee. An autonomous agent built on the OpenClaw framework, communicating through Telegram and controlling Claude Code to execute real development tasks end-to-end — independently, between check-ins.</p>
-          <span class="project-tag">OpenClaw &middot; Claude Code &middot; Telegram &middot; Agentic</span>
+          <div class="card-status">Active Build</div>
+          <p>Autonomous agent on the OpenClaw framework. Communicates through Telegram, controls Claude Code, executes real development tasks end-to-end between check-ins.</p>
+          <div class="card-tech">OpenClaw &middot; Claude Code &middot; Telegram</div>
         </div>
 
-        <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="project-showcase-card glass-panel">
-          <img src="images/fotifotilogo1.png" alt="FotiFoti Art Agent" loading="lazy" style="max-width:80px; margin:0 auto 12px; display:block;" />
+        <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="project-card">
+          <img src="images/fotifotilogo1.png" alt="FotiFoti" class="card-logo" />
           <h3>FotiFoti Art Agent</h3>
-          <p style="font-style:italic; opacity:0.75; font-size:0.85rem; margin-bottom:8px;">Autonomous &middot; Zero Human Touch</p>
-          <p>Fully autonomous AWS pipeline that selects original line art, colorizes it with AI across 6 artistic styles, writes captions through a Jim Morrison persona, and posts to Instagram, Facebook, and a live website.</p>
-          <span class="project-tag">AWS Lambda &middot; GPT Image &middot; Multi-Platform</span>
+          <div class="card-status">Autonomous &middot; Zero Human Touch</div>
+          <p>Fully autonomous AWS pipeline. Selects art, colorizes across 6 styles, writes captions, posts to Instagram, Facebook, and a live website.</p>
+          <div class="card-tech">AWS Lambda &middot; GPT Image &middot; Multi-Platform</div>
         </a>
-
       </div>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="the-work.html" class="cta-btn">See the Full Portfolio</a>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="the-work.html" class="btn btn-outline">See the full portfolio &rarr;</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- OPENCARE FEATURE -->
-  <section class="mission-section fade-in">
-    <video src="videos/home.mp4" autoplay muted loop playsinline class="mission-bg" loading="lazy"></video>
-    <div class="glass-panel is-translucent">
-      <img src="images/opencarelogo.png" alt="OpenCare" loading="lazy" style="max-width:84px; margin:0 auto 16px; display:block; border-radius:18px;" />
-      <h2>OpenCare — Built for the People You Love</h2>
-      <p style="max-width:760px; margin:0 auto 1.2rem auto; font-style:italic; opacity:0.85;">
-        I built OpenCare because I was drowning in sticky notes and group texts trying to coordinate care for my parents.
+  <!-- OPENCARE -->
+  <div class="feature">
+    <div class="feature-inner">
+      <img src="images/opencarelogo.png" alt="OpenCare" class="feature-logo" />
+      <h2>OpenCare</h2>
+      <p class="feature-sub">Built for the people you love.</p>
+      <p class="feature-body">
+        A live, free care coordination platform. Family coordinates inside private Care Circles.
+        People who don't use the app — neighbors, caseworkers, siblings in other states — get email
+        notifications without downloading anything. For the 53 million unpaid family caregivers in the US.
       </p>
-      <p style="max-width:760px; margin:0 auto 1.5rem auto;">
-        A <strong>live, free, production care coordination platform</strong>. Family coordinates inside private Care Circles.
-        People who don't use the app — neighbors, caseworkers, siblings in other states — get email notifications and stay
-        in the loop without downloading anything. It's the live MVP for the Poor People App. <strong>For the 53 million
-        unpaid family caregivers in the US.</strong>
-      </p>
-      <div class="services-grid" style="max-width:980px; margin:0 auto 1.5rem auto;">
-        <div class="service-card">
+
+      <div class="feature-grid">
+        <div class="feature-item">
           <h3>Care Circles</h3>
-          <p>Private workspaces for family, community groups, and care teams. Add members by email. Coordinator controls.</p>
+          <p>Private workspaces for family and care teams. Add members by email.</p>
         </div>
-        <div class="service-card">
+        <div class="feature-item">
           <h3>Tasks &amp; Reminders</h3>
-          <p>Recurring schedules from daily to every 5 years. Daily Telegram and email digests. One-tap Google Calendar.</p>
+          <p>Recurring schedules. Daily Telegram and email digests. One-tap Google Calendar.</p>
         </div>
-        <div class="service-card">
+        <div class="feature-item">
           <h3>No App Required</h3>
-          <p>Offline contacts get email notifications with full task details. Zero adoption friction for the people you need.</p>
+          <p>Offline contacts get email notifications with full task details. Zero friction.</p>
         </div>
-        <div class="service-card">
+        <div class="feature-item">
           <h3>AI Agent API</h3>
-          <p>Full REST API with Bearer auth and safety guardrails. TheGreekClawd already manages tasks via natural language.</p>
+          <p>Full REST API with Bearer auth. TheGreekClawd manages tasks via natural language.</p>
         </div>
       </div>
-      <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-        <a href="https://opencare.poorpeople.app" target="_blank" class="cta-btn">Try OpenCare</a>
-        <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">Read the White Paper</a>
-        <a href="opencare.html" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">The Bigger Vision</a>
+
+      <div class="btn-row">
+        <a href="https://opencare.poorpeople.app" target="_blank" class="btn btn-primary">Try OpenCare</a>
+        <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="btn btn-outline">White Paper</a>
+        <a href="opencare.html" class="btn btn-outline">The Bigger Vision</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- HOW I WORK (calm matrix base) -->
-  <section class="mission-section fade-in">
-    <div class="mission-bg matrix-bg" aria-hidden="true"></div>
-    <div class="glass-panel is-translucent">
+  <!-- HOW I WORK -->
+  <div class="section" style="border-bottom: 1px solid var(--border);">
+    <div class="section-inner">
+      <span class="section-label">Approach</span>
       <h2>How I Work</h2>
-      <p style="max-width:700px; margin:0 auto 2rem auto;">
-        I don't write every line of code. I direct the build — setting vision, making architectural
-        decisions, and orchestrating AI agents that handle implementation. You get a technical leader
-        who brings the whole ecosystem with them. The result ships faster, costs less, and
-        actually works in production.
+      <p class="desc">
+        I direct the build — setting vision, making architectural decisions, and orchestrating
+        AI agents that handle implementation. The result ships faster and works in production.
       </p>
-      <div class="services-grid">
-        <div class="service-card">
+
+      <div class="skill-grid">
+        <div class="skill-card">
           <h3>AI-Native Development</h3>
           <p>Multi-agent systems, voice AI, autonomous pipelines — built for production, not demos.</p>
         </div>
-        <div class="service-card">
+        <div class="skill-card">
           <h3>Full-Stack Architecture</h3>
           <p>Next.js, Python, AWS, Docker. From database schema to deployment pipeline.</p>
         </div>
-        <div class="service-card">
+        <div class="skill-card">
           <h3>Product &amp; Brand Strategy</h3>
-          <p>Ten years running a business taught me what technology alone can't: how to build something people actually want.</p>
+          <p>Ten years running a business taught me what technology alone can't: how to build something people want.</p>
         </div>
-        <div class="service-card">
+        <div class="skill-card">
           <h3>Creative Direction</h3>
-          <p>Motion graphics, brand identity, web design. If it faces a customer, it needs to feel right.</p>
+          <p>Brand identity, web design, motion graphics. If it faces a customer, it needs to feel right.</p>
         </div>
       </div>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="the-stack.html" class="cta-btn" style="background:transparent; border-color:var(--dark-accent-primary); color:var(--dark-accent-primary);">See The Full Stack</a>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="the-stack.html" class="btn btn-outline">See the full stack &rarr;</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- LET'S TALK (calm matrix base) -->
-  <section class="mission-section fade-in" id="lets-talk">
-    <div class="mission-bg matrix-bg" aria-hidden="true"></div>
-    <div class="glass-panel is-translucent">
-      <h2>Let's Talk</h2>
-      <p style="max-width:700px; margin:0 auto 2rem auto;">
+  <!-- LET'S TALK -->
+  <div class="contact-section-clean" id="lets-talk">
+    <div style="max-width: var(--max-w); margin: 0 auto;">
+      <span class="section-label" style="display:block; text-align:center; margin-bottom:8px;">Contact</span>
+      <h2 style="text-align:center; font-size:clamp(1.4rem,3vw,1.8rem); font-weight:600; margin-bottom:12px;">Let's Talk</h2>
+      <p>
         I take on select projects where the work is interesting and the people are serious.
-        If you're building something that matters and you need someone who can lead the technical
-        side from architecture to deployment — reach out.
+        If you're building something that needs someone who can lead the technical side — reach out.
       </p>
-      <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-        <a href="mailto:fotiosmpouris@gmail.com" class="cta-btn">fotiosmpouris@gmail.com</a>
-      </div>
+      <a href="mailto:fotiosmpouris@gmail.com" class="email-link">fotiosmpouris@gmail.com</a>
     </div>
-  </section>
+  </div>
 
-  <!-- THE BUILDS — LIVE NOW -->
-  <section class="mission-section fade-in">
-    <div class="mission-bg matrix-bg" aria-hidden="true"></div>
-    <div class="glass-panel is-translucent">
-      <h2>Live Now</h2>
-      <p class="social-subtitle">Visit the projects</p>
-      <div class="social-links-grid">
-        <a href="https://opencare.poorpeople.app" target="_blank" class="social-link-card glass-panel" aria-label="Visit OpenCare">
-          <img src="images/opencarelogo.png" alt="OpenCare" style="border-radius:12px;" />
+  <!-- LIVE NOW -->
+  <div class="section" style="border-bottom: 1px solid var(--border);">
+    <div class="section-inner" style="text-align:center;">
+      <span class="section-label">Live Now</span>
+      <h2>Visit the Projects</h2>
+
+      <div class="links-grid">
+        <a href="https://opencare.poorpeople.app" target="_blank" class="link-card">
+          <img src="images/opencarelogo.png" alt="OpenCare" />
           <span>OpenCare</span>
         </a>
-        <a href="https://harde.app" target="_blank" class="social-link-card glass-panel" aria-label="Visit Hard-E">
+        <a href="https://harde.app" target="_blank" class="link-card">
           <img src="images/hard-e-logo.png" alt="Hard-E" />
           <span>harde.app</span>
         </a>
-        <a href="https://poorpeople.app" target="_blank" class="social-link-card glass-panel" aria-label="Visit Poor People App">
-          <img src="images/ppalogo.png" alt="Poor People App" />
+        <a href="https://poorpeople.app" target="_blank" class="link-card">
+          <img src="images/ppalogo.png" alt="PPA" />
           <span>poorpeople.app</span>
         </a>
-        <a href="https://thegrillingreek.com" target="_blank" class="social-link-card glass-panel" aria-label="Visit The Grillin Greek">
-          <span style="font-size:2rem;">🔥</span>
+        <a href="https://thegrillingreek.com" target="_blank" class="link-card">
+          <span style="font-size:1.4rem;">🔥</span>
           <span>thegrillingreek.com</span>
         </a>
       </div>
-      <div class="footer-logos" style="margin-top:2rem;">
-        <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
-        <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
-        <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
+
+      <div class="social-row">
+        <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+        <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+        <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
       </div>
     </div>
-  </section>
+  </div>
 
   <footer>
     <div class="footer-links">
@@ -239,11 +231,10 @@
       <a href="https://theabstractamerican.com" target="_blank">Art</a>
     </div>
     <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
-      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
-      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
     </div>
-    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
     <p>&copy; 2026 Fotios Mpouris. All rights reserved.</p>
   </footer>
 
