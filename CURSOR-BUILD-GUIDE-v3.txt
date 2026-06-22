@@ -1,0 +1,172 @@
+﻿CURSOR-BUILD-GUIDE-v3.md. Tell Cursor:
+“Follow this guide exactly. Implement the full cinematic homepage first, then align subpages. Do not deviate from the refined vision or code patterns unless I approve.”This guide fixes exactly why previous attempts felt flat/boring: shallow glass (no real depth or light interaction), weak or missing luminous atmosphere, poor cinematic pacing, and insufficient execution fidelity to the strong 5-scene narrative you already have.
+Refined Vision: “Luminous Precision” (Not Generic Apple Glass)
+We are not copying iOS 26 Liquid Glass as a gimmick.
+We are building a warm, light-filled digital room where clarity cuts through complexity — exactly like the builder who runs real production AI systems while caring for family.Core feeling: Sunlight streaming into a clean, intentional space. Glass panels float with real optical depth (highlight + shadow + subtle refraction illusion). Luminous motes (dust in sunbeams) drift upward — light rises. Everything feels premium, human, and quietly powerful. No dark-mode “tech bro” aesthetic. No sterile white. Warm, luminous, precise.This matches your persona perfectly: former restaurateur + caregiver + technical lead + AI operator building infrastructure that actually serves people.The original v2 doc was already 80% right. We are now executing it at 95%+ visual fidelity.
+Why Previous Builds Failed (Be Brutally Honest With Cursor)
+* Glass looked like semi-transparent white boxes (no inset highlights, no thickness, no light refraction simulation).
+* Particles were either absent, too sparse, wrong direction (falling instead of rising), or not warm/luminous.
+* Animations lacked cinematic timing and stagger.
+* Background gradient/video integration was weak.
+* Generous whitespace + typography hierarchy wasn’t enforced.
+* Result: “cream and white, boring.”
+We fix every single one with precise code + constraints.
+Design Tokens (Use Exactly These)
+css
+:root {
+  --canvas: #FAFBFD;
+  --glass: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.55);
+  --glass-shadow: rgba(0,0,0,0.06);
+  --blur: 14px;
+  --text-primary: #1A1D23;
+  --text-secondary: #5F6478;
+  --text-tertiary: #8A90A5;
+  --accent-warm: #C4872E;      /* Amber/honey — the light */
+  --accent-teal: #2A8D8D;
+  --accent-live: #1A9E48;
+  --accent-rose: #C05D5D;
+  --gradient-bg: linear-gradient(135deg, #F0E6D8 0%, #E8EAF2 50%, #F5F0E8 100%);
+}
+Advanced .glass Class (This Is What Makes It Feel Expensive)
+css
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur)) saturate(1.08);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.08);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 0 rgba(255,255,255,0.15),
+    0 0 0 1px rgba(255,255,255,0.08); /* subtle extra depth */
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Optional subtle light refraction highlight (very premium) */
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.02) 40%,
+    transparent 60%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+Use .glass on hero content, evidence cards, and the Method panel. Maximum 3 visible at once.
+Luminous Motes Canvas (The Atmosphere That Makes It Special)
+This is the single biggest “wow” element. Warm golden/cream dust motes rising slowly like in a sunbeam.Place a single <canvas id="motes" class="motes-canvas"> with position: fixed; z-index: 1; pointer-events: none; behind everything.Full optimized particle code (put in script.js):
+js
+class Mote {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * this.canvas.width;
+    this.y = Math.random() * this.canvas.height;
+    this.radius = Math.random() * 2.2 + 0.8;
+    this.opacity = Math.random() * 0.12 + 0.06;
+    this.vy = -0.12 - Math.random() * 0.18; // upward drift
+    this.vx = (Math.random() - 0.5) * 0.15;
+    this.hue = 38 + Math.random() * 8; // warm gold/cream
+    this.targetOpacity = this.opacity;
+    this.flareTimer = 0;
+  }
+  update(scrollY = 0) {
+    this.y += this.vy;
+    this.x += this.vx + (scrollY * 0.008); // subtle parallax
+    if (this.y < -10) this.y = this.canvas.height + 10;
+    if (this.x < 0 || this.x > this.canvas.width) this.x = Math.random() * this.canvas.width;
+
+
+    // Occasional flare (catches the light)
+    this.flareTimer++;
+    if (this.flareTimer > 280 && Math.random() < 0.008) {
+      this.targetOpacity = 0.38;
+      this.radius = this.radius * 1.4;
+      this.flareTimer = 0;
+    }
+    this.opacity = this.opacity * 0.96 + this.targetOpacity * 0.04;
+    if (this.opacity < this.targetOpacity + 0.01) this.targetOpacity = this.opacity * 0.7 + 0.05;
+  }
+  draw(ctx) {
+    ctx.save();
+    ctx.fillStyle = `hsla(${this.hue}, 72%, 78%, ${this.opacity})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+
+let motes = [];
+let ctx, canvas;
+
+
+function initMotes() {
+  canvas = document.getElementById('motes');
+  ctx = canvas.getContext('2d', { alpha: true });
+  resizeMotes();
+  for (let i = 0; i < 48; i++) motes.push(new Mote(canvas));
+  window.addEventListener('resize', resizeMotes);
+  animateMotes();
+}
+
+
+function resizeMotes() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+
+let lastScrollY = 0;
+function animateMotes() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const scrollY = window.scrollY;
+  const parallax = scrollY - lastScrollY;
+  lastScrollY = scrollY;
+
+
+  motes.forEach(mote => {
+    mote.update(parallax);
+    mote.draw(ctx);
+  });
+  requestAnimationFrame(animateMotes);
+}
+
+
+// Call initMotes() after DOMContentLoaded
+This creates exactly the “dust caught in a sunbeam” feeling. It’s lightweight and beautiful.
+5-Scene Cinematic Scroll (GSAP ScrollTrigger)
+Keep the exact structure from your v2 doc. Add these precise triggers:
+* Scene 1 (Arrival/Hero): Natural scroll. Profile in glass. Polished typewriter (3–4 rotating lines). Warm video overlay rgba(255,255,255,0.28). Densest motes here.
+* Scene 2 (Signal): Text materializes with opacity: 0 → 1, y: 40 → 0. Boundary quote arrives 400ms later with different easing.
+* Scene 3 (Evidence): Each of the 4 glass cards triggers independently at ~70% viewport. Staggered slide + fade. Accent left bar color-coded.
+* Scene 4 (Method): Single wide glass panel. Two-column content staggers left → right.
+* Scene 5 (Door): Minimal. Email gets subtle warm text-shadow pulse on reveal.
+Background gradient shift (subtle, elegant): Animate --gradient-bg stops or a wrapper div’s background via GSAP as you scroll between scenes (warmest at top & bottom, slightly cooler in Evidence for “precision” contrast).
+Implementation Order for Cursor (Do This Sequence)
+1. style.css — Full design system + advanced .glass + typography (Space Grotesk + Inter + JetBrains Mono) + generous spacing (96px sections on desktop, 64px mobile).
+2. script.js — GSAP + ScrollTrigger from CDN + full motes canvas + typewriter + smooth scroll + hamburger.
+3. index.html — Exact 5-scene structure with proper IDs/classes for triggers. Load GSAP CDN scripts.
+4. Test in browser. Iterate on particle count/opacity, glass blur, animation timing until it feels alive.
+5. Align subpages with same tokens + .glass cards.
+Extra “Kick Ass” Touches (Add After Core Works)
+* Subtle hover lift + soft shadow increase on evidence cards.
+* Very light magnetic effect on nav links or “Reach Out” button (optional, keep minimal).
+* Scroll progress bar (thin warm line at top) — elegant, not flashy.
+* Perfect mobile: Reduced blur (8–10px), fewer particles or static, no pinning.
+* prefers-reduced-motion → disable particles + heavy animations.
+Realistic Expectations vs Video Games
+Video game engines have shaders, real-time lighting, and physics built-in. Static web on GitHub Pages does not.
+But with GSAP + optimized Canvas + advanced CSS glass, we can deliver a genuinely premium, cinematic, memorable experience that feels hand-crafted and intentional — exactly what top Awwwards personal sites achieve in 2025–2026.This version will feel extraordinarily impressive because every element serves the story: light = clarity, rising motes = hope/forward motion, floating glass = transparent systems serving humans.
+________________

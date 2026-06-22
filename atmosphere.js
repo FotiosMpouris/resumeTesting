@@ -1,7 +1,9 @@
 /* ============================================================
    atmosphere.js — Procedural Celestial Environment
-   Full-viewport Canvas: gradient sky, cloud forms, luminous
-   particles with additive blending, god-rays, mouse parallax.
+   Canvas is transparent (alpha: true) so sky.mp4 video shows
+   through underneath. Canvas layers: subtle sky overlay,
+   impressionistic cloud forms, luminous additive particles,
+   5 animated god-rays fanning from center-top.
    ============================================================ */
 
 (function () {
@@ -10,14 +12,14 @@
   var canvas = document.getElementById('atmosphere');
   if (!canvas) return;
 
-  var ctx = canvas.getContext('2d', { alpha: false });
+  /* alpha: true — canvas is transparent, video beneath shows through */
+  var ctx = canvas.getContext('2d', { alpha: true });
   var W, H;
   var mouseX = 0.5, mouseY = 0.5;
   var scrollY = 0;
   var frame = 0;
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Exposed for script.js to shift atmosphere on scroll */
   window.atmosphereWarmth = 0;
 
   function resize() {
@@ -48,10 +50,10 @@
 
   Cloud.prototype.reset = function () {
     this.x = Math.random() * 1.4 - 0.2;
-    this.y = 0.15 + Math.random() * 0.55;
+    this.y = 0.1 + Math.random() * 0.5;
     this.radiusX = 0.08 + Math.random() * 0.18;
     this.radiusY = 0.03 + Math.random() * 0.07;
-    this.opacity = 0.04 + Math.random() * 0.06;
+    this.opacity = 0.06 + Math.random() * 0.08;
     this.driftSpeed = (Math.random() - 0.5) * 0.00003;
   };
 
@@ -97,14 +99,14 @@
     this.y = initial ? Math.random() * H : H + Math.random() * 100;
     this.radius = 0.8 + Math.random() * 4.5;
     this.baseRadius = this.radius;
-    this.opacity = 0.15 + Math.random() * 0.45;
+    this.opacity = 0.18 + Math.random() * 0.45;
     this.baseOpacity = this.opacity;
     this.vy = -(0.15 + Math.random() * 0.5);
     this.vx = (Math.random() - 0.5) * 0.2;
     this.depth = 0.2 + Math.random() * 0.8;
-    this.hue = 36 + Math.random() * 16;
-    this.warmth = 60 + Math.random() * 20;
-    this.lightness = 85 + Math.random() * 10;
+    this.hue = 200 + Math.random() * 40;  /* sky blue hue range */
+    this.warmth = 40 + Math.random() * 30;
+    this.lightness = 80 + Math.random() * 15;
     this.flareTimer = Math.floor(Math.random() * 400);
     this.targetOpacity = this.opacity;
     this.wobbleOffset = Math.random() * Math.PI * 2;
@@ -152,25 +154,28 @@
     ctx.arc(px, py, r * 3, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = 'hsla(' + this.hue + ', ' + this.warmth + '%, 97%, ' + Math.min(1, this.opacity * 1.5) + ')';
+    ctx.fillStyle = 'hsla(' + this.hue + ', 20%, 97%, ' + Math.min(1, this.opacity * 1.5) + ')';
     ctx.beginPath();
     ctx.arc(px, py, r * 0.4, 0, Math.PI * 2);
     ctx.fill();
   };
 
   var particles = [];
-  var particleCount = Math.min(220, Math.max(80, Math.floor(W / 8)));
+  var particleCount = Math.min(220, Math.max(100, Math.floor(W / 8)));
   for (var p = 0; p < particleCount; p++) {
     particles.push(new Particle());
   }
 
   /* ---- GOD-RAYS ---- */
+  /* 5 rays fanning symmetrically from center-top */
+
+  var RAY_ANGLES = [-0.6, -0.3, 0, 0.3, 0.6];
 
   function GodRay(index) {
-    this.angle = -0.4 + index * 0.35;
-    this.width = 0.06 + Math.random() * 0.1;
-    this.opacity = 0.015 + Math.random() * 0.02;
-    this.speed = 0.00008 + Math.random() * 0.0001;
+    this.angle = RAY_ANGLES[index];
+    this.width = 0.08 + Math.random() * 0.12;
+    this.opacity = 0.025 + Math.random() * 0.03;
+    this.speed = 0.00006 + Math.random() * 0.00012;
     this.phase = Math.random() * Math.PI * 2;
   }
 
@@ -178,71 +183,62 @@
     var pulse = Math.sin(frame * this.speed + this.phase) * 0.5 + 0.5;
     var alpha = this.opacity * (0.5 + pulse * 0.5);
 
+    /* Source: slightly above center-top of viewport */
     var cx = W * 0.5;
-    var cy = -H * 0.1;
-    var len = Math.sqrt(W * W + H * H) * 1.2;
-    var a = this.angle + Math.sin(frame * 0.0003 + this.phase) * 0.05;
+    var cy = -H * 0.05;
+    var len = Math.sqrt(W * W + H * H) * 1.3;
+
+    /* Gently sway each ray independently */
+    var a = this.angle + Math.sin(frame * 0.0004 + this.phase) * 0.06;
+
+    /* Width of the ray at its base */
     var hw = this.width * W * 0.5;
 
-    var endX = cx + Math.cos(a) * len;
-    var endY = cy + Math.sin(a + Math.PI * 0.5) * len;
+    /* Ray direction vector */
+    var dirX = Math.sin(a);
+    var dirY = Math.cos(a);
 
-    var perpX = -Math.sin(a) * hw;
-    var perpY = Math.cos(a) * hw;
+    var endX = cx + dirX * len;
+    var endY = cy + dirY * len;
+
+    /* Perpendicular to direction */
+    var perpX = -dirY * hw;
+    var perpY = dirX * hw;
 
     var grad = ctx.createLinearGradient(cx, cy, endX, endY);
-    grad.addColorStop(0, 'rgba(255, 250, 235, ' + alpha + ')');
-    grad.addColorStop(0.5, 'rgba(255, 250, 235, ' + (alpha * 0.4) + ')');
-    grad.addColorStop(1, 'rgba(255, 250, 235, 0)');
+    grad.addColorStop(0,   'rgba(220, 240, 255, ' + alpha + ')');
+    grad.addColorStop(0.4, 'rgba(200, 230, 255, ' + (alpha * 0.5) + ')');
+    grad.addColorStop(1,   'rgba(180, 220, 255, 0)');
 
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.moveTo(cx - perpX * 0.3, cy - perpY * 0.3);
+    ctx.moveTo(cx - perpX * 0.2, cy - perpY * 0.2);
     ctx.lineTo(endX - perpX, endY - perpY);
     ctx.lineTo(endX + perpX, endY + perpY);
-    ctx.lineTo(cx + perpX * 0.3, cy + perpY * 0.3);
+    ctx.lineTo(cx + perpX * 0.2, cy + perpY * 0.2);
     ctx.closePath();
     ctx.fill();
   };
 
   var godRays = [];
-  for (var g = 0; g < 3; g++) {
+  for (var g = 0; g < 5; g++) {
     godRays.push(new GodRay(g));
   }
 
-  /* ---- DRAW SKY GRADIENT ---- */
+  /* ---- SKY OVERLAY ---- */
+  /* Subtle central brightness glow only — video shows through canvas */
 
-  function drawSky() {
+  function drawSkyOverlay() {
     var warmth = window.atmosphereWarmth || 0;
-
-    var coreR = 220 + warmth * 15;
-    var coreG = 235 - warmth * 5;
-    var coreB = 255 - warmth * 20;
-
-    var edgeR = 235 + warmth * 10;
-    var edgeG = 230 - warmth * 5;
-    var edgeB = 240 - warmth * 15;
-
     var cx = W * 0.5 + (mouseX - 0.5) * 40;
-    var cy = H * 0.3 + (mouseY - 0.5) * 20;
+    var cy = H * 0.3 + (mouseY - 0.5) * 20 - scrollY * 0.05;
 
-    cy -= scrollY * 0.05;
-
-    var outerR = Math.max(W, H) * 0.9;
-
-    var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, outerR);
-    grad.addColorStop(0, 'rgb(' + Math.floor(coreR) + ',' + Math.floor(coreG) + ',' + Math.floor(coreB) + ')');
-    grad.addColorStop(0.25, 'rgb(' + Math.floor(coreR * 0.97) + ',' + Math.floor(coreG * 0.97) + ',' + Math.floor(coreB * 0.98) + ')');
-    grad.addColorStop(0.6, 'rgb(' + Math.floor((coreR + edgeR) / 2) + ',' + Math.floor((coreG + edgeG) / 2) + ',' + Math.floor((coreB + edgeB) / 2) + ')');
-    grad.addColorStop(1, 'rgb(' + Math.floor(edgeR) + ',' + Math.floor(edgeG) + ',' + Math.floor(edgeB) + ')');
-
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
-
-    var centerGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, outerR * 0.4);
-    centerGlow.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
-    centerGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    ctx.fillStyle = centerGlow;
+    /* Subtle white centre bloom */
+    var bloom = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.55);
+    bloom.addColorStop(0, 'rgba(255, 255, 255, ' + (0.12 + warmth * 0.06) + ')');
+    bloom.addColorStop(0.5, 'rgba(220, 235, 255, ' + (0.05 + warmth * 0.03) + ')');
+    bloom.addColorStop(1, 'rgba(200, 220, 255, 0)');
+    ctx.fillStyle = bloom;
     ctx.fillRect(0, 0, W, H);
   }
 
@@ -252,7 +248,10 @@
     var px = (mouseX - 0.5) * 2;
     var py = (mouseY - 0.5) * 2;
 
-    drawSky();
+    /* Clear to transparent so sky.mp4 video beneath shows through */
+    ctx.clearRect(0, 0, W, H);
+
+    drawSkyOverlay();
 
     for (var c = 0; c < clouds.length; c++) {
       clouds[c].draw(ctx, W, H, px, py);
@@ -260,7 +259,6 @@
 
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
-
     for (var g = 0; g < godRays.length; g++) {
       godRays[g].draw(ctx, W, H);
     }

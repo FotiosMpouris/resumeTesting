@@ -34,14 +34,18 @@
 </head>
 <body>
 
-  <!-- Atmosphere -->
+  <!-- Sky video base layer (behind canvas) -->
+  <div class="sky-video-wrap">
+    <video autoplay muted loop playsinline src="videos/sky.mp4"></video>
+  </div>
+
+  <!-- Atmosphere canvas overlaid on sky video (alpha: true = transparent) -->
   <canvas id="atmosphere"></canvas>
   <div class="scroll-progress"></div>
 
   <!-- Header -->
   <header>
     <div class="logo-group">
-      <img src="images/fotioslogo1.png" alt="Fotios Logo" class="logo" />
       <span class="logo-text">Fotios Mpouris</span>
     </div>
     <nav class="nav-links">
@@ -60,24 +64,32 @@
   <!-- SCENE 1: THE ARRIVAL — text floating in atmosphere -->
   <section class="hero-atmosphere">
     <h1 id="hero-typewriter"
-        data-rotate='["Building Skynet, one Terminator at a time.","Mythos is a Greek name.","Agents do the work. I take the credit.","Half the stack is autonomous. The other half is stubborn.","Keeping humans in the loop."]'>
+        data-rotate='["Building Skynet, one Terminator at a time.","Keeping humans in the loop."]'>
       Building Skynet, one Terminator at a time.
     </h1>
-    <p class="hero-positioning">The systems are already running. The question is whose.</p>
+    <p class="hero-positioning">While you're reading this, four of my systems are already at work.</p>
     <div class="scroll-indicator"></div>
   </section>
 
   <!-- SCENE 2: THE SIGNAL -->
   <section class="scene signal-section">
     <p class="signal-text">
-      I build things that actually run. Voice agents that pick up the phone and close the deal.
-      A care platform used every day by my own family. An AI lead pipeline seeing houses through
-      computer vision. My own AI managing it all between check-ins&thinsp;&mdash;&thinsp;twenty-four
-      hours a day, for about four dollars.
+      There's a version of this story that leads with cloud architecture and model benchmarks.
+      That version is accurate. It's also missing the point.
+    </p>
+    <p class="signal-text">
+      I built OpenCare because I was drowning in group texts trying to manage my parents' care
+      from across state lines. I built Hard-E because a contractor friend kept losing leads while
+      he was on a job site. I got pulled into All Angles because a 30-year remodeling company
+      deserved better than a spreadsheet. Ethos exists because I needed someone to coordinate
+      all of this while I slept.
+    </p>
+    <p class="signal-text">
+      The systems grew out of real problems. That's all.
     </p>
     <div class="signal-boundary">
-      I don't ship decks. I don't bolt chatbots onto websites and call it transformation.
-      I don't demo things that can't survive Tuesday.
+      I don't pitch. I don't demo things that won't survive a Tuesday.
+      If you're here, something I built probably already crossed your path.
     </div>
   </section>
 
@@ -87,14 +99,15 @@
 
     <div class="evidence-block glass rose">
       <span class="evidence-badge badge-live">LIVE</span>
-      <h3 class="evidence-title">The Mobilization America Needs</h3>
+      <h3 class="evidence-title">OpenCare — Built Because I Needed It</h3>
       <p class="evidence-body">
-        OpenCare is the live product&thinsp;&mdash;&thinsp;care coordination for families, used daily,
-        free. But it's the opening chapter of something larger: a decentralized human-services marketplace
-        where AI agents handle the 95% of bureaucratic work that is procedural, and human Sentinels
-        handle the 5% that requires real judgment. Identity on Nostr. Coordination currency, not
-        speculation. Infrastructure for economic resilience&thinsp;&mdash;&thinsp;built by a caregiver,
-        not by a startup that interviewed caregivers.
+        Built by a caregiver, not by a startup that interviewed caregivers. OpenCare started
+        as my attempt to stop drowning in group texts while managing my parents' care from
+        across state lines. It's the opening chapter of something larger: a decentralized
+        human-services marketplace where AI agents replace the 95% of bureaucratic work that
+        is purely procedural, and human Sentinels handle the 5% that requires real judgment.
+        Identity on Nostr. Coordination currency that isn't speculation. Infrastructure for
+        the people who can't afford to wait for the system to work.
       </p>
       <p class="evidence-metric">53M unpaid US family caregivers &middot; ~$30/mo server cost &middot; Running on one EC2 instance.</p>
       <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">opencare.poorpeople.app</a>
@@ -104,12 +117,14 @@
 
     <div class="evidence-block glass teal">
       <span class="evidence-badge badge-live">PRODUCTION</span>
-      <h3 class="evidence-title">The Voice on the Other End of the Line</h3>
+      <h3 class="evidence-title">Hard-E — The Sales Director That Picks Up Every Time</h3>
       <p class="evidence-body">
-        An AI sales director that sits inside a contractor's CRM, knowledge base, and pricing
-        sheets. Claude thinks. Cartesia speaks in 40 milliseconds. Deepgram listens. Twenty-one
-        tools cover the full contractor workflow&thinsp;&mdash;&thinsp;customer lookup to signed
-        proposal. It's not a voice assistant. It's a coworker who never forgets a follow-up.
+        A contractor friend kept losing leads while he was on a job site, hands dirty, unable
+        to answer his phone. Hard-E sits inside his CRM, knowledge base, and pricing sheets.
+        Claude thinks. Cartesia speaks in 40 milliseconds. Deepgram listens. Twenty-one tools
+        cover the full contractor workflow from customer lookup to signed proposal. It's not
+        a voice assistant. It's a coworker who never misses a follow-up because it never gets
+        tired, distracted, or busy on a roof.
       </p>
       <p class="evidence-metric">~300 API calls/day &middot; 99.7% success rate &middot; Multi-tenant.</p>
       <a href="https://harde.app" target="_blank" class="evidence-link">harde.app</a>
@@ -117,11 +132,14 @@
 
     <div class="evidence-block glass teal">
       <span class="evidence-badge badge-teal">TECHNICAL LEAD</span>
-      <h3 class="evidence-title">The Pipeline That Sees Houses</h3>
+      <h3 class="evidence-title">All Angles — AI That Earns Its Keep</h3>
       <p class="evidence-body">
-        A 30-year remodeling company needed leads that arrive enriched, not raw. Upload a photo
-        of a house. GPT-4o vision analyzes the exterior. Perplexity researches the property.
-        The enriched lead hits DynamoDB and a notification email before a human ever touches it.
+        A 30-year remodeling company deserved better than a spreadsheet. Now a lead arrives
+        enriched, not raw. Someone photographs a house. GPT-4o vision reads the exterior —
+        siding material, condition, style. Perplexity researches the property. The enriched
+        lead hits DynamoDB and a notification email before a human has picked up a pen. The
+        company still runs on reputation. The pipeline just makes sure the reputation has
+        more chances to do its work.
       </p>
       <p class="evidence-metric">James Hardie Elite Preferred &middot; Trusted since 1997 &middot; AI-enriched pipeline live.</p>
       <a href="https://aaexterior.com" target="_blank" class="evidence-link">aaexterior.com</a>
@@ -129,12 +147,14 @@
 
     <div class="evidence-block glass warm">
       <span class="evidence-badge badge-warm">24/7 AUTONOMOUS</span>
-      <h3 class="evidence-title">The One That Never Sleeps</h3>
+      <h3 class="evidence-title">Ethos — My 24/7 AI Chief of Staff</h3>
       <p class="evidence-body">
-        My AI executive assistant. Hermes Agent running on Lightsail, communicating via
-        Telegram. It manages real care tasks through the OpenCare API, runs a 9-lens video
-        intelligence pipeline, orchestrates an autonomous art pipeline from S3 to Instagram,
-        and maintains a 105-page knowledge wiki. It costs less than a coffee per day.
+        I needed someone to coordinate all of this while I slept. Ethos is a Hermes Agent
+        running on Lightsail, communicating via Telegram. It manages real care tasks through
+        the OpenCare API, runs a 9-lens video intelligence pipeline, orchestrates an
+        autonomous art pipeline from S3 to Instagram, and maintains a 105-page knowledge
+        wiki that knows more about my projects than I can hold in my head at once.
+        It costs less than a coffee per day. $2&ndash;4. That number still makes me smile.
       </p>
       <p class="evidence-metric">$2&ndash;4/day &middot; 105 wiki pages &middot; Claude Sonnet 4.6 + Haiku 4.5.</p>
       <span class="evidence-link" style="color: var(--text-tertiary);">Internal system</span>
@@ -145,24 +165,18 @@
   <section class="scene method-section">
     <div class="method-panel glass">
       <img src="images/fotios7.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
-      <h2>Human in the Loop</h2>
+      <h2>How I Got Here</h2>
       <p class="method-body">
-        I set vision. I make the architectural calls. I decide what ships and what doesn't.
-        Then I step back and let the agents work. Claude writes code. Ethos manages the schedule.
-        Deepgram listens to the customer. Cartesia responds before the human finishes processing
-        what they heard. A Lambda colorizes art and posts it to Instagram while I'm asleep.
-        I keep them honest. They keep me productive.
+        I came into this sideways — restaurant, art school, Unity game dev, then Python, then
+        the agents hit and everything accelerated. I don't have a computer science degree.
+        What I have is ten years of feeding families and knowing what actually matters to people,
+        a compulsion to build things that serve someone other than the demo, and enough stubbornness
+        to see them through to production.
       </p>
-      <div class="method-grid">
-        <div class="method-col">
-          <h3>What I Bring</h3>
-          <p>Architecture. Product vision. Integration design. A decade of feeding people and knowing what they actually want. Taste.</p>
-        </div>
-        <div class="method-col">
-          <h3>What the Agents Bring</h3>
-          <p>Code generation. Voice processing. Content pipelines. Task coordination. The willingness to work at 3 AM without complaining about it.</p>
-        </div>
-      </div>
+      <p class="method-body">
+        The agents handle what agents handle well. I handle what still requires a human: the
+        judgment calls, the vision, the question of whether a thing should exist at all.
+      </p>
     </div>
   </section>
 
