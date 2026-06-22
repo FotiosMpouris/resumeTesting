@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unity Projects - Fotios Mpouris</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Unity Projects — Fotios Mpouris</title>
+  <meta name="description" content="Game development and interactive simulations built in Unity." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark-mode">  
+<body>
   <header>
     <div class="logo-group">
       <img src="images/fotioslogo1.png" alt="Fotios Logo" class="logo" />
@@ -24,59 +24,71 @@
     </nav>
     <div class="header-buttons">
       <a href="https://theabstractamerican.com" id="shop-btn">Art</a>
-      <a href="index.html#lets-talk" id="contribute-btn">Let's Talk</a>
-
+      <a href="index.html#the-door" id="contribute-btn">Reach Out</a>
     </div>
     <div class="hamburger"><div></div><div></div><div></div></div>
   </header>
 
-  <!-- UNITY PAGE HERO SECTION -->
-<section class="hero-video-section">
-  <video autoplay loop muted playsinline class="hero-video-bg">
-    <source src="videos/unity.mp4" type="video/mp4">
-  </video>
-  <div class="hero-video-overlay"></div>
-  <div class="hero-video-content">    
-    <h1 id="hero-typewriter" data-rotate='["Unity Game Engine.","Interactive Worlds.","C# · Real-Time."]'>Unity Game Engine.</h1> 
-    <p>Experience with 2D/3D games and interactive simulations.</p>
+  <div class="page-hero">
+    <div class="page-hero-video">
+      <video autoplay loop muted playsinline><source src="videos/unity.mp4" type="video/mp4"></video>
+      <div class="overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["Unity Game Engine.","Interactive Worlds.","C# · Real-Time."]'>Unity Game Engine.</h1>
+      <p class="hero-subtitle">2D/3D games and interactive simulations.</p>
+    </div>
   </div>
-</section>
 
   <main>
-    <section class="video-showcase fade-in">
-      <div class="video-showcase-grid">
+    <div class="page-section">
+      <h2>Projects</h2>
+      <div class="media-container">
         <div class="media-item">
-          <video src="videos/asteriunity.mp4" autoplay muted loop playsinline class="media-video" loading="lazy"></video>
-          <p>Asteri — 3D Space Environment</p>
+          <video src="videos/asteriunity.mp4" autoplay muted loop playsinline loading="lazy"></video>
         </div>
         <div class="media-item">
-          <video src="videos/firstperson.mp4" autoplay muted loop playsinline class="media-video" loading="lazy"></video>
-          <p>First Person Controller</p>
+          <video src="videos/firstperson.mp4" autoplay muted loop playsinline loading="lazy"></video>
         </div>
         <div class="media-item">
-          <video src="videos/endlessrunner.mp4" autoplay muted loop playsinline class="media-video" loading="lazy"></video>
-          <p>Endless Runner</p>
+          <video src="videos/endlessrunner.mp4" autoplay muted loop playsinline loading="lazy"></video>
         </div>
       </div>
-    </section>
+
+      <div class="skill-grid" style="margin-top:40px;">
+        <div class="skill-card glass">
+          <h3>Asteri</h3>
+          <p>3D space environment. Procedural lighting, particle systems, atmospheric rendering.</p>
+        </div>
+        <div class="skill-card glass">
+          <h3>First Person Controller</h3>
+          <p>Custom FPS controller. Rigidbody physics, camera control, interaction system.</p>
+        </div>
+        <div class="skill-card glass">
+          <h3>Endless Runner</h3>
+          <p>Procedurally generated obstacle course. Score tracking, difficulty scaling.</p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <div class="footer-links">
+    <div class="footer-nav">
       <a href="index.html">Home</a>
       <a href="the-work.html">The Work</a>
       <a href="opencare.html">OpenCare</a>
       <a href="https://theabstractamerican.com" target="_blank">Art</a>
     </div>
-    <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
-      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
-      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
+    <div class="social-row">
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
     </div>
-    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
-    <p>© 2026 Fotios Mpouris. All rights reserved.</p>
+    <p>&copy; 2026 Fotios Mpouris</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
