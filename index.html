@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Fotios Mpouris — Builder, Operator" />
   <meta name="twitter:description" content="Four production AI systems. Voice agents. Care platforms. Autonomous pipelines. The systems are running." />
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,14 +36,8 @@
       "https://www.instagram.com/fotifoti.art/"
     ],
     "knowsAbout": [
-      "AI Agent Architecture",
-      "Voice AI",
-      "Care Coordination Technology",
-      "Multi-Agent Systems",
-      "AWS Infrastructure",
-      "Next.js",
-      "Python",
-      "Computer Vision"
+      "AI Agent Architecture", "Voice AI", "Care Coordination Technology",
+      "Multi-Agent Systems", "AWS Infrastructure", "Next.js", "Python", "Computer Vision"
     ],
     "makesOffer": [
       {
@@ -70,14 +64,18 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <canvas id="particle-canvas"></canvas>
+  <!-- Scroll progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Luminous motes atmosphere -->
+  <canvas id="motes" class="motes-canvas"></canvas>
+
+  <!-- Gradient wrapper for GSAP background shift -->
+  <div class="gradient-bg-wrap" style="position:fixed;inset:0;z-index:0;background:var(--gradient-bg);pointer-events:none;"></div>
 
   <!-- HEADER -->
   <header>
@@ -107,7 +105,7 @@
       <div class="hero-video-overlay"></div>
     </div>
 
-    <div class="hero-content">
+    <div class="hero-content glass">
       <img src="images/fotios7.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
 
       <h1 id="hero-typewriter"
@@ -117,14 +115,14 @@
       </h1>
 
       <p class="hero-positioning">The systems are already running. The question is whose.</p>
-
-      <div class="scroll-indicator"></div>
     </div>
+
+    <div class="scroll-indicator"></div>
   </section>
 
   <!-- SCENE 2: THE SIGNAL -->
   <section class="signal-section">
-    <p class="signal-text gsap-reveal">
+    <p class="signal-text">
       I build things that actually run. Voice agents that pick up the phone and close the deal.
       A care platform used every day by my own family. An AI lead pipeline seeing houses through
       computer vision. My own AI managing it all between check-ins&thinsp;&mdash;&thinsp;twenty-four
@@ -142,7 +140,7 @@
     <h2>What's Running Right Now</h2>
 
     <!-- PPA / OpenCare -->
-    <div class="evidence-block glass gsap-reveal-left rose">
+    <div class="evidence-block glass rose">
       <span class="evidence-badge badge-live">LIVE</span>
       <h3 class="evidence-title">The Mobilization America Needs</h3>
       <p class="evidence-body">
@@ -160,7 +158,7 @@
     </div>
 
     <!-- Hard-E -->
-    <div class="evidence-block glass gsap-reveal-left teal">
+    <div class="evidence-block glass teal">
       <span class="evidence-badge badge-live">PRODUCTION</span>
       <h3 class="evidence-title">The Voice on the Other End of the Line</h3>
       <p class="evidence-body">
@@ -174,7 +172,7 @@
     </div>
 
     <!-- All Angles -->
-    <div class="evidence-block glass gsap-reveal-left teal">
+    <div class="evidence-block glass teal">
       <span class="evidence-badge badge-teal">TECHNICAL LEAD</span>
       <h3 class="evidence-title">The Pipeline That Sees Houses</h3>
       <p class="evidence-body">
@@ -188,7 +186,7 @@
     </div>
 
     <!-- Ethos -->
-    <div class="evidence-block glass gsap-reveal-left warm">
+    <div class="evidence-block glass warm">
       <span class="evidence-badge badge-warm">24/7 AUTONOMOUS</span>
       <h3 class="evidence-title">The One That Never Sleeps</h3>
       <p class="evidence-body">
@@ -205,7 +203,7 @@
 
   <!-- SCENE 4: THE METHOD -->
   <section class="method-section">
-    <div class="method-panel glass gsap-reveal">
+    <div class="method-panel glass">
       <h2>Human in the Loop</h2>
       <p class="method-body">
         I set vision. I make the architectural calls. I decide what ships and what doesn't.

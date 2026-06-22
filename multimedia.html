@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Multimedia — Fotios Mpouris</title>
   <meta name="description" content="Motion graphics, brand videos, and animation work." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="scroll-progress"></div>
+  <canvas id="motes" class="motes-canvas"></canvas>
+  <div class="gradient-bg-wrap" style="position:fixed;inset:0;z-index:0;background:var(--gradient-bg);pointer-events:none;"></div>
+
   <header>
     <div class="logo-group">
       <img src="images/fotioslogo1.png" alt="Fotios Logo" class="logo" />
@@ -44,42 +45,22 @@
     <div class="page-section">
       <h2>Motion Design</h2>
       <div class="media-container">
-        <div class="media-item">
-          <video src="mediavideo01.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/journey.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/craft.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/mediavideo04.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="mediavideo02.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="mediavideo03.mp4" autoplay muted loop playsinline></video>
-        </div>
+        <div class="media-item"><video src="mediavideo01.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/journey.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/craft.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/mediavideo04.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="mediavideo02.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="mediavideo03.mp4" autoplay muted loop playsinline></video></div>
       </div>
     </div>
 
     <div class="page-section">
       <h2>Animation</h2>
       <div class="media-container">
-        <div class="media-item">
-          <video src="videos/showcase1.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/showcase2.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/showcase3.mp4" autoplay muted loop playsinline></video>
-        </div>
-        <div class="media-item">
-          <video src="videos/showcase4.mp4" autoplay muted loop playsinline></video>
-        </div>
+        <div class="media-item"><video src="videos/showcase1.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/showcase2.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/showcase3.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-item"><video src="videos/showcase4.mp4" autoplay muted loop playsinline></video></div>
       </div>
     </div>
   </main>
