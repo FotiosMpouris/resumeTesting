@@ -17,6 +17,21 @@
     }, { passive: true });
   }
 
+  /* ---- SKY VIDEO FADE ON SCROLL ---- */
+  /* Video fades out as user descends, revealing canvas atmosphere beneath */
+
+  var skyWrap = document.querySelector('.sky-video-wrap');
+  if (skyWrap) {
+    var skyFadeEnd = window.innerHeight * 0.65;
+    window.addEventListener('scroll', function () {
+      var opacity = Math.max(0, 1 - window.scrollY / skyFadeEnd);
+      skyWrap.style.opacity = opacity;
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      skyFadeEnd = window.innerHeight * 0.65;
+    });
+  }
+
   /* ---- HAMBURGER ---- */
 
   var hamburger = document.querySelector('.hamburger');
