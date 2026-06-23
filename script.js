@@ -32,6 +32,21 @@
     });
   }
 
+  /* ---- HEADER SCROLL/TOUCH REVEAL ---- */
+
+  var header = document.querySelector('header');
+  if (header) {
+    var headerShown = false;
+    function showHeader() {
+      if (!headerShown) {
+        headerShown = true;
+        header.classList.add('header-visible');
+      }
+    }
+    window.addEventListener('scroll', showHeader, { passive: true });
+    document.addEventListener('touchstart', showHeader, { once: true, passive: true });
+  }
+
   /* ---- HAMBURGER ---- */
 
   var hamburger = document.querySelector('.hamburger');
@@ -39,14 +54,21 @@
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', function (e) {
       e.stopPropagation();
-      navLinks.classList.toggle('open');
+      var isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      /* When menu opens on mobile, ensure header is visible */
+      if (header) header.classList.add('header-visible');
     });
     navLinks.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+      }
     });
     document.addEventListener('click', function (e) {
       if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
         navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
       }
     });
   }
@@ -66,8 +88,6 @@
     typewriterEl.textContent = '';
     typewriterEl.appendChild(caret);
 
-    var positioningEl = document.querySelector('.hero-positioning');
-
     function typeStep() {
       var current = phrases[phraseIndex];
       var textNode = typewriterEl.firstChild;
@@ -82,9 +102,6 @@
         if (charIndex >= current.length) {
           isDeleting = true;
           pauseTime = 2600;
-          if (positioningEl && phraseIndex === 0) {
-            setTimeout(function () { positioningEl.classList.add('visible'); }, 600);
-          }
         } else {
           pauseTime = 50 + Math.random() * 35;
         }
@@ -105,6 +122,30 @@
     }
 
     setTimeout(typeStep, 800);
+  }
+
+  /* ---- HERO POSITIONING TEXT CROSSFADE ---- */
+  /* Two phrases fade in/out slowly, deliberately */
+
+  var posEl = document.querySelector('.hero-positioning');
+  if (posEl) {
+    var posPhrases = [
+      'telling the story that is as old as time\u2026',
+      'we keep building until we are in the future\u2026'
+    ];
+    var posIdx = 0;
+    posEl.textContent = posPhrases[0];
+    posEl.style.opacity = '1';
+    posEl.style.transition = 'opacity 2s ease';
+
+    setInterval(function () {
+      posEl.style.opacity = '0';
+      setTimeout(function () {
+        posIdx = (posIdx + 1) % posPhrases.length;
+        posEl.textContent = posPhrases[posIdx];
+        posEl.style.opacity = '1';
+      }, 2000); /* wait for fade-out to complete */
+    }, 5500); /* each phrase shows for 5.5s before fading */
   }
 
   /* ---- GSAP CINEMATIC ANIMATIONS ---- */
