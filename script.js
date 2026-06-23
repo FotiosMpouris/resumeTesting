@@ -101,7 +101,7 @@
         charIndex++;
         if (charIndex >= current.length) {
           isDeleting = true;
-          pauseTime = 2600;
+          pauseTime = 4500;
         } else {
           pauseTime = 50 + Math.random() * 35;
         }
@@ -131,21 +131,29 @@
   if (posEl) {
     var posPhrases = [
       'telling the story that is as old as time\u2026',
-      'we keep building until we are in the future\u2026'
+      'build until the future is here\u2026'
     ];
     var posIdx = 0;
-    posEl.textContent = posPhrases[0];
-    posEl.style.opacity = '1';
+
+    /* Start invisible — fade in only after first typewriter phrase finishes (~6.5s) */
+    posEl.textContent = '';
+    posEl.style.opacity = '0';
     posEl.style.transition = 'opacity 2s ease';
 
-    setInterval(function () {
-      posEl.style.opacity = '0';
-      setTimeout(function () {
-        posIdx = (posIdx + 1) % posPhrases.length;
-        posEl.textContent = posPhrases[posIdx];
-        posEl.style.opacity = '1';
-      }, 2000); /* wait for fade-out to complete */
-    }, 5500); /* each phrase shows for 5.5s before fading */
+    setTimeout(function () {
+      posEl.textContent = posPhrases[0];
+      posEl.style.opacity = '1';
+
+      /* Then crossfade between the two phrases every 7 seconds */
+      setInterval(function () {
+        posEl.style.opacity = '0';
+        setTimeout(function () {
+          posIdx = (posIdx + 1) % posPhrases.length;
+          posEl.textContent = posPhrases[posIdx];
+          posEl.style.opacity = '1';
+        }, 2000);
+      }, 7000);
+    }, 6500); /* wait for first typewriter phrase to finish */
   }
 
   /* ---- GSAP CINEMATIC ANIMATIONS ---- */

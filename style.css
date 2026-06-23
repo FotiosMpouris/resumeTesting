@@ -443,52 +443,19 @@ footer::before {
   background: linear-gradient(90deg, transparent, var(--accent-sky), transparent);
   border-radius: 2px;
 }
-.footer-projects { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-bottom: 28px; }
-.footer-projects a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
-.footer-projects a:hover { color: var(--accent-sky); }
-.footer-nav { display: flex; justify-content: center; gap: 28px; margin-bottom: 28px; }
-.footer-nav a { font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
-.footer-nav a:hover { color: var(--text-primary); }
-footer p, .footer-copy { font-size: 0.75rem; color: var(--text-tertiary); }
-
-.footer-personal {
-  margin: 8px 0 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-personal-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin: 0;
-}
-
-.footer-personal-links {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer-personal-links a {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
+.footer-tagline {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
   color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.2s;
-  padding: 4px 0;
-  border-bottom: 1px solid transparent;
+  margin: 0 0 24px;
+  letter-spacing: 0.01em;
 }
 
-.footer-personal-links a:hover {
-  color: var(--accent-sky);
-  border-bottom-color: rgba(91,159,212,0.3);
+footer p.footer-copy, footer .footer-copy {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin: 20px 0 0;
 }
 
 /* ---- ORIGIN TIMELINE (Signal section) ---- */
@@ -595,7 +562,7 @@ footer p, .footer-copy { font-size: 0.75rem; color: var(--text-tertiary); }
   background: var(--glass-hover);
 }
 .project-card .card-logo { height: 40px; width: auto; max-width: 160px; object-fit: contain; border-radius: 0; }
-.project-card h3 { font-size: 1.1rem; margin: 0; }
+.project-card h3 { font-size: 1.1rem; margin: 0; color: var(--accent-sky); }
 .card-status { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-sky); }
 .project-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
 .card-tech { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-tertiary); margin-top: auto; }
@@ -694,10 +661,16 @@ footer p, .footer-copy { font-size: 0.75rem; color: var(--text-tertiary); }
   .nav-links.open a::after { display: none; }
   .nav-links.open a.active { color: var(--accent-sky); }
 
-  /* Hamburger — always show on mobile regardless of header visibility */
-  .hamburger { display: flex; z-index: 110; }
+  /* Hamburger — always visible on mobile, position:fixed so it floats above the nav overlay */
+  .hamburger {
+    display: flex !important;
+    position: fixed;
+    top: 14px;
+    right: 16px;
+    z-index: 210;
+  }
 
-  /* Hamburger open state */
+  /* Hamburger open state (X icon) */
   .hamburger.open div:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open div:nth-child(2) { opacity: 0; }
   .hamburger.open div:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
