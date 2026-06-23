@@ -161,16 +161,24 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 32px;
-  background: rgba(255,255,255,0.45);
-  backdrop-filter: blur(20px) saturate(1.1);
-  -webkit-backdrop-filter: blur(20px) saturate(1.1);
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 12px 32px;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+  /* Fade upward into the sky rather than sitting as a solid bar */
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18), 0 4px 24px rgba(180,200,230,0.08);
 }
 
 .logo-group { display: flex; align-items: center; gap: 10px; }
 .logo { height: 30px; width: auto; }
-.logo-text { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
 
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
@@ -395,11 +403,11 @@ header {
 
 footer {
   position: relative; z-index: 2;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  padding: 56px 24px 36px; text-align: center;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 48px 24px 32px; text-align: center;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 .footer-projects { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; margin-bottom: 28px; }
 .footer-projects a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
@@ -408,6 +416,52 @@ footer {
 .footer-nav a { font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; }
 .footer-nav a:hover { color: var(--text-primary); }
 footer p { font-size: 0.75rem; color: var(--text-tertiary); }
+
+/* ---- ORIGIN TIMELINE (Signal section) ---- */
+
+.origin-timeline {
+  margin: 40px 0 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.origin-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(91,159,212,0.15);
+  align-items: baseline;
+}
+
+.origin-item:first-child { border-top: 1px solid rgba(91,159,212,0.15); }
+
+.origin-name {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-sky);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.origin-story {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.signal-footer {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
+}
+
+@media (max-width: 580px) {
+  .origin-item { grid-template-columns: 1fr; gap: 6px; }
+}
 
 /* ---- GSAP STATES ---- */
 
@@ -432,7 +486,10 @@ footer p { font-size: 0.75rem; color: var(--text-tertiary); }
 
 .page-hero-content { position: relative; z-index: 2; }
 
-.page-hero-content h1 { text-shadow: var(--text-glow); }
+.page-hero-content h1 {
+  text-shadow: var(--text-glow);
+  min-height: 1.5em; /* prevent layout jump during typewriter delete phase */
+}
 .hero-subtitle { font-size: 1rem; color: var(--text-secondary); margin-top: 8px; text-shadow: 0 0 16px rgba(255,255,255,0.4); }
 
 /* ---- SUBPAGE SECTIONS ---- */
@@ -496,10 +553,10 @@ footer p { font-size: 0.75rem; color: var(--text-tertiary); }
   font-size: 0.88rem; padding: 10px 24px; border-radius: 10px;
   text-decoration: none; transition: all 0.25s; cursor: pointer;
 }
-.btn-primary { background: var(--accent-teal); color: #fff; }
-.btn-primary:hover { background: #238080; color: #fff; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(42,141,141,0.2); }
-.btn-outline { background: transparent; color: var(--accent-teal); border: 1px solid var(--accent-teal); }
-.btn-outline:hover { background: var(--accent-teal); color: #fff; }
+.btn-primary { background: var(--accent-sky); color: #fff; }
+.btn-primary:hover { background: #4A8EC0; color: #fff; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(91,159,212,0.25); }
+.btn-outline { background: transparent; color: var(--accent-sky); border: 1px solid rgba(91,159,212,0.5); }
+.btn-outline:hover { background: var(--accent-sky); color: #fff; border-color: var(--accent-sky); transform: translateY(-1px); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
 /* ---- AGENT TABLE ---- */

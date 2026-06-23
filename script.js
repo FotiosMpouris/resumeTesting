@@ -129,22 +129,29 @@
       });
     }
 
-    /* Scene 2: Signal text materializes */
-    var signalText = document.querySelector('.signal-text');
-    if (signalText) {
-      gsap.fromTo(signalText,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
-          scrollTrigger: { trigger: signalText, start: 'top 80%' } }
+    /* Scene 2: Signal text + origin timeline */
+    document.querySelectorAll('.signal-text').forEach(function (el, i) {
+      gsap.fromTo(el,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: i * 0.1,
+          scrollTrigger: { trigger: el, start: 'top 82%' } }
       );
-    }
+    });
 
-    var signalBoundary = document.querySelector('.signal-boundary');
-    if (signalBoundary) {
-      gsap.fromTo(signalBoundary,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 1, ease: 'power2.out', delay: 0.4,
-          scrollTrigger: { trigger: signalBoundary, start: 'top 82%' } }
+    document.querySelectorAll('.origin-item').forEach(function (item, i) {
+      gsap.fromTo(item,
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', delay: i * 0.12,
+          scrollTrigger: { trigger: item, start: 'top 85%' } }
+      );
+    });
+
+    var signalFooter = document.querySelector('.signal-footer');
+    if (signalFooter) {
+      gsap.fromTo(signalFooter,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.3,
+          scrollTrigger: { trigger: signalFooter, start: 'top 88%' } }
       );
     }
 
