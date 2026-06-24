@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Sky video layer — fades out as user scrolls, revealing canvas atmosphere -->
+  <div class="sky-video-wrap">
+    <video autoplay loop muted playsinline><source src="videos/sky.mp4" type="video/mp4"></video>
+  </div>
+
   <canvas id="atmosphere"></canvas>
   <div class="scroll-progress"></div>
 
@@ -32,16 +37,11 @@
     <div class="hamburger"><div></div><div></div><div></div></div>
   </header>
 
-  <div class="page-hero">
-    <div class="page-hero-video">
-      <video autoplay loop muted playsinline><source src="videos/cards.mp4" type="video/mp4"></video>
-      <div class="overlay"></div>
-    </div>
-    <div class="page-hero-content">
-      <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["The Stack.","Still learning."]'>The Stack.</h1>
-      <p class="hero-subtitle">What I work with. What I'm building. The honest version.</p>
-    </div>
-  </div>
+  <!-- Hero: same cinematic structure as homepage -->
+  <section class="hero-atmosphere" style="min-height: 90vh;">
+    <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["The Stack.","Still learning."]'>The Stack.</h1>
+    <p class="hero-positioning" style="opacity: 1;">What I work with. What I&rsquo;m building. The honest version.</p>
+  </section>
 
   <div class="page-section">
     <h2>Background</h2>
@@ -122,7 +122,7 @@
   </div>
 
   <footer>
-    <p class="footer-tagline">Learn more about my personal views.</p>
+    <p class="footer-tagline">tell the truth and love the good ones.</p>
     <div class="social-row">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>

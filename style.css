@@ -375,8 +375,8 @@ header.header-visible {
 .evidence-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.2rem, 2.2vw, 1.4rem); margin-bottom: 12px; }
 .evidence-body { font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 18px; }
 .evidence-metric { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-tertiary); margin-bottom: 12px; }
-.evidence-link { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-teal); transition: color 0.2s; }
-.evidence-link:hover { color: var(--accent-sky); }
+.evidence-link { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-sky); transition: color 0.2s; }
+.evidence-link:hover { color: var(--text-primary); }
 
 /* ---- METHOD ---- */
 
