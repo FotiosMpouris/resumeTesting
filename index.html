@@ -60,38 +60,43 @@
     <div class="hamburger"><div></div><div></div><div></div></div>
   </header>
 
-  <!-- SCENE 1: THE ARRIVAL — text floating in atmosphere -->
+  <!-- SCENE 1: THE ARRIVAL — cinematic paired phrase sequence -->
   <section class="hero-atmosphere">
-    <h1 id="hero-typewriter"
-        data-rotate='["Building Skynet, one Terminator at a time.","Keeping humans in the loop."]'>
-      Building Skynet, one Terminator at a time.
+    <h1 id="hero-typewriter" class="hero-typewriter"
+        data-cinematic='[
+          {"large":"Building one terminator at a time.","small":"I don\u2019t think that\u2019s what we\u2019re doing.","white":false},
+          {"large":"Keeping humans in the loop.","small":"that\u2019s more like what we\u2019re doing.","white":false},
+          {"large":"build until we are in the future.","small":null,"white":true}
+        ]'>
+      Building one terminator at a time.
     </h1>
-    <p class="hero-positioning">we build until we are in the future..</p>
+    <p class="hero-positioning"></p>
     <div class="scroll-indicator"></div>
   </section>
 
   <!-- SCENE 2: THE SIGNAL -->
   <section class="scene signal-section">
-    <p class="signal-text">
-      Every one of them started as a problem I couldn't ignore.
-    </p>
+    <blockquote class="signal-quote">
+      <p>&ldquo;The builder&rsquo;s hat must be on; this is the era for everybody to try to build, try to think, and try to dream of what&rsquo;s possible.&rdquo;</p>
+      <cite>&mdash; David Friedberg</cite>
+    </blockquote>
 
     <div class="origin-timeline">
       <div class="origin-item">
         <span class="origin-name">OpenCare</span>
-        <span class="origin-story">Aging parents, multiple siblings, no system. Someone always had the wrong information, someone always missed the update. I built the thing no one had built for families like mine.</span>
+        <span class="origin-story">I&rsquo;ve always heard that if you&rsquo;re going to build an app, build something that solves a problem you&rsquo;re having or that isn&rsquo;t solved yet. OpenCare is helping me care for my aging parents, and it&rsquo;s just one of the many problems the Poor People App is solving.</span>
       </div>
       <div class="origin-item">
         <span class="origin-name">Hard-E</span>
-        <span class="origin-story">A contractor I work with was losing leads every day — not because he wasn't good, but because he was on a roof when they came in. Built him an AI that runs the whole sales operation without stopping.</span>
+        <span class="origin-story">Hard-E is a digital employee. Connected to a company CRM, it can email, text, and learn. Special knowledge files, the ability to synthesize material costs, provide measurement and pricing data. Available hands-free in voice mode.</span>
       </div>
       <div class="origin-item">
         <span class="origin-name">All Angles</span>
-        <span class="origin-story">Thirty years of reputation, still running on gut instinct and a spreadsheet. Now the leads arrive briefed — frontier vision models read the house before the contractor picks up the phone.</span>
+        <span class="origin-story">A five-step interactive journey map that replaces the cold contact form. Vision models read the house. Perplexity researches the property. Sales gets a briefed lead. The homeowner feels in control the whole time &mdash; which, by design, they are.</span>
       </div>
       <div class="origin-item">
         <span class="origin-name">Ethos</span>
-        <span class="origin-story">When you build four systems, you need a fifth to keep the rest honest. Runs on Hermes. Costs less than a coffee. Never sleeps.</span>
+        <span class="origin-story">Ethos is my first autonomous agent &mdash; built on Hermes. It coordinates care for my parents through a live OpenCare API, runs a video intelligence pipeline that turns YouTube into wiki-linked investment signals and more. Employee, volunteer, partner.</span>
       </div>
     </div>
 
@@ -137,28 +142,40 @@
       <span class="evidence-badge badge-live">PRODUCTION</span>
       <h3 class="evidence-title">Hard-E — AI Sales Director for Contractors</h3>
       <p class="evidence-body">
-        A contractor I work with was losing leads every day — not because he wasn't good,
-        but because he was on a roof when the phone rang. So I built Hard-E.
+        I built Hard-E to prove that AI agents can do real work inside a business &mdash; not
+        answer generic questions, but actually operate a CRM, hold a phone conversation,
+        and get smarter over time.
       </p>
       <p class="evidence-body">
-        Hard-E is a full AI sales director that lives inside a contractor's CRM. It doesn't
-        just answer questions — it pulls up customer records, moves jobs through pipeline
-        stages, sends texts and emails, schedules appointments, looks up pricing, and
-        remembers everything from every conversation. Twenty-one CRM tools, real-time voice
-        at sub-100ms latency, and a persistent memory system that gets sharper the more you
-        use it.
+        Hard-E is a full production agent for home service contractors. It connects directly
+        to a CRM with 21 tools that cover the entire sales workflow: customer lookup, job
+        management, pipeline stage updates, SMS, email, appointment scheduling, proposals,
+        financials, pricing, and document handling. Some of those CRM endpoints don&rsquo;t
+        even exist in the official API &mdash; I reverse-engineered them from browser dev
+        tools to get features like email access and note notifications working.
       </p>
       <p class="evidence-body">
-        The voice pipeline is the real differentiator — frontier models transcribe, reason,
-        and speak over WebRTC with barge-in support. It's not a chatbot with a microphone
-        taped to it. It can look up a customer mid-sentence, check their job status, and
-        tell you what stage it's in without breaking conversational flow.
+        The voice mode is what sets it apart. Deepgram transcribes speech, Claude Sonnet 4
+        reasons and picks which tools to call, and Cartesia speaks the response back &mdash;
+        all in real time over WebRTC. A user can ask Hard-E to check on a customer&rsquo;s
+        job status mid-conversation and get the answer without the call breaking stride.
+        The entire voice pipeline runs as a separate Pipecat process, and I built a custom
+        WebGL shader orb that visualizes the conversation in real time.
       </p>
       <p class="evidence-body">
-        Multi-tenant, invite-based trials, encrypted credentials per company, tenant-isolated
-        knowledge bases. Built to clone — swap the CRM plugin, rewrite the personality file,
-        upload new training docs, and it becomes a sales director for a different industry.
+        It remembers. A background service watches for idle sessions, extracts what was
+        learned &mdash; customer preferences, pricing patterns, workflow corrections &mdash;
+        and stores it. Next conversation, that knowledge is already in context. Voice
+        sessions get the same treatment: when a call ends, the system summarizes and saves
+        anything worth keeping.
       </p>
+      <p class="evidence-body">
+        Multi-tenant, encrypted credentials, tenant-isolated knowledge bases, invite-based
+        trials. Built to clone &mdash; swap the CRM plugin, rewrite the personality file,
+        upload new training documents, and it becomes a sales director for a different
+        industry. I&rsquo;ve already started doing that.
+      </p>
+      <p class="evidence-metric">FastAPI &middot; React &middot; Redis &middot; S3 &middot; Claude Sonnet 4 &middot; Pipecat &middot; Deepgram &middot; Cartesia &middot; EC2</p>
       <a href="https://harde.app" target="_blank" class="evidence-link">harde.app</a>
     </div>
 
@@ -237,7 +254,7 @@
 
   <!-- Footer -->
   <footer>
-    <p class="footer-tagline">tell the truth and love the good ones.</p>
+
     <div class="social-row">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>

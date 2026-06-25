@@ -73,87 +73,99 @@
     });
   }
 
-  /* ---- TYPEWRITER ---- */
+  /* ---- CINEMATIC HERO SEQUENCE ---- */
+  /*
+   * Each phrase set: large text types in, pauses, small text fades in,
+   * both hold, then both fade out together before the next set begins.
+   * Phrase sets defined via data-cinematic JSON on the h1 element.
+   * white:true makes the large text appear in bright white (for final phrase).
+   */
 
-  var typewriterEl = document.getElementById('hero-typewriter');
-  if (typewriterEl) {
-    var phrases = [];
-    try { phrases = JSON.parse(typewriterEl.dataset.rotate || '[]'); } catch (e) {}
-    if (phrases.length === 0) phrases.push(typewriterEl.textContent.trim());
-
-    var phraseIndex = 0, charIndex = 0, isDeleting = false, pauseTime = 0;
-
-    var caret = document.createElement('span');
-    caret.className = 'caret';
-    typewriterEl.textContent = '';
-    typewriterEl.appendChild(caret);
-
-    function typeStep() {
-      var current = phrases[phraseIndex];
-      var textNode = typewriterEl.firstChild;
-
-      if (!isDeleting) {
-        if (textNode && textNode.nodeType === 3) {
-          textNode.textContent = current.substring(0, charIndex + 1);
-        } else {
-          typewriterEl.insertBefore(document.createTextNode(current.substring(0, charIndex + 1)), caret);
-        }
-        charIndex++;
-        if (charIndex >= current.length) {
-          isDeleting = true;
-          pauseTime = 4500;
-        } else {
-          pauseTime = 50 + Math.random() * 35;
-        }
-      } else {
-        if (textNode && textNode.nodeType === 3) {
-          textNode.textContent = current.substring(0, charIndex - 1);
-        }
-        charIndex--;
-        if (charIndex <= 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          pauseTime = 500;
-        } else {
-          pauseTime = 25;
-        }
-      }
-      setTimeout(typeStep, pauseTime);
-    }
-
-    setTimeout(typeStep, 800);
-  }
-
-  /* ---- HERO POSITIONING TEXT CROSSFADE ---- */
-  /* Two phrases fade in/out slowly, deliberately */
-
+  var cinematicEl = document.querySelector('[data-cinematic]');
   var posEl = document.querySelector('.hero-positioning');
-  if (posEl) {
-    var posPhrases = [
-      'telling the story that is as old as time\u2026',
-      'build until the future is here\u2026'
-    ];
-    var posIdx = 0;
 
-    /* Start invisible — fade in only after first typewriter phrase finishes (~6.5s) */
-    posEl.textContent = '';
-    posEl.style.opacity = '0';
-    posEl.style.transition = 'opacity 2s ease';
+  if (cinematicEl) {
+    var cSets;
+    try { cSets = JSON.parse(cinematicEl.getAttribute('data-cinematic')); } catch(e) { cSets = []; }
 
-    setTimeout(function () {
-      posEl.textContent = posPhrases[0];
-      posEl.style.opacity = '1';
+    if (cSets.length > 0) {
+      var cIdx = 0;
+      var caretSpan = document.createElement('span');
+      caretSpan.className = 'caret';
 
-      /* Then crossfade between the two phrases every 7 seconds */
-      setInterval(function () {
-        posEl.style.opacity = '0';
-        setTimeout(function () {
-          posIdx = (posIdx + 1) % posPhrases.length;
-          posEl.textContent = posPhrases[posIdx];
-          posEl.style.opacity = '1';
-        }, 2000);
-      }, 7000);
-    }, 6500); /* wait for first typewriter phrase to finish */
+      /* Init sub-phrase element */
+      if (posEl) {
+        posEl.textContent = '';
+        posEl.style.cssText = 'opacity:0; transition:none;';
+      }
+
+      function runSet() {
+        var s = cSets[cIdx];
+
+        /* Reset large text */
+        cinematicEl.textContent = '';
+        cinematicEl.style.cssText = 'opacity:1; transition:none;';
+        if (s.white) {
+          cinematicEl.classList.add('phrase-white');
+        } else {
+          cinematicEl.classList.remove('phrase-white');
+        }
+        cinematicEl.appendChild(caretSpan);
+
+        /* Reset small text */
+        if (posEl) {
+          posEl.textContent = '';
+          posEl.style.cssText = 'opacity:0; transition:none;';
+        }
+
+        /* Type the large phrase character by character */
+        var text = s.large;
+        var ci = 0;
+
+        function typeChar() {
+          if (ci < text.length) {
+            var node = cinematicEl.firstChild;
+            if (node && node.nodeType === 3) {
+              node.textContent = text.substring(0, ci + 1);
+            } else {
+              cinematicEl.insertBefore(document.createTextNode(text.substring(0, ci + 1)), caretSpan);
+            }
+            ci++;
+            setTimeout(typeChar, 55 + Math.random() * 35);
+          } else {
+            /* Typing done — pause before sub-phrase appears */
+            setTimeout(function() {
+              if (posEl && s.small) {
+                posEl.textContent = s.small;
+                posEl.style.transition = 'opacity 1.4s ease';
+                posEl.style.opacity = '1';
+              }
+
+              /* Hold, then fade both out together */
+              var holdTime = s.small ? 3400 : 2600;
+              setTimeout(function() {
+                cinematicEl.style.transition = 'opacity 1.3s ease';
+                cinematicEl.style.opacity = '0';
+                if (posEl) {
+                  posEl.style.transition = 'opacity 1.3s ease';
+                  posEl.style.opacity = '0';
+                }
+
+                /* Advance to next set after fade completes */
+                setTimeout(function() {
+                  cIdx = (cIdx + 1) % cSets.length;
+                  runSet();
+                }, 1400);
+              }, holdTime);
+            }, 1100);
+          }
+        }
+
+        setTimeout(typeChar, 600);
+      }
+
+      runSet();
+    }
   }
 
   /* ---- GSAP CINEMATIC ANIMATIONS ---- */

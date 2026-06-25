@@ -286,7 +286,13 @@ header.header-visible {
   margin-top: 20px;
   letter-spacing: 0.015em;
   transition: opacity 2s ease;
-  opacity: 1;
+  opacity: 0;
+}
+
+/* Phrase 3 on homepage: large white text against sky */
+.hero-typewriter.phrase-white {
+  color: rgba(255,255,255,0.94);
+  text-shadow: 0 2px 32px rgba(91,159,212,0.6), 0 0 80px rgba(255,255,255,0.2);
 }
 
 .scroll-indicator { display: none; }
@@ -428,37 +434,46 @@ header.header-visible {
 
 footer {
   position: relative; z-index: 2;
-  padding: 56px 24px 36px; text-align: center;
-  background: linear-gradient(to bottom, rgba(91,159,212,0.08) 0%, rgba(220,232,245,0.14) 50%, rgba(255,255,255,0.1) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(91,159,212,0.12);
+  padding: 36px 24px 28px; text-align: center;
+  background: rgba(220,232,245,0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(91,159,212,0.1);
 }
-
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
-  width: 80px; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-sky), transparent);
-  border-radius: 2px;
-}
-.footer-tagline {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-  margin: 0 0 24px;
-  letter-spacing: 0.01em;
-}
-
-footer p.footer-copy, footer .footer-copy {
+footer p, footer .footer-copy {
   font-size: 0.72rem;
   color: var(--text-tertiary);
-  margin: 20px 0 0;
+  margin: 16px 0 0;
 }
 
 /* ---- ORIGIN TIMELINE (Signal section) ---- */
+
+/* Friedberg / attribution blockquote in Signal section */
+.signal-quote {
+  margin: 0 0 48px;
+  padding: 24px 28px;
+  border-left: 2px solid rgba(91,159,212,0.35);
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(8px);
+  border-radius: 0 8px 8px 0;
+}
+
+.signal-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+
+.signal-quote cite {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
 
 .origin-timeline {
   margin: 40px 0 48px;
