@@ -66,7 +66,12 @@
   <!-- AI AGENT ARCHITECTURE -->
   <div class="page-section">
     <h2>The AI Agent Architecture</h2>
-    <p>PPA runs on a multi-layer autonomous AI workforce that replaces traditional organizational overhead. The Mobilization Agent is operational today.</p>
+    <p>
+      PPA doesn&rsquo;t run on software. It runs on a network of autonomous agents that coordinate with each other, escalate to humans only when real judgment is required, and get more capable with every session. The Mobilization Agent is live today. The rest are in active build.
+    </p>
+    <p>
+      The architecture is intentionally model-agnostic &mdash; we&rsquo;re building the harness, not betting on any single LLM. When the next frontier release ships, our agents don&rsquo;t get rewritten. They plug in. The infrastructure adapts. That&rsquo;s the design, and it&rsquo;s what makes this viable long-term as the race toward AGI accelerates. We&rsquo;re using Claude, Hermes from NousResearch, open-source models where they perform, and frontier models where they don&rsquo;t &mdash; whatever gets the job done best for the people depending on it.
+    </p>
     <table class="agent-table">
       <thead>
         <tr>
@@ -98,6 +103,15 @@
         </tr>
       </tbody>
     </table>
+    <p style="margin-top: 28px;">
+      The long-term vision extends into territory most platforms won&rsquo;t touch. Identity lives on <strong>Nostr</strong> &mdash; a protocol, not a company, which means no single entity can own, censor, or shut down the network. Community ownership through a token structure designed to keep value circulating within the network rather than being extracted by intermediaries. Open-source intelligence pipelines that learn from public data, regulatory changes, and the collective knowledge of every Sentinel, caregiver, and neighbor in the system.
+    </p>
+    <p>
+      We&rsquo;re not building an app. We&rsquo;re building coordination infrastructure for communities that want to organize, care for each other, and survive the kind of institutional failures that are already in progress. The AI handles the 95% that is purely procedural. Humans handle the 5% that requires judgment. That ratio will shift as the models improve. The harness is designed to be ready when it does.
+    </p>
+    <p style="font-size: 0.8rem; color: var(--accent-sky); font-family: var(--font-mono); letter-spacing: 0.02em; margin-top: 4px;">
+      Claude &middot; Hermes (NousResearch) &middot; Frontier Models &middot; Nostr &middot; Bitcoin &middot; Lightning &middot; Open Source
+    </p>
   </div>
 
   <!-- DECENTRALIZED -->
@@ -218,12 +232,18 @@
         Bitcoin backs PPA's treasury &mdash; not as a price bet, but because it's the only asset that can't be printed away when politically convenient. This isn't about getting rich. <strong>It's about building something that can't be shut down when we become inconvenient.</strong>
       </p>
       <p style="color:var(--text-tertiary); margin-top:20px; font-size:0.88rem;">
-        Software-development funding via GiveSendGo. Not an investment opportunity. Not a token presale.
+        This is infrastructure for people who can&rsquo;t afford to wait for someone else to build it.
       </p>
-      <div class="donation-logos">
-        <a href="https://www.givesendgo.com/" target="_blank"><img src="images/givesend-logo.png" alt="GiveSendGo" loading="lazy" /></a>
-      </div>
     </div>
+  </div>
+
+  <!-- GIVESENDGO CTA -->
+  <div style="position:relative; z-index:2; text-align:center; padding:52px 24px 40px; background: rgba(220,232,245,0.06); backdrop-filter: blur(8px); border-top: 1px solid rgba(91,159,212,0.1);">
+    <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Support the Build</p>
+    <a href="https://www.givesendgo.com/POORPEOPLEAPP" target="_blank" class="btn btn-outline" style="display:inline-block;">
+      Contribute on GiveSendGo &rarr;
+    </a>
+    <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 14px;">Not an investment. Not a token presale. Just people funding something worth building.</p>
   </div>
 
   </main>
