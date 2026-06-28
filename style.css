@@ -295,10 +295,10 @@ header.header-visible {
   text-shadow: 0 2px 32px rgba(91,159,212,0.6), 0 0 80px rgba(255,255,255,0.2);
 }
 
-/* Stack page: sub-phrase in sky blue (readable against clouds) */
+/* Stack page: sub-phrase in deep sky blue (readable against bright clouds) */
 .stack-hero .hero-positioning {
-  color: var(--accent-sky);
-  text-shadow: 0 1px 8px rgba(255,255,255,0.7), 0 0 24px rgba(91,159,212,0.3);
+  color: #1a5fa8;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.5);
 }
 
 .scroll-indicator { display: none; }
