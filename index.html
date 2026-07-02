@@ -100,7 +100,24 @@
       </div>
     </div>
 
-    <p class="signal-footer">Each one is live. None of them are demos.</p>
+    <p class="signal-footer">All four deployed. All four solving something real.</p>
+  </section>
+
+  <!-- SCENE 2.5: WHO THIS IS FOR -->
+  <section class="scene" style="padding: 60px 0;">
+    <div class="page-section" style="max-width: 800px; margin: 0 auto;">
+      <span class="section-label">Serving Defense, Healthcare, Social Services &amp; Government</span>
+      <p>
+        The Poor People App is being built around a principle of investment and community &mdash; things that are clearly missing, or being diminished at a rate that makes us all take a step back. Everyone has a family. Our goal is to help your families get care, navigate current technology, and coordinate community-based support using the same frontier technology that&rsquo;s changing the world as we speak.
+      </p>
+      <p>
+        We also want the people who show up to provide that help to have experience &mdash; so we&rsquo;re integrating retired military, law enforcement, fire, and EMS to lead the most important part of our mission: the safety of our users. The Sentinel Program is the trust infrastructure: retired professionals full of hard-won experience, eager to help their community, and finally, with the advent of our new coordination tools, in a position to do it at scale.
+      </p>
+      <p style="font-size: 0.82rem; color: var(--accent-sky); font-family: var(--font-mono); letter-spacing: 0.02em;">
+        Veterans &middot; Military Families &middot; First Responders &middot; Nonprofits &middot; Caregivers &middot; Underserved Communities &mdash;
+        <a href="mailto:fotiosmpouris@gmail.com" style="color: var(--accent-sky);">Reach Out</a>
+      </p>
+    </div>
   </section>
 
   <!-- SCENE 3: THE EVIDENCE -->
@@ -120,38 +137,35 @@
       </p>
       <p class="evidence-body">
         Then the mission grew. <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">OpenRecovery</a>
-        applies the same circle model to substance use and dual diagnosis recovery — 10
-        modalities, daily check-ins, journaling, and Recover&nbsp;E, an AI voice companion
-        that's sharp, challenging, and built for people who want to do the work, not sit back
-        and wait. It's not clinical. It's not cookie-cutter.
+        applies the same circle model to substance use and dual diagnosis recovery &mdash; 10
+        modalities, daily check-ins, adding supportive members, and Recover E, an AI voice
+        companion that&rsquo;s sharp, challenging, and built for people who want to do the work.
       </p>
       <p class="evidence-body">
-        The whole thing lives under the Poor People App — a platform for underserved
-        communities where the AI handles the 95% of bureaucratic work that's purely
-        procedural, and human Sentinels handle the 5% that requires real judgment. Identity
-        on Nostr. Care that's free. Infrastructure for the people who can't afford to wait
-        for the system to work.
+        These two apps live under the Poor People App umbrella &mdash; a platform for the rest
+        of us, where the goal is to have AI manage the coordination layer that most professionals
+        must charge extra for because of their administrative overhead. We want our technology
+        to handle the 95% of bureaucratic work that&rsquo;s purely procedural. We want human
+        Sentinels to handle safety and real judgment. AI is not ready to make decisions for us,
+        but it can definitely help us coordinate and help us make better ones.
       </p>
-      <p class="evidence-metric">53M unpaid US family caregivers &middot; ~$30/mo server cost &middot; Running on one EC2 instance.</p>
+      <p class="evidence-metric">53M unpaid US family caregivers &middot; 19M US veterans &middot; The skills to help are already in our communities &mdash; we&rsquo;re building the infrastructure to activate them.</p>
       <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">opencare.poorpeople.app</a>
       &nbsp;&middot;&nbsp;
       <a href="https://poorpeople.app" target="_blank" class="evidence-link">poorpeople.app</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://poorpeople.app" target="_blank" class="evidence-link">Learn More &rarr;</a>
     </div>
 
     <div class="evidence-block glass">
       <span class="evidence-badge badge-live">PRODUCTION</span>
       <h3 class="evidence-title">Hard-E — AI Sales Director for Contractors</h3>
       <p class="evidence-body">
-        I built Hard-E to prove that AI agents can do real work inside a business &mdash; not
-        answer generic questions, but actually operate a CRM, hold a phone conversation,
-        and get smarter over time.
-      </p>
-      <p class="evidence-body">
         Hard-E is a full production agent for home service contractors. It connects directly
         to a CRM with 21 tools that cover the entire sales workflow: customer lookup, job
         management, pipeline stage updates, SMS, email, appointment scheduling, proposals,
         financials, pricing, and document handling. Some of those CRM endpoints don&rsquo;t
-        even exist in the official API &mdash; I reverse-engineered them from browser dev
+        even exist in the official API &mdash; they were reverse-engineered from browser dev
         tools to get features like email access and note notifications working.
       </p>
       <p class="evidence-body">
@@ -159,8 +173,7 @@
         reasons and picks which tools to call, and Cartesia speaks the response back &mdash;
         all in real time over WebRTC. A user can ask Hard-E to check on a customer&rsquo;s
         job status mid-conversation and get the answer without the call breaking stride.
-        The entire voice pipeline runs as a separate Pipecat process, and I built a custom
-        WebGL shader orb that visualizes the conversation in real time.
+        The entire voice pipeline runs as a separate Pipecat process alongside the main API.
       </p>
       <p class="evidence-body">
         It remembers. A background service watches for idle sessions, extracts what was
@@ -173,7 +186,7 @@
         Multi-tenant, encrypted credentials, tenant-isolated knowledge bases, invite-based
         trials. Built to clone &mdash; swap the CRM plugin, rewrite the personality file,
         upload new training documents, and it becomes a sales director for a different
-        industry. I&rsquo;ve already started doing that.
+        industry. We&rsquo;ve already started doing that.
       </p>
       <p class="evidence-metric">FastAPI &middot; React &middot; Redis &middot; S3 &middot; Claude Sonnet 4 &middot; Pipecat &middot; Deepgram &middot; Cartesia &middot; EC2</p>
       <a href="https://harde.app" target="_blank" class="evidence-link">harde.app</a>
@@ -196,10 +209,13 @@
         the system asks for one thing: permission to come measure.
       </p>
       <p class="evidence-body">
-        Behind the curtain, uploaded photos hit S3 and GPT-4o Vision reads the exterior —
-        siding material, trim condition, visible damage. Perplexity researches the property.
-        The contractor receives an AI-briefed dossier on a lead who already said yes, before
-        he's picked up the phone.
+        Supabase backs the data layer and analytics. Uploaded photos process through GPT-4o
+        Vision, which reads the exterior &mdash; siding material, trim condition, visible
+        damage. Perplexity researches the property. The contractor receives an AI-briefed
+        dossier on a lead who already said yes, before he&rsquo;s picked up the phone.
+        Hard-E is also integrated into the business&rsquo;s operational layer, handling both
+        consumer-facing and internal CRM workflows &mdash; a working example of what it
+        means to employ a digital worker across an entire operation.
       </p>
       <p class="evidence-metric">Next.js 14 &middot; Supabase &middot; GPT-4o Vision &middot; Perplexity &middot; AWS (SES, S3, DynamoDB) &middot; James Hardie Elite Preferred</p>
       <a href="https://aaexterior.com" target="_blank" class="evidence-link">aaexterior.com</a>
@@ -209,33 +225,16 @@
       <span class="evidence-badge badge-warm">ALWAYS ON</span>
       <h3 class="evidence-title">Ethos — Personal AI, Running Continuously</h3>
       <p class="evidence-body">
-        Ethos runs 24/7 on AWS Lightsail — voice and text over Telegram. It coordinates care
-        tasks via the OpenCare API, processes video research through a multi-lens pipeline,
-        and maintains a living knowledge base across investing, technology, and frontier
-        science. Over 100 pages, growing weekly. It delegates to cheaper models when it can,
-        resets its own sessions, curates its own skills. It's not a product. It's mine.
+        Ethos runs 24/7 on AWS Lightsail &mdash; voice and text over Telegram. It coordinates
+        care tasks via the OpenCare API, processes video research through a multi-lens pipeline,
+        and maintains a living knowledge base across investing, technology, and frontier science.
+        Over 100 pages, growing weekly. It delegates to cheaper models when it can, resets its
+        own sessions, and curates its own skills. We continually research open-source builds,
+        integrate the best developments, and apply a creative perspective to advance what Ethos
+        can do &mdash; because the most interesting version of this is always one iteration away.
       </p>
       <p class="evidence-metric">$2&ndash;4/day &middot; 100+ wiki pages &middot; Hermes Agent &middot; Voice-enabled</p>
       <span class="evidence-link" style="color: var(--text-tertiary);">Internal system</span>
-    </div>
-  </section>
-
-  <!-- SCENE 3.5: WHO THIS IS FOR -->
-  <section class="scene" style="padding: 60px 0;">
-    <div class="page-section" style="max-width: 800px; margin: 0 auto;">
-      <span class="section-label">Who This Is For</span>
-      <p style="font-size: clamp(1rem, 2.1vw, 1.15rem); font-weight: 500; color: var(--text-primary); line-height: 1.7; margin-bottom: 24px;">
-        If you&rsquo;re caring for aging parents, navigating the VA, running a nonprofit on a skeleton budget, or serving a community that the system wasn&rsquo;t built to reach &mdash; this infrastructure was designed with you in mind.
-      </p>
-      <p>
-        The Poor People App is built around a principle of reciprocity. Families in need get care, navigation, and coordination. The people who show up to provide that help &mdash; retired military, law enforcement, fire, and EMS &mdash; get a platform that serves their own families and gives their experience a meaningful home. The Sentinel Program is the trust infrastructure: veterans and first responders who verify, protect, and provide the human oversight that no model can replace.
-      </p>
-      <p>
-        Military families are disproportionately represented among the people this platform was built to serve. Deployments, relocations, healthcare gaps, VA backlogs &mdash; PPA was architected to handle exactly those conditions. And the same decentralized design that protects community data from corporate failure also protects it from adversarial AI. We are building for a future where that distinction matters.
-      </p>
-      <p style="font-size: 0.82rem; color: var(--accent-sky); font-family: var(--font-mono); letter-spacing: 0.02em; margin-top: 8px;">
-        Veterans &middot; Military Families &middot; First Responders &middot; Nonprofits &middot; Caregivers &middot; Underserved Communities
-      </p>
     </div>
   </section>
 
