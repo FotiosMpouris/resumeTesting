@@ -242,6 +242,35 @@ header.header-visible {
 }
 .hamburger div { width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
 
+/* ---- MOBILE NAV OVERLAY (body-level, not inside header) ---- */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 195;
+  background: rgba(240,245,255,0.97);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.mobile-nav-overlay.open {
+  display: flex;
+}
+.mobile-nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
+}
+.mobile-nav-overlay a:hover { color: var(--accent-sky); }
+.mobile-nav-overlay a.active { color: var(--accent-sky); }
+
 /* ---- HERO: TEXT IN ATMOSPHERE ---- */
 
 .hero-atmosphere {
@@ -256,15 +285,15 @@ header.header-visible {
   padding: 120px 24px 80px;
 }
 
-/* Subtle holographic grid — pulses in on load, settles to a whisper */
+/* Holographic grid — flashes in on load, settles to a visible but subtle resting state */
 .hero-atmosphere::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(91,159,212,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(91,159,212,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(91,159,212,0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,159,212,0.18) 1px, transparent 1px);
   background-size: 52px 52px;
   animation: holo-in 3.2s ease-out forwards;
   opacity: 0;
@@ -272,9 +301,9 @@ header.header-visible {
 
 @keyframes holo-in {
   0%   { opacity: 0; }
-  20%  { opacity: 0.65; }
-  60%  { opacity: 0.18; }
-  100% { opacity: 0.09; }
+  18%  { opacity: 1; }
+  55%  { opacity: 0.45; }
+  100% { opacity: 0.28; }
 }
 
 .hero-atmosphere h1,
@@ -693,20 +722,8 @@ footer p, footer .footer-copy {
   header { padding: 12px 16px; }
   .nav-links, .header-buttons { display: none; }
 
-  /* Mobile nav overlay */
-  .nav-links.open {
-    display: flex !important; flex-direction: column; position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(240,245,255,0.97); backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px); justify-content: center;
-    align-items: center; gap: 40px; z-index: 200;
-  }
-  .nav-links.open a {
-    font-size: 1.5rem; font-weight: 500; color: var(--text-primary);
-    font-family: var(--font-display); letter-spacing: -0.02em;
-  }
-  .nav-links.open a::after { display: none; }
-  .nav-links.open a.active { color: var(--accent-sky); }
+  /* Mobile nav overlay — lives outside header as a body-level element */
+  .nav-links.open { display: none !important; }
 
   /* Hamburger — always visible on mobile, position:fixed so it floats above the nav overlay */
   .hamburger {

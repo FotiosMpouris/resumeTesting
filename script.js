@@ -48,26 +48,43 @@
   }
 
   /* ---- HAMBURGER ---- */
-
+  /*
+   * The mobile overlay (#mobile-nav-overlay) is a direct <body> child, NOT inside
+   * <header>. This avoids the CSS position:fixed-inside-transformed-ancestor bug
+   * where the header's transform clips the overlay to the header's own height.
+   */
   var hamburger = document.querySelector('.hamburger');
-  var navLinks = document.querySelector('.nav-links');
-  if (hamburger && navLinks) {
+  var mobileOverlay = document.getElementById('mobile-nav-overlay');
+
+  /* Mark the active link in the overlay based on current page */
+  if (mobileOverlay) {
+    var overlayLinks = mobileOverlay.querySelectorAll('a');
+    overlayLinks.forEach(function(link) {
+      if (link.pathname === window.location.pathname ||
+          window.location.href.indexOf(link.getAttribute('href')) !== -1) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  if (hamburger && mobileOverlay) {
     hamburger.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = navLinks.classList.toggle('open');
+      var isOpen = mobileOverlay.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
-      /* When menu opens on mobile, ensure header is visible */
       if (header) header.classList.add('header-visible');
     });
-    navLinks.addEventListener('click', function (e) {
+    mobileOverlay.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
-        navLinks.classList.remove('open');
+        mobileOverlay.classList.remove('open');
         hamburger.classList.remove('open');
       }
     });
     document.addEventListener('click', function (e) {
-      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-        navLinks.classList.remove('open');
+      if (mobileOverlay.classList.contains('open') &&
+          !mobileOverlay.contains(e.target) &&
+          !hamburger.contains(e.target)) {
+        mobileOverlay.classList.remove('open');
         hamburger.classList.remove('open');
       }
     });
