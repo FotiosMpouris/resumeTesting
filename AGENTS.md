@@ -124,3 +124,34 @@ The site's editorial voice is deliberate. When writing copy:
 - "People are the solution" is the north star
 
 Avoid: "leveraging cutting-edge AI", "transformative solutions", "passionate about", "proven track record"
+
+---
+
+## PPA Mission Evolution (session notes — July 2026)
+
+These notes capture narrative and strategic shifts decided during this build cycle. They feed into the white paper (`whitepaper-notes.md`).
+
+**Model-agnostic architecture framing:**
+We don't know what models like Fable, Mythos, or other frontier/open-source models will be capable of in coming months. The harness is intentionally not betting on any single LLM. Future-proofing the network is an engineering requirement, not a philosophy.
+
+**The Coordination Model — Two Things Everyone Has Heard Of:**
+Think Uber's real-time coordination and Tinder's profile-centric trust matching. Anywhere, anytime. People have already learned to trust both to deliver a service predictably. That's the behavioral baseline PPA builds on.
+
+**Decentralization framing shift:**
+Decentralization is no longer positioned primarily as ideology (anti-censorship, anti-big-tech). The stronger pitch to institutional and government partners: a centralized platform is a single point of failure as adversarial AI capabilities increase. Nostr-native architecture means community survives even if the company is attacked.
+
+**Bitcoin / asset treasury language:**
+We are *investigating* the use of Bitcoin to back the PPA treasury. We will also be integrating various other forms of assets, both digital and hard assets. Not committed. Not a presale. Language should be forward-looking and legally cautious.
+
+**Military/Veterans framing:**
+- Primary users: military families (deployments, relocations, VA backlog, elder care for aging parents)
+- Sentinel Program backbone: retired military, law enforcement, fire, EMS — people communities have always trusted
+- This is a genuinely reciprocal ecosystem: the people who need the platform are also the people best positioned to provide its trust infrastructure
+- VA Innovation Ecosystem and DoD SBIR/STTR programs are viable funding pathways
+- Framing on opencare.html was changed from "military families" to just "your family" — keep it universal, the military angle is present without being the only audience
+
+**Removed from site (do not re-add without discussion):**
+- "Founding contributors get early access and a foundational PPC allocation at launch" — removed from PPA signup form
+- "It's a necessity." — removed from Why Bitcoin section
+- "The Decentralized by Design" standalone section — content was integrated elsewhere, section removed as too complex for general audience
+- Agent table from AI Agent Architecture section — removed, replace with narrative when white paper is written

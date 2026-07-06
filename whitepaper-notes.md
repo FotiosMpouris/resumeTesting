@@ -125,12 +125,71 @@ any major shift.
 
 ---
 
+## 7. The Coordination Model — Two Things Everyone Has Heard Of
+
+**Site reference:** `opencare.html` — "Two Things Everyone Has Heard Of" section
+
+**Core framing (v4.11):**
+Think Uber's research and coordination infrastructure and Tinder's profile-centric matching. Both are anywhere, anytime. People have already learned to trust both to deliver a service predictably and safely. Uber: timely, predictable rides. Tinder: image and description-based trust verification before conversation.
+
+PPA uses this same behavioral baseline — people already know how to interact with reputation-based, on-demand platforms. We're applying that learned trust to community care coordination.
+
+**White paper section:** Product Introduction / Market Positioning
+
+---
+
+## 8. Bitcoin Treasury and Asset Integration Strategy
+
+**Site reference:** `opencare.html` — Why Bitcoin section
+
+**Current position (v4.11):**
+We are investigating the use of Bitcoin to back the PPA treasury. We are also exploring integration of various other forms of assets — both digital and hard assets. This is not a commitment, not a presale, not an investment opportunity.
+
+**Why this matters for the white paper:**
+The treasury architecture has implications for community ownership, sustainability without VC dependency, and long-term network resilience. The white paper should address this in a financially and legally responsible way.
+
+**Language guidance:** Forward-looking, legally cautious. Reference GiveSendGo campaign framing as a baseline for tone.
+
+**White paper section:** Financial Architecture / Treasury Strategy
+
+---
+
+## 9. Decentralization as Resilience (not ideology)
+
+**Site reference:** `opencare.html` — AI Agent Architecture (updated v4.11)
+
+**Upgraded framing:**
+A solely centralized platform might be a single point of failure — especially as adversarial AI capabilities increase. A Nostr-native identity layer means:
+- No central database to breach
+- No central authority to compromise or coerce
+- Community survives platform failure or attack
+
+This reframes decentralization for institutional and government audiences who are skeptical of crypto-adjacent language. The argument is practical resilience, not ideology.
+
+**White paper section:** Security Architecture / Risk Mitigation (expand from Note 2)
+
+---
+
 ## Pending Items for White Paper Sessions
 
-- [ ] Full agent architecture diagram (replace the removed table with a proper visual)
-- [ ] Sentinel Program onboarding process
+- [ ] Full agent architecture diagram (replace the removed agent table with a proper visual)
+- [ ] Sentinel Program onboarding process — how does a retired military officer become a verified Sentinel?
 - [ ] Token structure / legal compliance framework
-- [ ] VA and DoD integration pathway (detailed)
-- [ ] OpenRecovery standalone white paper section
+- [ ] VA and DoD integration pathway (detailed) — VA Innovation Ecosystem, DoD SBIR/STTR
 - [ ] Financial projections and use of funds breakdown
 - [ ] Security architecture (Nostr + distributed network) — detailed technical section
+- [ ] Bitcoin / hard asset treasury — legal review section
+- [ ] The Coordination Model section — expand Uber/Tinder analogy into full behavioral design rationale
+- [ ] OpenRecovery standalone section (if still in scope)
+
+---
+
+## Session Log — July 2026
+
+**Key decisions made this session:**
+- Removed agent table from `opencare.html` AI Agent Architecture — too prescriptive, replace with narrative
+- "Decentralized by Design" section removed from opencare.html — content integrated into other sections
+- Military framing: kept in Sentinel Program and index.html "Who This Is For", but opencare.html hero changed to universal ("your family") rather than exclusively military
+- Bitcoin section: changed from declarative ("It's a necessity") to investigative ("We are investigating...")
+- PPA signup form: removed founding contributor/PPC allocation language — legally cautious decision
+- All four production systems confirmed: Hard-E, OpenCare, All Angles Exterior, Ethos
