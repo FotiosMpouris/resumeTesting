@@ -1,48 +1,66 @@
-# Fotios Mpouris Portfolio Website
+# fotiosmpouris.com — Personal Site & Portfolio
 
-![Header Banner](images/hero-bg.png)
+Live at **[fotiosmpouris.com](https://fotiosmpouris.com)**
 
-Welcome to the repository for my personal portfolio website, **[fotiosmpouris.com](https://fotiosmpouris.com)**—a dynamic showcase of my skills as a full-stack developer, multimedia specialist, and technical artist. This project blends cutting-edge web design with a passion for AI innovation, creative multimedia, and community-driven solutions like **Pythos**. Built with HTML, CSS, and JavaScript, this site is a testament to my commitment to merging artistry with technology.
-
-*“People Are The Solution”* — This mantra drives my work, and this website is where it all comes together.
+Built with HTML, CSS, and JavaScript. Served via GitHub Pages. No frameworks, no build step — just production code and atmosphere.
 
 ---
 
-## 🌟 Overview
+## What This Is
 
-This portfolio serves as a central hub to explore my professional journey, projects, and vision. Whether you're here to collaborate, hire me, or join the **Pythos** movement, you'll find a mix of technical prowess and creative flair.
+A personal portfolio site designed as a cinematic scroll experience: sky video backgrounds, procedural canvas atmosphere, GSAP-driven animations, and a typewriter hero sequence. The writing is first-person and direct. The aesthetic is atmospheric and luminous.
 
-### Key Pages
-- **Home (`index.html`)**: A bold introduction with a hero banner and calls-to-action.
-- **About (`about.html`)**: My story, skills, and professional experience as a technical artist.  
-  ![Fotios Profile](images/fotios.png)
-- **AI Apps (`ai-apps.html`)**: Showcasing my AI-powered projects like *Siding Assistant* and *Oriana*.
-- **Websites (`websites.html`)**: A gallery of web designs, from *ColorFotiFoti* to *The Grillin Greek*.
-- **Multimedia (`multimedia.html`)**: Motion graphics and branding samples.
-- **Unity Projects (`unity-projects.html`)**: Game development prototypes built in Unity.
-- **Pythos (`pythos.html`)**: My flagship initiative—a tokenized revolution for financial empowerment.  
-  ![Pythos Map](images/pythos-map.png)
+The site documents four production AI systems built and operated by Fotios Mpouris, plus the Poor People App — a platform for community care coordination targeting families, veterans, first responders, and underserved communities.
 
 ---
 
-## 🎨 Features
+## Pages
 
-- **Responsive Design** 📱: Seamless experience across mobile, tablet, and desktop with a hamburger menu for mobile navigation.
-- **Dark/Light Mode** ☀️🌙: Toggle between themes with a sleek sun button (persisted via localStorage).
-- **Fade-In Animations** ✨: Smooth scroll-triggered transitions for an engaging user experience.
-- **Interactive Elements** 🖱️: Video playback with mute toggles, smooth scrolling, and hover effects.
-- **Pythos Integration** 💰: Volunteer forms, progress bars, and contribution options for my flagship project.
-- **Multimedia Showcase** 🎥: Embedded videos and placeholders for animations to highlight my creative work.
-
----
-
-## 🛠️ Tech Stack
-
-- **HTML5** 📝: Semantic markup for accessibility and structure.
-- **CSS3** 🎨: Custom styles with variables, transitions, and media queries (`style.css`).
-- **JavaScript** ⚙️: Dynamic functionality like dark mode, hamburger menu, and scroll animations (`script.js`).
-- **Assets** 🖼️: Images (`images/`), videos (`videos/`), and more for a rich visual experience.
+| Page | Path | Description |
+|------|------|-------------|
+| Home | `index.html` | Cinematic hero sequence, origin story, evidence blocks, method section |
+| The Work | `the-work.html` | Project cards for all active builds |
+| The Stack | `the-stack.html` | Technical background, skill grid, infrastructure overview |
+| OpenCare | `opencare.html` | Deep-dive on the Poor People App / OpenCare / PPA architecture |
 
 ---
 
+## Core Systems Documented
 
+- **Poor People App / OpenCare** — Care coordination platform for families. Live at [opencare.poorpeople.app](https://opencare.poorpeople.app)
+- **Hard-E** — Voice AI sales agent for home service contractors. 21 CRM tools, real-time WebRTC voice, 3-tier memory. [harde.app](https://harde.app)
+- **All Angles Exterior** — AI-enriched lead pipeline with GPT-4o vision and Perplexity property research. [aaexterior.com](https://aaexterior.com)
+- **Ethos** — Personal autonomous agent on Hermes (NousResearch). 24/7, voice-enabled via Telegram, 100+ page living knowledge base.
+
+---
+
+## Technical Architecture
+
+```
+index.html / the-work.html / the-stack.html / opencare.html
+       ↓
+style.css          — Design system, glass effects, animations, responsive
+script.js          — Cinematic hero sequence, GSAP scroll, hamburger nav
+atmosphere.js      — Procedural canvas background (particles, god-rays)
+```
+
+**Key CSS variables:** `--accent-sky: #5B9FD4`, `--text-primary: #1A1D23`, `--glass: rgba(255,255,255,0.68)`
+
+**Mobile nav:** Body-level `#mobile-nav-overlay` (not inside header) to avoid `position:fixed` inside transformed-ancestor clipping bug.
+
+**Hero animation:** Data-driven cinematic sequence via `data-cinematic` attribute on `h1`. Each phrase set: large text types in → pause → small sub-phrase fades in → both hold → both fade out → next set.
+
+**Deployment:** GitHub Pages from `main` branch. `.nojekyll` present to skip Jekyll processing.
+
+---
+
+## Notes for Future Development
+
+- `whitepaper-notes.md` — Conceptual material for the Poor People App white paper (harness concept, Nostr security argument, military/veteran reciprocal ecosystem)
+- `AGENTS.md` — Context file for AI coding assistants
+- Do not push to the `backup` remote — it is a snapshot of the pre-redesign site
+- All edits go to `origin` (resumeTesting) only
+
+---
+
+*People are the solution.*
