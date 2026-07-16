@@ -21,7 +21,8 @@ _Created July 16, 2026. One page. The order of operations across every active pr
   - `all-angles-exterior-` → `claude/agent-crm-roadmap`
 - [ ] **X profile setup** (30 min): bio per GTM plan §4, pinned post can wait for the first clip.
 - [ ] **First build-log post**: "I'm building in public from here on" + what's live today (OpenCare link). Imperfect is fine; posted beats polished.
-- [ ] **Sit-down with Jim** (1 hr): walk the All Angles roadmap, agree on Section 8's open questions — especially the business arrangement and the security items on his side.
+- [ ] **Sit-down with Jim** (1 hr): give him `FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md` (all-angles repo) — it covers the why, the ChatGPT-agents question, the security fixes, and a block he pastes into his Cursor project. Agree on the roadmap's Section 8 open questions.
+- [ ] **Pick this month's in-person event** (GTM plan §10): Venture Café Cambridge on a Thursday is the lowest-friction start; Code for Boston if the PPA room appeals more.
 - [ ] **Green-light PPA P0** (Claude executes most of it): CI + smoke tests, SSL fix, secrets to SSM, backups, agent-ACL chokepoint, Persona to production.
 
 ## WEEKS 2–4

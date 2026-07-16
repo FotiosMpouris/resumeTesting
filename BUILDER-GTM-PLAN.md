@@ -134,7 +134,33 @@ After day 90 the flywheel is: build → clip → invite → testers → numbers 
 
 ---
 
-## 10. Standing Risks & Rules
+## 10. In-Person Networking — Events & How to Work Them
+
+Online (X) is the daily engine; in-person is the monthly multiplier. Base: Middlesex County, MA — which is a genuine advantage: Cambridge/Boston is a top-3 US ecosystem for exactly this work. **One local event per month minimum; one travel event per quarter maximum.** (Event schedules change — verify dates before committing; Ethos can run a monthly "what's coming up" scan.)
+
+**Local / recurring (drive there):**
+- **Venture Café Cambridge** — Thursday evening gatherings at CIC Cambridge, free, the standing watering hole of the Boston startup scene. Lowest-friction place to start; go twice before judging it.
+- **Code for Boston** — weekly civic-tech hack nights. This is *the PPA room*: people who build technology for communities, potential collaborators and Sentinels. Show OpenCare; you will be the most shipped person there.
+- **AI Tinkerers (Boston chapter)** — demo-focused AI builder meetups; the format is literally "show what you built." Recover E voice demo belongs on this stage.
+- **Boston New Technology (BNT)** — monthly demo nights, 5-minute product demos to a general tech crowd.
+- **MIT AgeLab (Cambridge)** — research lab on aging + technology. Not an event series so much as a relationship to cultivate: OpenCare is squarely their world. Watch for their public workshops; a demo conversation here could open the eldercare-institution door.
+- **MassChallenge / Techstars Boston** community events — free-tier startup ecosystem exposure; useful once pilot numbers exist.
+
+**Travel-worthy (fly, once numbers/demos are ready — not before):**
+- **AI Engineer World's Fair / AI Engineer Summit** (SF/NYC) — THE agent-builder conference; the Hermes/agent-harness crowd is physically there. Best-fit big event by a wide margin.
+- **JLC LIVE New England** (Providence, RI — typically March) — the region's big residential construction trade show. This one is for the All Angles/Hard E vertical: contractors, suppliers, and the future customers of an agent-run back office.
+- **LeadingAge MA / age-tech gatherings** — eldercare provider organizations; relevant at M1+ when OpenCare has pilot results to show senior-care institutions.
+
+**How to work a room (the system, since you asked for direction):**
+1. **Carry the demo, not the pitch.** OpenCare live on your phone + a QR card to the site. Your opener is asking *them* "what are you building/working on?" — your gift is conversation; the demo does the bragging when they reciprocate.
+2. **The goal is 3 real conversations per event**, not 30 handshakes. A real conversation = you learned what they're doing and they saw one thing you built.
+3. **Capture within the hour:** name + context + follow-up idea into your notes (or tell Ethos). Follow up within 24 hours — X follow or DM referencing the actual conversation. The follow-up is where networking actually happens; the event is just the excuse.
+4. **Writing vs speaking:** use both where each is strongest. Speaking = events, demo videos, and (by month 3–4) podcast guesting — local/startup AI podcasts first, pitched with pilot numbers. Writing = the X build-log and weekly threads. Your X presence is what makes event follow-ups land: people check the profile; the pinned demo does the rest.
+5. **The Jim story is networking gold at contractor events, and the family story is gold at civic/age-tech events.** Match the story to the room; both are true.
+
+---
+
+## 11. Standing Risks & Rules
 
 1. **Focus is the scarce asset.** Three build plans now exist (PPA, Ethos, this). The hierarchy when they conflict: **PPA build > this plan's cadence > Ethos enhancements > Hard E path B.** This plan is designed to survive on ~7 focused hours/week; if it's consuming more, cut posts, never build-time.
 2. **Don't promise dates in public.** Post what shipped, invite people to what's live. "Coming soon" debt destroys builder credibility.
