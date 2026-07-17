@@ -5,6 +5,10 @@ _Purpose: The operating plan for the promotion/networking stage. Companion to `S
 
 ---
 
+## 0. How to Use This Document
+
+This is the **strategy** for getting the work seen; the **step-by-step actions** live in `ATTACK-PLAN.md` (do those; refer back here for the why). The **map of every document across all repos** is `MISSION-CONTROL.md` — start there if lost. Terms used here: **GTM** = go-to-market (how a product reaches people); **build-in-public** = posting the real progress, numbers, and failures of a build as its own marketing; **white-glove** = done-for-you setup service, named after hotel-butler service. Read order for this file: §1 (the frame) → §3 (your one-line identity) → §4 (the weekly X system) → the rest as needed.
+
 ## 1. The Strategic Frame
 
 **The problem, stated plainly:** four real systems exist (PPA/OpenCare live in production, Ethos running 24/7, Hard E v3 built, Recover E backend live), and almost nobody knows. The builder-promoter imbalance is not a character flaw; it is a sequencing choice that was correct until now — there was nothing to invite people into. That changed with the PPA build plan: the next six months produce a continuous stream of demonstrable moments (voice agent, Demos, funding intel, pilot, Founding Members). **Promotion is no longer a separate job — it is documentation of work already scheduled.**
