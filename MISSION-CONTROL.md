@@ -6,34 +6,33 @@ _Created July 16, 2026. **This is the first document you read. Always.** It tell
 
 ## 1. The Complete Document Map
 
-### Repo: `poorpeopleapp` (the Poor People App / OpenCare)
-**⚠️ MERGE NEEDED — this is the only repo with unmerged work.** Merge branch `claude/poorpeopleapp-foundation-plan-ymb0et` → main (5 commits: the entire PPA plan + Demos naming + AGENT_README updates).
-Merge link: https://github.com/FotiosMpouris/poorpeopleapp/compare/main...claude/poorpeopleapp-foundation-plan-ymb0et
+_All branches merged to `main` as of July 16, 2026 ✅ — every link below opens the live file on GitHub. A visual, clickable twin of this map exists as the "Foti's Mission Map" artifact (Claude → claude.ai/code/artifacts)._
 
+### Repo: [`poorpeopleapp`](https://github.com/FotiosMpouris/poorpeopleapp) (the Poor People App / OpenCare) — ✅ merged
 | Document | What it is |
 |---|---|
-| `claude-project-docs/PPA-FOUNDATION-BUILD-PLAN.md` | **The master PPA technical plan** (~900 lines): architecture, honest risk assessment, token (PPC) specification, database schemas, Nostr event registry, phases P0–P6, MVP definition, launch plan, adoption numbers, Founding Member design, community-AI path. The biggest and most important document produced. |
-| `AGENT_README.md` (updated) | The repo's single source of truth — now records Demos as the PPA Agent's name in the locked-decisions table. |
+| [`claude-project-docs/PPA-FOUNDATION-BUILD-PLAN.md`](https://github.com/FotiosMpouris/poorpeopleapp/blob/main/claude-project-docs/PPA-FOUNDATION-BUILD-PLAN.md) | **The master PPA technical plan** (~900 lines): architecture, honest risk assessment, token (PPC) specification, database schemas, Nostr event registry, phases P0–P6, MVP definition, launch plan, adoption numbers, Founding Member design, community-AI path. The biggest and most important document produced. |
+| [`AGENT_README.md`](https://github.com/FotiosMpouris/poorpeopleapp/blob/main/AGENT_README.md) (updated) | The repo's single source of truth — now records Demos as the PPA Agent's name in the locked-decisions table. |
 
-### Repo: `Ethos-Hermes-Agent` (your personal agent) — ✅ MERGED
+### Repo: [`Ethos-Hermes-Agent`](https://github.com/FotiosMpouris/Ethos-Hermes-Agent) (your personal agent) — ✅ merged
 | Document | What it is |
 |---|---|
-| `AGENT-README.md` §12 (added) | **The two-agent boundary**: Ethos (personal) vs Demos (PPA product) — table, rules, what flows between them. |
-| `ETHOS-BUILD-ROADMAP.md` (edited) | Phase 5 now points at the PPA plan instead of a "future session." |
+| [`AGENT-README.md`](https://github.com/FotiosMpouris/Ethos-Hermes-Agent/blob/main/AGENT-README.md) §12 (added) | **The two-agent boundary**: Ethos (personal) vs Demos (PPA product) — table, rules, what flows between them. |
+| [`ETHOS-BUILD-ROADMAP.md`](https://github.com/FotiosMpouris/Ethos-Hermes-Agent/blob/main/ETHOS-BUILD-ROADMAP.md) (edited) | Phase 5 now points at the PPA plan instead of a "future session." |
 
-### Repo: `resumeTesting` (fotiosmpouris.com — your command center) — ✅ MERGED through PR #1; **new commits this session need one more merge**
+### Repo: [`resumeTesting`](https://github.com/FotiosMpouris/resumeTesting) (fotiosmpouris.com — your command center) — ✅ merged
 | Document | What it is |
 |---|---|
-| `MISSION-CONTROL.md` | This file. Read first, always. |
-| `ATTACK-PLAN.md` | **Your personal execution playbook** — expanded with step-by-step detail (see it for "what do I literally do Monday"). |
-| `BUILDER-GTM-PLAN.md` | The promotion strategy: builder-in-public on X, weekly cadence, Hard E disposition, white-glove revenue bridge, networking & Boston-area events (§10). GTM = "go to market" — the plan for how the work gets seen. |
-| `SITE-COPY-PACK.md` | **Ready-to-apply website copy** for your Cursor agent — drafted text for ppa.html and the Follow-the-Build sections (answers your question: yes, the writing is done; the Cursor agent applies it). |
+| [`MISSION-CONTROL.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/MISSION-CONTROL.md) | This file. Read first, always. |
+| [`ATTACK-PLAN.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/ATTACK-PLAN.md) | **Your personal execution playbook** — step-by-step: Step 0 housekeeping, Week 1 day-by-day with exact Cursor prompts, the weekly rhythm ("what do I literally do Monday"). |
+| [`BUILDER-GTM-PLAN.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/BUILDER-GTM-PLAN.md) | The promotion strategy: builder-in-public on X, weekly cadence, Hard E disposition, white-glove revenue bridge, networking & Boston-area events (§10). GTM = "go to market" — the plan for how the work gets seen. |
+| [`SITE-COPY-PACK.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/SITE-COPY-PACK.md) | **Ready-to-apply website copy** for your Cursor agent — six drafted blocks for ppa.html, the homepage Follow-the-Build door, Hard E's reframe, and status lines. The writing is done; the Cursor agent applies it. |
 
-### Repo: `all-angles-exterior-` (Jim's company site) — ✅ MERGED through PR #1; **new commits this session need one more merge**
+### Repo: [`all-angles-exterior-`](https://github.com/FotiosMpouris/all-angles-exterior-) (Jim's company site) — ✅ merged
 | Document | What it is |
 |---|---|
-| `ALL-ANGLES-AGENT-CRM-ROADMAP.md` | The technical plan: security remediation, Job Hub architecture (now MCP-first — see §4 below), 8-table schema, phases AA-0 → AA-5 including the sales-team layer (scoped access, WhatsApp audio briefs). |
-| `FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md` | The Jim-facing version: ten-minute read, security checklist, the ChatGPT/Claude platform question (updated with the July 2026 landscape), and a paste-into-Cursor rules block for his Ace coding sessions. |
+| [`ALL-ANGLES-AGENT-CRM-ROADMAP.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/ALL-ANGLES-AGENT-CRM-ROADMAP.md) | The technical plan: security remediation, Job Hub architecture (MCP-first — see §4 below), 8-table schema, phases AA-0 → AA-5 including the sales-team layer (scoped access, WhatsApp audio briefs). |
+| [`FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md) | The Jim-facing version: ten-minute read, security checklist, the ChatGPT/Claude platform question (July 2026 landscape), and a paste-into-Cursor rules block for his Ace coding sessions. |
 
 ### Not documents, but produced: Google Drive **read-only** assessment of Jim's Ace folder (nothing touched), and the security findings now captured in both All Angles docs.
 
