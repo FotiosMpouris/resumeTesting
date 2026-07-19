@@ -32,7 +32,8 @@ _All branches merged to `main` as of July 16, 2026 ✅ — every link below open
 | Document | What it is |
 |---|---|
 | [`ALL-ANGLES-AGENT-CRM-ROADMAP.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/ALL-ANGLES-AGENT-CRM-ROADMAP.md) | The technical plan: security remediation, Job Hub architecture (MCP-first — see §4 below), 8-table schema, phases AA-0 → AA-5 including the sales-team layer (scoped access, WhatsApp audio briefs). |
-| [`FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md) | The Jim-facing version: ten-minute read, security checklist, the ChatGPT/Claude platform question (July 2026 landscape), and a paste-into-Cursor rules block for his Ace coding sessions. |
+| [`FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md) | The Jim-facing version: ten-minute read, security checklist, the ChatGPT/Claude platform question (July 2026 landscape), the July 19 CRM-decision update, and a paste-into-Cursor rules block for his Ace coding sessions. |
+| [`AA-CRM-BUILD-PLAN.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/AA-CRM-BUILD-PLAN.md) | **THE ACTIVE BUILD (July 19 →)**: the full staff-facing CRM ("JimNimbus") — research findings, stack decision, 16-table schema, pricing-engine spec, phases C0–C6 with exit tests. Supersedes-and-absorbs the Job Hub concept; priority #1 across all projects until C6. |
 
 ### Not documents, but produced: Google Drive **read-only** assessment of Jim's Ace folder (nothing touched), and the security findings now captured in both All Angles docs.
 

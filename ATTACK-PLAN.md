@@ -2,12 +2,12 @@
 
 _Rewritten July 16, 2026 with full step-by-step detail. Read `MISSION-CONTROL.md` first if you're lost — it's the map; this is the marching order. Re-read this every Monday; update every 30 days._
 
-**The priority stack (when anything conflicts, higher wins):**
-1. **PPA build** (per `poorpeopleapp/claude-project-docs/PPA-FOUNDATION-BUILD-PLAN.md`)
-2. **All Angles** (per `all-angles-exterior-/ALL-ANGLES-AGENT-CRM-ROADMAP.md`)
-3. **Promotion** (per `BUILDER-GTM-PLAN.md`, 60 min/day cap)
-4. **Ethos** (its own roadmap; quality-of-life only)
-5. **Hard E** (dormant until All Angles AA-2 or the open-source extraction)
+**The priority stack — REORDERED July 19, 2026 (Foti+Jim decision: the CRM is the active build):**
+1. **All Angles CRM** (per [`AA-CRM-BUILD-PLAN.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/AA-CRM-BUILD-PLAN.md), phases C0–C6, ~8–10 weeks) — the build Claude executes with you now
+2. **PPA — P0 hygiene only** (agent-executed background items: CI, SSL, secrets, backups; the P1/P2 features wait for the CRM's C6)
+3. **Promotion** (unchanged, 60 min/day cap — and the CRM build IS build-in-public content: "watch us replace a CRM subscription with an agent-run system")
+4. **Ethos** (quality-of-life only)
+5. **Hard E** (wakes at CRM phase C4, as planned — its `leap_service` becomes the CRM's agent plugin)
 
 ---
 
