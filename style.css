@@ -3,7 +3,7 @@
    The Canvas IS the background. Everything floats in light.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   --glass: rgba(255,255,255,0.68);
@@ -26,7 +26,7 @@
   --radius: 20px;
   --radius-sm: 12px;
 
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-display: 'Syne', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -55,7 +55,8 @@ a { color: var(--accent-teal); text-decoration: none; transition: color 0.25s; }
 a:hover { color: var(--accent-sky); }
 
 /* ---- SKY VIDEO BASE LAYER ---- */
-/* z-index 1 = above canvas; fades out on scroll via JS, revealing canvas below */
+/* z-index 0 = the environment. The sky never leaves — it runs
+   through the entire scroll on every page. */
 
 .sky-video-wrap {
   position: fixed;
@@ -63,11 +64,10 @@ a:hover { color: var(--accent-sky); }
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
   background: #ffffff;
   pointer-events: none;
-  will-change: opacity;
 }
 
 .sky-video-wrap video {
@@ -77,8 +77,24 @@ a:hover { color: var(--accent-sky); }
   display: block;
 }
 
+/* Readability veil — clear at the top (hero moment), a soft
+   white breath lower down where content floats. Never opaque:
+   the sky must stay alive behind everything. */
+.sky-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02) 0%,
+    rgba(255,255,255,0.14) 38%,
+    rgba(255,255,255,0.22) 100%
+  );
+}
+
 /* ---- ATMOSPHERE CANVAS ---- */
-/* z-index 0 = behind video; visible once video fades */
+/* z-index 1 = above the video: motes, light sheets, iridescent
+   washes — the life layer the raw video can't provide. */
 
 #atmosphere {
   position: fixed;
@@ -86,7 +102,8 @@ a:hover { color: var(--accent-sky); }
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ---- SCROLL PROGRESS ---- */
@@ -112,16 +129,16 @@ a:hover { color: var(--accent-sky); }
 
 .glass,
 .glass-section {
-  /* Cool-tinted glass, cooler toward the bottom — gives the pure-white
-     specular something to read against, and separates slab from field */
+  /* Frosted glass over living sky — enough frost for long reading,
+     never so much that the sky behind it dies */
   background: linear-gradient(
     180deg,
-    rgba(252,254,255,0.66) 0%,
-    rgba(240,246,253,0.52) 55%,
-    rgba(231,239,250,0.48) 100%
+    rgba(252,254,255,0.78) 0%,
+    rgba(243,248,254,0.68) 55%,
+    rgba(236,243,251,0.64) 100%
   );
-  backdrop-filter: blur(22px) saturate(2.2) brightness(1.02);
-  -webkit-backdrop-filter: blur(22px) saturate(2.2) brightness(1.02);
+  backdrop-filter: blur(26px) saturate(1.9) brightness(1.03);
+  -webkit-backdrop-filter: blur(26px) saturate(1.9) brightness(1.03);
   /* visible cool hairline — the slab's silhouette against the white void */
   border: 1px solid rgba(178,197,222,0.55);
   border-top-color: rgba(255,255,255,0.95);
@@ -200,9 +217,9 @@ a:hover { color: var(--accent-sky); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
 }
 
@@ -426,8 +443,8 @@ header.header-visible {
 .scene.glass-panel {
   background: linear-gradient(
     180deg,
-    rgba(252,254,255,0.62) 0%,
-    rgba(238,245,252,0.5) 100%
+    rgba(252,254,255,0.76) 0%,
+    rgba(240,246,253,0.64) 100%
   );
   border: 1px solid rgba(178,197,222,0.5);
   border-top-color: rgba(255,255,255,0.95);
@@ -743,7 +760,7 @@ footer p, footer .footer-copy {
 /* ---- FEATURE GRID (OpenCare) ---- */
 
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin: 36px 0; }
-.feature-item { padding: 22px; background: rgba(255,255,255,0.4); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.3); }
+.feature-item { padding: 22px; background: rgba(255,255,255,0.55); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.45); }
 .feature-item h3 { font-size: 0.95rem; margin-bottom: 6px; }
 .feature-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
 

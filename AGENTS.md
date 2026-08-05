@@ -46,11 +46,18 @@ No build step. No framework. Pure HTML/CSS/JS.
 --text-secondary: #5F6478
 --text-tertiary: #8A90A5
 --glass: rgba(255,255,255,0.68)
---font-display: 'Space Grotesk'
+--font-display: 'Syne'        /* changed from Space Grotesk, Aug 2026 */
 --font-body: 'Inter'
 --font-mono: 'JetBrains Mono'
-body background: #ffffff      /* Pure white — not grey */
+body background: #ffffff
 ```
+
+**Background system (Aug 2026, "the sky never leaves"):** every page has a persistent
+fixed `.sky-video-wrap` video (z-index 0) that runs through the entire scroll — it never
+fades. `#atmosphere` canvas (z-index 1) rides above it: dust motes, light sheets,
+iridescent washes for the glass to refract. Content is z-index 2+. Glass panels
+(`.glass`, `.glass-section`) are frosted (~0.64–0.78 white + blur 26px) for readability
+over the moving sky. Do not reintroduce a scroll fade or a painted static background.
 
 ---
 

@@ -1,12 +1,12 @@
 /* ============================================================
-   atmosphere.js — The White Room
-   An overexposed, blinding-white environment. Depth comes from
-   light behavior, not color: a breathing overexposure bloom,
-   dust motes suspended in intense light, wide slow light sheets,
-   and two barely-visible iridescent washes that give the glass
-   panels' backdrop-filter something real to refract.
-   Canvas is transparent (alpha: true); sky.mp4 sits above it
-   on the homepage and fades out on scroll.
+   atmosphere.js — Living Light Layer
+   A transparent canvas riding ABOVE the persistent sky video
+   (video z-index 0, canvas z-index 1, content z-index 2+).
+   It adds what raw video can't: dust motes suspended in light,
+   wide additive light sheets pouring from above, and two
+   ultra-faint iridescent washes that the glass panels'
+   backdrop-filter picks up and bends.
+   The video is the environment. This layer is the life in it.
    ============================================================ */
 
 (function () {
@@ -42,15 +42,14 @@
   }, { passive: true });
 
   /* ---- IRIDESCENT WASHES ---- */
-  /* Two huge, ultra-faint color fields drifting very slowly.
-     Nearly invisible on the white field directly, but the glass
-     panels' backdrop-filter (blur + saturate) amplifies them —
-     this is what makes the glass read as glass. */
+  /* Two huge, very faint color fields drifting slowly across the
+     view. Nearly invisible directly, but the glass panels'
+     saturate() amplifies them into visible refraction. */
 
   function Wash(hue, phase) {
-    this.hue = hue;          /* drifts slowly over time */
+    this.hue = hue;
     this.phase = phase;
-    this.alpha = 0.12;
+    this.alpha = 0.07;
   }
 
   Wash.prototype.draw = function (ctx, W, H) {
@@ -69,14 +68,13 @@
   };
 
   var washes = [
-    new Wash(190, 0),              /* cyan drifting toward blue */
-    new Wash(280, Math.PI * 0.9)   /* violet drifting toward rose */
+    new Wash(190, 0),
+    new Wash(280, Math.PI * 0.9)
   ];
 
   /* ---- DUST MOTES ---- */
-  /* Tiny specks suspended in blinding light. Sub-pixel to 1.4px,
-     very low opacity, slow drift with gentle twinkle. Replaces
-     the old "bubble" particles entirely. */
+  /* Tiny bright specks drifting up through the light — visible
+     against the video as catching sunlight. */
 
   function Mote() {
     this.reset(true);
@@ -85,10 +83,10 @@
   Mote.prototype.reset = function (initial) {
     this.x = Math.random() * W;
     this.y = initial ? Math.random() * H : H + 4;
-    this.r = 0.4 + Math.random() * 1.0;
-    this.baseA = 0.05 + Math.random() * 0.10;
-    this.vy = -(0.04 + Math.random() * 0.12);
-    this.vx = (Math.random() - 0.5) * 0.06;
+    this.r = 0.5 + Math.random() * 1.3;
+    this.baseA = 0.10 + Math.random() * 0.22;
+    this.vy = -(0.05 + Math.random() * 0.14);
+    this.vx = (Math.random() - 0.5) * 0.08;
     this.depth = 0.2 + Math.random() * 0.8;
     this.twinklePhase = Math.random() * Math.PI * 2;
     this.twinkleSpeed = 0.008 + Math.random() * 0.02;
@@ -96,7 +94,7 @@
 
   Mote.prototype.update = function () {
     this.y += this.vy;
-    this.x += this.vx + Math.sin(frame * 0.0015 + this.twinklePhase) * 0.04;
+    this.x += this.vx + Math.sin(frame * 0.0015 + this.twinklePhase) * 0.05;
     if (this.y < -6) this.reset(false);
     if (this.x < -6) this.x = W + 4;
     if (this.x > W + 6) this.x = -4;
@@ -110,9 +108,13 @@
     var tw = 0.6 + 0.4 * Math.sin(frame * this.twinkleSpeed + this.twinklePhase);
     var a = this.baseA * tw;
 
-    ctx.fillStyle = 'rgba(140, 160, 190, ' + a + ')';
+    /* bright core + tiny glow — reads as sunlit dust over video */
+    var glow = ctx.createRadialGradient(px, py, 0, px, py, this.r * 3);
+    glow.addColorStop(0, 'rgba(255, 255, 255, ' + a + ')');
+    glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.fillStyle = glow;
     ctx.beginPath();
-    ctx.arc(px, py, this.r, 0, Math.PI * 2);
+    ctx.arc(px, py, this.r * 3, 0, Math.PI * 2);
     ctx.fill();
   };
 
@@ -123,15 +125,16 @@
   }
 
   /* ---- LIGHT SHEETS ---- */
-  /* Three wide, slow sheets of brighter white pouring from above.
-     Drawn with 'lighter' so they read as overexposure, not haze. */
+  /* Wide, slow sheets of light pouring from above — additive,
+     so they read as sun breaking through, moving independently
+     of the video's own clouds. */
 
   var SHEET_ANGLES = [-0.42, 0, 0.42];
 
   function Sheet(index) {
     this.angle = SHEET_ANGLES[index];
     this.width = 0.2 + Math.random() * 0.15;
-    this.opacity = 0.035 + Math.random() * 0.025;
+    this.opacity = 0.05 + Math.random() * 0.035;
     this.speed = 0.00004 + Math.random() * 0.00008;
     this.phase = Math.random() * Math.PI * 2;
   }
@@ -173,47 +176,13 @@
     sheets.push(new Sheet(s));
   }
 
-  /* ---- THE WHITE FIELD ---- */
-  /* Pure white base with a breathing overexposure bloom at
-     top-center and the faintest cool recession at the far
-     corners — the "walls dissolving into light" depth cue. */
+  /* ---- WARMTH (scroll-driven, set by script.js) ---- */
 
-  function drawField() {
+  function drawWarmth() {
     var warmth = window.atmosphereWarmth || 0;
-
-    /* Base: pure white. The canvas owns the background now. */
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, W, H);
-
-    /* Corner recession — cool grade toward the edges, so the field
-       reads as a lit space with depth, not a flat void. The center
-       stays blinding; the periphery recedes. */
-    var corner = ctx.createRadialGradient(
-      W * 0.5, H * 0.32, Math.min(W, H) * 0.22,
-      W * 0.5, H * 0.5, Math.max(W, H) * 0.95
-    );
-    corner.addColorStop(0, 'rgba(233, 240, 249, 0)');
-    corner.addColorStop(0.65, 'rgba(228, 236, 247, ' + (0.4 - warmth * 0.15) + ')');
-    corner.addColorStop(1, 'rgba(216, 227, 242, ' + (0.85 - warmth * 0.25) + ')');
-    ctx.fillStyle = corner;
-    ctx.fillRect(0, 0, W, H);
-
-    /* Overexposure bloom — breathes slowly, follows the mouse a little */
-    var breathe = Math.sin(frame * 0.004) * 0.5 + 0.5;
-    var cx = W * 0.5 + (mouseX - 0.5) * 30;
-    var cy = H * 0.22 + (mouseY - 0.5) * 16 - scrollY * 0.04;
-    var bloom = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.7);
-    bloom.addColorStop(0, 'rgba(255, 255, 255, ' + (0.5 + breathe * 0.2) + ')');
-    bloom.addColorStop(0.55, 'rgba(255, 255, 255, ' + (0.18 + breathe * 0.08) + ')');
-    bloom.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    ctx.fillStyle = bloom;
-    ctx.fillRect(0, 0, W, H);
-
-    /* Warmth shift (driven by scroll position via script.js):
-       an amber whisper, used near the door section */
     if (warmth > 0.01) {
       var warm = ctx.createRadialGradient(W * 0.5, H * 0.8, 0, W * 0.5, H * 0.8, Math.max(W, H) * 0.8);
-      warm.addColorStop(0, 'rgba(255, 244, 228, ' + (warmth * 0.1) + ')');
+      warm.addColorStop(0, 'rgba(255, 244, 228, ' + (warmth * 0.12) + ')');
       warm.addColorStop(1, 'rgba(255, 244, 228, 0)');
       ctx.fillStyle = warm;
       ctx.fillRect(0, 0, W, H);
@@ -226,14 +195,13 @@
     var px = (mouseX - 0.5) * 2;
     var py = (mouseY - 0.5) * 2;
 
-    drawField();
+    /* Transparent clear — the video beneath is the environment */
+    ctx.clearRect(0, 0, W, H);
 
-    /* Iridescent washes — beneath everything else, for the glass to refract */
     for (var w = 0; w < washes.length; w++) {
       washes[w].draw(ctx, W, H);
     }
 
-    /* Light sheets — additive, overexposure */
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     for (var i = 0; i < sheets.length; i++) {
@@ -241,11 +209,12 @@
     }
     ctx.restore();
 
-    /* Dust motes in the light */
     for (var j = 0; j < motes.length; j++) {
       motes[j].update();
       motes[j].draw(ctx, px, py);
     }
+
+    drawWarmth();
 
     frame++;
 
