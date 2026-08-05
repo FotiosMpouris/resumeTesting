@@ -50,7 +50,7 @@
   function Wash(hue, phase) {
     this.hue = hue;          /* drifts slowly over time */
     this.phase = phase;
-    this.alpha = 0.045;
+    this.alpha = 0.12;
   }
 
   Wash.prototype.draw = function (ctx, W, H) {
@@ -185,14 +185,16 @@
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, W, H);
 
-    /* Corner recession — barely-there cool grade at the bottom
-       corners only, so the field reads as a space, not a void. */
+    /* Corner recession — cool grade toward the edges, so the field
+       reads as a lit space with depth, not a flat void. The center
+       stays blinding; the periphery recedes. */
     var corner = ctx.createRadialGradient(
-      W * 0.5, H * 0.35, Math.min(W, H) * 0.3,
-      W * 0.5, H * 0.55, Math.max(W, H) * 1.05
+      W * 0.5, H * 0.32, Math.min(W, H) * 0.22,
+      W * 0.5, H * 0.5, Math.max(W, H) * 0.95
     );
-    corner.addColorStop(0, 'rgba(238, 243, 250, 0)');
-    corner.addColorStop(1, 'rgba(226, 233, 244, ' + (0.5 - warmth * 0.2) + ')');
+    corner.addColorStop(0, 'rgba(233, 240, 249, 0)');
+    corner.addColorStop(0.65, 'rgba(228, 236, 247, ' + (0.4 - warmth * 0.15) + ')');
+    corner.addColorStop(1, 'rgba(216, 227, 242, ' + (0.85 - warmth * 0.25) + ')');
     ctx.fillStyle = corner;
     ctx.fillRect(0, 0, W, H);
 
