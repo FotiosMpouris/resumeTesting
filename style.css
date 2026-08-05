@@ -14,7 +14,7 @@
 
   --text-primary: #1A1D23;
   --text-secondary: #5F6478;
-  --text-tertiary: #8A90A5;
+  --text-tertiary: #7C8398; /* darkened for contrast on pure white */
 
   --accent-sky: #5B9FD4;
   --accent-teal: #2A8D8D;
@@ -65,7 +65,7 @@ a:hover { color: var(--accent-sky); }
   height: 100vh;
   z-index: 1;
   overflow: hidden;
-  background: #dce4ef;
+  background: #ffffff;
   pointer-events: none;
   will-change: opacity;
 }
@@ -103,53 +103,64 @@ a:hover { color: var(--accent-sky); }
 }
 
 /* ---- GLASS PANEL ---- */
+/* Real glass on a blinding-white field. Three ingredients:
+   1. Deep layered shadows (contact + mid + ambient) so the slab floats
+   2. A curved specular reflection (::before) — the gloss
+   3. An iridescent refraction corner (::after) — the soap-film edge
+   The backdrop-filter's high saturate() amplifies the canvas's
+   faint iridescent washes passing behind the panel. */
 
 .glass {
-  background: rgba(255,255,255,0.36);
-  backdrop-filter: blur(20px) saturate(1.5) brightness(1.04);
-  -webkit-backdrop-filter: blur(20px) saturate(1.5) brightness(1.04);
-  border: 1px solid rgba(255,255,255,0.6);
-  border-top: 1px solid rgba(255,255,255,0.8);
-  border-left: 1px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.32);
+  backdrop-filter: blur(22px) saturate(1.9) brightness(1.03);
+  -webkit-backdrop-filter: blur(22px) saturate(1.9) brightness(1.03);
+  border: 1px solid rgba(255,255,255,0.75);
   border-radius: var(--radius);
   box-shadow:
-    0 2px 8px rgba(91,159,212,0.08),
-    0 12px 40px rgba(91,159,212,0.05),
-    0 24px 64px rgba(0,0,0,0.04),
-    inset 0 1px 0 rgba(255,255,255,0.85),
-    inset 0 -1px 0 rgba(255,255,255,0.25),
-    inset 1px 0 0 rgba(255,255,255,0.6);
+    /* contact shadow — pins the slab to a plane */
+    0 1px 2px rgba(28,45,80,0.05),
+    /* mid shadow — body of the float */
+    0 10px 28px rgba(28,45,80,0.07),
+    /* ambient — long soft falloff, slightly blue like real skylight */
+    0 32px 80px rgba(52,84,138,0.10),
+    /* beveled edge light: hard white top rim = polished glass edge */
+    inset 0 1.5px 0 rgba(255,255,255,0.98),
+    inset 1.5px 0 0 rgba(255,255,255,0.55),
+    /* cool refraction on the bottom/right inner edge */
+    inset 0 -1px 0 rgba(168,192,222,0.4),
+    inset -1px 0 0 rgba(190,208,232,0.28);
   position: relative;
   overflow: hidden;
 }
 
-/* Diagonal glass sheen — mimics light catching real glass */
+/* Curved specular reflection — light catching the top of the slab */
 .glass::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.28) 0%,
-    rgba(255,255,255,0.10) 30%,
-    rgba(255,255,255,0.02) 55%,
-    rgba(91,159,212,0.03) 80%,
-    transparent 100%
+  inset: 0;
+  background: radial-gradient(
+    130% 70% at 14% -10%,
+    rgba(255,255,255,0.60) 0%,
+    rgba(255,255,255,0.22) 34%,
+    rgba(255,255,255,0.04) 52%,
+    transparent 64%
   );
   pointer-events: none;
   border-radius: inherit;
   z-index: 0;
 }
 
-.glass::before {
+/* Iridescent refraction — the soap-film corner, barely there */
+.glass::after {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.2) 0%,
-    rgba(255,255,255,0.03) 40%,
-    transparent 60%
+    315deg,
+    rgba(255,178,196,0.07) 0%,
+    rgba(196,150,255,0.06) 12%,
+    rgba(120,200,255,0.06) 26%,
+    transparent 45%
   );
   pointer-events: none;
   border-radius: inherit;
@@ -159,7 +170,7 @@ a:hover { color: var(--accent-sky); }
 .glass > * { position: relative; z-index: 1; }
 
 @supports not (backdrop-filter: blur(10px)) {
-  .glass { background: rgba(255,255,255,0.92); }
+  .glass { background: rgba(255,255,255,0.94); }
 }
 
 /* ---- TYPOGRAPHY ---- */
@@ -239,6 +250,7 @@ header.header-visible {
   display: none; flex-direction: column; gap: 5px; cursor: pointer;
   padding: 10px; min-width: 44px; min-height: 44px;
   justify-content: center; align-items: center; z-index: 110;
+  background: none; border: none; /* it's a <button> */
 }
 .hamburger div { width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
 
@@ -248,7 +260,7 @@ header.header-visible {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 195;
-  background: rgba(240,245,255,0.97);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
   flex-direction: column;
@@ -356,11 +368,25 @@ header.header-visible {
   text-shadow: 0 1px 6px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.5);
 }
 
-.scroll-indicator { display: none; }
+/* Scroll cue — a thin falling line of light, bottom center of the hero */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  width: 1.5px;
+  height: 48px;
+  margin-left: -0.75px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.9));
+  box-shadow: 0 0 12px rgba(255,255,255,0.5);
+  transform-origin: top center;
+  animation: scrollPulse 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.2; transform: scaleY(1); }
-  50% { opacity: 0.6; transform: scaleY(1.15); }
+  0%, 100% { opacity: 0.25; transform: scaleY(0.7); }
+  50% { opacity: 0.9; transform: scaleY(1.1); }
 }
 
 /* ---- CONTENT SECTIONS (float over atmosphere) ---- */
@@ -373,17 +399,19 @@ header.header-visible {
   margin: 0 auto;
 }
 
-/* Glass bubble panels on white background */
+/* Glass section panels on the white field — same material as .glass */
 .scene.glass-panel {
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.8);
   border-radius: 24px;
   box-shadow:
-    0 2px 0 rgba(255,255,255,0.95) inset,
-    0 8px 40px rgba(180,205,230,0.12),
-    0 1px 0 rgba(200,220,240,0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    0 1px 2px rgba(28,45,80,0.04),
+    0 12px 32px rgba(28,45,80,0.06),
+    0 36px 90px rgba(52,84,138,0.09),
+    inset 0 1.5px 0 rgba(255,255,255,0.98),
+    inset 0 -1px 0 rgba(168,192,222,0.35);
+  backdrop-filter: blur(18px) saturate(1.8);
+  -webkit-backdrop-filter: blur(18px) saturate(1.8);
   margin: 0 auto 32px;
   padding: var(--section-gap) 40px;
   max-width: var(--max-w);
@@ -435,8 +463,13 @@ header.header-visible {
 }
 
 .evidence-block:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 48px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.65), inset 0 -1px 0 rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 3px rgba(28,45,80,0.05),
+    0 18px 44px rgba(28,45,80,0.10),
+    0 48px 110px rgba(52,84,138,0.13),
+    inset 0 1.5px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(168,192,222,0.45);
 }
 
 /* Left accent bars removed — user feedback */
@@ -512,7 +545,7 @@ header.header-visible {
 footer {
   position: relative; z-index: 2;
   padding: 36px 24px 28px; text-align: center;
-  background: rgba(220,232,245,0.1);
+  background: rgba(255,255,255,0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(91,159,212,0.1);
@@ -649,8 +682,12 @@ footer p, footer .footer-copy {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 48px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.65);
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 3px rgba(28,45,80,0.05),
+    0 18px 44px rgba(28,45,80,0.10),
+    0 48px 110px rgba(52,84,138,0.13),
+    inset 0 1.5px 0 rgba(255,255,255,1);
   background: var(--glass-hover);
 }
 .project-card .card-logo { height: 40px; width: auto; max-width: 160px; object-fit: contain; border-radius: 0; }

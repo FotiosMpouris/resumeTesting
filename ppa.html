@@ -4,13 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Poor People App — Fotios Mpouris</title>
+  <meta name="description" content="The Poor People App: AI agents and decentralized coordination for community care. OpenCare is the live proof — free care coordination for families." />
   <link rel="canonical" href="https://fotiosmpouris.com/ppa.html" />
+  <meta property="og:title" content="The Poor People App — Fotios Mpouris" />
+  <meta property="og:description" content="AI agents for care, recovery, and community — running now. OpenCare is live and free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fotiosmpouris.com/ppa.html" />
+  <meta property="og:image" content="https://fotiosmpouris.com/images/opencarelogo.png" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="page-with-standard-header dark-mode">  
+<body>
+  <canvas id="atmosphere"></canvas>
+  <div class="scroll-progress"></div>
+
   <header>
     <div class="logo-group">
       <span class="logo-text">Fotios Mpouris</span>
@@ -22,11 +28,11 @@
       <a href="opencare.html" class="active">OpenCare</a>
     </nav>
     <div class="header-buttons">
-      <a href="index.html#lets-talk" id="contribute-btn">Let's Talk</a>
+      <a href="index.html#the-door" id="contribute-btn">Reach Out</a>
     </div>
-    <div class="hamburger"><div></div><div></div><div></div></div>
+    <button class="hamburger" aria-label="Open navigation menu"><div></div><div></div><div></div></button>
   </header>
-  <!-- Mobile nav overlay — body-level so position:fixed is never clipped by header's transform -->
+
   <div id="mobile-nav-overlay" class="mobile-nav-overlay">
     <a href="index.html">Home</a>
     <a href="the-work.html">The Work</a>
@@ -34,204 +40,91 @@
     <a href="opencare.html">OpenCare</a>
   </div>
 
-  <div class="build-banner"></div>
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-video">
+      <video autoplay loop muted playsinline><source src="videos/background.mp4" type="video/mp4"></video>
+      <div class="overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["The Poor People App.","Infrastructure for the rest of us.","The agents are real now."]'>The Poor People App.</h1>
+      <p class="hero-subtitle">AI agents and decentralized coordination for community care.</p>
+    </div>
+  </div>
 
   <main>
-    
- <!-- TOP SECTION: PPA Description with video background -->
-<section class="glass-panel high-contrast-text fade-in pythos-first-section">
-  <video src="videos/background.mp4" autoplay muted loop playsinline class="mission-bg1" loading="lazy"></video>
-  <div class="video-overlay"></div>
-  
-  <div class="ppa-content">    
-    <h1 id="hero-typewriter" data-rotate='["The Poor People App.","Infrastructure for the rest of us.","OpenCare is live."]'>The Poor People App.</h1>
-    
-    <h3>The Problem</h3>
-    <p>
-      The safety net runs on outdated software. <strong>65%</strong> of middle-class Americans are struggling. <strong>47%</strong> of U.S. households can't comfortably afford the basics. Administrative overhead eats <strong>15–25%</strong> of healthcare spending — close to <strong>$1 trillion a year</strong>. Disability decisions average <strong>220+ days</strong>. The wealthy have IRS codes, attorneys, and private networks. <strong>PPA gives everyone else equivalent leverage — powered by AI and decentralized coordination.</strong>
-    </p>
 
-    <h3>The Model — Uber for Human Services</h3>
+  <!-- THE PROBLEM -->
+  <div class="page-section">
+    <h2>The Problem</h2>
     <p>
-      PPA connects people who need help with people who can provide it — cutting bureaucratic overhead out entirely. Families ↔ vetted caregivers. Seniors ↔ companions. Students ↔ tutors. Anyone buried in paperwork ↔ navigators (SSA, Medicare, tax prep). No income verification. No waiting lists. No humiliation. Reputation-based matching where the best providers surface organically.
+      The safety net runs on outdated software. <strong>65%</strong> of middle-class Americans are struggling. <strong>47%</strong> of U.S. households can't comfortably afford the basics. Administrative overhead eats <strong>15&ndash;25%</strong> of healthcare spending &mdash; close to <strong>$1 trillion a year</strong>. Disability decisions average <strong>220+ days</strong>. The wealthy have IRS codes, attorneys, and private networks. <strong>PPA gives everyone else equivalent leverage &mdash; powered by AI and decentralized coordination.</strong>
     </p>
+  </div>
 
-    <h3>The Agents Are Real Now</h3>
+  <!-- THE AGENTS ARE REAL NOW -->
+  <div class="page-section">
+    <h2>The Agents Are Real Now</h2>
     <p>The white paper described an AI workforce. Here's what's actually running.</p>
     <p>
-      <strong>OpenCare</strong> — live care coordination at <a href="https://opencare.poorpeople.app" target="_blank" class="inline-link">opencare.poorpeople.app</a>. Circles, tasks, contacts, digests, ID verification. Built because coordinating my own parents' care across siblings, doctors, and insurance offices needed it to exist. Free, bilingual, installable on a phone.
+      <strong>OpenCare</strong> &mdash; live care coordination at <a href="https://opencare.poorpeople.app" target="_blank">opencare.poorpeople.app</a>. Circles, tasks, contacts, digests, ID verification. Built because coordinating my own parents' care across siblings, doctors, and insurance offices needed it to exist. Free, bilingual, installable on a phone.
     </p>
     <p>
-      <strong>Recover E</strong> — an AI recovery companion living inside OpenCare's recovery circles. Its own memory, its own personality, tools that read and write real recovery data. Voice is next: real-time conversation, not chatbot menus.
+      <strong>Recover E</strong> &mdash; an AI recovery companion living inside OpenCare's recovery circles. Its own memory, its own personality, tools that read and write real recovery data. Voice is next: real-time conversation, not chatbot menus.
     </p>
     <p>
-      <strong>Demos</strong> — the platform agent now in build, named for δῆμος: the people. One agent, many skills — care coordination, recovery support, and community funding intelligence that reads federal spending data and finds grants a neighborhood could actually apply for.
+      <strong>Demos</strong> &mdash; the platform agent now in build, named for &delta;&#8134;&mu;&omicron;&sigmaf;: the people. One agent, many skills &mdash; care coordination, recovery support, and community funding intelligence that reads federal spending data and finds grants a neighborhood could actually apply for.
     </p>
     <p>
-      Three agents, one boundary: they serve users, never surveil them. Recovery data never leaves its vault, crisis resources never depend on an AI's judgment, and the whole thing runs on infrastructure a family could afford — because it has to.
-    </p>
-
-    <h3>What's Next</h3>
-    <p>
-      The build plan is public inside the repo and it's sequenced, not dreamed: voice for Recover E, Demos managing real circles, a contribution ledger where verified help earns access — never speculation — and a Sentinel program where retired military, EMTs, and first responders review the people entering vulnerable homes. Care coordination first. Marketplace when the trust layer has earned it.
-    </p>
-
-    <h3>Decentralized by Design</h3>
-    <p>
-      PPA must be able to fail while the community survives. Identities, reputation, and connections live on <strong>Nostr</strong> — a protocol, not a platform. Lightning handles micro-payments. If the company dissolves, the network keeps running.
-    </p>
-
-    <p class="campaign-notice" style="margin-top:1.5rem;">
-      Full vision, agent layers, and the Sentinel Program live at <a href="https://poorpeople.app" target="_blank" class="inline-link">poorpeople.app</a>
+      Three agents, one boundary: they serve users, never surveil them. Recovery data never leaves its vault, crisis resources never depend on an AI's judgment, and the whole thing runs on infrastructure a family could afford &mdash; because it has to.
     </p>
   </div>
-</section>
 
-<!-- OPENCARE: THE LIVE MVP -->
-<section class="glass-panel pythos-content fade-in" style="border-left:4px solid var(--dark-accent-primary);">
-  <img src="images/opencarelogo.png" alt="OpenCare" loading="lazy" style="max-width:72px; margin:0 auto 14px; display:block; border-radius:16px;" />
-  <h2 style="color:var(--dark-accent-primary);">OpenCare — The Live MVP</h2>
-  <p>
-    OpenCare is a care coordination platform built to solve a problem millions of caregivers face: <strong>coordinating
-    care across people who don't use the same tools, don't live in the same place, and don't always communicate well.</strong>
-    A caregiver creates a <strong>Care Circle</strong> — a shared workspace for everyone involved — then assigns tasks
-    (medical, insurance, household, financial, legal, transportation), sets recurring schedules, and keeps everyone
-    informed through automated email summaries and Telegram digests.
-  </p>
-  <p>
-    The platform features <strong>government ID verification through Persona</strong> (the same tech banks use), a
-    <strong>REST API</strong> that AI agents like Ethos use to manage care tasks via natural language, daily
-    Telegram and email digests, and a <strong>progressive web app</strong> installable from any browser. Built on
-    Next.js, TypeScript, Supabase, Clerk, and Docker — deployed on AWS with SSL and production-hardened security.
-  </p>
-  <p>
-    <strong>This is what the Poor People App architecture looks like in practice — shipped, working, free, helping
-    people right now.</strong> It's also the foundation for the next layer: a Nostr-based community where helpers
-    discover caregivers who need them. Decentralized, censorship-resistant, identity-portable.
-  </p>
-  <p>
-    <strong>Tech:</strong> Next.js 14 · TypeScript · Tailwind CSS · Clerk Auth · Supabase (PostgreSQL with RLS) ·
-    Persona (identity verification) · Resend (email) · Telegram Bot API · Custom REST API · AWS EC2 · Docker · Nginx
-  </p>
-  <p style="text-align:center; margin-top:1.5rem;">
-    <a href="https://opencare.poorpeople.app" target="_blank" class="cta-btn">Try OpenCare</a>
-    &nbsp;
-    <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="cta-btn" style="background:transparent; border:1px solid var(--dark-accent-primary); color:var(--dark-accent-primary);">Read the White Paper</a>
-  </p>
-</section>
+  <!-- WHAT'S NEXT -->
+  <div class="page-section">
+    <h2>What's Next</h2>
+    <p>
+      The build plan is public inside the repo and it's sequenced, not dreamed: voice for Recover E, Demos managing real circles, a contribution ledger where verified help earns access &mdash; never speculation &mdash; and a Sentinel program where retired military, EMTs, and first responders review the people entering vulnerable homes. Care coordination first. Marketplace when the trust layer has earned it.
+    </p>
+  </div>
 
-<!-- JOIN BANNER -->
-<div id="volunteerSection" class="volunteer-banner fade-in">
-  <h2>JOIN PPA NOW</h2>
-</div>
+  <!-- DECENTRALIZED BY DESIGN -->
+  <div class="page-section">
+    <h2>Decentralized by Design</h2>
+    <p>
+      PPA must be able to fail while the community survives. Identities, reputation, and connections live on <strong>Nostr</strong> &mdash; a protocol, not a platform. Lightning handles micro-payments. If the company dissolves, the network keeps running.
+    </p>
+    <p>
+      Banks freeze accounts. Processors deplatform organizations. Bitcoin is permissionless &mdash; no one can stop you from holding it, sending it, or building on it. We are investigating Bitcoin as a treasury reserve &mdash; carefully, with counsel, and after the product earns it &mdash; alongside various other forms of assets, both digital and hard. <strong>It's about building something that can't be shut down when we become inconvenient.</strong>
+    </p>
+  </div>
 
-<!-- PPA SIGNUP FORM SECTION -->
-<section class="video-background-section fade-in">
-  <video src="videos/ppaform.mp4" autoplay muted loop playsinline class="mission-bg"></video>
-  <form id="ppa-signup-form" class="ppa-form-container glass-panel">
-  <h2>Join the Network</h2>
-  <p>Be a founding node. Let's build this together.</p>
-  
-  <div class="form-field">
-    <label for="firstName">First Name</label>
-    <input type="text" id="firstName" name="firstName" required>
-  </div>
-  
-  <div class="form-field">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required>
-  </div>
-  
-  <div class="form-field">
-    <label for="zipCode">5-Digit Zip Code</label>
-    <input type="text" id="zipCode" name="zipCode" pattern="\d{5}" required>
-  </div>
-  
-  <div class="form-field">
-    <label>I am interested in...</label>
-    <div class="checkbox-option">
-      <input type="checkbox" id="isUser" name="isUser" checked>
-      <label for="isUser">Being a future user</label>
-    </div>
-    <div class="checkbox-option">
-      <input type="checkbox" id="isPartner" name="isPartner">
-      <label for="isPartner">Partnering as an organization</label>
-    </div>
-    <div class="checkbox-option">
-      <input type="checkbox" id="isVolunteer" name="isVolunteer">
-      <label for="isVolunteer">Volunteering my time/skills</label>
+  <!-- CTA -->
+  <div class="page-section" style="text-align:center;">
+    <h2>See It Running</h2>
+    <p style="max-width: 560px; margin: 0 auto 8px;">OpenCare is the live proof &mdash; free care coordination for families, in production today. The full brief, the Sentinel Program, and the partner form live on the OpenCare page.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="https://opencare.poorpeople.app" target="_blank" class="btn btn-primary">Try OpenCare</a>
+      <a href="opencare.html" class="btn btn-outline">Read the Full Brief</a>
+      <a href="https://poorpeople.app" target="_blank" class="btn btn-outline">poorpeople.app</a>
     </div>
   </div>
 
-  <div class="form-field">
-    <label for="howHeard">How did you hear about us?</label>
-    <select id="howHeard" name="howHeard" required>
-      <option value="" disabled selected>Select an option</option>
-      <option value="X (Twitter)">X (Twitter)</option>
-      <option value="Nostr">Nostr</option>
-      <option value="Friend or Colleague">Friend or Colleague</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-  <div class="terms-group">
-    <input type="checkbox" id="terms" name="terms" required>
-    <label for="terms">I agree to the <a href="https://poorpeople.app/privacy" target="_blank">Privacy Policy</a> & <a href="https://poorpeople.app/terms" target="_blank">Terms of Service</a>.</label>
-  </div>
-  
-  <p id="form-status-message" class="form-status"></p>
-  <button type="submit" id="submit-button">Secure My Spot</button>
-</form>
-</section>
-
-<!-- WHY BITCOIN BANNER -->
-<div id="contributeSection" class="contribute-banner fade-in">
-  
-</div>
-
-
-   
-  <section class="glass-panel high-contrast-text fade-in pythos-first-section">
-  <video src="videos/bitcoinBackground.mp4" autoplay muted loop playsinline class="mission-bg1" loading="lazy"></video>
-  
-  <!-- Add dark overlay for text readability -->
-  <div class="video-overlay"></div>
-  
-  <div class="ppa-content">
-    <h2>WHY BITCOIN</h2>
-    <p>
-      Banks freeze accounts. Processors deplatform organizations. Bitcoin is permissionless — no one can stop you from holding it, sending it, or building on it. For a platform serving people the system already ignores, that matters.
-    </p>
-    <p>
-      We are investigating Bitcoin as a treasury reserve — carefully, with counsel, and after the product earns it. We will also be integrating various other forms of assets, both digital and hard. This isn't about getting rich. <strong>It's about building something that can't be shut down when we become inconvenient.</strong>
-    </p>
-    <p class="campaign-notice">
-      Software-development funding via GiveSendGo. Not an investment opportunity. Not a token presale. <strong>Campaign launching soon.</strong>
-    </p>
-  </div>
-  
-  <div class="donation-logos">
-    <a href="https://www.givesendgo.com/" target="_blank">
-      <img src="images/givesend-logo.png" alt="GiveSendGo" loading="lazy" />
-    </a>
-  </div>
-</section>
+  </main>
 
   <footer>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="the-stack.html">The Stack</a>
-      <a href="#contributeSection">Why Bitcoin</a>
+
+    <div class="social-row">
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
+      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
+      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" /></a>
     </div>
-    <div class="footer-logos">
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" loading="lazy" /></a>
-      <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" loading="lazy" /></a>
-      <a href="https://github.com/FotiosMpouris" target="_blank"><img src="images/githublogo.png" alt="GitHub" loading="lazy" /></a>
-    </div>
-    <div id="footer-status" class="footer-status" aria-hidden="true">&gt; sys.online</div>
-    <p>© 2026 Fotios Mpouris. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Fotios Mpouris</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="atmosphere.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

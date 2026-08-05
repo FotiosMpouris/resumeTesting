@@ -68,25 +68,83 @@
   }
 
   if (hamburger && mobileOverlay) {
+    function setNavOpen(isOpen) {
+      mobileOverlay.classList.toggle('open', isOpen);
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    hamburger.setAttribute('aria-expanded', 'false');
     hamburger.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = mobileOverlay.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
+      setNavOpen(!mobileOverlay.classList.contains('open'));
       if (header) header.classList.add('header-visible');
     });
     mobileOverlay.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        mobileOverlay.classList.remove('open');
-        hamburger.classList.remove('open');
-      }
+      if (e.target.tagName === 'A') setNavOpen(false);
     });
     document.addEventListener('click', function (e) {
       if (mobileOverlay.classList.contains('open') &&
           !mobileOverlay.contains(e.target) &&
           !hamburger.contains(e.target)) {
-        mobileOverlay.classList.remove('open');
-        hamburger.classList.remove('open');
+        setNavOpen(false);
       }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('open')) {
+        setNavOpen(false);
+      }
+    });
+  }
+
+  /* ---- PPA SIGNUP FORM ---- */
+  /* Posts to the PPA signup API; redirects to the share page on success. */
+
+  var ppaForm = document.getElementById('ppa-signup-form');
+  if (ppaForm) {
+    var submitBtn = ppaForm.querySelector('button[type="submit"]');
+    var statusMsg = document.getElementById('form-status-message');
+    if (!statusMsg) {
+      statusMsg = document.createElement('p');
+      statusMsg.id = 'form-status-message';
+      statusMsg.style.cssText = 'margin-top:12px; font-size:0.85rem;';
+      ppaForm.appendChild(statusMsg);
+    }
+
+    ppaForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting\u2026'; }
+      statusMsg.textContent = '';
+
+      var formData = new FormData(ppaForm);
+      var data = {
+        firstName: formData.get('firstName'),
+        email: formData.get('email'),
+        zipCode: formData.get('zipCode'),
+        involvement: {
+          isUser: formData.has('isUser'),
+          isPartner: formData.has('isPartner'),
+          isVolunteer: formData.has('isVolunteer')
+        },
+        howHeard: formData.get('howHeard')
+      };
+
+      fetch('https://e9d086nusl.execute-api.us-east-2.amazonaws.com/prod/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          return response.json().then(function (err) {
+            throw new Error(err.message || 'An API error occurred.');
+          });
+        }
+        window.location.href = 'https://poorpeople.app/share';
+      }).catch(function (error) {
+        statusMsg.textContent = 'Error: ' + error.message;
+        statusMsg.style.color = '#B00020';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      });
     });
   }
 
@@ -182,6 +240,49 @@
       }
 
       runSet();
+    }
+  }
+
+  /* ---- ROTATING TYPEWRITER (subpage heroes, data-rotate) ---- */
+  /* Simpler than the cinematic sequence: type, hold, delete, next. */
+
+  var rotateEl = document.querySelector('[data-rotate]');
+  if (rotateEl && !rotateEl.hasAttribute('data-cinematic')) {
+    var rPhrases;
+    try { rPhrases = JSON.parse(rotateEl.getAttribute('data-rotate')); } catch (e) { rPhrases = []; }
+
+    if (rPhrases.length > 0) {
+      var rIdx = 0, rChar = rPhrases[0].length, rDeleting = false;
+      var rCaret = document.createElement('span');
+      rCaret.className = 'caret';
+      rotateEl.textContent = rPhrases[0];
+      rotateEl.appendChild(rCaret);
+
+      function rotateTick() {
+        var phrase = rPhrases[rIdx];
+        var delay;
+
+        if (rDeleting) {
+          rChar--;
+          delay = 28;
+          if (rChar <= 0) { rDeleting = false; rIdx = (rIdx + 1) % rPhrases.length; delay = 500; }
+        } else {
+          rChar++;
+          delay = 60 + Math.random() * 30;
+          if (rChar >= phrase.length) { rDeleting = true; delay = 4500; rChar = phrase.length; }
+        }
+
+        var shown = (rDeleting || rChar < phrase.length) ? phrase.substring(0, rChar) : phrase;
+        var node = rotateEl.firstChild;
+        if (node && node.nodeType === 3) {
+          node.textContent = shown;
+        } else {
+          rotateEl.insertBefore(document.createTextNode(shown), rCaret);
+        }
+        setTimeout(rotateTick, delay);
+      }
+
+      setTimeout(rotateTick, 4500);
     }
   }
 
