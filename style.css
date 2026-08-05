@@ -110,7 +110,8 @@ a:hover { color: var(--accent-sky); }
    The backdrop-filter's high saturate() amplifies the canvas's
    faint iridescent washes passing behind the panel. */
 
-.glass {
+.glass,
+.glass-section {
   /* Cool-tinted glass, cooler toward the bottom — gives the pure-white
      specular something to read against, and separates slab from field */
   background: linear-gradient(
@@ -143,7 +144,8 @@ a:hover { color: var(--accent-sky); }
 }
 
 /* Curved specular reflection — light catching the top of the slab */
-.glass::before {
+.glass::before,
+.glass-section::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -171,7 +173,8 @@ a:hover { color: var(--accent-sky); }
 }
 
 /* Iridescent refraction — the soap-film corner */
-.glass::after {
+.glass::after,
+.glass-section::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -187,10 +190,10 @@ a:hover { color: var(--accent-sky); }
   z-index: 0;
 }
 
-.glass > * { position: relative; z-index: 1; }
+.glass > *, .glass-section > * { position: relative; z-index: 1; }
 
 @supports not (backdrop-filter: blur(10px)) {
-  .glass { background: rgba(255,255,255,0.94); }
+  .glass, .glass-section { background: rgba(255,255,255,0.94); }
 }
 
 /* ---- TYPOGRAPHY ---- */
@@ -691,6 +694,15 @@ footer p, footer .footer-copy {
   max-width: var(--max-w); margin: 0 auto;
 }
 
+/* Glass slab sizing for prose sections (material defined with .glass above).
+   Placed after .page-section so it wins when both classes are present. */
+.glass-section {
+  padding: 56px 48px;
+  margin: 44px auto;
+  max-width: var(--max-w);
+  border-radius: 24px;
+}
+
 .section-label {
   font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary);
@@ -829,6 +841,7 @@ footer p, footer .footer-copy {
   .hero-positioning { font-size: 1rem; }
 
   .evidence-block { padding: 28px 24px; }
+  .glass-section { padding: 34px 22px; margin: 28px auto; border-radius: 18px; }
   .method-grid { grid-template-columns: 1fr; gap: 28px; }
   .method-panel { padding: 32px 24px; }
   .card-grid { grid-template-columns: 1fr; }
