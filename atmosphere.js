@@ -3,8 +3,7 @@
    A transparent canvas riding ABOVE the persistent sky video
    (video z-index 0, canvas z-index 1, content z-index 2+).
    It adds what raw video can't: dust motes suspended in light,
-   wide additive light sheets pouring from above, and two
-   ultra-faint iridescent washes that the glass panels'
+   and two ultra-faint iridescent washes that the glass panels'
    backdrop-filter picks up and bends.
    The video is the environment. This layer is the life in it.
    ============================================================ */
@@ -124,58 +123,6 @@
     motes.push(new Mote());
   }
 
-  /* ---- LIGHT SHEETS ---- */
-  /* Wide, slow sheets of light pouring from above — additive,
-     so they read as sun breaking through, moving independently
-     of the video's own clouds. */
-
-  var SHEET_ANGLES = [-0.42, 0, 0.42];
-
-  function Sheet(index) {
-    this.angle = SHEET_ANGLES[index];
-    this.width = 0.2 + Math.random() * 0.15;
-    this.opacity = 0.05 + Math.random() * 0.035;
-    this.speed = 0.00004 + Math.random() * 0.00008;
-    this.phase = Math.random() * Math.PI * 2;
-  }
-
-  Sheet.prototype.draw = function (ctx, W, H) {
-    var pulse = Math.sin(frame * this.speed * 8 + this.phase) * 0.5 + 0.5;
-    var alpha = this.opacity * (0.4 + pulse * 0.6);
-
-    var cx = W * 0.5;
-    var cy = -H * 0.08;
-    var len = Math.sqrt(W * W + H * H) * 1.3;
-    var a = this.angle + Math.sin(frame * 0.0003 + this.phase) * 0.04;
-    var hw = this.width * W * 0.5;
-
-    var dirX = Math.sin(a);
-    var dirY = Math.cos(a);
-    var endX = cx + dirX * len;
-    var endY = cy + dirY * len;
-    var perpX = -dirY * hw;
-    var perpY = dirX * hw;
-
-    var grad = ctx.createLinearGradient(cx, cy, endX, endY);
-    grad.addColorStop(0, 'rgba(255, 255, 255, ' + alpha + ')');
-    grad.addColorStop(0.5, 'rgba(255, 255, 255, ' + (alpha * 0.4) + ')');
-    grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.moveTo(cx - perpX * 0.25, cy - perpY * 0.25);
-    ctx.lineTo(endX - perpX, endY - perpY);
-    ctx.lineTo(endX + perpX, endY + perpY);
-    ctx.lineTo(cx + perpX * 0.25, cy + perpY * 0.25);
-    ctx.closePath();
-    ctx.fill();
-  };
-
-  var sheets = [];
-  for (var s = 0; s < SHEET_ANGLES.length; s++) {
-    sheets.push(new Sheet(s));
-  }
-
   /* ---- WARMTH (scroll-driven, set by script.js) ---- */
 
   function drawWarmth() {
@@ -201,13 +148,6 @@
     for (var w = 0; w < washes.length; w++) {
       washes[w].draw(ctx, W, H);
     }
-
-    ctx.save();
-    ctx.globalCompositeOperation = 'lighter';
-    for (var i = 0; i < sheets.length; i++) {
-      sheets[i].draw(ctx, W, H);
-    }
-    ctx.restore();
 
     for (var j = 0; j < motes.length; j++) {
       motes[j].update();

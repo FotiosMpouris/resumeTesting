@@ -3,7 +3,7 @@
    The Canvas IS the background. Everything floats in light.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   --glass: rgba(255,255,255,0.68);
@@ -26,7 +26,7 @@
   --radius: 20px;
   --radius-sm: 12px;
 
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Unbounded', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -217,15 +217,15 @@ a:hover { color: var(--accent-sky); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
-h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); margin-bottom: 24px; }
-h3 { font-size: clamp(1.1rem, 2.2vw, 1.4rem); }
+h1 { font-size: clamp(1.8rem, 4.5vw, 2.9rem); }
+h2 { font-size: clamp(1.35rem, 2.9vw, 1.9rem); margin-bottom: 24px; }
+h3 { font-size: clamp(1rem, 2vw, 1.25rem); }
 
 p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
 
@@ -406,6 +406,81 @@ header.header-visible {
 .stack-hero .hero-positioning {
   color: #1a5fa8;
   text-shadow: 0 1px 6px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.5);
+}
+
+/* ---- BUILD RAIL ---- */
+/* Live status chips in the hero — proof of motion, and the first
+   clickable invitation on the page. Fades in after the opening
+   text sequence has had its moment. */
+
+.build-rail {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 48px;
+  max-width: 640px;
+  opacity: 0;
+  animation: railIn 1.4s ease 3.2s forwards;
+}
+
+@keyframes railIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.build-rail-label {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1a5fa8;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+
+.build-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(14px) saturate(1.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 2px 10px rgba(58,86,130,0.10), inset 0 1px 0 rgba(255,255,255,0.8);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.build-chip:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 8px 24px rgba(58,86,130,0.16), 0 0 24px rgba(91,159,212,0.25), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2fb56a;
+  animation: chipPulse 2.4s ease-out infinite;
+}
+
+@keyframes chipPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(47,181,106,0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(47,181,106,0); }
+  100% { box-shadow: 0 0 0 0 rgba(47,181,106,0); }
 }
 
 /* Scroll cue — a thin falling line of light, bottom center of the hero */
@@ -852,10 +927,12 @@ footer p, footer .footer-copy {
     min-height: 100svh;
   }
   .hero-atmosphere h1 {
-    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-size: clamp(1.65rem, 7.5vw, 2.3rem);
     min-height: 2.8em;
   }
   .hero-positioning { font-size: 1rem; }
+  .build-rail { margin-top: 36px; gap: 8px; }
+  .build-chip { padding: 8px 14px; font-size: 0.7rem; }
 
   .evidence-block { padding: 28px 24px; }
   .glass-section { padding: 34px 22px; margin: 28px auto; border-radius: 18px; }
