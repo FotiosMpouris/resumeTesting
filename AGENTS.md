@@ -52,6 +52,15 @@ No build step. No framework. Pure HTML/CSS/JS.
 body background: #ffffff
 ```
 
+**Site structure (Aug 2026 consolidation):** four canonical pages — index (90-second
+trailer: hero + build rail, quote + origin timeline, Who This Is For, How I Got Here, door),
+the-work (ALL deep project write-ups live here — the four evidence blocks moved from index),
+the-stack, and opencare (the single canonical PPA/OpenCare brief; ppa.html is now just a
+meta-refresh redirect to it). Do not duplicate project descriptions across pages. The
+opencare brief includes material sourced from github.com/FotiosMpouris/poor-people-app-overview:
+bounded requests, Trust Ladder L0–L3, Hub Representatives, hybrid Nostr/AWS architecture,
+pilot model with 60-day metrics, and PPC utility-token framing (R&D phase, no tokens sold).
+
 **Background system (Aug 2026, "the sky never leaves"):** every page has a persistent
 fixed `.sky-video-wrap` video (z-index 0) that runs through the entire scroll — it never
 fades. `#atmosphere` canvas (z-index 1) rides above it: dust motes, light sheets,

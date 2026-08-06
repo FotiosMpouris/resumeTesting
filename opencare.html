@@ -52,7 +52,7 @@
       <div class="overlay"></div>
     </div>
     <div class="page-hero-content">
-      <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["The Poor People App.","Infrastructure for the rest of us.","OpenCare is live."]'>The Poor People App.</h1>
+      <h1 id="hero-typewriter" class="hero-typewriter" data-rotate='["The Poor People App.","Infrastructure for the rest of us.","The agents are real now.","OpenCare is live."]'>The Poor People App.</h1>
       <p class="hero-subtitle">The Mobilization America Needs.</p>
     </div>
   </div>
@@ -82,6 +82,30 @@
     <p>
       No waiting lists. No humiliation. Visual profiles and reputation-based matching where the best providers surface organically. Security keeps humans in the loop at every critical junction &mdash; because trust is the foundation, not a feature. We are going to use the knowledge we have as humans to build technology that helps us navigate our current digital evolution together.
     </p>
+    <p>
+      The mechanism underneath is the <strong>bounded request</strong>. Traditional volunteering fails because it&rsquo;s vague &mdash; &ldquo;can you help sometime next week?&rdquo; &mdash; with no structure and no verification that anything happened. PPA replaces that with structured service packages: someone posts a specific task with a timeframe and a defined outcome, a verified helper commits with equal clarity, both sides see trust signals before anyone commits, and private coordination happens only after public matching. Clear expectations before commitment. Progress you can follow. Completion both parties confirm.
+    </p>
+  </div>
+
+  <!-- THE AGENTS ARE REAL NOW -->
+  <div class="page-section glass-section">
+    <h2>The Agents Are Real Now</h2>
+    <p>The white paper described an AI workforce. Here's what's actually running.</p>
+    <p>
+      <strong>OpenCare</strong> &mdash; live care coordination at <a href="https://opencare.poorpeople.app" target="_blank">opencare.poorpeople.app</a>. Circles, tasks, contacts, digests, ID verification. Built because coordinating my own parents' care across siblings, doctors, and insurance offices needed it to exist. Free, bilingual, installable on a phone.
+    </p>
+    <p>
+      <strong>Recover E</strong> &mdash; an AI recovery companion living inside OpenCare's recovery circles. Its own memory, its own personality, tools that read and write real recovery data. Voice is next: real-time conversation, not chatbot menus.
+    </p>
+    <p>
+      <strong>Demos</strong> &mdash; the platform agent now in build, named for &delta;&#8134;&mu;&omicron;&sigmaf;: the people. One agent, many skills &mdash; care coordination, recovery support, and community funding intelligence that reads federal spending data and finds grants a neighborhood could actually apply for.
+    </p>
+    <p>
+      <strong>The Mobilization Agent</strong> &mdash; already open source. A local-first content engine that runs on your own machine with your own keys, trains on your documents, and broadcasts to Nostr with a consistent voice. Built for PPA&rsquo;s communication strategy, released for anyone organizing anything. <a href="https://github.com/FotiosMpouris/ppa-mobilization-agent-lite" target="_blank">github.com/FotiosMpouris/ppa-mobilization-agent-lite</a>
+    </p>
+    <p>
+      Four agents, one boundary: they serve users, never surveil them. Recovery data never leaves its vault, crisis resources never depend on an AI's judgment, and the whole thing runs on infrastructure a family could afford &mdash; because it has to.
+    </p>
   </div>
 
   <!-- AI AGENT ARCHITECTURE -->
@@ -108,7 +132,13 @@
       PPA must be able to fail while the community survives. Identities, reputation, and connections live on <strong>Nostr</strong> &mdash; a protocol, not a platform, which means no single company can own or shut down the network. Lightning handles micro-payments. If the company dissolves, the network keeps running.
     </p>
     <p>
+      The architecture is deliberately hybrid: <strong>decentralized where it matters, centralized where it helps.</strong> Identity lives in Nostr keys the user can carry to any app. Requests and offers publish to a relay network that can&rsquo;t be censored, including our own self-hosted relay. Trust badges are verification events written to the protocol itself &mdash; portable, permanent, provable. Meanwhile the parts that just need to be fast and clean &mdash; search, filtering, Sentinel workflows, spam prevention &mdash; run on conventional cloud infrastructure. The result feels like a normal app but runs on rails no one can shut down.
+    </p>
+    <p>
       This isn&rsquo;t just philosophy &mdash; it&rsquo;s engineering for resilience. As AI systems grow more powerful and bad actors gain access to AGI-level tools, centralized platforms become single points of failure. A distributed network with no master database to breach, no central authority to compromise, and no single infrastructure dependency to attack is not a feature &mdash; it&rsquo;s a survival requirement. We&rsquo;re building for the world that&rsquo;s coming, not the one that existed when most platforms were architected.
+    </p>
+    <p style="font-size: 0.8rem; color: var(--accent-sky); font-family: var(--font-mono); letter-spacing: 0.02em; margin-top: 4px;">
+      Next.js 15 &middot; NDK &middot; Self-hosted strfry relay &middot; AWS Lambda &middot; DynamoDB &middot; NIP-07 login &middot; NIP-99 listings &middot; NIP-17 encrypted DMs &middot; NIP-58 trust badges
     </p>
   </div>
 
@@ -124,8 +154,45 @@
     <p>
       The same architecture that serves a military family in need of eldercare coordination can serve a VA outreach program, a nonprofit serving veterans&rsquo; families, or any institutional partner working across the care ecosystem. The infrastructure doesn&rsquo;t need to be rebuilt for each context &mdash; it adapts. That&rsquo;s the harness at work.
     </p>
+    <p>
+      Trust isn&rsquo;t binary &mdash; it&rsquo;s earned in steps. Every user climbs a ladder, and the app enforces it:
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>L0 &mdash; New User</h3>
+        <p>Browse the feed, post low-risk requests. No access to services involving homes or vulnerable people.</p>
+      </div>
+      <div class="feature-item">
+        <h3>L1 &mdash; Community Connected</h3>
+        <p>Vouched for through the web of trust. Can offer public-meeting services &mdash; tech help at the library, tutoring at the community center.</p>
+      </div>
+      <div class="feature-item">
+        <h3>L2 &mdash; Hub Verified</h3>
+        <p>In-person ID check at a local hub. No documents stored &mdash; just a verification event on the protocol. Broader service categories unlock.</p>
+      </div>
+      <div class="feature-item">
+        <h3>L3 &mdash; Sentinel Verified</h3>
+        <p>Enhanced vetting by Sentinels for the highest-trust work: in-home care, vulnerable populations. A badge portable across the entire Nostr ecosystem.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px;">
+      Sentinels anchor the top of the ladder &mdash; but the day-to-day heartbeat is the <strong>Hub Representatives</strong>: the teachers, church leaders, and neighborhood organizers who already coordinate their communities through messy group texts and Facebook threads. PPA gives them real tools &mdash; a dashboard for their geographic area, campaigns for local needs, and a direct line to their Sentinels. They solve the cold-start problem no social platform can solve alone, because they bring their communities with them.
+    </p>
     <p style="margin-top:16px;">
       Full vision, agent layers, and the Sentinel Program live at <a href="https://poorpeople.app" target="_blank">poorpeople.app</a>
+    </p>
+  </div>
+
+  <!-- THE PILOT MODEL -->
+  <div class="page-section glass-section">
+    <h2>How It Launches &mdash; The Pilot Model</h2>
+    <p>
+      This doesn&rsquo;t launch as a press release. It launches as a pilot: two or three ZIP codes, one hub partner &mdash; a senior center, a library, a church &mdash; a handful of named Sentinels, and weekly verification clinics where neighbors get badged in person. One bounded service package, defined tightly enough that nothing is vague.
+    </p>
+    <p>
+      Success is defined before day one, measured at day sixty: verified users, completed matches, median match time under 48 hours, and <strong>zero safety incidents</strong> &mdash; the metric that matters more than all the others combined. When one town works, the playbook copies to the next. We&rsquo;re building the rails, not just one train &mdash; the same trust network that coordinates elder check-ins in the pilot can carry any local coordination the community needs after it.
     </p>
   </div>
 
@@ -165,6 +232,14 @@
       <a href="https://opencare.poorpeople.app" target="_blank" class="btn btn-primary">Try OpenCare</a>
       <a href="https://opencare.poorpeople.app/white-paper" target="_blank" class="btn btn-outline">Read the White Paper</a>
     </div>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="page-section glass-section">
+    <h2>What's Next</h2>
+    <p>
+      The build plan is public and it's sequenced, not dreamed: voice for Recover E, Demos managing real circles, a Sentinel dashboard for verification workflows and dispute review, and a Hub Representative portal so local organizers can onboard their own communities and configure the services their town actually needs. A contribution ledger where verified help earns access &mdash; never speculation. Care coordination first. Marketplace when the trust layer has earned it.
+    </p>
   </div>
 
   <!-- WHO THIS IS FOR -->
@@ -231,6 +306,9 @@
       </p>
       <p>
         We are investigating the use of Bitcoin to back the PPA treasury &mdash; not as a price bet, but as a foundation of value that can&rsquo;t be printed away when politically convenient. We will also be integrating various other forms of assets, both digital and hard assets, as the platform and its community infrastructure mature. <strong>It&rsquo;s about building something that can&rsquo;t be shut down when we become inconvenient.</strong>
+      </p>
+      <p>
+        Alongside the treasury, we&rsquo;re researching a utility token &mdash; Poor People Coin &mdash; earned through verified service to the community and spent inside the network, designed to keep value circulating among the people creating it rather than extracted by intermediaries. It coordinates services; it is not an investment. Research and development phase &mdash; no tokens offered or sold, and nothing ships without legal counsel and community validation first.
       </p>
       <p style="color:var(--text-tertiary); margin-top:20px; font-size:0.88rem;">
         This is infrastructure for people who can&rsquo;t afford to wait for someone else to build it.
