@@ -46,7 +46,7 @@ No build step. No framework. Pure HTML/CSS/JS.
 --text-secondary: #5F6478
 --text-tertiary: #8A90A5
 --glass: rgba(255,255,255,0.68)
---font-display: 'Unbounded'   /* changed from Space Grotesk → Syne → Unbounded, Aug 2026 */
+--font-display: 'Sora'        /* Aug 2026. Rejected: Space Grotesk (bland), Syne (clipped-looking g), Unbounded (too playful) */
 --font-body: 'Inter'
 --font-mono: 'JetBrains Mono'
 body background: #ffffff

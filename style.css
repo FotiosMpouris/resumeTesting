@@ -3,7 +3,7 @@
    The Canvas IS the background. Everything floats in light.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   --glass: rgba(255,255,255,0.68);
@@ -26,7 +26,7 @@
   --radius: 20px;
   --radius-sm: 12px;
 
-  --font-display: 'Unbounded', sans-serif;
+  --font-display: 'Sora', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -217,15 +217,15 @@ a:hover { color: var(--accent-sky); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(1.8rem, 4.5vw, 2.9rem); }
-h2 { font-size: clamp(1.35rem, 2.9vw, 1.9rem); margin-bottom: 24px; }
-h3 { font-size: clamp(1rem, 2vw, 1.25rem); }
+h1 { font-size: clamp(1.9rem, 4.8vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 24px; }
+h3 { font-size: clamp(1.05rem, 2.1vw, 1.3rem); }
 
 p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
 
@@ -927,7 +927,7 @@ footer p, footer .footer-copy {
     min-height: 100svh;
   }
   .hero-atmosphere h1 {
-    font-size: clamp(1.65rem, 7.5vw, 2.3rem);
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
     min-height: 2.8em;
   }
   .hero-positioning { font-size: 1rem; }
