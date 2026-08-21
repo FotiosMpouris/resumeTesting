@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Work — Fotios Mpouris</title>
-  <meta name="description" content="AI agents, production web apps, brand builds — the full portfolio." />
+  <meta name="description" content="Production AI systems, live websites, and the projects behind them." />
   <meta property="og:title" content="The Work — Fotios Mpouris" />
-  <meta property="og:description" content="Production AI systems, websites, and brands. OpenCare, Hard-E, All Angles, The Grillin Greek, and more." />
+  <meta property="og:description" content="Production AI systems, websites, and brands. OpenCare, Hard-E, All Angles, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fotiosmpouris.com/the-work.html" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Persistent sky — the living environment behind everything -->
   <div class="sky-video-wrap">
     <video autoplay muted loop playsinline src="videos/sky.mp4"></video>
   </div>
@@ -44,133 +43,68 @@
   </div>
 
   <div class="page-section" style="padding-top:130px;">
-    <span class="section-label">AI Apps &amp; Agents</span>
-    <h2>Production Systems</h2>
-    <p style="margin-bottom:48px;">Everything here is live. Real clients, real families, real servers.</p>
-
-    <div class="evidence-block glass">
-      <span class="evidence-badge badge-live">LIVE</span>
-      <h3 class="evidence-title">Poor People App / OpenCare — When you have a problem, build a solution</h3>
-      <p class="evidence-body">
-        I was drowning in group texts trying to coordinate my parents' care: doctors, insurance
-        renewals, medications, siblings who needed updates but didn't need another app. So I
-        built <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">OpenCare</a>:
-        a care coordination platform where circles of helpers organize around the people who
-        matter, with tasks, reminders, and daily digests that reach even the family members
-        who barely check email.
-      </p>
-      <p class="evidence-body">
-        Then the mission grew. <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">OpenRecovery</a>
-        applies the same circle model to substance use and dual diagnosis recovery &mdash; 10
-        modalities, daily check-ins, adding supportive members, and Recover E, an AI voice
-        companion that&rsquo;s sharp, challenging, and built for people who want to do the work.
-      </p>
-      <p class="evidence-body">
-        These two apps live under the Poor People App umbrella &mdash; a platform for the rest
-        of us, where the goal is to have AI manage the coordination layer that most professionals
-        must charge extra for because of their administrative overhead. We want our technology
-        to handle the 95% of bureaucratic work that&rsquo;s purely procedural. We want human
-        Sentinels to handle safety and real judgment. AI is not ready to make decisions for us,
-        but it can definitely help us coordinate and help us make better ones.
-      </p>
-      <p class="evidence-metric">53M unpaid US family caregivers &middot; 19M US veterans &middot; The skills to help are already in our communities &mdash; we&rsquo;re building the infrastructure to activate them.</p>
-      <a href="https://opencare.poorpeople.app" target="_blank" class="evidence-link">opencare.poorpeople.app</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://poorpeople.app" target="_blank" class="evidence-link">poorpeople.app</a>
-      &nbsp;&middot;&nbsp;
-      <a href="opencare.html" class="evidence-link">Read the Full Brief &rarr;</a>
-    </div>
+    <span class="section-label">AI Systems</span>
+    <h2>Live and Running</h2>
 
     <div class="evidence-block glass">
       <span class="evidence-badge badge-live">PRODUCTION</span>
-      <h3 class="evidence-title">Hard-E — AI Sales Director for Contractors</h3>
+      <h3 class="evidence-title">Hard-E &mdash; AI Sales Director for Contractors</h3>
       <p class="evidence-body">
-        Hard-E is a full production agent for home service contractors. It connects directly
-        to a CRM with 21 tools that cover the entire sales workflow: customer lookup, job
-        management, pipeline stage updates, SMS, email, appointment scheduling, proposals,
-        financials, pricing, and document handling. Some of those CRM endpoints don&rsquo;t
-        even exist in the official API &mdash; they were reverse-engineered from browser dev
-        tools to get features like email access and note notifications working.
+        Voice-first AI agent that runs a contractor&rsquo;s entire sales operation. Talks to the CRM with 21 tools: customer lookup, pipeline management, SMS, email, scheduling, proposals. Ask it a question mid-phone-call and get a real answer without breaking stride.
       </p>
       <p class="evidence-body">
-        The voice mode is what sets it apart. Deepgram transcribes speech, Claude Sonnet 4
-        reasons and picks which tools to call, and Cartesia speaks the response back &mdash;
-        all in real time over WebRTC. A user can ask Hard-E to check on a customer&rsquo;s
-        job status mid-conversation and get the answer without the call breaking stride.
-        The entire voice pipeline runs as a separate Pipecat process alongside the main API.
+        It remembers. Background services extract what it learns &mdash; customer preferences, pricing patterns, workflow corrections &mdash; and feed it back next conversation. Multi-tenant, encrypted, built to clone across industries.
       </p>
-      <p class="evidence-body">
-        It remembers. A background service watches for idle sessions, extracts what was
-        learned &mdash; customer preferences, pricing patterns, workflow corrections &mdash;
-        and stores it. Next conversation, that knowledge is already in context. Voice
-        sessions get the same treatment: when a call ends, the system summarizes and saves
-        anything worth keeping.
-      </p>
-      <p class="evidence-body">
-        Multi-tenant, encrypted credentials, tenant-isolated knowledge bases, invite-based
-        trials. Built to clone &mdash; swap the CRM plugin, rewrite the personality file,
-        upload new training documents, and it becomes a sales director for a different
-        industry. We&rsquo;ve already started doing that.
-      </p>
-      <p class="evidence-metric">FastAPI &middot; React &middot; Redis &middot; S3 &middot; Claude Sonnet 4 &middot; Pipecat &middot; Deepgram &middot; Cartesia &middot; EC2</p>
-      <a href="https://harde.app" target="_blank" class="evidence-link">harde.app</a>
+      <p class="evidence-metric">FastAPI &middot; Claude Sonnet 4 &middot; Pipecat &middot; Deepgram &middot; Cartesia &middot; Redis &middot; AWS EC2</p>
+      <a href="https://harde.app" target="_blank" class="evidence-link">harde.app &rarr;</a>
     </div>
 
     <div class="evidence-block glass">
       <span class="evidence-badge badge-teal">TECHNICAL LEAD</span>
-      <h3 class="evidence-title">All Angles — Remodeling How Remodeling Gets Sold</h3>
+      <h3 class="evidence-title">All Angles Exterior &mdash; AI-Powered Contractor Platform</h3>
       <p class="evidence-body">
-        Most contractor websites are brochures with a contact form bolted on. This one had to
-        be different — the founder spent 30 years watching the industry get it wrong. Hard
-        sells, vague estimates, leads that go nowhere. All Angles launched as a startup built
-        on the opposite: educate first, earn trust, then ask permission.
+        No contact form. Instead, a guided journey that educates homeowners on the remodeling process. By the end, they&rsquo;ve uploaded photos of their home, GPT-4o Vision has analyzed the exterior, Perplexity has researched the property, and the contractor gets an AI-briefed dossier on a lead who already said yes.
       </p>
       <p class="evidence-body">
-        So I built the entire conversion around that. No contact form. Instead, a guided
-        interactive journey that walks homeowners through the process at their own pace. By
-        the time they reach the end, they've learned something, they've uploaded photos of
-        their home, and they've decided on their own terms that they're ready. That's when
-        the system asks for one thing: permission to come measure.
+        Hard-E is integrated into the operation &mdash; handling both consumer-facing and internal CRM workflows.
+      </p>
+      <p class="evidence-metric">Next.js 14 &middot; Supabase &middot; GPT-4o Vision &middot; Perplexity &middot; AWS</p>
+      <a href="https://aaexterior.com" target="_blank" class="evidence-link">aaexterior.com &rarr;</a>
+    </div>
+
+    <div class="evidence-block glass">
+      <span class="evidence-badge badge-live">LIVE &middot; FREE</span>
+      <h3 class="evidence-title">OpenCare &mdash; Care Coordination for Families</h3>
+      <p class="evidence-body">
+        Built because I was drowning in group texts coordinating my parents&rsquo; care. Care circles, task management, daily digests, ID verification. Free, bilingual, installable on a phone.
       </p>
       <p class="evidence-body">
-        Supabase backs the data layer and analytics. Uploaded photos process through GPT-4o
-        Vision, which reads the exterior &mdash; siding material, trim condition, visible
-        damage. Perplexity researches the property. The contractor receives an AI-briefed
-        dossier on a lead who already said yes, before he&rsquo;s picked up the phone.
-        Hard-E is also integrated into the business&rsquo;s operational layer, handling both
-        consumer-facing and internal CRM workflows &mdash; a working example of what it
-        means to employ a digital worker across an entire operation.
+        Recover E is an AI recovery companion inside OpenCare &mdash; voice-enabled, with its own memory and personality. Try it.
       </p>
-      <p class="evidence-metric">Next.js 14 &middot; Supabase &middot; GPT-4o Vision &middot; Perplexity &middot; AWS (SES, S3, DynamoDB) &middot; James Hardie Elite Preferred</p>
-      <a href="https://aaexterior.com" target="_blank" class="evidence-link">aaexterior.com</a>
+      <div class="btn-row">
+        <a href="https://opencare.poorpeople.app" target="_blank" class="btn btn-primary">Try OpenCare</a>
+        <a href="https://opencare.poorpeople.app/care/recover-e" target="_blank" class="btn btn-outline">Try Recover E</a>
+        <a href="opencare.html" class="btn btn-outline">Full Brief &rarr;</a>
+      </div>
     </div>
 
     <div class="evidence-block glass">
       <span class="evidence-badge badge-warm">ALWAYS ON</span>
-      <h3 class="evidence-title">Ethos — Personal AI, Running Continuously</h3>
+      <h3 class="evidence-title">Ethos &mdash; Personal AI, Running 24/7</h3>
       <p class="evidence-body">
-        Ethos runs 24/7 on AWS Lightsail &mdash; voice and text over Telegram. It coordinates
-        care tasks via the OpenCare API, processes video research through a multi-lens pipeline,
-        and maintains a living knowledge base across investing, technology, and frontier science.
-        Over 100 pages, growing weekly. It delegates to cheaper models when it can, resets its
-        own sessions, and curates its own skills. We continually research open-source builds,
-        integrate the best developments, and apply a creative perspective to advance what Ethos
-        can do &mdash; because the most interesting version of this is always one iteration away.
+        Autonomous AI on AWS Lightsail &mdash; voice and text over Telegram. Coordinates care tasks via the OpenCare API, processes video research, maintains a 100+ page knowledge base. Delegates to cheaper models when it can, resets its own sessions, curates its own skills. $2&ndash;4/day.
       </p>
-      <p class="evidence-metric">$2&ndash;4/day &middot; 100+ wiki pages &middot; Hermes Agent &middot; Voice-enabled</p>
-      <span class="evidence-link" style="color: var(--text-tertiary);">Internal system</span>
+      <p class="evidence-metric">Hermes Agent &middot; Telegram &middot; Voice-enabled &middot; 100+ wiki pages</p>
     </div>
 
     <div class="evidence-block glass">
       <span class="evidence-badge badge-warm">AUTONOMOUS</span>
-      <h3 class="evidence-title">FotiFoti Art Agent — A Content Pipeline That Runs Itself</h3>
+      <h3 class="evidence-title">FotiFoti Art Agent</h3>
       <p class="evidence-body">
-        A fully autonomous content pipeline for the art side of the operation: AI colorization,
-        caption generation, and multi-platform posting on a schedule, with no human in the loop
-        after setup. Small system, but it's been running unattended the longest.
+        Fully autonomous content pipeline: AI colorization, caption generation, multi-platform posting on a schedule. No human in the loop after setup. Running unattended the longest of any system.
       </p>
       <p class="evidence-metric">AWS Lambda &middot; GPT Image &middot; Instagram</p>
-      <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="evidence-link">@fotifoti.art</a>
+      <a href="https://www.instagram.com/fotifoti.art/" target="_blank" class="evidence-link">@fotifoti.art &rarr;</a>
     </div>
   </div>
 
@@ -178,16 +112,16 @@
     <span class="section-label">Websites &amp; Brands</span>
     <h2>Designed, Built, Deployed</h2>
     <div class="card-grid">
-      <a href="https://thegrillingreek.com" target="_blank" class="project-card glass">
-        <h3>The Grillin Greek</h3>
-        <div class="card-status">Owner</div>
-        <p>Restaurant brand rebuild. Boston Globe feature. 56 Yelp reviews.</p>
-        <div class="card-tech">Brand &middot; Marketing &middot; GitHub Pages</div>
+      <a href="https://aaexterior.com" target="_blank" class="project-card glass">
+        <h3>All Angles Exterior</h3>
+        <div class="card-status">Technical Lead</div>
+        <p>AI-powered contractor site. Intelligent lead capture with photo analysis.</p>
+        <div class="card-tech">Next.js &middot; Tailwind &middot; AWS EC2</div>
       </a>
       <a href="https://harde.app" target="_blank" class="project-card glass">
-        <h3>Hard-E Marketing</h3>
+        <h3>Hard-E</h3>
         <div class="card-status">Live</div>
-        <p>Product site for the AI sales agent. Clean, conversion-focused.</p>
+        <p>Product site for the AI sales agent.</p>
         <div class="card-tech">HTML/CSS/JS &middot; GitHub Pages</div>
       </a>
       <a href="https://poorpeople.app" target="_blank" class="project-card glass">
@@ -196,38 +130,22 @@
         <p>Movement site for the PPA. Mission, white paper, mobilization.</p>
         <div class="card-tech">Next.js &middot; AWS EC2</div>
       </a>
-      <a href="https://aaexterior.com" target="_blank" class="project-card glass">
-        <h3>All Angles Exterior</h3>
-        <div class="card-status">Technical Lead</div>
-        <p>AI-powered contractor site. Intelligent lead capture.</p>
-        <div class="card-tech">Next.js &middot; Tailwind &middot; AWS EC2</div>
-      </a>
-      <a href="https://matrix.fotiosmpouris.com" target="_blank" class="project-card glass">
-        <h3>Matrix Rain</h3>
-        <div class="card-status">Live</div>
-        <p>Interactive matrix rain visualization. Pure aesthetic.</p>
-        <div class="card-tech">Canvas &middot; JavaScript</div>
+      <a href="https://thegrillingreek.com" target="_blank" class="project-card glass">
+        <h3>The Grillin Greek</h3>
+        <div class="card-status">Owner</div>
+        <p>Restaurant brand rebuild. Boston Globe feature.</p>
+        <div class="card-tech">Brand &middot; Marketing &middot; GitHub Pages</div>
       </a>
       <a href="https://theabstractamerican.com" target="_blank" class="project-card glass">
         <h3>The Abstract American</h3>
         <div class="card-status">Active</div>
-        <p>Art portfolio. Original works and the creative side of the operation.</p>
+        <p>Art portfolio. Original works and the creative side.</p>
         <div class="card-tech">Gallery &middot; Brand</div>
       </a>
     </div>
   </div>
 
-  <div class="page-section glass-section" style="text-align:center;">
-    <span class="section-label">Creative &amp; Multimedia</span>
-    <h2>Before the Code</h2>
-    <p style="margin:0 auto 28px; max-width:480px;">Art school. Game dev. Motion graphics. The creative side didn't go away — it just learned to compile.</p>
-    <div class="btn-row" style="justify-content:center;">
-      <a href="https://theabstractamerican.com" target="_blank" class="btn btn-outline">Art</a>
-    </div>
-  </div>
-
   <footer>
-
     <div class="social-row">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
