@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fotios Mpouris — Builder, Operator</title>
-  <meta name="description" content="Four production AI systems running right now. Voice agents, care platforms, autonomous pipelines. The systems are already running. The question is whose." />
+  <meta name="description" content="AI systems running in production right now. Voice agents, care platforms, autonomous pipelines. The systems are already running. The question is whose." />
 
   <meta property="og:title" content="Fotios Mpouris — Builder, Operator" />
-  <meta property="og:description" content="Four production AI systems running right now. Voice agents closing sales. A care platform used by real families. An autonomous AI managing it all for $4/day." />
+  <meta property="og:description" content="AI systems running in production right now. Voice agents closing sales. A care platform used by real families. An autonomous AI managing it all for $4/day." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fotiosmpouris.com/" />
   <meta property="og:image" content="https://fotiosmpouris.com/images/fotios7.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@FotiosM" />
   <meta name="twitter:title" content="Fotios Mpouris — Builder, Operator" />
-  <meta name="twitter:description" content="Four production AI systems. Voice agents. Care platforms. Autonomous pipelines." />
+  <meta name="twitter:description" content="AI systems in production. Voice agents. Care platforms. Autonomous pipelines." />
 
   <script type="application/ld+json">
   {
@@ -34,25 +34,22 @@
 </head>
 <body>
 
-  <!-- Sky video base layer (behind canvas) -->
   <div class="sky-video-wrap">
     <video autoplay muted loop playsinline src="videos/sky.mp4"></video>
   </div>
 
-  <!-- Atmosphere canvas overlaid on sky video (alpha: true = transparent) -->
   <canvas id="atmosphere"></canvas>
   <div class="scroll-progress"></div>
 
-  <!-- Header -->
   <header>
     <div class="logo-group">
       <span class="logo-text">Fotios Mpouris</span>
     </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="the-work.html">The Work</a>
-      <a href="the-stack.html">The Stack</a>
+      <a href="the-work.html">For Business</a>
       <a href="opencare.html">OpenCare</a>
+      <a href="the-stack.html">The Harness</a>
     </nav>
     <div class="header-buttons">
       <a href="#the-door" id="contribute-btn">Reach Out</a>
@@ -60,20 +57,18 @@
     <button class="hamburger" aria-label="Open navigation menu"><div></div><div></div><div></div></button>
   </header>
 
-  <!-- Mobile nav overlay — body-level so position:fixed is never clipped by header's transform -->
   <div id="mobile-nav-overlay" class="mobile-nav-overlay">
     <a href="index.html">Home</a>
-    <a href="the-work.html">The Work</a>
-    <a href="the-stack.html">The Stack</a>
+    <a href="the-work.html">For Business</a>
     <a href="opencare.html">OpenCare</a>
+    <a href="the-stack.html">The Harness</a>
   </div>
 
-  <!-- SCENE 1: THE ARRIVAL — cinematic paired phrase sequence -->
   <section class="hero-atmosphere">
     <h1 id="hero-typewriter" class="hero-typewriter"
         data-cinematic='[
-          {"large":"Building one terminator at a time.","small":"that\u2019s what people think we\u2019re doing.","white":false},
-          {"large":"Keeping humans in the loop.","small":"that\u2019s more like what we\u2019re doing.","white":false},
+          {"large":"Building one terminator at a time.","small":"that’s what people think we’re doing.","white":false},
+          {"large":"Keeping humans in the loop.","small":"that’s more like what we’re doing.","white":false},
           {"large":"building until we are in the future.","small":null,"white":true}
         ]'>
       Building one terminator at a time.
@@ -83,59 +78,53 @@
     <div class="scroll-indicator"></div>
   </section>
 
-  <!-- THE DOORS — pick your path -->
   <section class="scene doors-section">
-    <p class="doors-intro">I build AI systems that work for real people in real situations.<br>Here&rsquo;s proof.</p>
+    <p class="doors-intro">AI that works for real people in real situations. Not slides. Not demos. Running.</p>
 
     <div class="doors-grid">
 
       <a href="the-work.html" class="door-card glass">
         <span class="door-card-label">Your Business</span>
-        <h2 class="door-card-title">AI that runs your operation.</h2>
-        <p class="door-card-proof">Voice agents that command a CRM from a rooftop. AI that researches leads before you call. A digital employee that learns, texts, emails, and remembers. Live with a paying customer.</p>
+        <h2 class="door-card-title">Autonomous agents running your operation.</h2>
+        <p class="door-card-proof">An AI that commands your CRM by voice. Researches your leads before you call. Learns, remembers, and operates while you sleep. This is how businesses will run &mdash; and it&rsquo;s live right now.</p>
         <span class="door-card-live">harde.app &middot; aaexterior.com</span>
-        <span class="door-card-cta">See the systems &rarr;</span>
+        <span class="door-card-cta">See it in action &rarr;</span>
       </a>
 
       <a href="opencare.html" class="door-card glass">
         <span class="door-card-label">Your Family</span>
-        <h2 class="door-card-title">Care tools I built because I needed them.</h2>
-        <p class="door-card-proof">Care circles, task coordination, an AI recovery companion with voice. Built to manage my own parents&rsquo; care. Free. Always.</p>
+        <h2 class="door-card-title">Can&rsquo;t afford the coordination layer? We built it free.</h2>
+        <p class="door-card-proof">Care coordination, recovery support, AI companions. Built because we needed them. Open to everyone.</p>
         <span class="door-card-live">opencare.poorpeople.app &middot; poorpeople.app</span>
-        <span class="door-card-cta">See OpenCare &rarr;</span>
+        <span class="door-card-cta">Try it now &rarr;</span>
       </a>
 
       <a href="the-stack.html" class="door-card glass">
-        <span class="door-card-label">The Build</span>
-        <h2 class="door-card-title">How the harness works.</h2>
-        <p class="door-card-proof">Four production systems. Voice pipelines, memory architectures, agent APIs. Everything ships in public.</p>
-        <span class="door-card-cta">See the stack &rarr;</span>
+        <span class="door-card-label">The Harness</span>
+        <h2 class="door-card-title">The infrastructure behind all of it.</h2>
+        <p class="door-card-proof">Voice pipelines, memory architectures, agent APIs. Everything running in production, everything built in public.</p>
+        <span class="door-card-cta">See the harness &rarr;</span>
       </a>
 
     </div>
   </section>
 
-  <!-- THE HUMAN — not a memoir, just a moment -->
   <section class="scene human-section">
     <div class="human-panel glass">
       <img src="images/fotios7.png" alt="Fotios Mpouris" class="founder-image" loading="lazy" />
       <p class="human-line">The agents handle what agents handle well. I handle what still requires a human.</p>
       <div class="human-links">
         <a href="https://x.com/FotiosM" target="_blank" class="evidence-link">Follow the build on X &rarr;</a>
-        <a href="the-stack.html" class="evidence-link">The full story &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- SCENE 5: THE DOOR -->
   <section class="door-section" id="the-door">
     <a href="mailto:fotiosmpouris@gmail.com" class="door-email">fotiosmpouris@gmail.com</a>
     <p class="door-quiet">People are the solution.</p>
   </section>
 
-  <!-- Footer -->
   <footer>
-
     <div class="social-row">
       <a href="https://www.instagram.com/fotifoti.art/" target="_blank"><img src="images/instagramlogo.png" alt="Instagram" /></a>
       <a href="https://x.com/FotiosM" target="_blank"><img src="images/xlogo.png" alt="X" /></a>
