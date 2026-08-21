@@ -747,11 +747,19 @@ footer p, footer .footer-copy {
   flex: 1;
 }
 
+.door-card-live {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-live);
+  letter-spacing: 0.02em;
+  margin-top: 12px;
+}
+
 .door-card-cta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--accent-sky);
-  margin-top: 20px;
+  margin-top: 8px;
   transition: color 0.2s;
 }
 
