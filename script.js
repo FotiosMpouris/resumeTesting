@@ -313,58 +313,34 @@
       });
     }
 
-    /* Scene 2: Signal text + origin timeline */
-    document.querySelectorAll('.signal-text').forEach(function (el, i) {
-      gsap.fromTo(el,
+    /* Doors intro text */
+    var doorsIntro = document.querySelector('.doors-intro');
+    if (doorsIntro) {
+      gsap.fromTo(doorsIntro,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: i * 0.1,
-          scrollTrigger: { trigger: el, start: 'top 82%' } }
-      );
-    });
-
-    document.querySelectorAll('.origin-item').forEach(function (item, i) {
-      gsap.fromTo(item,
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', delay: i * 0.12,
-          scrollTrigger: { trigger: item, start: 'top 85%' } }
-      );
-    });
-
-    var signalFooter = document.querySelector('.signal-footer');
-    if (signalFooter) {
-      gsap.fromTo(signalFooter,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.3,
-          scrollTrigger: { trigger: signalFooter, start: 'top 88%' } }
+        { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: doorsIntro, start: 'top 82%' } }
       );
     }
 
-    /* Scene 3: Evidence cards staggered */
-    document.querySelectorAll('.evidence-block').forEach(function (block, i) {
-      gsap.fromTo(block,
-        { opacity: 0, y: 50, scale: 0.97 },
-        { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out', delay: i * 0.1,
-          scrollTrigger: { trigger: block, start: 'top 70%' } }
+    /* Door cards — staggered reveal */
+    document.querySelectorAll('.door-card').forEach(function (card, i) {
+      gsap.fromTo(card,
+        { opacity: 0, y: 40, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', delay: i * 0.15,
+          scrollTrigger: { trigger: card, start: 'top 78%' } }
       );
     });
 
-    /* Scene 4: Method panel + column stagger */
-    var methodPanel = document.querySelector('.method-panel');
-    if (methodPanel) {
-      gsap.fromTo(methodPanel,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
-          scrollTrigger: { trigger: methodPanel, start: 'top 72%' } }
+    /* Human section */
+    var humanPanel = document.querySelector('.human-panel');
+    if (humanPanel) {
+      gsap.fromTo(humanPanel,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: humanPanel, start: 'top 75%' } }
       );
     }
-
-    document.querySelectorAll('.method-col').forEach(function (col, i) {
-      gsap.fromTo(col,
-        { opacity: 0, x: i === 0 ? -30 : 30 },
-        { opacity: 1, x: 0, duration: 0.9, ease: 'power2.out', delay: 0.4 + i * 0.15,
-          scrollTrigger: { trigger: methodPanel || col, start: 'top 72%' } }
-      );
-    });
 
     /* Scene 5: Door email reveal with pulse */
     var doorEmail = document.querySelector('.door-email');

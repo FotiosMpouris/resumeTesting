@@ -676,6 +676,136 @@ footer p, footer .footer-copy {
   margin: 16px 0 0;
 }
 
+/* ---- DOORS SECTION ---- */
+
+.doors-section {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.doors-intro {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  text-shadow: var(--text-glow);
+}
+
+.doors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.door-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 32px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.door-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 3px 6px rgba(30,50,85,0.12),
+    0 22px 52px rgba(30,50,85,0.16),
+    0 64px 140px rgba(50,85,140,0.20),
+    inset 0 1.5px 0 rgba(255,255,255,1),
+    inset 0 -1.5px 0 rgba(150,178,212,0.55);
+}
+
+.door-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-sky);
+  margin-bottom: 14px;
+}
+
+.door-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.door-card-proof {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.door-card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-sky);
+  margin-top: 20px;
+  transition: color 0.2s;
+}
+
+.door-card:hover .door-card-cta {
+  color: var(--text-primary);
+}
+
+/* ---- HUMAN SECTION ---- */
+
+.human-section {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.human-panel {
+  padding: 48px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.human-panel .founder-image {
+  margin: 0 auto 20px;
+}
+
+.human-line {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.human-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .doors-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .door-card {
+    padding: 28px 24px;
+  }
+  .human-panel {
+    padding: 32px 24px;
+  }
+}
+
 /* ---- ORIGIN TIMELINE (Signal section) ---- */
 
 /* Friedberg / attribution blockquote in Signal section */
