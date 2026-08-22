@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trust &mdash; Fotios Mpouris</title>
-  <meta name="description" content="How we protect your data, your customers, and your business. Encryption, access control, AI guardrails, 24/7 monitoring." />
+  <meta name="description" content="Security is where we start. Encryption, access control, AI guardrails, and 24/7 monitoring on every system we build." />
   <link rel="canonical" href="https://fotiosmpouris.com/trust.html" />
   <meta property="og:title" content="Trust — Fotios Mpouris" />
-  <meta property="og:description" content="Your data is protected. Here's how we prove it." />
+  <meta property="og:description" content="Security is where we start. Not where we finish." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fotiosmpouris.com/trust.html" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="trust-page">
   <div class="sky-video-wrap">
     <video autoplay muted loop playsinline src="videos/sky.mp4"></video>
   </div>
@@ -46,85 +46,45 @@
   </div>
 
   <div class="page-section" style="padding-top:130px;">
-    <h2>Your data is protected. Here&rsquo;s how we prove it.</h2>
-    <p style="margin-bottom:48px;">Security isn&rsquo;t a feature we bolt on at the end. It&rsquo;s the foundation every system is built on &mdash; because your customers&rsquo; data deserves the same protection whether you&rsquo;re a Fortune 500 or a five-person team.</p>
+    <h2>Security is where we start. Not where we finish.</h2>
+    <p style="margin-bottom:56px;">Before a single feature gets built, the foundation is locked down. Encryption, access control, monitoring, AI guardrails &mdash; these aren&rsquo;t add-ons. They&rsquo;re the first lines of code.</p>
 
     <div class="evidence-block glass">
-      <span class="evidence-badge badge-teal">YOUR DATA</span>
-      <h3 class="evidence-title">Encrypted, isolated, and invisible to everyone else.</h3>
+      <span class="evidence-badge">DATA PROTECTION</span>
+      <h3 class="evidence-title">Your data is encrypted, isolated, and yours.</h3>
       <p class="evidence-body">
-        Your data is encrypted in transit and at rest using industry-standard encryption. API credentials are hashed with one-way algorithms &mdash; even we can&rsquo;t read them back. Every database enforces row-level security at the engine level, meaning your data is structurally invisible to every other account. Not hidden by application logic. Invisible by design.
+        Everything is encrypted in transit and at rest. Credentials are hashed with one-way algorithms &mdash; unreadable even to us. Every database enforces row-level isolation so your data is structurally invisible to every other account. Authentication is the first layer every request hits, with scoped tokens, automatic expiry, and identity verification.
       </p>
-      <p class="evidence-body">
-        Authentication is the first thing every request hits. Government-grade identity verification, scoped session tokens, automatic expiry, and role-based access control ensure that only the right people see the right data.
-      </p>
-      <p class="evidence-metric">Encryption at rest &amp; in transit &middot; One-way credential hashing &middot; Row-level security &middot; Scoped tokens &middot; Identity verification</p>
     </div>
 
     <div class="evidence-block glass">
-      <span class="evidence-badge badge-live">INFRASTRUCTURE</span>
-      <h3 class="evidence-title">Hardened servers. Locked down from the operating system up.</h3>
+      <span class="evidence-badge">INFRASTRUCTURE</span>
+      <h3 class="evidence-title">Hardened from the operating system up.</h3>
       <p class="evidence-body">
-        Every production system runs on AWS infrastructure with automatic certificate renewal, strict security headers, and multi-layer rate limiting. A flood of traffic hits the wall before it reaches your data. Default-deny firewalls, key-only server access, and process-level sandboxing mean that even a compromised application can&rsquo;t escalate to the rest of the system.
+        Default-deny firewalls, key-only access, process-level sandboxing, and multi-layer rate limiting. Containers ship minimal &mdash; nothing that doesn&rsquo;t need to be there. Certificates auto-renew. Deploys are zero-downtime. Attack surfaces are reduced by design, not by hope.
       </p>
-      <p class="evidence-body">
-        Deployments are zero-downtime. Container images are minimal &mdash; nothing ships that doesn&rsquo;t need to. Attack surfaces are reduced by design, not by hope.
-      </p>
-      <p class="evidence-metric">AWS infrastructure &middot; Auto-renewing TLS &middot; Security headers &middot; Default-deny firewalls &middot; Zero-downtime deploys</p>
     </div>
 
     <div class="evidence-block glass">
-      <span class="evidence-badge badge-warm">AI GUARDRAILS</span>
-      <h3 class="evidence-title">The AI works for you. It can&rsquo;t go rogue.</h3>
+      <span class="evidence-badge">AI GUARDRAILS</span>
+      <h3 class="evidence-title">AI that works for you. Controlled by you.</h3>
       <p class="evidence-body">
-        Every AI agent operates inside explicit boundaries. Higher-risk actions require human approval before execution, with automatic expiry so nothing sits in limbo. External actions &mdash; emails, social posts, API writes &mdash; require operator sign-off. The AI is powerful, but it operates on a leash you control.
+        Every AI agent operates inside explicit boundaries. High-risk actions require human approval. User input is sanitized before it reaches any model. System instructions are structurally isolated from user queries. Tool access is scoped and logged. Your data is never used to train models.
       </p>
-      <p class="evidence-body">
-        User input is sanitized before it reaches any model. System instructions are structurally isolated from user queries to prevent prompt injection. Tool access is scoped and loop-limited. Every action is logged. And none of your data is used to train models &mdash; your business intelligence stays yours.
-      </p>
-      <p class="evidence-metric">Human-in-the-loop approval &middot; Input sanitization &middot; Prompt isolation &middot; Scoped tool access &middot; No model training on your data</p>
     </div>
 
     <div class="evidence-block glass">
-      <span class="evidence-badge badge-teal">24/7</span>
-      <h3 class="evidence-title">Monitored around the clock. We know before you do.</h3>
+      <span class="evidence-badge">MONITORING</span>
+      <h3 class="evidence-title">Watched around the clock.</h3>
       <p class="evidence-body">
-        Every production system has real-time monitoring tracking failed access attempts, service health, and error rates. Automated security scans run daily. If something unusual happens at 3 AM, alerts fire immediately &mdash; not in the morning.
+        Real-time monitoring on every production system. Automated security scans. Full audit logging. Cost anomaly detection. If something unusual happens at 3 AM, we know before you do.
       </p>
-      <p class="evidence-body">
-        Every API call is audit-logged with timestamps and outcomes. Credential access is logged separately. Cost monitoring catches anomalies before they become problems. AI agents monitor their own token spend with built-in guardrails to prevent runaway costs.
-      </p>
-      <p class="evidence-metric">Real-time monitoring &middot; Automated security scans &middot; Full audit logging &middot; Cost anomaly detection</p>
-    </div>
-
-    <div class="evidence-block glass">
-      <span class="evidence-badge badge-live">INTEGRATIONS</span>
-      <h3 class="evidence-title">Every connection verified. Nothing gets a free pass.</h3>
-      <p class="evidence-body">
-        Third-party integrations are cryptographically verified before any data is exchanged. Webhooks use signature validation with timing-safe comparison to prevent replay attacks. Voice tokens expire in seconds, not hours. Every integration earns its access &mdash; nothing is trusted by default.
-      </p>
-      <p class="evidence-body">
-        Cloud credentials use role-based access &mdash; no hardcoded keys anywhere in the stack. File uploads are encrypted server-side. Cross-origin requests are limited to a strict allowlist. API documentation is disabled in production.
-      </p>
-      <p class="evidence-metric">Cryptographic webhook verification &middot; Time-limited tokens &middot; Role-based cloud access &middot; Strict CORS</p>
-    </div>
-
-    <div class="evidence-block glass">
-      <span class="evidence-badge badge-warm">VOICE &amp; PRIVACY</span>
-      <h3 class="evidence-title">Voice calls stay private. Audio is never stored.</h3>
-      <p class="evidence-body">
-        Voice pipelines process audio in real time &mdash; it&rsquo;s transcribed, reasoned over, and responded to, but the audio itself is never recorded or stored. When the call ends, the audio is gone. Period.
-      </p>
-      <p class="evidence-body">
-        File uploads are validated on both client and server &mdash; type, size, and content. Every filename is sanitized. Nothing gets through that shouldn&rsquo;t. Your customers&rsquo; data is handled with the same care you&rsquo;d expect for your own.
-      </p>
-      <p class="evidence-metric">No audio storage &middot; Real-time processing only &middot; Dual-layer upload validation &middot; Filename sanitization</p>
     </div>
   </div>
 
   <div class="page-section" style="text-align:center; padding-bottom: 80px;">
     <h2>Questions about security?</h2>
-    <p style="margin-bottom:24px;">We&rsquo;re happy to walk through our security practices in detail. Ask us anything.</p>
+    <p style="margin-bottom:24px; color: rgba(255,255,255,0.7);">Happy to walk through our practices in detail.</p>
     <a href="mailto:fotiosmpouris@gmail.com" class="btn btn-primary">Let&rsquo;s talk &rarr;</a>
   </div>
 

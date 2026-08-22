@@ -1083,6 +1083,34 @@ footer p, footer .footer-copy {
 
 /* ---- REDUCED MOTION ---- */
 
+/* ---- TRUST PAGE ---- */
+
+.trust-page .page-section:first-of-type p {
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+}
+
+.trust-page .evidence-block.glass {
+  background: rgba(20, 30, 50, 0.72);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.trust-page .evidence-block.glass:hover {
+  background: rgba(20, 30, 50, 0.80);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25), 0 0 40px rgba(91,159,212,0.08);
+}
+
+.trust-page .evidence-title { color: #ffffff; }
+.trust-page .evidence-body { color: rgba(255,255,255,0.78); }
+.trust-page .evidence-metric { color: rgba(255,255,255,0.45); }
+.trust-page .evidence-badge { background: rgba(91,159,212,0.18); color: #7FBCE6; }
+
+.trust-page .page-section h2 { color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.2); }
+.trust-page .btn-primary { background: #ffffff; color: #1A1D23; }
+.trust-page .btn-primary:hover { background: rgba(255,255,255,0.88); }
+
 @media (prefers-reduced-motion: reduce) {
   .gsap-fade, .gsap-fade-left, .gsap-fade-right { opacity: 1; transform: none; }
   .scroll-indicator { animation: none; opacity: 0.3; }
