@@ -257,7 +257,7 @@ header.header-visible {
   pointer-events: auto;
 }
 
-.logo-group { display: flex; align-items: center; gap: 10px; }
+.logo-group { display: flex; align-items: center; gap: 10px; position: relative; }
 .logo { height: 30px; width: auto; }
 .logo-text {
   font-family: var(--font-display);
@@ -265,6 +265,75 @@ header.header-visible {
   font-size: 0.95rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  cursor: default;
+}
+
+.logo-card {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 12px;
+  width: 320px;
+  padding: 24px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 40px rgba(30,50,85,0.18), 0 2px 8px rgba(30,50,85,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.logo-group:hover .logo-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.logo-card-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.logo-card-role {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-sky);
+  margin-bottom: 12px;
+}
+
+.logo-card-bio {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.logo-card-links {
+  display: flex;
+  gap: 12px;
+}
+
+.logo-card-links a {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-sky);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.logo-card-links a:hover {
+  color: var(--text-primary);
 }
 
 .nav-links { display: flex; gap: 32px; align-items: center; }
