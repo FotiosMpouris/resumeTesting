@@ -95,7 +95,7 @@ What NOT to do: no redesign, no new pages beyond `/now`, no blog CMS. The site i
 | Path | What | Why |
 |---|---|---|
 | **A. Open-source the harness** (the promotion engine — do this) | Extract the domain-agnostic core — Pipecat voice pipeline + tool loop + memory tiers + wiki/knowledge pattern — into a clean MIT-licensed repo: a **voice-agent harness for field-service businesses**. README with a 2-min demo video, "swap in your own tools" guide. This is the exact Pickett play, and it's the single strongest credibility asset available for Section 4. The code already proved itself twice (Hard E, Recover E). | Stars + followers + inbound. Even at modest traction it converts effort already spent into the builder brand. Worst case: a great portfolio artifact. Best case: the community builds the CRM adapters. |
-| **B. Vertical product, pull-only** (don't push) | "AI sales engineer for exterior/home-improvement contractors" — Hard E's real moat is the *domain* corpus (siding specs, terminology, sales workflows), not CRM integration. All Angles Exterior is the flagship case study (`ALL_ANGLES_HARDE_INTEGRATION_BRIEF.md` exists). Activate **only if a paying contractor pulls it** — do not build speculatively while PPA P0–P2 runs. CRM-agnostic via MCP adapters, Leap adapter first since it's built. | Real niche, underserved, willing to pay — but it's a *company* to run, and the calendar can't hold two companies. Demand must arrive as revenue, not vibes. |
+| **B. Vertical product, pull-only** (don't push) | "AI sales engineer for exterior/home-improvement contractors" — Hard E's real moat is the *domain* corpus (siding specs, terminology, sales workflows), not CRM integration. A launch customer is the flagship case study (an integration brief exists). Activate **only if a paying contractor pulls it** — do not build speculatively while PPA P0–P2 runs. CRM-agnostic via MCP adapters, Leap adapter first since it's built. | Real niche, underserved, willing to pay — but it's a *company* to run, and the calendar can't hold two companies. Demand must arrive as revenue, not vibes. |
 | **C. Organ donation** (already happening) | Hard E's harness lives on in Recover E; its trades/home-services DNA becomes PPA's household/repairs marketplace category later; its wiki/skills roadmap fed the PPA plan. | Nothing was wasted. This is worth saying out loud because "drop the project" was never what happened — Hard E is PPA's ancestor, and the open-source repo makes that lineage public. |
 
 **Bottom line: Hard E doesn't die and doesn't become a startup. It becomes public infrastructure with your name on it, and a product option that customers can opt into with money.**
@@ -152,7 +152,7 @@ Online (X) is the daily engine; in-person is the monthly multiplier. Base: Middl
 
 **Travel-worthy (fly, once numbers/demos are ready — not before):**
 - **AI Engineer World's Fair / AI Engineer Summit** (SF/NYC) — THE agent-builder conference; the Hermes/agent-harness crowd is physically there. Best-fit big event by a wide margin.
-- **JLC LIVE New England** (Providence, RI — typically March) — the region's big residential construction trade show. This one is for the All Angles/Hard E vertical: contractors, suppliers, and the future customers of an agent-run back office.
+- **JLC LIVE New England** (Providence, RI — typically March) — the region's big residential construction trade show. This one is for the CRM/Hard E vertical: contractors, suppliers, and the future customers of an agent-run back office.
 - **LeadingAge MA / age-tech gatherings** — eldercare provider organizations; relevant at M1+ when OpenCare has pilot results to show senior-care institutions.
 
 **How to work a room (the system, since you asked for direction):**
@@ -160,7 +160,7 @@ Online (X) is the daily engine; in-person is the monthly multiplier. Base: Middl
 2. **The goal is 3 real conversations per event**, not 30 handshakes. A real conversation = you learned what they're doing and they saw one thing you built.
 3. **Capture within the hour:** name + context + follow-up idea into your notes (or tell Ethos). Follow up within 24 hours — X follow or DM referencing the actual conversation. The follow-up is where networking actually happens; the event is just the excuse.
 4. **Writing vs speaking:** use both where each is strongest. Speaking = events, demo videos, and (by month 3–4) podcast guesting — local/startup AI podcasts first, pitched with pilot numbers. Writing = the X build-log and weekly threads. Your X presence is what makes event follow-ups land: people check the profile; the pinned demo does the rest.
-5. **The Jim story is networking gold at contractor events, and the family story is gold at civic/age-tech events.** Match the story to the room; both are true.
+5. **The launch customer story is networking gold at contractor events, and the family story is gold at civic/age-tech events.** Match the story to the room; both are true.
 
 ---
 

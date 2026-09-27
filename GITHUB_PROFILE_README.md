@@ -15,8 +15,8 @@
 ### [ PRODUCTION SYSTEMS ]
 
 <pre>
-<strong><a href="https://harde.app">[ HARD-E v3.0 — Voice AI Sales Agent ]</a></strong>  <strong><a href="https://github.com/FotiosMpouris/harde-sales-director-agent">[ repo ]</a></strong>
-STATUS: PRODUCTION
+<strong>[ HARD-E v3.0 — Voice AI Sales Agent ]</strong>  <strong><a href="https://github.com/FotiosMpouris/harde-sales-director-agent">[ repo ]</a></strong>
+STATUS: DEMO ON REQUEST
   Voice-first AI agent built for the contracting industry.
   Real-time WebRTC voice. 21 CRM tools. 3-tier memory: session · summary · Redis.
   Routing · CRM ops · knowledge retrieval · web search — asyncio parallel execution.
@@ -29,9 +29,9 @@ STATUS: LIVE + IN DEVELOPMENT
   DynamoDB learning memory, and broadcast to Telegram and Nostr relays.
   STACK: Next.js · TypeScript · Supabase · Clerk · Docker · AWS · Nostr · Bitcoin treasury (in build)
 
-<strong><a href="https://aaexterior.com">[ ALL ANGLES EXTERIOR ]</a></strong>
-STATUS: PRODUCTION
-  AI-enriched lead pipeline for exterior remodeling.
+<strong>[ AI-NATIVE CRM ]</strong>
+STATUS: MVP LIVE WITH A LAUNCH CUSTOMER
+  My CRM for home services and exterior contracting, with an AI-enriched lead pipeline.
   GPT-4o vision reads customer-submitted photos of their homes.
   Perplexity handles real-time property research. Custom CRM integration.
   STACK: Next.js · Supabase · GPT-4o Vision · Perplexity · AWS
@@ -60,7 +60,7 @@ DESIGN      Photoshop · Illustrator · After Effects · Premiere Pro · Figma
 ### [ BACKGROUND ]
 
 <pre>
-Ran The Grillin Greek for over a decade.
+Ran a restaurant for over a decade.
 Operations at scale — the kind where the system breaks at 7pm Saturday
 and you either solve it in real time or you don't.
 

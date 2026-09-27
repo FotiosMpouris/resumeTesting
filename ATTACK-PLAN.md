@@ -2,8 +2,8 @@
 
 _Rewritten July 16, 2026 with full step-by-step detail. Read `MISSION-CONTROL.md` first if you're lost — it's the map; this is the marching order. Re-read this every Monday; update every 30 days._
 
-**The priority stack — REORDERED July 19, 2026 (Foti+Jim decision: the CRM is the active build):**
-1. **All Angles CRM** (per [`AA-CRM-BUILD-PLAN.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/AA-CRM-BUILD-PLAN.md), phases C0–C6, ~8–10 weeks) — the build Claude executes with you now
+**The priority stack — REORDERED July 19, 2026 (decided with a launch customer: the CRM is the active build):**
+1. **The CRM (for a launch customer)** (per `AA-CRM-BUILD-PLAN.md` in the CRM repo, phases C0–C6, ~8–10 weeks) — the build Claude executes with you now
 2. **PPA — P0 hygiene only** (agent-executed background items: CI, SSL, secrets, backups; the P1/P2 features wait for the CRM's C6)
 3. **Promotion** (unchanged, 60 min/day cap — and the CRM build IS build-in-public content: "watch us replace a CRM subscription with an agent-run system")
 4. **Ethos** (quality-of-life only)
@@ -16,10 +16,10 @@ _Rewritten July 16, 2026 with full step-by-step detail. Read `MISSION-CONTROL.md
 **0.1 Merge the poorpeopleapp branch (10 min).** This is the only unmerged repo.
 - Go to: https://github.com/FotiosMpouris/poorpeopleapp/compare/main...claude/poorpeopleapp-foundation-plan-ymb0et
 - Click "Create pull request" → title it "PPA Foundation Build Plan" → "Create" → "Merge pull request" → "Delete branch."
-- The other three repos (Ethos, resumeTesting, all-angles) you already merged ✅ — but resumeTesting and all-angles received NEW commits after your merges (this file, MISSION-CONTROL, SITE-COPY-PACK, FOR-JIM updates). Repeat the same compare→PR→merge for their `claude/…` branches one more time.
+- The other three repos (Ethos, resumeTesting, the CRM repo) you already merged ✅ — but resumeTesting and the CRM repo received NEW commits after your merges (this file, MISSION-CONTROL, SITE-COPY-PACK, customer plan updates). Repeat the same compare→PR→merge for their `claude/…` branches one more time.
 
-**0.2 Send Jim the security fixes (5 min to send, 30 for him).**
-- Text him: "Before anything else — two Claude API keys and your Telegram bot token are sitting in plain text in the shared Ace folder. Treat them as stolen. I'm sending a doc with the 30-minute fix." Then send him `FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md` Part 2 (or walk him through it on a call).
+**0.2 Send the launch customer the security fixes (5 min to send, 30 for them).**
+- Send the security note and the customer-facing plan doc Part 2 (or walk them through it on a call).
 
 **0.3 Verify your five Cursor projects are synced (10 min).**
 - Open each Cursor project → terminal → `git checkout main && git pull`. Now every project's files match GitHub, and every project agent can see its plan document.
@@ -40,7 +40,7 @@ Review what it proposes, approve, let it work. Repeat per item across the week. 
 
 **Day 1 (same day) — First post.** One tweet: what you're building, that it's live, that you'll be posting the build daily. Screenshot of OpenCare. No thread, no perfection. This breaks the seal.
 
-**Day 2–3 — Jim meeting (1 hour).** Agenda in order: (1) security fixes confirmed done; (2) walk FOR-JIM doc Part 1 (the plan) and Part 3 (the platform question — let him keep ChatGPT curiosity, show him it plugs in via MCP); (3) confirm the §8 open questions: infrastructure in All Angles' accounts, Ace's tools get pointed at the Job Hub, PLAUD lead flow shape; (4) agree what "done" looks like for AA-1.
+**Day 2–3 — Launch customer meeting (1 hour).** Agenda in order: (1) security fixes confirmed done; (2) walk the customer-facing plan doc Part 1 (the plan) and Part 3 (the platform question — show how ChatGPT plugs in via MCP); (3) confirm the §8 open questions: infrastructure in the launch customer's accounts, their existing tools get pointed at the Job Hub, lead flow shape; (4) agree what "done" looks like for AA-1.
 
 **Day 3–5 — Resume site copy applied (agent work, 1 evening).**
 Open the resumeTesting Cursor project and say:
@@ -51,14 +51,14 @@ Open the resumeTesting Cursor project and say:
 ## WEEKS 2–4 — Two Tracks + Cadence
 
 - **PPA:** P1 begins — Recover E **chat** interface first (instruction to the PPA agent: "P0 is verified done; begin P1 per the plan: chat UI in recovery circle pages, then the voice pipeline port"). Voice follows. When Recover E speaks for the first time: that's your first big clip — plan a real 90-second video.
-- **All Angles:** AA-1 (Job Hub tables + website lead rewire) — two evenings/week ceiling. Instruction to that Cursor agent: "Read ALL-ANGLES-AGENT-CRM-ROADMAP.md. Execute AA-1: create the 8 Job Hub tables in the site's existing Supabase, then add a Job Hub write to /api/contact in parallel with the existing flow. MCP server interface per the roadmap. Show schema before creating."
+- **Launch customer CRM:** AA-1 (Job Hub tables + website lead rewire) — two evenings/week ceiling. Instruction to that Cursor agent: "Read the CRM roadmap doc. Execute AA-1: create the 8 Job Hub tables in the site's existing Supabase, then add a Job Hub write to /api/contact in parallel with the existing flow. MCP server interface per the roadmap. Show schema before creating."
 - **Promotion:** 3 build logs/wk + daily replies + Friday wrap post. First demo clip when chat UI works.
-- **Background:** start Loom transcription batch (Deepgram, cheap) — it feeds All Angles AA-4 and Hard E's knowledge story later.
+- **Background:** start Loom transcription batch (Deepgram, cheap) — it feeds the launch customer CRM AA-4 and Hard E's knowledge story later.
 
 ## WEEKS 5–8 — The Demo Season
 
 - PPA P1 voice live (**Recover E speaks** — the year's best clip) + P2 Demos foundation on its own Lightsail instance.
-- All Angles AA-2: Hard E rewired to the Job Hub — which doubles as the start of the open-source harness extraction (same code, two payoffs).
+- Launch customer CRM AA-2: Hard E rewired to the Job Hub — which doubles as the start of the open-source harness extraction (same code, two payoffs).
 - First "come test OpenCare" cohort invite (GTM plan §4 invitation loop).
 - First in-person event attended (Venture Café Cambridge or Code for Boston — GTM §10; 3 real conversations, follow up within 24h).
 
@@ -70,7 +70,7 @@ Open the resumeTesting Cursor project and say:
 |---|---|---|
 | **Mon AM** | Read this page. Pick the week's ONE priority per active project (max 3 active). Write them as three lines somewhere you'll see. | 15 min |
 | **Mon–Fri** | PPA build block (agent-driven; your review). | your call |
-| **Tue + Thu eve** | All Angles block (hard ceiling: two evenings). | 2×2 hrs |
+| **Tue + Thu eve** | Launch customer CRM block (hard ceiling: two evenings). | 2×2 hrs |
 | **Daily** | X: 15-min reply block; build-log post 3–5×/wk (voice-memo → Ethos drafts → you edit). | ≤60 min |
 | **Fri PM** | Wrap post + record the week's 5 numbers (GTM §8: demo requests, conversations, activated circles, stars, white-glove inquiries). | 20 min |
 | **Monthly** | One in-person event. 30-day review: retire what produced nothing; update this file + MISSION-CONTROL. | ½ day |
@@ -79,6 +79,6 @@ Open the resumeTesting Cursor project and say:
 
 1. **One demo moment per month minimum** — chat UI → voice → Demos → funding-intel → pilot results. The calendar is built around them.
 2. **Nothing new enters the stack** unless something leaves. Five projects is the ceiling and you're at it.
-3. **Division of labor:** agents write the code and long documents; you make decisions, review, film, talk to humans (Jim, pilots, events). When you catch yourself hand-writing code or docs an agent could produce, stop and delegate.
+3. **Division of labor:** agents write the code and long documents; you make decisions, review, film, talk to humans (the launch customer, pilots, events). When you catch yourself hand-writing code or docs an agent could produce, stop and delegate.
 4. **Every Cursor session starts the same way:** `git pull` → "read the plan doc, tell me where we left off" → assign ONE item.
 5. **If a week collapses:** protect the PPA build block and the Monday reset. Everything else skips cleanly and resumes.

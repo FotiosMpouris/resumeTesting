@@ -55,7 +55,7 @@ Add beneath the existing evidence blocks (style: match existing glass panels):
 - **Ethos:** "Running 24/7 since June 2026 · Hermes framework · $2–4/day in tokens"
 - **Recover E:** "Backend live · 8 tools · voice pipeline in port"
 - **Demos:** "In build · the Poor People App platform agent"
-- **All Angles:** "Live site + AI lead pipeline · agent-run back office in build"
+- **CRM (launch customer):** "Live site + AI lead pipeline · agent-run back office in build"
 
 ---
 

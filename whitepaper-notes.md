@@ -106,7 +106,7 @@ extracted by intermediaries. Legal compliance framework for tokenization is a pl
 of raised funds.
 
 **Note:** Keep this section forward-looking and legally cautious. Reference the GiveSendGo
-campaign language: "Not an investment opportunity. Not a token presale."
+page language: "Not an investment opportunity. Not a token presale."
 
 **White paper section:** Financial Architecture / Tokenomics
 
@@ -148,7 +148,7 @@ We are investigating the use of Bitcoin to back the PPA treasury. We are also ex
 **Why this matters for the white paper:**
 The treasury architecture has implications for community ownership, sustainability without VC dependency, and long-term network resilience. The white paper should address this in a financially and legally responsible way.
 
-**Language guidance:** Forward-looking, legally cautious. Reference GiveSendGo campaign framing as a baseline for tone.
+**Language guidance:** Forward-looking, legally cautious. Reference the GiveSendGo page framing as a baseline for tone.
 
 **White paper section:** Financial Architecture / Treasury Strategy
 
@@ -192,4 +192,4 @@ This reframes decentralization for institutional and government audiences who ar
 - Military framing: kept in Sentinel Program and index.html "Who This Is For", but opencare.html hero changed to universal ("your family") rather than exclusively military
 - Bitcoin section: changed from declarative ("It's a necessity") to investigative ("We are investigating...")
 - PPA signup form: removed founding contributor/PPC allocation language — legally cautious decision
-- All four production systems confirmed: Hard-E, OpenCare, All Angles Exterior, Ethos
+- All four systems confirmed: Hard-E, OpenCare, the CRM (a launch customer), Ethos

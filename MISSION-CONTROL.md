@@ -28,14 +28,14 @@ _All branches merged to `main` as of July 16, 2026 ✅ — every link below open
 | [`BUILDER-GTM-PLAN.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/BUILDER-GTM-PLAN.md) | The promotion strategy: builder-in-public on X, weekly cadence, Hard E disposition, white-glove revenue bridge, networking & Boston-area events (§10). GTM = "go to market" — the plan for how the work gets seen. |
 | [`SITE-COPY-PACK.md`](https://github.com/FotiosMpouris/resumeTesting/blob/main/SITE-COPY-PACK.md) | **Ready-to-apply website copy** for your Cursor agent — six drafted blocks for ppa.html, the homepage Follow-the-Build door, Hard E's reframe, and status lines. The writing is done; the Cursor agent applies it. |
 
-### Repo: [`all-angles-exterior-`](https://github.com/FotiosMpouris/all-angles-exterior-) (Jim's company site) — ✅ merged
+### Repo: the CRM repo (a launch customer's company site) — ✅ merged
 | Document | What it is |
 |---|---|
-| [`ALL-ANGLES-AGENT-CRM-ROADMAP.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/ALL-ANGLES-AGENT-CRM-ROADMAP.md) | The technical plan: security remediation, Job Hub architecture (MCP-first — see §4 below), 8-table schema, phases AA-0 → AA-5 including the sales-team layer (scoped access, WhatsApp audio briefs). |
-| [`FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/FOR-JIM-THE-PLAN-IN-PLAIN-ENGLISH.md) | The Jim-facing version: ten-minute read, security checklist, the ChatGPT/Claude platform question (July 2026 landscape), the July 19 CRM-decision update, and a paste-into-Cursor rules block for his Ace coding sessions. |
-| [`AA-CRM-BUILD-PLAN.md`](https://github.com/FotiosMpouris/all-angles-exterior-/blob/main/AA-CRM-BUILD-PLAN.md) | **THE ACTIVE BUILD (July 19 →)**: the full staff-facing CRM ("JimNimbus") — research findings, stack decision, 16-table schema, pricing-engine spec, phases C0–C6 with exit tests. Supersedes-and-absorbs the Job Hub concept; priority #1 across all projects until C6. |
+| The CRM roadmap doc | The technical plan: security remediation, Job Hub architecture (MCP-first — see §4 below), 8-table schema, phases AA-0 → AA-5 including the sales-team layer (scoped access, WhatsApp audio briefs). |
+| The customer-facing plan doc | The plain-English version: ten-minute read, security checklist, the ChatGPT/Claude platform question (July 2026 landscape), the July 19 CRM-decision update, and a paste-into-Cursor rules block for their coding sessions. |
+| `AA-CRM-BUILD-PLAN.md` (in the CRM repo) | **THE ACTIVE BUILD (July 19 →)**: the full staff-facing CRM — research findings, stack decision, 16-table schema, pricing-engine spec, phases C0–C6 with exit tests. Supersedes-and-absorbs the Job Hub concept; priority #1 across all projects until C6. |
 
-### Not documents, but produced: Google Drive **read-only** assessment of Jim's Ace folder (nothing touched), and the security findings now captured in both All Angles docs.
+### Not documents, but produced: Google Drive **read-only** assessment of the launch customer's shared folder (nothing touched), and the security findings now captured in both CRM docs.
 
 ---
 
@@ -45,7 +45,7 @@ _All branches merged to `main` as of July 16, 2026 ✅ — every link below open
 2. **`ATTACK-PLAN.md`** (10 min) — what you personally do, in order.
 3. **PPA plan §1, §2, §6, §6.1** (25 min) — thesis, honest risks, build sequence, MVP/launch. Skim the appendices; they're for build-time, not bedtime.
 4. **`BUILDER-GTM-PLAN.md`** (15 min) — the promotion machine.
-5. **All Angles roadmap + FOR-JIM doc** (20 min) — before your Jim meeting.
+5. **CRM roadmap + customer-facing plan doc** (20 min) — before your launch customer meeting.
 6. Everything else is reference material agents read when building.
 
 ---
@@ -57,10 +57,10 @@ Your mental model is right with one correction. **Five projects, but not five eq
 | Cursor project | Repo | The agent's standing job |
 |---|---|---|
 | PPA | poorpeopleapp | Execute the PPA plan phase by phase. First instruction: "Read `claude-project-docs/PPA-FOUNDATION-BUILD-PLAN.md` Section 11 (onboarding protocol), then execute P0." |
-| All Angles | all-angles-exterior- | Execute the roadmap. First instruction: "Read `ALL-ANGLES-AGENT-CRM-ROADMAP.md`; we are starting AA-0/AA-1." |
+| CRM (launch customer) | the CRM repo | Execute the roadmap. First instruction: "Read the CRM roadmap doc; we are starting AA-0/AA-1." |
 | Resume site | resumeTesting | Apply `SITE-COPY-PACK.md` per its instructions; keep design system intact. |
 | Ethos | Ethos-Hermes-Agent | Its own roadmap, on its own schedule — **lowest priority**, it already works. |
-| Hard E | Next-Gen-Harde / hardeclone | **Dormant until the open-source extraction or All Angles AA-2** — don't open it before then. |
+| Hard E | Next-Gen-Harde / hardeclone | **Dormant until the open-source extraction or CRM phase AA-2** — don't open it before then. |
 
 **The startup ritual for any Cursor session** (same three lines every time):
 1. `git pull` (get latest main — this is why merging matters).
@@ -75,7 +75,7 @@ Your mental model is right with one correction. **Five projects, but not five eq
 
 You were right to push. With ChatGPT 5.6's Work Mode (Slack/Gmail/Drive connections, skills, scheduled tasks, hosted Sites — per the Matt Wolfe breakdown) and Anthropic's Claude for Small Business + Cowork + 735 verified MCP connectors, hosted assistants are now legitimately powerful business tools. Two consequences, written into the plans:
 
-1. **The Job Hub matters MORE, custom agent plumbing matters LESS.** The durable, defensible asset is the *owned data layer*, because the assistant layer is being commoditized by giants. So the All Angles Job Hub is now specified **MCP-first**: it exposes its actions as an MCP server, which means Ace, Hard E, ChatGPT Work Mode, and Claude Cowork can ALL operate on All Angles data as interchangeable clients. Jim can literally use ChatGPT if he prefers it — pointed at his own database. That converts the vendor question from a war into a feature.
+1. **The Job Hub matters MORE, custom agent plumbing matters LESS.** The durable, defensible asset is the *owned data layer*, because the assistant layer is being commoditized by giants. So the launch customer's Job Hub is now specified **MCP-first**: it exposes its actions as an MCP server, which means their existing assistant, Hard E, ChatGPT Work Mode, and Claude Cowork can ALL operate on the customer's data as interchangeable clients. The customer can literally use ChatGPT if they prefer it — pointed at their own database. That converts the vendor question from a war into a feature.
 2. **Same logic already lived in the PPA plan** (MCP server exposure is in P2/component C) — this validates rather than changes it. Demos remains necessary because PPA needs multi-tenant, mission-specific, cost-controlled agents serving *other people* — something no hosted consumer assistant offers.
 
 ## 5. Questions You'd Ask Next (answered now)
@@ -83,11 +83,11 @@ You were right to push. With ChatGPT 5.6's Work Mode (Slack/Gmail/Drive connecti
 **Q: Did you write actual website copy, or just tell me to write it?**
 A: Written — `SITE-COPY-PACK.md`. Your Cursor agent applies it; you review tone.
 
-**Q: Which document do I hand to an investor / a partner / Jim / a new agent?**
-A: Investor or partner: nothing yet — the pitch is a *demo* plus the metrics page (per GTM plan); documents come later. Jim: FOR-JIM doc only. New AI agent in any repo: that repo's plan document (they're written for agents).
+**Q: Which document do I hand to a partner / the launch customer / a new agent?**
+A: Partner: nothing yet — the pitch is a *demo* plus the metrics page (per GTM plan); documents come later. Launch customer: the customer-facing plan doc only. New AI agent in any repo: that repo's plan document (they're written for agents).
 
 **Q: If plans conflict, which wins?**
-A: ATTACK-PLAN's priority stack: PPA build > All Angles > promotion > Ethos > Hard E.
+A: ATTACK-PLAN's priority stack: PPA build > launch customer CRM > promotion > Ethos > Hard E.
 
 **Q: Do I need to keep every branch after merging?**
 A: No. After merging, delete the branch on GitHub (there's a button) — clean repos, and the history survives in main.
@@ -96,7 +96,7 @@ A: No. After merging, delete the branch on GitHub (there's a button) — clean r
 A: **Demos** (δῆμος, "the people"). Locked in `poorpeopleapp/AGENT_README.md` §10 and the PPA plan §7.D/§9.
 
 **Q: What hasn't been done that I might assume has?**
-A: (1) No code has been written or changed anywhere — everything so far is planning, documentation, and site copy. (2) The poorpeopleapp merge. (3) Jim's key rotations. (4) The X account setup. (5) The white paper on poorpeople.app hasn't been touched — its update is PPA plan item, post-P2.
+A: (1) No code has been written or changed anywhere — everything so far is planning, documentation, and site copy. (2) The poorpeopleapp merge. (3) The launch customer's key rotations. (4) The X account setup. (5) The white paper on poorpeople.app hasn't been touched — its update is PPA plan item, post-P2.
 
 **Q: Where do new documents go from now on?**
 A: The repo they belong to, listed here within a day. If it doesn't clearly belong anywhere, it goes in resumeTesting and gets a row in Section 1.

@@ -107,11 +107,11 @@ Every page (index, the-work, the-stack, opencare) has this pattern after `</head
 
 ## Who Fotios Is (for writing context)
 
-- Ran The Grillin Greek restaurant for ~10 years
+- Ran a restaurant for ~10 years
 - Art school background — graphic design, Unity game development
 - ~5 years in nonprofit organizations — operations, community coordination
 - Self-taught Python / AI systems developer
-- Builds and operates four production AI systems: Hard-E, OpenCare, All Angles Exterior, Ethos
+- Builds AI systems: OpenCare, an AI-native CRM for home services and exterior contracting (MVP live with a launch customer), Hard-E (demo on request), Ethos
 - Founded the Poor People App — community care coordination platform targeting families, veterans, first responders, underserved communities
 - Voice is authentic, direct, builder-operator — not salesy, not corporate, not a list of buzzwords
 - Quotes to remember: *"People are the solution."* / Andrej Karpathy: *"The hottest new programming language is English."*
@@ -122,9 +122,9 @@ Every page (index, the-work, the-stack, opencare) has this pattern after `</head
 
 | System | Stack | Status |
 |--------|-------|--------|
-| Hard-E | FastAPI, React, Redis, Claude Sonnet 4, Pipecat, Deepgram, Cartesia, EC2 | Production |
+| Hard-E | FastAPI, React, Redis, Claude Sonnet 4, Pipecat, Deepgram, Cartesia, EC2 | Demo on request (hosted instance offline) |
 | OpenCare | Next.js, Supabase, Clerk, Docker, AWS | Live, free |
-| All Angles Exterior | Next.js, Supabase, GPT-4o Vision, Perplexity, AWS | Production |
+| AI-native CRM (launch customer) | Next.js, Supabase, GPT-4o Vision, Perplexity, AWS | MVP live with a launch customer |
 | Ethos | Hermes (NousResearch), Telegram, AWS Lightsail | Always on |
 | Poor People App | Nostr identity, Bitcoin treasury, Lightning payments | In build |
 

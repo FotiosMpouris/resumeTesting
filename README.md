@@ -28,8 +28,8 @@ The site documents four production AI systems built and operated by Fotios Mpour
 ## Core Systems Documented
 
 - **Poor People App / OpenCare** — Care coordination platform for families. Live at [opencare.poorpeople.app](https://opencare.poorpeople.app)
-- **Hard-E** — Voice AI sales agent for home service contractors. 21 CRM tools, real-time WebRTC voice, 3-tier memory. [harde.app](https://harde.app)
-- **All Angles Exterior** — AI-enriched lead pipeline with GPT-4o vision and Perplexity property research. [aaexterior.com](https://aaexterior.com)
+- **Hard-E** — Voice AI sales agent for home service contractors. 21 CRM tools, real-time WebRTC voice, 3-tier memory. Demo on request.
+- **AI-native CRM** — My CRM for home services and exterior contracting, MVP live with a launch customer. AI-enriched lead pipeline with GPT-4o vision and Perplexity property research.
 - **Ethos** — Personal autonomous agent on Hermes (NousResearch). 24/7, voice-enabled via Telegram, 100+ page living knowledge base.
 
 ---

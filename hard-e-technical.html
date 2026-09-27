@@ -154,14 +154,19 @@
         <header>
             <h1>Hard-E: Technical Architecture</h1>
             <p class="subtitle">A Deep Dive into Multi-Agent Systems Engineering</p>
+            <p class="subtitle">Demo on request</p>
         </header>
 
         <div class="content">            
             <a href="the-work.html" class="back-link">← Back to The Work</a>
 
+            <div class="highlight-box">
+                <strong>Status: demo on request.</strong> The hosted Hard-E app is offline for now. If you&rsquo;d like to see it run, email <a href="mailto:fotiosmpouris@gmail.com">fotiosmpouris@gmail.com</a> and I&rsquo;ll set up a walkthrough.
+            </div>
+
             <h2>Hard E — the harness that keeps getting reborn</h2>
             <p>
-                Hard E started as a voice-first AI sales engineer for exterior contracting: Pipecat pipeline, ~1-second round-trip voice, tool calls into a live CRM, product knowledge deep enough to talk James Hardie installation details. That system now lives three lives: the original build, the recovery companion it was re-souled into (Recover E), and an agent-run back office being built for a real Massachusetts contractor. The CRM it was first wired to is gone; the harness outlived it — which was always the bet.
+                Hard E started as a voice-first AI sales engineer for exterior contracting: Pipecat pipeline, ~1-second round-trip voice, tool calls into a live CRM, product knowledge deep enough to talk James Hardie installation details. That system now lives three lives: the original build, the recovery companion it was re-souled into (Recover E), and my AI-native CRM for home services and exterior contracting (MVP live with a launch customer), where its voice engine is being built in. The off-the-shelf CRM it was first wired to is gone; the harness outlived it — which was always the bet.
             </p>
             <p>
                 The rest of this document outlines the technical decisions, architectural trade-offs, and engineering challenges involved in building a real-world agentic system.
@@ -281,7 +286,7 @@
 
             <h2>Production Infrastructure</h2>
             <p>
-                Hard-E runs on AWS EC2 (t3.small) with a robust deployment setup:
+                Hard-E was deployed on AWS EC2 (t3.small) with the setup below. That hosted instance is offline for now.
             </p>
 
             <h3>Dual-Domain Architecture</h3>
@@ -376,7 +381,7 @@
 
             <h2>Current Status & Next Steps</h2>
             <p>
-                Hard-E is production-ready with active dual-domain deployment. The system handles:
+                The hosted instance is offline for now, so Hard-E is demo on request. When running, the system handles:
             </p>
             <ul>
                 <li>Multi-turn script generation (standard + primer videos)</li>

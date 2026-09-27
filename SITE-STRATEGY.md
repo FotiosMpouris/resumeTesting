@@ -7,7 +7,7 @@ Last updated: June 2026.
 
 ## Who This Is
 
-Fotios Mpouris. Builder, operator, caregiver, former restaurateur. Runs four production AI systems simultaneously. Has a 24/7 autonomous AI assistant coordinating between them. Built OpenCare because he was drowning in group texts and sticky notes while managing his parents' care. Built Hard-E because a contractor needed an AI sales director that actually understood the CRM. Leads the technical side of All Angles Exterior because a 30-year remodeling company needed AI eyes on their lead pipeline. Built Ethos because someone had to keep all of it running while the human sleeps.
+Fotios Mpouris. Builder, operator, caregiver, former restaurateur. Runs four production AI systems simultaneously. Has a 24/7 autonomous AI assistant coordinating between them. Built OpenCare because he was drowning in group texts and sticky notes while managing his parents' care. Built Hard-E because a contractor needed an AI sales director that actually understood the CRM. Builds an AI-native CRM for home services and exterior contracting, MVP live with a launch customer. Built Ethos because someone had to keep all of it running while the human sleeps.
 
 ---
 
@@ -38,14 +38,11 @@ I don't build demos. I build the thing the demo promised. Four systems are runni
 
 Voice-first AI sales director for home service contractors. Lives inside the contractor's CRM, knowledge base, and pricing sheets. Claude Sonnet 4 brain. Cartesia Sonic voice at ~40ms. Deepgram STT at ~200ms. 21 Leap CRM tools. Multi-tenant. Pipecat WebRTC.
 
-Live at `nextgen.harde.app` / `harde.app`.
-~300 API calls/day. 99.7% success rate.
+Demo on request (the hosted instance is offline on purpose).
 
-### 3. All Angles Exterior
+### 3. AI-native CRM (launch customer)
 
-AI-enriched lead pipeline for a 30-year exterior remodeling company. Fotios is Technical Lead. Upload a house photo, GPT-4o vision analyzes it, Perplexity researches the property, enriched lead hits DynamoDB and SES before a human touches it. Next.js 14 on EC2/PM2.
-
-Live at `aaexterior.com`.
+AI-native CRM for home services and exterior contracting, MVP live with a launch customer. Includes an AI-enriched lead pipeline. Upload a house photo, GPT-4o vision analyzes it, Perplexity researches the property, enriched lead hits DynamoDB and SES before a human touches it. Next.js 14 on EC2/PM2.
 
 ### 4. Ethos
 
@@ -136,7 +133,7 @@ Luminous light motes. Canvas API. Warm gold/cream. Slow upward drift. 30-50 part
 fotiosmpouris.com (index.html)
 ├── Scene 1: The Arrival (hero, video, profile, typewriter)
 ├── Scene 2: The Signal (positioning, boundary)
-├── Scene 3: The Evidence (PPA/OpenCare, Hard-E, All Angles, Ethos)
+├── Scene 3: The Evidence (PPA/OpenCare, Hard-E, the CRM, Ethos)
 ├── Scene 4: The Method (human in the loop)
 ├── Scene 5: The Door (email, restraint)
 └── Footer (project links, nav, social)
