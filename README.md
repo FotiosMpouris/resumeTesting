@@ -56,7 +56,7 @@ atmosphere.js      — Procedural canvas background (particles, god-rays)
 
 ## Notes for Future Development
 
-- `whitepaper-notes.md` — Conceptual material for the Poor People App white paper (harness concept, Nostr security argument, military/veteran reciprocal ecosystem)
+- Internal planning notes (including the white paper notes) moved to a private repo on 2026-09-27. Every file in this repo is publicly served by GitHub Pages, so keep planning docs out of it.
 - `AGENTS.md` — Context file for AI coding assistants
 - Do not push to the `backup` remote — it is a snapshot of the pre-redesign site
 - All edits go to `origin` (resumeTesting) only

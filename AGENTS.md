@@ -32,7 +32,7 @@ No build step. No framework. Pure HTML/CSS/JS.
 | `style.css` | Full design system — edit here for all visual changes |
 | `script.js` | Hero sequence, hamburger nav, GSAP scroll, atmosphere warmth |
 | `atmosphere.js` | Procedural canvas: particles, god-rays, celestial background |
-| `whitepaper-notes.md` | PPA white paper conceptual notes — do not delete |
+| (moved) | `whitepaper-notes.md` and the other internal planning notes moved off the public site on 2026-09-27; they now live in Fotios's private notes repo. Do not add planning docs here: every file in this repo is publicly served. |
 | `CNAME` | `fotiosmpouris.com` — do not modify |
 | `.nojekyll` | Empty file — critical for GitHub Pages — do not delete |
 
@@ -145,7 +145,7 @@ Avoid: "leveraging cutting-edge AI", "transformative solutions", "passionate abo
 
 ## PPA Mission Evolution (session notes — July 2026)
 
-These notes capture narrative and strategic shifts decided during this build cycle. They feed into the white paper (`whitepaper-notes.md`).
+These notes capture narrative and strategic shifts decided during this build cycle. They feed into the white paper notes (now kept in Fotios's private notes repo).
 
 **Model-agnostic architecture framing:**
 We don't know what models like Fable, Mythos, or other frontier/open-source models will be capable of in coming months. The harness is intentionally not betting on any single LLM. Future-proofing the network is an engineering requirement, not a philosophy.
