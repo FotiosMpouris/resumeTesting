@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Hello | Fotios Mpouris</title>
+  <meta name="description" content="Fotios Mpouris, Boston. Building Open Care, an app where neighbors help care for the people they love. AI agents and integrations." />
+  <meta name="theme-color" content="#5B9FD4" />
+  <meta property="og:title" content="Hello | Fotios Mpouris" />
+  <meta property="og:description" content="Building Open Care, an app where neighbors help care for the people they love. AI agents and integrations. Boston." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fotiosmpouris.com/hello.html" />
+  <meta property="og:image" content="https://fotiosmpouris.com/images/fotios7.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@FotiosM" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Phone-first contact page. Reuses the site's glass, badge and button styles;
+       a still frame of the sky video stands in for the video so it loads fast on event wifi. */
+    body.hello-page {
+      background: #dfeefa url('images/hello-sky.jpg') center top / cover no-repeat fixed;
+    }
+    body.hello-page::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.6) 100%);
+    }
+    .hello-wrap {
+      position: relative; z-index: 2;
+      max-width: 520px; margin: 0 auto;
+      padding: max(28px, env(safe-area-inset-top)) 18px 40px;
+    }
+    .hello-card { padding: 28px 22px; margin-bottom: 16px; border-radius: 20px; }
+    .hello-intro { text-align: center; padding-top: 32px; }
+    .hello-intro .founder-image { width: 96px; height: 96px; margin: 0 auto 14px; }
+    .hello-name {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 1.9rem; line-height: 1.2; margin-bottom: 8px; color: var(--text-primary);
+    }
+    .hello-role { font-size: 1rem; color: var(--text-secondary); line-height: 1.55; }
+    .hello-role, .hello-tags { text-wrap: balance; }
+    .hello-tags { font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6; color: var(--text-secondary); margin-top: 8px; }
+    .hello-tags span { white-space: nowrap; }
+    .hello-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    .hello-contact .btn {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 12px 10px; font-size: 0.95rem; text-align: center;
+    }
+    .hello-contact .btn-wide { grid-column: 1 / -1; }
+    /* Darker blue than the site accent so text and buttons pass WCAG AA contrast on glass. */
+    .hello-page { --hello-blue: #2B6A9E; }
+    .hello-page .btn { white-space: nowrap; }
+    .hello-page .btn-primary { background: var(--hello-blue); color: #fff; }
+    .hello-page .btn-primary:hover { background: #22557f; color: #fff; }
+    .hello-page .btn-outline { background: rgba(255,255,255,0.85); color: var(--hello-blue); border: 1.5px solid var(--hello-blue); }
+    .hello-page .btn-outline:hover { background: var(--hello-blue); color: #fff; }
+    .hello-page .evidence-badge { color: var(--hello-blue); background: rgba(43,106,158,0.1); }
+    .hello-label {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--hello-blue);
+      margin-bottom: 10px; display: block;
+    }
+    .hello-help p { font-size: 1rem; line-height: 1.65; color: var(--text-primary); }
+    .hello-help p + p { margin-top: 10px; color: var(--text-secondary); font-size: 0.95rem; }
+    .hello-proof { display: block; color: inherit; text-decoration: none; }
+    .hello-proof:hover { color: inherit; }
+    .hello-proof .evidence-badge { margin-bottom: 10px; }
+    .hello-proof h2 {
+      font-family: var(--font-display); font-weight: 600; font-size: 1.15rem;
+      line-height: 1.35; margin-bottom: 8px; color: var(--text-primary);
+    }
+    .hello-proof p { font-size: 0.93rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
+    .hello-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .hello-links a { font-family: var(--font-mono); font-size: 0.85rem; color: var(--hello-blue); text-decoration: underline; text-underline-offset: 3px; }
+    .hello-links a:hover { color: var(--text-primary); }
+    .hello-question { text-align: center; }
+    .hello-question p { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.5; color: var(--text-primary); }
+    .hello-foot { text-align: center; font-size: 0.8rem; color: var(--text-primary); margin-top: 22px; }
+    .hello-foot a { color: var(--hello-blue); }
+    .btn:focus-visible, .hello-links a:focus-visible, .hello-foot a:focus-visible {
+      outline: 3px solid #1A1D23; outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="hello-page">
+  <main class="hello-wrap">
+
+    <section class="glass hello-card hello-intro" aria-labelledby="hello-name">
+      <img src="images/fotios-hello.jpg" alt="Photo of Fotios Mpouris" class="founder-image" width="96" height="96" />
+      <h1 class="hello-name" id="hello-name">Fotios Mpouris</h1>
+      <p class="hello-role">Building Open Care, an app where neighbors help care for the people they love.</p>
+      <p class="hello-tags"><span>AI agents and integrations</span> &middot; <span>Grok and the Greek</span> &middot; <span>Boston</span></p>
+      <div class="hello-contact" aria-label="Contact options">
+        <a class="btn btn-primary" href="mailto:fotiosmpouris@gmail.com?subject=Hello%20from%20Fotios%27s%20page">Email</a>
+        <a class="btn btn-primary" href="sms:+15082949979">Text</a>
+        <a class="btn btn-outline" href="tel:+15082949979">Call 508-294-9979</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/fotiosmpouris" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="https://x.com/FotiosM" target="_blank" rel="noopener">X @FotiosM</a>
+        <a class="btn btn-outline" href="fotios-mpouris.vcf">Save contact</a>
+      </div>
+    </section>
+
+    <section class="glass hello-card hello-help" aria-labelledby="help-title">
+      <span class="hello-label" id="help-title">What I help with</span>
+      <p>AI agents and integrations built around real work: intake, follow-up and care coordination for teams that serve people.</p>
+      <p>Plain-language tools that work by text, voice or web, in English or Spanish, built into the systems you already use. A person approves every step.</p>
+    </section>
+
+    <section class="glass hello-card" aria-labelledby="proof-opencare">
+      <div class="hello-proof">
+        <span class="evidence-badge badge-live">LIVE &middot; EARLY PILOT</span>
+        <h2 id="proof-opencare">Open Care</h2>
+        <p>An app where neighbors help care for the people they love. A family shares one list of tasks, visits and helpers, in English or Spanish. Free for caregivers. Live since Aug 27, 2026, in an early pilot.</p>
+        <div class="hello-links">
+          <a href="https://opencare.world" target="_blank" rel="noopener">opencare.world &rarr;</a>
+          <a href="opencare.html">The story &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass hello-card" aria-labelledby="proof-agents">
+      <div class="hello-proof">
+        <span class="evidence-badge badge-warm">ALWAYS ON</span>
+        <h2 id="proof-agents">Custom AI agents</h2>
+        <p>Agents get useful when they&rsquo;re customized around real work. I&rsquo;ve built mine on OpenClaw, then Hermes Agent, and now Grok Bot. Each one became scaffolding for the next. Today my own team runs on Grok Bot agents: a chief of staff agent coordinates research, outreach and code, and nothing goes out without my approval.</p>
+        <div class="hello-links">
+          <a href="the-work.html#custom-agents">How they work &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass hello-card" aria-labelledby="proof-crm">
+      <div class="hello-proof">
+        <span class="evidence-badge badge-live">MVP LIVE</span>
+        <h2 id="proof-crm">An AI-native CRM</h2>
+        <p>My AI-native CRM for home services and exterior contracting, MVP live with a launch customer. One connected record from first lead to closeout, with an agent API and audit-logged access.</p>
+        <div class="hello-links">
+          <a href="the-work.html#crm">Read more &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass hello-card hello-question" aria-label="A question for you">
+      <p>Where does intake or follow-up break down for the people you serve? I&rsquo;d like to hear about it.</p>
+      <div class="hello-contact">
+        <a class="btn btn-primary btn-wide" href="mailto:fotiosmpouris@gmail.com?subject=Let%27s%20talk">Let&rsquo;s talk</a>
+      </div>
+    </section>
+
+    <p class="hello-foot"><a href="index.html">fotiosmpouris.com</a> &middot; &copy; 2026 Fotios Mpouris</p>
+  </main>
+</body>
+</html>
